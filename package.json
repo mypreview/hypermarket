@@ -1,0 +1,62 @@
+{
+   "name": "hypermarket",
+   "title": "Hypermarket",
+   "version": "2.0.0",
+   "homepage": "https://mypreview.github.io/hypermarket",
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/mypreview/hypermarket.git"
+   },
+   "author": "MyPreview",
+   "author_uri": "https://www.mypreview.one",
+   "requires": "5.2",
+   "tested_up_to": "5.3.1",
+   "license": "GPL-3.0",
+   "copyright": "© MyPreview. All Rights Reserved.",
+   "scripts": {
+      "dev": "cross-env BABEL_ENV=default webpack --watch --info-verbosity none",
+      "build": "cross-env BABEL_ENV=default NODE_ENV=production webpack"
+   },
+   "devDependencies": {
+      "@babel/core": "7.8.3",
+      "@wordpress/babel-preset-default": "4.9.0",
+      "@wordpress/browserslist-config": "^2.6.0",
+      "@wordpress/dependency-extraction-webpack-plugin": "^2.1.0",
+      "@wordpress/i18n": "3.8.0",
+      "babel-core": "7.0.0-bridge.0",
+      "babel-eslint": "10.0.3",
+      "babel-loader": "8.0.6",
+      "chalk": "^3.0.0",
+      "classnames": "^2.2.6",
+      "clean-webpack-plugin": "^3.0.0",
+      "cross-env": "^6.0.3",
+      "css-loader": "^3.4.2",
+      "file-loader": "^5.0.2",
+      "eslint": "6.8.0",
+      "eslint-config-wordpress": "^2.0.0",
+      "eslint-plugin-react": "^7.16.0",
+      "mini-css-extract-plugin": "^0.9.0",
+      "progress-bar-webpack-plugin": "^1.12.1",
+      "style-loader": "1.0.0",
+      "stylelint": "12.0.1",
+      "stylelint-config-wordpress": "13.1.0",
+      "terser-webpack-plugin": "^2.3.2",
+      "webpack": "^4.41.5",
+      "webpack-cli": "^3.3.10",
+      "webpack-rtl-plugin": "^2.0.0"
+   },
+   "dependencies": {
+      "es6-object-assign": "^1.1.0",
+      "lodash.escape": "^4.0.1"
+   },
+   "browserslist": [
+      "extends @wordpress/browserslist-config"
+   ],
+   "engines": {
+      "node": ">=10.10.0",
+      "npm": ">=6.4.0"
+   },
+   "eslintConfig": {
+      "extends": "wordpress"
+   }
+}
