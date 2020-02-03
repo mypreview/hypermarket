@@ -2,7 +2,6 @@
 /**
  * Template part for displaying posts
  *
- * @link 		https://developer.wordpress.org/reference/functions/get_the_post_thumbnail/
  * @link 		https://developer.wordpress.org/themes/basics/template-hierarchy/
  * @since 	    2.0.0
  * @package 	hypermarket
