@@ -12,6 +12,8 @@ if ( ! is_active_sidebar( 'sidebar' ) || apply_filters( 'hypermarket_disable_sid
 	return;
 } // End If Statement
 
-?><div id="secondary" class="widget-area" role="complementary"><?php 
+?><div id="secondary" class="widget-area" role="complementary"><?php
+
 	dynamic_sidebar( 'sidebar' ); 
+
 ?></div><!-- #secondary -->

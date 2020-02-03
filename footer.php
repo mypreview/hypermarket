@@ -15,12 +15,13 @@
 				 * @hooked hypermarket_container_close		   - 5
 				 */
 				do_action( 'hypermarket_content_bottom' );
-				?>
-			</div><!-- #content --><?php
+			
+			?></div><!-- #content --><?php
 			
 			do_action( 'hypermarket_before_footer' ); 
 
 			?><footer id="colophon" class="site-footer" role="contentinfo"><?php
+
 				/**
 				 * Functions hooked in to `hypermarket_footer` action
 				 *
@@ -30,12 +31,13 @@
 				 * @hooked hypermarket_container_close        - 25
 				 */
 				do_action( 'hypermarket_footer' );
+			
 			?></footer><!-- #colophon --><?php
 
 			do_action( 'hypermarket_after_footer' ); 
 
 		?></div><!-- #page --><?php 
-`
+
 	wp_footer();
 
 ?></body>

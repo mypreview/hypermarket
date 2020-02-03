@@ -25,8 +25,8 @@
 
 		do_action( 'hypermarket_before_header' ); 
 		
-		?><header id="masthead" class="site-header" role="banner">
-			<?php
+		?><header id="masthead" class="site-header" role="banner"><?php
+
 			/**
 			 * Functions hooked into `hypermarket_header` action
 			 *
@@ -37,8 +37,9 @@
 			 * @hooked hypermarket_wc_header_cart         - 30
 			 * @hooked hypermarket_container_close        - 35
 			 */
-			do_action( 'hypermarket_header' ); ?>
-		</header><!-- #masthead --><?php
+			do_action( 'hypermarket_header' ); 
+
+		?></header><!-- #masthead --><?php
 		
 		/**
 		 * Functions hooked into `hypermarket_before_content` action
@@ -47,8 +48,8 @@
 		 */
 		do_action( 'hypermarket_before_content' ); 
 
-		?><div id="content" class="site-content" tabindex="-1">
-			<?php
+		?><div id="content" class="site-content" tabindex="-1"><?php
+		
 			/**
 			 * Functions hooked into `hypermarket_content_top` action
 			 *
