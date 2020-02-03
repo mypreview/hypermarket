@@ -9,8 +9,6 @@
    },
    "author": "MyPreview",
    "author_uri": "https://www.mypreview.one",
-   "requires": "5.2",
-   "tested_up_to": "5.3.1",
    "license": "GPL-3.0",
    "copyright": "© MyPreview. All Rights Reserved.",
    "scripts": {
