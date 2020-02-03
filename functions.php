@@ -20,3 +20,10 @@
  * @package 	hypermarket
  * @author  	MyPreview (Github: @mahdiyazdani, @mypreview)
  */
+// Assign the "Hypermarket" info to constants.
+$this_theme = wp_get_theme( 'hypermarket' );
+define( 'HYPERMARKET_THEME_NAME', $this_theme->get( 'Name' ) );
+define( 'HYPERMARKET_THEME_URI', $this_theme->get( 'ThemeURI' ) );
+define( 'HYPERMARKET_THEME_AUTHOR', $this_theme->get( 'Author' ) );
+define( 'HYPERMARKET_THEME_AUTHOR_URI', $this_theme->get( 'AuthorURI' ) );
+define( 'HYPERMARKET_THEME_VERSION', $this_theme->get( 'Version' ) );
