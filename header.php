@@ -25,7 +25,7 @@
 
 		do_action( 'hypermarket_before_header' ); 
 		
-		?><header id="masthead" class="site-header" role="banner"><?php
+		?><header id="masthead" class="site-header" role="banner" style="<?php hypermarket_header_styles(); ?>"><?php
 
 			/**
 			 * Functions hooked into `hypermarket_header` action
