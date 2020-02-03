@@ -22,7 +22,7 @@ get_header();
 
 				do_action( 'hypermarket_page_before' );
 
-				get_template_part( 'content', 'page' );
+				get_template_part( 'template-parts/content', 'page' );
 
 				/**
 				 * Functions hooked in to `hypermarket_page_after` action

@@ -18,7 +18,7 @@ get_header();
 
 				do_action( 'hypermarket_single_post_before' );
 
-				get_template_part( 'content', 'single' );
+				get_template_part( 'template-parts/content', 'single' );
 
 				do_action( 'hypermarket_single_post_after' );
 			endwhile; // End of the loop.
