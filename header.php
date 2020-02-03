@@ -33,7 +33,7 @@
 			 * @hooked hypermarket_container_open          - 0
 			 * @hooked hypermarket_skip_links              - 5
 			 * @hooked hypermarket_site_branding          - 10
-			 * @hooked hypermarket_primary_nav     		  - 20
+			 * @hooked hypermarket_primary_navigation     - 20
 			 * @hooked hypermarket_wc_header_cart         - 30
 			 * @hooked hypermarket_container_close        - 35
 			 */
