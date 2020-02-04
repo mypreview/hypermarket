@@ -25,9 +25,12 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * @return  void
 		 */
 		public function __construct() {
-			add_action( 'after_setup_theme', array( $this, 'setup' ), 10 );
+			add_action( 'after_setup_theme', array( $this, 'setup' ) );
 			add_action( 'wp_head', array( $this, 'javascript_detection' ), 0 );
-			add_action( 'wp_head', array( $this, 'pingback_header' ), 10 );
+			add_action( 'wp_head', array( $this, 'pingback_header' ) );
+			add_action( 'widgets_init', array( $this, 'widgets_init' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
+			add_action( 'wp_resource_hints', array( $this, 'preconnect_gstatic' ) );
 		}
 
 		/**
@@ -214,6 +217,11 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 					)
 				)
 			);
+
+			/**
+			 * Enqueue editor styles.
+			 */
+			add_editor_style( array( 'assets/dist/css/legacy-editor-style.css', $this->google_fonts() ) );
 		}
 
 		/**
@@ -235,6 +243,149 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			if ( is_singular() && pings_open() ) {
 				printf( '<link rel="pingback" href="%s">' . "\n", esc_url( get_bloginfo( 'pingback_url' ) ) );
 			} // End If Statement
+		}
+
+		/**
+		 * Register widget areas.
+		 *
+		 * @return  void
+		 */
+		public function widgets_init() {
+			$sidebar_args['sidebar'] = array(
+				'name'        => __( 'Sidebar', 'hypermarket' ),
+				'id'          => 'sidebar-1',
+				'description' => ''
+			);
+
+			$rows    = intval( apply_filters( 'hypermarket_footer_widget_rows', 2 ) );
+			$regions = intval( apply_filters( 'hypermarket_footer_widget_columns', 3 ) );
+
+			for ( $row = 1; $row <= $rows; $row++ ) {
+				for ( $region = 1; $region <= $regions; $region++ ) {
+					$footer_n = $region + $regions * ( $row - 1 ); // Defines footer sidebar ID.
+					$footer   = sprintf( 'footer_%d', $footer_n );
+
+					if ( 1 === $rows ) {
+						/* translators: 1: column number */
+						$footer_region_name = sprintf( __( 'Footer Column %1$d', 'hypermarket' ), $region );
+
+						/* translators: 1: column number */
+						$footer_region_description = sprintf( __( 'Widgets added here will appear in column %1$d of the footer.', 'hypermarket' ), $region );
+					} else {
+						/* translators: 1: row number, 2: column number */
+						$footer_region_name = sprintf( __( 'Footer Row %1$d - Column %2$d', 'hypermarket' ), $row, $region );
+
+						/* translators: 1: column number, 2: row number */
+						$footer_region_description = sprintf( __( 'Widgets added here will appear in column %1$d of footer row %2$d.', 'hypermarket' ), $region, $row );
+					}
+
+					$sidebar_args[ $footer ] = array(
+						'name'        => $footer_region_name,
+						'id'          => sprintf( 'footer-%d', $footer_n ),
+						'description' => $footer_region_description
+					);
+				}
+			}
+
+			$sidebar_args = apply_filters( 'hypermarket_sidebar_args', $sidebar_args );
+
+			foreach ( $sidebar_args as $sidebar => $args ) {
+				$widget_tags = array(
+					'before_widget' => '<div id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</div>',
+					'before_title'  => '<span class="widget-title">',
+					'after_title'   => '</span>'
+				);
+
+				/**
+				 * Dynamically generated filter hooks. Allow changing widget wrapper and title tags. See the list below.
+				 *
+				 * 'hypermarket_header_widget_tags'
+				 * 'hypermarket_sidebar_widget_tags'
+				 *
+				 * 'hypermarket_footer_1_widget_tags' -> (Row 1)
+				 * 'hypermarket_footer_2_widget_tags' -> (Row 1)
+				 * 'hypermarket_footer_3_widget_tags' -> (Row 1)
+				 * 'hypermarket_footer_4_widget_tags' -> (Row 1)
+				 * 'hypermarket_footer_1_widget_tags' -> (Row 2)
+				 * 'hypermarket_footer_2_widget_tags' -> (Row 2)
+				 * 'hypermarket_footer_3_widget_tags' -> (Row 2)
+				 * 'hypermarket_footer_4_widget_tags' -> (Row 2)
+				 */
+				$filter_hook = sprintf( 'hypermarket_%s_widget_tags', $sidebar );
+				$widget_tags = apply_filters( $filter_hook, $widget_tags );
+
+				if ( is_array( $widget_tags ) ) {
+					register_sidebar( $args + $widget_tags );
+				} // End If Statement
+			} // End of the loop.
+		}
+
+		/**
+		 * Enqueue scripts and styles.
+		 *
+		 * @return  void
+		 */
+		public function scripts() {
+			/**
+			 * Styles
+			 */
+			wp_enqueue_style( 'hypermarket-style', get_theme_file_uri( '/assets/dist/css/style.css' ), '', HYPERMARKET_THEME_VERSION, 'all' );
+			wp_style_add_data( 'hypermarket-style', 'rtl', 'replace' );
+
+			/**
+			 * Fonts
+			 */
+			wp_enqueue_style( 'hypermarket-fonts', $this->google_fonts(), array(), null );
+
+			/**
+			 * Scripts
+			 */
+			wp_enqueue_script( 'hypermarket-script', get_theme_file_uri( '/assets/dist/js/script.js' ), '', HYPERMARKET_THEME_VERSION, true );
+
+			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+				wp_enqueue_script( 'comment-reply' );
+			} // End If Statement
+		}
+
+		/**
+		 * Add preconnect for Google Fonts.
+		 *
+		 * @param  	array  	$urls            URLs to print for resource hints.
+		 * @param  	array  	$relation_type   The relation type the URLs are printed.
+		 * @return 	array  	$urls            URLs to print for resource hints.
+		 */
+		public function preconnect_gstatic( $urls, $relation_type ) {
+			if ( wp_style_is( 'hypermarket-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+				$urls[] = array(
+					'crossorigin',
+					'href' => 'https://fonts.gstatic.com'
+				);
+			} // End If Statement
+
+			return $urls;
+		}
+
+		/**
+		 * Register Google fonts.
+		 *
+		 * @return 	string 		Google fonts URL for the theme.
+		 */
+		public function google_fonts() {
+			$google_fonts = apply_filters(
+				'hypermarket_google_font_families', array(
+					'work-sans' => 'Work+Sans:300,400,500,600'
+				)
+			);
+
+			$query_args = array(
+				'family' => implode( '|', $google_fonts ),
+				'subset' => rawurlencode( 'latin,latin-ext' ),
+			);
+
+			$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+
+			return $fonts_url;
 		}
 
 	}
