@@ -31,6 +31,8 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
 			add_action( 'wp_resource_hints', array( $this, 'preconnect_gstatic' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'child_scripts' ), 35 );
+			add_filter( 'block_editor_settings', array( $this, 'custom_editor_settings' ), 10, 2 );
 		}
 
 		/**
@@ -330,7 +332,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			/**
 			 * Styles
 			 */
-			wp_enqueue_style( 'hypermarket-style', get_theme_file_uri( '/assets/dist/css/style.css' ), '', HYPERMARKET_THEME_VERSION, 'all' );
+			wp_enqueue_style( 'hypermarket-style', get_theme_file_uri( '/assets/dist/css/style.css' ), '', HYPERMARKET_THEME_VERSION );
 			wp_style_add_data( 'hypermarket-style', 'rtl', 'replace' );
 
 			/**
@@ -386,6 +388,99 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
 
 			return $fonts_url;
+		}
+
+		/**
+		 * Enqueue child theme stylesheet.
+		 * A separate function is required as the child theme css needs to be enqueued _after_ the parent theme
+		 * primary css and the separate WooCommerce css.
+		 * Wait for the WooCommerce...
+		 *
+		 * @return 	void
+		 */
+		public function child_scripts() {
+			if ( is_child_theme() ) {
+				$child_theme = wp_get_theme( get_stylesheet() );
+				wp_enqueue_style( 'hypermarket-child-style', get_stylesheet_uri(), '', apply_filters( 'hypermarket_child_style_version', $child_theme->get( 'Version' ) ) );
+			} // End If Statement
+		}
+
+		/**
+		 * Adds custom classes to the array of body classes.
+		 *
+		 * @param 	array 		$classes 		Classes for the body element.
+		 * @return 	array
+		 */
+		public function body_classes( $classes ) {
+        	// The list of WordPress global browser checks
+        	$browsers = apply_filters( 
+        		'hypermarket_browser_names', array( 
+        			'is_iphone', 
+        			'is_chrome', 
+        			'is_safari', 
+        			'is_NS4', 
+        			'is_opera', 
+        			'is_macIE', 
+        			'is_winIE', 
+        			'is_gecko', 
+        			'is_lynx', 
+        			'is_IE', 
+        			'is_edge' 
+        		) 
+        	);
+
+			// Adds a class to blogs with more than 1 published author.
+			if ( is_multi_author() ) {
+				$classes[] = 'group-blog';
+			} // End If Statement
+
+			// Add class if sidebar is used.
+			if ( is_active_sidebar( 'sidebar-1' ) && ! is_404() && ! hypermarket_is_fluid_template() ) {
+				$classes[] = 'has-sidebar';
+			} // End If Statement
+
+			// Add class when using featured image.
+			if ( has_post_thumbnail() ) {
+				$classes[] = 'has-post-thumbnail';
+			} // End If Statement
+
+			// Add class if we're viewing the Customizer for easier styling of theme options.
+			if ( is_customize_preview() ) {
+				$classes[] = 'customizer-running';
+			} // End If Statement
+
+			// Add class if the current page is a blog post archive/single.
+			if ( hypermarket_is_blog_archive() ) {
+				$classes[] = 'blog-archive';
+			} // End If Statement
+
+			// Check the globals to see if the browser is in there and return a string with the match
+			if ( is_array( $browsers ) && ! empty( $browsers ) ) {
+				// Search and filter the classnames using a callback function
+				$classes[] = join( ' ', array_filter( $browsers, function( $browser ) {
+			        return $GLOBALS[ $browser ];
+			    } ) );
+			} // End If Statement
+
+			return apply_filters( 'hypermarket_body_classes', $classes );
+		}
+
+		/**
+		 * Adds a custom parameter to the editor settings that is used
+		 * to track whether the main sidebar has widgets.
+		 *
+		 * @param 	array   	$settings 	Default editor settings.
+		 * @param 	WP_Post 	$post 		Post being edited.
+		 * @return 	array 					Filtered block editor settings.
+		 */
+		public function custom_editor_settings( $settings, $post ) {
+			$settings['mainSidebarActive'] = false;
+
+			if ( is_active_sidebar( 'sidebar-1' ) ) {
+				$settings['mainSidebarActive'] = true;
+			} // End If Statement
+
+			return $settings;
 		}
 
 	}
