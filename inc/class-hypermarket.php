@@ -33,6 +33,11 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			add_action( 'wp_resource_hints', array( $this, 'preconnect_gstatic' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'child_scripts' ), 35 );
 			add_filter( 'block_editor_settings', array( $this, 'custom_editor_settings' ), 10, 2 );
+			add_filter( 'navigation_markup_template', array( $this, 'navigation_markup_template' ) );
+			add_filter( 'excerpt_more', array( $this, 'custom_excerpt_more' ), 10, 1 );
+			add_filter( 'comment_form_fields', array( $this, 'move_comment_field_to_bottom' ), 10, 1 );
+			add_filter( 'wp_list_categories', array( $this, 'cat_count_span' ), 10, 1 );
+			add_filter( 'get_archives_link', array( $this, 'archive_count_span' ), 10, 1 );
 		}
 
 		/**
@@ -481,6 +486,75 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			} // End If Statement
 
 			return $settings;
+		}
+
+		/**
+		 * Custom navigation markup template hooked 
+		 * into `navigation_markup_template` filter hook.
+		 *
+		 * @return 	string 		$template 	Modified version of the default template.
+		 */
+		public function navigation_markup_template() {
+			$template  = '<nav id="post-navigation" class="navigation %1$s" role="navigation" aria-label="' . esc_html__( 'Post Navigation', 'hypermarket' ) . '">';
+			$template .= '<h2 class="screen-reader-text">%2$s</h2>';
+			$template .= '<div class="nav-links">%3$s</div>';
+			$template .= '</nav>';
+
+			return apply_filters( 'hypermarket_navigation_markup_template', $template );
+		}
+
+		/**
+		 * Replaces "[...]" (appended to automatically generated excerpts) with `...`
+		 *
+		 * @param 	string 		$excerpt 	Excerpt more string.
+		 * @return 	string
+		 */
+		public function custom_excerpt_more( $more ) {
+			if ( is_admin() ) {
+				return $more;
+			} // End If Statement
+
+			return apply_filters( 'hypermarket_custom_excerpt_more', '&hellip;' );
+		}
+
+		/**
+		 * Move the comment text field to the bottom.
+		 *
+		 * @param  	array  		$fields 	The comment fields.
+		 * @return 	array
+		 */
+		public function move_comment_field_to_bottom( $fields ) {
+			$comment_field = $fields['comment'];
+        	unset( $fields['comment'] );
+        	$fields['comment'] = $comment_field;
+
+        	return $fields;
+		}
+
+		/**
+		 * Adds a span around post counts in category widget.
+		 *
+		 * @param  	html  		$links 		HTML markup of the links.
+		 * @return 	html
+		 */
+		public function cat_count_span( $links ) {
+			$links = str_replace( '</a> (', '<span class="count">(', $links );
+			$links = str_replace( ')', ')</span></a>', $links );
+
+			return $links;
+		}
+
+		/**
+		 * Adds a span around post counts in archive widget.
+		 *
+		 * @param  	html  		$links 		HTML markup of the links.
+		 * @return 	html
+		 */
+		public function archive_count_span( $links ) {
+			$links = str_replace( '</a>&nbsp;(', '<span class="count">(', $links );
+			$links = str_replace( ')', ')</span></a>', $links );
+
+			return $links;
 		}
 
 	}
