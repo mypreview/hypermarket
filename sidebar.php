@@ -8,12 +8,12 @@
  * @author  	MyPreview (Github: @mahdiyazdani, @mypreview)
  */
 
-if ( ! is_active_sidebar( 'sidebar' ) || apply_filters( 'hypermarket_disable_sidebar', FALSE ) ) {
+if ( ! is_active_sidebar( 'sidebar-1' ) || apply_filters( 'hypermarket_disable_sidebar', FALSE ) ) {
 	return;
 } // End If Statement
 
 ?><div id="secondary" class="widget-area" role="complementary"><?php
 
-	dynamic_sidebar( 'sidebar' ); 
+	dynamic_sidebar( 'sidebar-1' ); 
 
 ?></div><!-- #secondary -->
