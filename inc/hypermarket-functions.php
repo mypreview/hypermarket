@@ -41,7 +41,7 @@ if ( ! function_exists( 'hypermarket_is_blog_archive' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_do_shortcode' ) ) {
+if ( ! function_exists( 'hypermarket_do_shortcode' ) ) :
 	/**
 	 * Call a shortcode function by tag name.
 	 *
@@ -59,7 +59,7 @@ if ( ! function_exists( 'hypermarket_do_shortcode' ) ) {
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_get_content_background_color' ) ) {
+if ( ! function_exists( 'hypermarket_get_content_background_color' ) ) :
 	/**
 	 * Get the content background color
 	 *
@@ -72,7 +72,7 @@ if ( ! function_exists( 'hypermarket_get_content_background_color' ) ) {
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_header_styles' ) ) {
+if ( ! function_exists( 'hypermarket_header_styles' ) ) :
 	/**
 	 * Apply inline style to the theme header.
 	 *
