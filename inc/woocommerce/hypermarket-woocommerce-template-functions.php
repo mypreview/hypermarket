@@ -209,3 +209,87 @@ if ( ! function_exists( 'hypermarket_promoted_products' ) ) :
 		}
 	}
 endif;
+
+if ( ! function_exists( 'hypermarket_handheld_footer_bar' ) ) :
+	/**
+	 * Display a menu intended for use on handheld devices
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_handheld_footer_bar() {
+		$links = array(
+			'my-account' => array(
+				'priority' => 10,
+				'callback' => 'hypermarket_handheld_footer_bar_account_link'
+			),
+			'search'     => array(
+				'priority' => 20,
+				'callback' => 'hypermarket_handheld_footer_bar_search'
+			),
+			'cart'       => array(
+				'priority' => 30,
+				'callback' => 'hypermarket_handheld_footer_bar_cart_link'
+			),
+		);
+
+		if ( wc_get_page_id( 'myaccount' ) === -1 ) {
+			unset( $links['my-account'] );
+		} // End If Statement
+
+		if ( wc_get_page_id( 'cart' ) === -1 ) {
+			unset( $links['cart'] );
+		} // End If Statement
+
+		$links = apply_filters( 'hypermarket_handheld_footer_bar_links', $links );
+
+		?><div class="hypermarket-handheld-footer-bar">
+			<ul class="columns-<?php echo count( $links ); ?>"><?php 
+				foreach ( $links as $key => $link ) : 
+					?><li class="<?php echo esc_attr( $key ); ?>"><?php
+						if ( $link['callback'] ) {
+							call_user_func( $link['callback'], $key, $link );
+						} // End If Statement
+					?></li><?php 
+				endforeach; 
+			?></ul>
+		</div><?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_handheld_footer_bar_search' ) ) :
+	/**
+	 * The search callback function for the handheld footer bar
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_handheld_footer_bar_search() {
+		printf( __( '%sSearch%s', 'hypermarket' ), '<a href="#">', '</a>' );
+		hypermarket_product_search();
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_handheld_footer_bar_cart_link' ) ) :
+	/**
+	 * The cart callback function for the handheld footer bar
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_handheld_footer_bar_cart_link() {
+		?><a class="footer-cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'hypermarket' ); ?>">
+			<span class="count"><?php 
+				echo wp_kses_data( WC()->cart->get_cart_contents_count() ); // WPCS: XSS ok.
+			?></span>
+		</a><?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_handheld_footer_bar_account_link' ) ) :
+	/**
+	 * The account callback function for the handheld footer bar
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_handheld_footer_bar_account_link() {
+		printf( __( '%sMy Account%s', 'hypermarket' ), sprintf( '<a href="%s">', esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ) ), '</a>' );
+	}
+endif;
