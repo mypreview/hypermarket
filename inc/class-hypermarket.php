@@ -34,13 +34,13 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			add_action( 'wp_enqueue_scripts', array( $this, 'child_scripts' ), 35 );
 			add_action( 'enqueue_block_assets', array( $this, 'block_assets' ) );
 			add_action( 'enqueue_block_editor_assets', array( $this, 'block_editor_assets' ) );
-			add_filter( 'body_class', array( $this, 'body_classes' ), 10, 1 );
+			add_filter( 'body_class', array( $this, 'body_classes' ) );
 			add_filter( 'block_editor_settings', array( $this, 'custom_editor_settings' ), 10, 2 );
 			add_filter( 'navigation_markup_template', array( $this, 'navigation_markup_template' ) );
-			add_filter( 'excerpt_more', array( $this, 'custom_excerpt_more' ), 10, 1 );
-			add_filter( 'comment_form_fields', array( $this, 'move_comment_field_to_bottom' ), 10, 1 );
-			add_filter( 'wp_list_categories', array( $this, 'cat_count_span' ), 10, 1 );
-			add_filter( 'get_archives_link', array( $this, 'archive_count_span' ), 10, 1 );
+			add_filter( 'excerpt_more', array( $this, 'custom_excerpt_more' ) );
+			add_filter( 'comment_form_fields', array( $this, 'move_comment_field_to_bottom' ) );
+			add_filter( 'wp_list_categories', array( $this, 'cat_count_span' ) );
+			add_filter( 'get_archives_link', array( $this, 'archive_count_span' ) );
 		}
 
 		/**
