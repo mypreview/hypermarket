@@ -148,3 +148,64 @@ if ( ! function_exists( 'hypermarket_shop_messages' ) ) :
 		}
 	}
 endif;
+
+if ( ! function_exists( 'hypermarket_woocommerce_pagination' ) ) :
+	/**
+	 * Hypermarket WooCommerce Pagination
+	 * WooCommerce disables the product pagination inside the `woocommerce_product_subcategories()` function
+	 * but since Hypermarket adds pagination before that function is excuted we need a separate function to
+	 * determine whether or not to display the pagination.
+	 *
+	 * @return  void
+	 */
+	function hypermarket_woocommerce_pagination() {
+		if ( woocommerce_products_will_display() ) {
+			woocommerce_pagination();
+		} // End If Statement
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_promoted_products' ) ) :
+	/**
+	 * Featured and On-Sale Products
+	 * Check for featured products then on-sale products and use the appropiate shortcode.
+	 * If neither exist, it can fallback to show recently added products.
+	 *
+	 * @param 	integer 	$per_page 			Total products to display.
+	 * @param 	integer 	$columns 			Columns to arrange products in to.
+	 * @param 	boolean 	$recent_fallback 	Should the function display recent products as a fallback when there are no featured or on-sale products?.
+	 * @return 	void
+	 */
+	function hypermarket_promoted_products( $per_page = '2', $columns = '2', $recent_fallback = true ) {
+		if ( hypermarket_is_woocommerce_activated() ) {
+			if ( wc_get_featured_product_ids() ) {
+				printf( esc_html__( '%sFeatured Products%s', 'hypermarket' ), '<h2>', '</h2>' );
+
+				echo hypermarket_do_shortcode(
+					'featured_products', array(
+						'per_page' => $per_page,
+						'columns'  => $columns
+					)
+				); // WPCS: XSS ok.
+			} elseif ( wc_get_product_ids_on_sale() ) {
+				printf( esc_html__( '%sOn Sale Now%s', 'hypermarket' ), '<h2>', '</h2>' );
+
+				echo hypermarket_do_shortcode(
+					'sale_products', array(
+						'per_page' => $per_page,
+						'columns'  => $columns
+					)
+				); // WPCS: XSS ok.
+			} elseif ( $recent_fallback ) {
+				printf( esc_html__( '%sNew In Store%s', 'hypermarket' ), '<h2>', '</h2>' );
+
+				echo hypermarket_do_shortcode(
+					'recent_products', array(
+						'per_page' => $per_page,
+						'columns'  => $columns
+					)
+				); // WPCS: XSS ok.
+			}
+		}
+	}
+endif;
