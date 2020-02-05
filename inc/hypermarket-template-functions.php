@@ -371,3 +371,33 @@ if ( ! function_exists( 'hypermarket_edit_post_link' ) ) {
 		);
 	}
 }
+
+if ( ! function_exists( 'hypermarket_post_taxonomy' ) ) {
+	/**
+	 * Display the post taxonomies
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_post_taxonomy() {
+		/* translators: used between list items, there is a space after the comma */
+		$categories_list = get_the_category_list( __( ', ', 'hypermarket' ) );
+		/* translators: used between list items, there is a space after the comma */
+		$tags_list = get_the_tag_list( '', __( ', ', 'hypermarket' ) );
+		
+		?><aside class="entry-taxonomy"><?php
+			if ( $categories_list ) : 
+				?><div class="cat-links"><?php
+					echo esc_html( _n( 'Category:', 'Categories:', count( get_the_category() ), 'hypermarket' ) ); // WPCS: XSS ok.
+					echo wp_kses_post( $categories_list ); // WPCS: XSS ok.
+				?></div><?php
+			endif;
+
+			if ( $tags_list ) :
+				?><div class="tags-links"><?php 
+					echo esc_html( _n( 'Tag:', 'Tags:', count( get_the_tags() ), 'hypermarket' ) ); // WPCS: XSS ok.
+					echo wp_kses_post( $tags_list ); // WPCS: XSS ok.
+				?></div><?php 
+			endif; 
+		?></aside><?php
+	}
+}
