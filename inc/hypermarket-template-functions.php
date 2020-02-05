@@ -75,3 +75,38 @@ function hypermarket_comment( $comment, $args, $depth ) {
 	?></div><?php 
 	endif;
 }
+
+/**
+ * Display the footer widget regions.
+ *
+ * @return 	void
+ */
+function hypermarket_footer_widgets() {
+	$rows    = intval( apply_filters( 'hypermarket_footer_widget_rows', 2 ) );
+	$regions = intval( apply_filters( 'hypermarket_footer_widget_columns', 3 ) );
+
+	for ( $row = 1; $row <= $rows; $row++ ) :
+		// Defines the number of active columns in this footer row.
+		for ( $region = $regions; 0 < $region; $region-- ) {
+			if ( is_active_sidebar( sprintf( 'footer-%d', esc_attr( $region + $regions * ( $row - 1 ) ) ) ) ) {
+				$columns = $region;
+				break;
+			} // End If Statement
+		} // End of the loop.
+
+		if ( isset( $columns ) ) :
+			?><div class=<?php echo '"footer-widgets row-' . esc_attr( $row ) . ' col-' . esc_attr( $columns ) . ' fix"'; ?>><?php
+				for ( $column = 1; $column <= $columns; $column++ ) :
+					$footer_n = $column + $regions * ( $row - 1 );
+
+					if ( is_active_sidebar( 'footer-' . esc_attr( $footer_n ) ) ) :
+						?><div class="block footer-widget-<?php echo esc_attr( $column ); ?>">
+							<?php dynamic_sidebar( sprintf( 'footer-%d', esc_attr( $footer_n ) ) ); ?>
+						</div><?php
+					endif; // End If Statement
+				endfor; // End of the loop.
+			?></div><!-- .footer-widgets.row-<?php echo esc_attr( $row ); ?> --><?php
+			unset( $columns );
+		endif; // End If Statement
+	endfor; // End of the loop.
+}
