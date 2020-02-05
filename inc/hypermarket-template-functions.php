@@ -199,7 +199,9 @@ if ( ! function_exists( 'hypermarket_primary_navigation' ) ) {
 		?><nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'hypermarket' ); ?>">
 			<button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false">
 				<span><?php 
-					echo esc_attr( apply_filters( 'hypermarket_menu_toggle_text', __( 'Menu', 'hypermarket' ) ) ); 
+					echo esc_attr( apply_filters( 
+						'hypermarket_menu_toggle_text', __( 'Menu', 'hypermarket' ) 
+					) );  // WPCS: XSS ok.
 				?></span>
 			</button><?php
 			wp_nav_menu(
@@ -215,5 +217,131 @@ if ( ! function_exists( 'hypermarket_primary_navigation' ) ) {
 				)
 			);
 		?></nav><!-- #site-navigation --><?php
+	}
+}
+
+if ( ! function_exists( 'hypermarket_skip_links' ) ) {
+	/**
+	 * Skip links
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_skip_links() {
+		?><a class="skip-link screen-reader-text" href="#site-navigation"><?php 
+			esc_html_e( 'Skip to navigation', 'hypermarket' );
+		?></a>
+		<a class="skip-link screen-reader-text" href="#content"><?php 
+			esc_html_e( 'Skip to content', 'hypermarket' );
+		?></a><?php
+	}
+}
+
+if ( ! function_exists( 'hypermarket_page_header' ) ) {
+	/**
+	 * Display the page header
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_page_header() {
+		if ( is_front_page() && hypermarket_is_fluid_template() ) {
+			return;
+		} // End If Statement
+
+		?><header class="entry-header"><?php
+			hypermarket_post_thumbnail( 'full' );
+			the_title( '<h1 class="entry-title">', '</h1>' );
+		?></header><!-- .entry-header --><?php
+	}
+}
+
+if ( ! function_exists( 'hypermarket_page_content' ) ) {
+	/**
+	 * Display the post content
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_page_content() {
+		?><div class="entry-content"><?php 
+			the_content();
+			wp_link_pages(
+				array(
+					/* translators: %s: open div */
+					'before' => sprintf( __( '%sPages:', 'hypermarket' ), '<div class="page-links">' ),
+					'after'  => '</div>'
+				)
+			);
+		?></div><!-- .entry-content --><?php
+	}
+}
+
+if ( ! function_exists( 'hypermarket_post_meta' ) ) {
+	/**
+	 * Display the post meta
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_post_meta() {
+		if ( 'post' !== get_post_type() ) {
+			return;
+		} // End If Statement
+
+		// Posted on.
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		} // End If Statement
+
+		$time_string = sprintf(
+			$time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() ),
+			esc_attr( get_the_modified_date( 'c' ) ),
+			esc_html( get_the_modified_date() )
+		);
+
+		$output_time_string = sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>', esc_url( get_permalink() ), $time_string );
+		$posted_on = '
+			<span class="posted-on">' .
+			/* translators: %s: post date */
+			sprintf( __( 'Posted on %s', 'hypermarket' ), $output_time_string ) .
+			'</span>';
+
+		// Author.
+		$author = sprintf(
+			'<span class="post-author">%1$s <a href="%2$s" class="url fn" rel="author">%3$s</a></span>',
+			__( 'by', 'hypermarket' ),
+			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+			esc_html( get_the_author() )
+		);
+
+		// Comments.
+		$comments = '';
+
+		if ( ! post_password_required() && ( comments_open() || 0 !== intval( get_comments_number() ) ) ) {
+			$comments_number = get_comments_number_text( __( 'Leave a comment', 'hypermarket' ), __( '1 Comment', 'hypermarket' ), __( '% Comments', 'hypermarket' ) );
+			$comments = sprintf(
+				'<span class="post-comments">&mdash; <a href="%1$s">%2$s</a></span>',
+				esc_url( get_comments_link() ),
+				$comments_number
+			);
+		} // End If Statement
+
+		echo wp_kses(
+			sprintf( '%1$s %2$s %3$s', $posted_on, $author, $comments ), array(
+				'span' => array(
+					'class' => array(),
+				),
+				'a'    => array(
+					'href'  => array(),
+					'title' => array(),
+					'rel'   => array(),
+				),
+				'time' => array(
+					'datetime' => array(),
+					'class'    => array(),
+				),
+			)
+		);
 	}
 }
