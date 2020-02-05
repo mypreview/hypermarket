@@ -25,6 +25,7 @@ define( 'HYPERMARKET_THEME_URI', $this_theme->get( 'ThemeURI' ) );
 define( 'HYPERMARKET_THEME_AUTHOR', $this_theme->get( 'Author' ) );
 define( 'HYPERMARKET_THEME_AUTHOR_URI', $this_theme->get( 'AuthorURI' ) );
 define( 'HYPERMARKET_THEME_VERSION', $this_theme->get( 'Version' ) );
+define( 'HYPERMARKET_THEME_DIST_PATH', 'assets/dist' );
 
 $hypermarket = (object) array(
 	'version'    => HYPERMARKET_THEME_VERSION,
