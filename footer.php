@@ -25,7 +25,7 @@
 				/**
 				 * Functions hooked in to `hypermarket_footer` action
 				 *
-				 * @hooked hypermarket_container_open		   - 5
+				 * @hooked hypermarket_container		   	   - 5
 				 * @hooked hypermarket_footer_widgets 		  - 10
 				 * @hooked hypermarket_credit         		  - 20
 				 * @hooked hypermarket_container_close        - 25
