@@ -26,9 +26,13 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'after_setup_theme', array( $this, 'setup' ) );
-			add_filter( 'hypermarket_body_classes', array( $this, 'body_classes' ), 10, 1 );
+			add_filter( 'hypermarket_body_classes', array( $this, 'body_classes' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ), 20 );
 			add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
+			add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'thumbnail_columns' ) );
+			add_filter( 'woocommerce_breadcrumb_defaults', array( $this, 'change_breadcrumb_delimiter' ) );
+			add_filter( 'woocommerce_single_product_carousel_options', array( $this, 'flexslider_args' ) );
 		}
 
 		/**
@@ -108,6 +112,66 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			$script_dir = sprintf( '%s/js/woocommerce.js', HYPERMARKET_THEME_DIST_PATH );
 			$script_asset = hypermarket_dependency_extraction( sprintf( '%s/%s', get_template_directory(), $script_dir ), array( 'hypermarket-script' ) );
 			wp_enqueue_script( 'hypermarket-woocommerce-script', get_theme_file_uri( sprintf( '/%s', $script_dir ) ), $script_asset['dependencies'], $script_asset['version'], true );
+		}
+
+		/**
+		 * Related Products Args
+		 *
+		 * @param  	array 		$args 	Related products args.
+		 * @return  array 		$args 	Modified number of related products args
+		 */
+		public function related_products_args( $args ) {
+			$args = apply_filters(
+				'hypermarket_related_products_args', array(
+					'posts_per_page' => 3,
+					'columns'        => 3
+				)
+			);
+
+			return $args;
+		}
+
+		/**
+		 * Product gallery thumbnail columns
+		 *
+		 * @return 	integer 			Number of columns
+		 * @return  integer
+		 */
+		public function thumbnail_columns() {
+			$columns = 4;
+
+			if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+				$columns = 5;
+			} // End If Statement
+
+			return intval( apply_filters( 'hypermarket_product_thumbnail_columns', $columns ) );
+		}
+
+		/**
+		 * Remove the breadcrumb delimiter.
+		 *
+		 * @param  	array 	$defaults 	The breadcrumb defaults.
+		 * @return 	array           	The breadcrumb defaults.
+		 */
+		public function change_breadcrumb_delimiter( $defaults ) {
+			$defaults['delimiter']   = '<span class="breadcrumb-separator"> / </span>';
+			$defaults['wrap_before'] = '<div class="hypermarket-breadcrumb"><div class="col-full"><nav class="woocommerce-breadcrumb">';
+			$defaults['wrap_after']  = '</nav></div></div>';
+
+			return $defaults;
+		}
+
+		/**
+		 * Modifies flexslider args.
+		 *
+		 * @param 	array 	$args 		The current flexslider arguments.
+		 * @return 	array
+		 */
+		public function flexslider_args( $args ) {
+			$args['smoothHeight'] = FALSE;
+			$args['useCSS'] = is_rtl();
+
+			return apply_filters( 'hypermarket_product_flexslider_args', $args );
 		}
 
 	}
