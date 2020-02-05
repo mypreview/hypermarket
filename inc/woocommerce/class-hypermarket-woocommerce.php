@@ -76,7 +76,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 * @param  	array 		$classes 	Css classes applied to the body tag.
 		 * @return 	array 		$classes 	Modified to include 'woocommerce-active' class
 		 */
-		public function woocommerce_body_class( $classes ) {
+		public function body_classes( $classes ) {
 			$classes[] = 'woocommerce-active';
 
 			// Add class if WooCommerce ajax is disabled.
