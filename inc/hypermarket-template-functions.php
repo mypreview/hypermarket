@@ -390,14 +390,14 @@ if ( ! function_exists( 'hypermarket_post_taxonomy' ) ) {
 					echo esc_html( _n( 'Category:', 'Categories:', count( get_the_category() ), 'hypermarket' ) ); // WPCS: XSS ok.
 					echo wp_kses_post( $categories_list ); // WPCS: XSS ok.
 				?></div><?php
-			endif;
+			endif; // End If Statement
 
 			if ( $tags_list ) :
 				?><div class="tags-links"><?php 
 					echo esc_html( _n( 'Tag:', 'Tags:', count( get_the_tags() ), 'hypermarket' ) ); // WPCS: XSS ok.
 					echo wp_kses_post( $tags_list ); // WPCS: XSS ok.
 				?></div><?php 
-			endif; 
+			endif; // End If Statement
 		?></aside><?php
 	}
 }
@@ -430,7 +430,32 @@ if ( ! function_exists( 'hypermarket_post_nav' ) ) {
 			'next_text' => sprintf( _x( '%sNext post:%s', 'Next post', 'hypermarket' ), '<span class="screen-reader-text">', ' </span>%title' ),
 			'prev_text' => sprintf( _x( '%sPrevious post:%s', 'Previous post', 'hypermarket' ), '<span class="screen-reader-text">', ' </span>%title' )
 		);
-		
+
 		the_post_navigation( $args );
+	}
+}
+
+if ( ! function_exists( 'hypermarket_get_sidebar' ) ) {
+	/**
+	 * Display the sidebar
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_get_sidebar() {
+		get_sidebar();
+	}
+}
+
+if ( ! function_exists( 'hypermarket_post_thumbnail' ) ) {
+	/**
+	 * Display post thumbnail
+	 *
+	 * @param 	string 		$size 	The post thumbnail size.
+	 * @return 	void
+	 */
+	function hypermarket_post_thumbnail( $size = 'full' ) {
+		if ( has_post_thumbnail() ) {
+			the_post_thumbnail( $size );
+		} // End If Statement
 	}
 }
