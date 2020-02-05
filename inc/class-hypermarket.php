@@ -30,9 +30,8 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			add_action( 'wp_head', array( $this, 'pingback_header' ) );
 			add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
-			add_action( 'wp_resource_hints', array( $this, 'preconnect_gstatic' ) );
+			add_action( 'wp_resource_hints', array( $this, 'preconnect_gstatic' ), 10, 2 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'child_scripts' ), 35 );
-			add_action( 'enqueue_block_assets', array( $this, 'block_assets' ) );
 			add_action( 'enqueue_block_editor_assets', array( $this, 'block_editor_assets' ) );
 			add_filter( 'body_class', array( $this, 'body_classes' ) );
 			add_filter( 'block_editor_settings', array( $this, 'custom_editor_settings' ), 10, 2 );
@@ -416,24 +415,16 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		}
 
 		/**
-		 * Enqueue block editor assets.
-		 *
-		 * @return 	void
-		 */
-		public function block_assets() {
-			/**
-			 * Styles
-			 */
-			wp_enqueue_style( 'hypermarket-editor-style', get_theme_file_uri( sprintf( '/%s/css/editor.css', HYPERMARKET_THEME_DIST_PATH ) ), '', HYPERMARKET_THEME_VERSION );
-			wp_style_add_data( 'hypermarket-editor-style', 'rtl', 'replace' );
-		}
-
-		/**
 		 * Enqueue supplemental block editor assets.
 		 *
 		 * @return 	void
 		 */
 		public function block_editor_assets() {
+			/**
+			 * Styles
+			 */
+			wp_enqueue_style( 'hypermarket-editor-style', get_theme_file_uri( sprintf( '/%s/css/editor.css', HYPERMARKET_THEME_DIST_PATH ) ), '', HYPERMARKET_THEME_VERSION );
+			wp_style_add_data( 'hypermarket-editor-style', 'rtl', 'replace' );
 			/**
 			 * Scripts
 			 */
