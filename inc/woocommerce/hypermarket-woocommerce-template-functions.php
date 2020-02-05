@@ -293,3 +293,116 @@ if ( ! function_exists( 'hypermarket_handheld_footer_bar_account_link' ) ) :
 		printf( __( '%sMy Account%s', 'hypermarket' ), sprintf( '<a href="%s">', esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ) ), '</a>' );
 	}
 endif;
+
+if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
+	/**
+	 * Single product pagination
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_single_product_pagination() {
+		// Show only products in the same category?
+		$in_same_term   = apply_filters( 'hypermarket_single_product_pagination_same_category', true );
+		$excluded_terms = apply_filters( 'hypermarket_single_product_pagination_excluded_terms', '' );
+		$taxonomy       = apply_filters( 'hypermarket_single_product_pagination_taxonomy', 'product_cat' );
+
+		$previous_product = hypermarket_get_previous_product( $in_same_term, $excluded_terms, $taxonomy );
+		$next_product     = hypermarket_get_next_product( $in_same_term, $excluded_terms, $taxonomy );
+
+		if ( ! $previous_product && ! $next_product ) {
+			return;
+		} // End If Statement
+
+		?><nav class="hypermarket-product-pagination" aria-label="<?php esc_attr_e( 'More products', 'hypermarket' ); ?>"><?php 
+			if ( $previous_product ) :
+				?><a href="<?php echo esc_url( $previous_product->get_permalink() ); ?>" rel="prev"><?php 
+					echo wp_kses_post( $previous_product->get_image() ); 
+					?><span class="hypermarket-product-pagination__title"><?php 
+						echo wp_kses_post( $previous_product->get_name() ); 
+					?></span>
+				</a><?php 
+			endif;
+
+			if ( $next_product ) : 
+				?><a href="<?php echo esc_url( $next_product->get_permalink() ); ?>" rel="next"><?php 
+					echo wp_kses_post( $next_product->get_image() ); 
+					?><span class="hypermarket-product-pagination__title"><?php 
+						echo wp_kses_post( $next_product->get_name() );
+					?></span>
+				</a><?php 
+			endif; 
+		?></nav><!-- .hypermarket-product-pagination --><?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
+	/**
+	 * Sticky add to cart bar
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_sticky_single_add_to_cart() {
+		global $product;
+
+		if ( ! is_product() ) {
+			return;
+		} // End If Statement
+
+		$show = false;
+
+		if ( $product->is_purchasable() && $product->is_in_stock() ) {
+			$show = true;
+		} else if ( $product->is_type( 'external' ) ) {
+			$show = true;
+		} // End If Statement
+
+		if ( ! $show ) {
+			return;
+		} // End If Statement
+
+		?><section class="hypermarket-sticky-add-to-cart">
+			<div class="col-full">
+				<div class="hypermarket-sticky-add-to-cart__content"><?php 
+					echo wp_kses_post( woocommerce_get_product_thumbnail() ); // WPCS: XSS ok.
+					?><div class="hypermarket-sticky-add-to-cart__content-product-info">
+						<span class="hypermarket-sticky-add-to-cart__content-title"><?php 
+							esc_attr_e( 'You&#8217;re viewing:', 'hypermarket' ); 
+							?><strong><?php 
+								the_title(); 
+							?></strong>
+						</span>
+						<span class="hypermarket-sticky-add-to-cart__content-price"><?php 
+							echo wp_kses_post( $product->get_price_html() ); // WPCS: XSS ok.
+						?></span><?php 
+						echo wp_kses_post( wc_get_rating_html( $product->get_average_rating() ) ); // WPCS: XSS ok.
+					?></div>
+					<a href="<?php echo esc_url( $product->add_to_cart_url() ); ?>" class="hypermarket-sticky-add-to-cart__content-button button alt"><?php 
+						echo esc_attr( $product->add_to_cart_text() ); // WPCS: XSS ok.
+					?></a>
+				</div>
+			</div>
+		</section><!-- .hypermarket-sticky-add-to-cart --><?php
+	}
+endif;
+
+/**
+ * Quantity minus (decrement) button.
+ *
+ * @return  void
+ */
+if ( ! function_exists( 'hypermarket_quantity_minus_btn' ) ) :
+	function hypermarket_quantity_minus_btn() {
+		?><input type="button" value="-" class="minus" /><?php
+	}
+endif;
+
+/**
+ * Quantity plus (increment) button.
+ *
+ * @return  void
+ */
+if ( ! function_exists( 'hypermarket_quantity_plus_btn' ) ) :
+	function hypermarket_quantity_plus_btn() {
+		?><input type="button" value="+" class="plus" /><?php
+	}
+endif;
