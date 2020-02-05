@@ -385,7 +385,7 @@ if ( ! function_exists( 'hypermarket_post_taxonomy' ) ) {
 		$tags_list = get_the_tag_list( '', __( ', ', 'hypermarket' ) );
 		
 		?><aside class="entry-taxonomy"><?php
-			if ( $categories_list ) : 
+			if ( $categories_list ) :
 				?><div class="cat-links"><?php
 					echo esc_html( _n( 'Category:', 'Categories:', count( get_the_category() ), 'hypermarket' ) ); // WPCS: XSS ok.
 					echo wp_kses_post( $categories_list ); // WPCS: XSS ok.
@@ -399,5 +399,38 @@ if ( ! function_exists( 'hypermarket_post_taxonomy' ) ) {
 				?></div><?php 
 			endif; 
 		?></aside><?php
+	}
+}
+
+if ( ! function_exists( 'hypermarket_paging_nav' ) ) {
+	/**
+	 * Display navigation to next/previous set of posts when applicable.
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_paging_nav() {
+		$args = array(
+			'type'      => 'list',
+			'next_text' => _x( 'Next', 'Next post', 'hypermarket' ),
+			'prev_text' => _x( 'Previous', 'Previous post', 'hypermarket' )
+		);
+
+		the_posts_pagination( $args );
+	}
+}
+
+if ( ! function_exists( 'hypermarket_post_nav' ) ) {
+	/**
+	 * Display navigation to next/previous post when applicable.
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_post_nav() {
+		$args = array(
+			'next_text' => sprintf( _x( '%sNext post:%s', 'Next post', 'hypermarket' ), '<span class="screen-reader-text">', ' </span>%title' ),
+			'prev_text' => sprintf( _x( '%sPrevious post:%s', 'Previous post', 'hypermarket' ), '<span class="screen-reader-text">', ' </span>%title' )
+		);
+		
+		the_post_navigation( $args );
 	}
 }
