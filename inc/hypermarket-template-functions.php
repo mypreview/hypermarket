@@ -460,13 +460,13 @@ if ( ! function_exists( 'hypermarket_post_thumbnail' ) ) {
 	}
 }
 
-if ( ! function_exists( 'hypermarket_container_open' ) ) {
+if ( ! function_exists( 'hypermarket_container' ) ) {
 	/**
 	 * The container
 	 *
 	 * @return 	void
 	 */
-	function hypermarket_container_open() {
+	function hypermarket_container() {
 		?><div class="col-full"><?php
 	}
 }

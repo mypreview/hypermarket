@@ -17,13 +17,13 @@ add_action( 'hypermarket_sidebar', 'hypermarket_get_sidebar', 10 );
 /**
  * Header
  *
- * @see  hypermarket_container_open()
+ * @see  hypermarket_container()
  * @see  hypermarket_skip_links()
  * @see  hypermarket_site_branding()
  * @see  hypermarket_primary_navigation()
  * @see  hypermarket_container_close()
  */
-add_action( 'hypermarket_header', 'hypermarket_container_open', 0 );
+add_action( 'hypermarket_header', 'hypermarket_container', 0 );
 add_action( 'hypermarket_header', 'hypermarket_skip_links', 5 );
 add_action( 'hypermarket_header', 'hypermarket_site_branding', 10 );
 add_action( 'hypermarket_header', 'hypermarket_primary_navigation', 20 );
@@ -32,12 +32,12 @@ add_action( 'hypermarket_header', 'hypermarket_container_close', 35 );
 /**
  * Footer
  *
- * @see  hypermarket_container_open()
+ * @see  hypermarket_container()
  * @see  hypermarket_footer_widgets()
  * @see  hypermarket_credit()
  * @see  hypermarket_container_close()
  */
-add_action( 'hypermarket_footer', 'hypermarket_container_open', 5 );
+add_action( 'hypermarket_footer', 'hypermarket_container', 5 );
 add_action( 'hypermarket_footer', 'hypermarket_footer_widgets', 10 );
 add_action( 'hypermarket_footer', 'hypermarket_credit', 20 );
 add_action( 'hypermarket_footer', 'hypermarket_container_close', 25 );
@@ -45,10 +45,10 @@ add_action( 'hypermarket_footer', 'hypermarket_container_close', 25 );
 /**
  * Content
  *
- * @see  hypermarket_container_open()
+ * @see  hypermarket_container()
  * @see  hypermarket_container_close()
  */
-add_action( 'hypermarket_content_top', 'hypermarket_container_open', 5 );
+add_action( 'hypermarket_content_top', 'hypermarket_container', 5 );
 add_action( 'hypermarket_content_bottom', 'hypermarket_container_close', 5 );
 
 /**
