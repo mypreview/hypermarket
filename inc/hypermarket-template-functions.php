@@ -110,3 +110,32 @@ function hypermarket_footer_widgets() {
 		endif; // End If Statement
 	endfor; // End of the loop.
 }
+
+/**
+ * Display the theme credit.
+ *
+ * @return 	void
+ */
+function hypermarket_credit() {
+	$links_output = '';
+
+	if ( apply_filters( 'hypermarket_credit_link', true ) ) {
+		$links_output .= sprintf( '<a href="%s" target="_blank" title="%s" rel="author">%s</a>.', esc_url( HYPERMARKET_THEME_URI ), esc_attr__( 'Proudly powered by WordPress', 'hypermarket' ), sprintf( esc_html__( 'Built with %s &amp; WooCommerce', 'hypermarket' ), HYPERMARKET_THEME_NAME ) );
+	} // End If Statement
+
+	if ( apply_filters( 'hypermarket_privacy_policy_link', true ) && function_exists( 'the_privacy_policy_link' ) ) {
+		$separator = '<span role="separator" aria-hidden="true"></span>';
+		$links_output = get_the_privacy_policy_link( '', ( ! empty( $links_output ) ? $separator : '' ) ) . $links_output;
+	} // End If Statement
+	
+	$links_output = apply_filters( 'hypermarket_credit_links_output', $links_output );
+	
+	?><div class="site-info"><?php 
+		echo esc_html( apply_filters( 'hypermarket_copyright_text', $content = sprintf( '&copy; %s %s', get_bloginfo( 'name' ), date( 'Y' ) ) ) );
+
+		if ( ! empty( $links_output ) ) :
+			?><br /><?php
+			echo wp_kses_post( $links_output );
+		endif; 
+	?></div><!-- .site-info --><?php
+}
