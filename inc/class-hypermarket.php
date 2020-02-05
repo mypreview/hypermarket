@@ -284,15 +284,15 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 
 						/* translators: 1: column number, 2: row number */
 						$footer_region_description = sprintf( __( 'Widgets added here will appear in column %1$d of footer row %2$d.', 'hypermarket' ), $region, $row );
-					}
+					} // End If Statement
 
 					$sidebar_args[ $footer ] = array(
 						'name'        => $footer_region_name,
 						'id'          => sprintf( 'footer-%d', $footer_n ),
 						'description' => $footer_region_description
 					);
-				}
-			}
+				} // End of the loop.
+			} // End of the loop.
 
 			$sidebar_args = apply_filters( 'hypermarket_sidebar_args', $sidebar_args );
 
