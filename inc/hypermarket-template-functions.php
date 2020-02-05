@@ -169,7 +169,7 @@ if ( ! function_exists( 'hypermarket_site_title_or_logo' ) ) :
 	 * @return 	string
 	 */
 	function hypermarket_site_title_or_logo( $echo = true ) {
-		if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
+		if ( has_custom_logo() ) {
 			$logo = get_custom_logo();
 			$html = is_home() ? sprintf( '<h1 class="logo">%s</h1>', $logo ) : $logo;
 		} else {
@@ -457,5 +457,27 @@ if ( ! function_exists( 'hypermarket_post_thumbnail' ) ) {
 		if ( has_post_thumbnail() ) {
 			the_post_thumbnail( $size );
 		} // End If Statement
+	}
+}
+
+if ( ! function_exists( 'hypermarket_container_open' ) ) {
+	/**
+	 * The container
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_container_open() {
+		?><div class="col-full"><?php
+	}
+}
+
+if ( ! function_exists( 'hypermarket_container_close' ) ) {
+	/**
+	 * The container close
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_container_close() {
+		?></div><?php
 	}
 }
