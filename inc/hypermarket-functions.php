@@ -295,6 +295,21 @@ if ( ! function_exists( 'hypermarket_string_to_bool' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_dependency_extraction' ) ) :
+	/**
+	 * Externalize dependencies that are available as script dependencies.
+	 *
+	 * @param 	string 		$script_path 			Path to the script (JS) file.
+	 * @param 	string 		$script_fallback 		Array of fallback libraries to load.
+	 * @return 	array
+	 */
+	function hypermarket_dependency_extraction( $script_path, $script_fallback = array() ) {
+		$script_asset_path = str_replace( '.js', '.asset.php', $script_path );
+		return file_exists( $script_asset_path ) ? require( $script_asset_path ) : array( 'dependencies' => $script_fallback, 'version' => filemtime( $script_path ) );
+		
+	}
+endif;
+
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
 	 * Shim for sites older than 5.2.
