@@ -34,7 +34,7 @@ $hypermarket = (object) array(
 	 * Initialize all the things.
 	 */
 	'main'       => require get_parent_theme_file_path( '/inc/class-hypermarket.php' ),
-	'customizer' => require get_parent_theme_file_path( '/inc/customizer/class-hypermarket-customizer.php' ),
+	// 'customizer' => require get_parent_theme_file_path( '/inc/customizer/class-hypermarket-customizer.php' )
 );
 
 require get_parent_theme_file_path( '/inc/hypermarket-functions.php' );
@@ -47,16 +47,16 @@ if ( class_exists( 'Jetpack' ) ) {
 
 if ( hypermarket_is_woocommerce_activated() ) {
 	$hypermarket->woocommerce            = require get_parent_theme_file_path( '/inc/woocommerce/class-hypermarket-woocommerce.php' );
-	$hypermarket->woocommerce_customizer = require get_parent_theme_file_path( '/inc/woocommerce/class-hypermarket-woocommerce-customizer.php' );
+	// $hypermarket->woocommerce_customizer = require get_parent_theme_file_path( '/inc/woocommerce/class-hypermarket-woocommerce-customizer.php' );
 
 	require get_parent_theme_file_path( '/inc/woocommerce/class-hypermarket-woocommerce-adjacent-products.php' );
 	require get_parent_theme_file_path( '/inc/woocommerce/hypermarket-woocommerce-template-hooks.php' );
 	require get_parent_theme_file_path( '/inc/woocommerce/hypermarket-woocommerce-template-functions.php' );
-	require get_parent_theme_file_path( '/inc/woocommerce/hypermarket-woocommerce-functions.php' );
+	// require get_parent_theme_file_path( '/inc/woocommerce/hypermarket-woocommerce-functions.php' );
 } // End If Statement
 
 if ( is_admin() ) {
-	$hypermarket->admin = require get_parent_theme_file_path( '/inc/admin/class-hypermarket-admin.php' );
+	// $hypermarket->admin = require get_parent_theme_file_path( '/inc/admin/class-hypermarket-admin.php' );
 	$hypermarket->tgmpa = require get_parent_theme_file_path( '/inc/tgmpa/class-hypermarket-tgmpa.php' );
 
 	require get_parent_theme_file_path( '/inc/tgmpa/class-tgm-plugin-activation.php' );
