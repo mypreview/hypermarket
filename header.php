@@ -30,12 +30,10 @@
 			/**
 			 * Functions hooked into `hypermarket_header` action
 			 *
-			 * @hooked hypermarket_container          	   - 0
 			 * @hooked hypermarket_skip_links              - 5
 			 * @hooked hypermarket_site_branding          - 10
 			 * @hooked hypermarket_primary_navigation     - 20
 			 * @hooked hypermarket_header_cart         	  - 30
-			 * @hooked hypermarket_container_close        - 35
 			 */
 			do_action( 'hypermarket_header' ); 
 
