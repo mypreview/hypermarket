@@ -57,7 +57,7 @@ if ( hypermarket_is_woocommerce_activated() ) {
 
 if ( is_admin() ) {
 	// $hypermarket->admin = require get_parent_theme_file_path( '/inc/admin/class-hypermarket-admin.php' );
-	$hypermarket->tgmpa = require get_parent_theme_file_path( '/inc/tgmpa/class-hypermarket-tgmpa.php' );
+	$hypermarket->tgmpa = require get_parent_theme_file_path( '/inc/tgmpa/class-hypermarket-tgmpa-register.php' );
 
 	require get_parent_theme_file_path( '/inc/tgmpa/class-tgm-plugin-activation.php' );
 } // End If Statement
