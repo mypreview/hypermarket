@@ -210,6 +210,19 @@ if ( ! function_exists( 'hypermarket_promoted_products' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_product_search' ) ) :
+	/**
+	 * Display product search
+	 *
+	 * @return 	void
+	 */
+	function hypermarket_product_search() {
+		?><div class="site-search"><?php 
+			the_widget( 'WC_Widget_Product_Search', 'title=' ); 
+		?></div><?php
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_handheld_footer_bar' ) ) :
 	/**
 	 * Display a menu intended for use on handheld devices
