@@ -230,7 +230,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			/**
 			 * Enqueue editor styles.
 			 */
-			add_editor_style( array( sprintf( '%s/css/editor-style.css', HYPERMARKET_THEME_DIST_PATH ), $this->google_fonts() ) );
+			add_editor_style( array( sprintf( '%s/css/legacy-editor.css', HYPERMARKET_THEME_DIST_PATH ), $this->google_fonts() ) );
 		}
 
 		/**
