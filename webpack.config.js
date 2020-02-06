@@ -16,7 +16,7 @@ const WebpackRTLPlugin = require( 'webpack-rtl-plugin' );
 const chalk = require( 'chalk' );
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-const baseConfig = {
+const config = {
     entry: {
         'theme': './assets/src/theme/index.js',
         'editor': './assets/src/editor/index.js',
@@ -62,14 +62,23 @@ const baseConfig = {
             },
             {
                 test:/\.css$/,
+                exclude: /node_modules/,
                 use: [
                     'style-loader',
                     MiniCssExtractPlugin.loader,
                     { 
                         loader: 'css-loader', 
                         options: { 
-                            importLoaders: 1 
+                            importLoaders: 1
                         } 
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [
+                                require( 'autoprefixer' )
+                            ]
+                        }
                     }
                 ]
             },
@@ -124,4 +133,4 @@ const baseConfig = {
 };
 
 // Export the following module
-module.exports = [baseConfig];
+module.exports = config;
