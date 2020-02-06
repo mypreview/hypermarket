@@ -38,14 +38,15 @@
       "style-loader": "1.0.0",
       "stylelint": "12.0.1",
       "stylelint-config-wordpress": "13.1.0",
-      "terser-webpack-plugin": "^2.3.2",
+      "uglifyjs-webpack-plugin": "^2.2.0",
       "webpack": "^4.41.5",
       "webpack-cli": "^3.3.10",
       "webpack-rtl-plugin": "^2.0.0"
    },
    "dependencies": {
       "es6-object-assign": "^1.1.0",
-      "lodash.escape": "^4.0.1"
+      "lodash.escape": "^4.0.1",
+      "feather-icons": "^4.25.0"
    },
    "browserslist": [
       "extends @wordpress/browserslist-config"
