@@ -103,13 +103,13 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			/**
 			 * Styles
 			 */
-			wp_enqueue_style( 'hypermarket-woocommerce-style', get_theme_file_uri( sprintf( '/%s/css/woocommerce.css', HYPERMARKET_THEME_DIST_PATH ) ), array( 'hypermarket-style' ), HYPERMARKET_THEME_VERSION );
+			wp_enqueue_style( 'hypermarket-woocommerce-style', get_theme_file_uri( sprintf( '/%s/woocommerce.css', HYPERMARKET_THEME_DIST_PATH ) ), array( 'hypermarket-style' ), HYPERMARKET_THEME_VERSION );
 			wp_style_add_data( 'hypermarket-woocommerce-style', 'rtl', 'replace' );
 
 			/**
 			 * Scripts
 			 */
-			$script_dir = sprintf( '%s/js/woocommerce.js', HYPERMARKET_THEME_DIST_PATH );
+			$script_dir = sprintf( '%s/woocommerce.js', HYPERMARKET_THEME_DIST_PATH );
 			$script_asset = hypermarket_dependency_extraction( sprintf( '%s/%s', get_template_directory(), $script_dir ), array( 'hypermarket-script' ) );
 			wp_enqueue_script( 'hypermarket-woocommerce-script', get_theme_file_uri( sprintf( '/%s', $script_dir ) ), $script_asset['dependencies'], $script_asset['version'], true );
 		}

@@ -230,7 +230,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			/**
 			 * Enqueue editor styles.
 			 */
-			add_editor_style( array( sprintf( '%s/css/legacy-editor.css', HYPERMARKET_THEME_DIST_PATH ), $this->google_fonts() ) );
+			add_editor_style( array( sprintf( '%s/legacy-editor.css', HYPERMARKET_THEME_DIST_PATH ), $this->google_fonts() ) );
 		}
 
 		/**
@@ -339,7 +339,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			/**
 			 * Styles
 			 */
-			wp_enqueue_style( 'hypermarket-style', get_theme_file_uri( sprintf( '/%s/css/theme.css', HYPERMARKET_THEME_DIST_PATH ) ), '', HYPERMARKET_THEME_VERSION );
+			wp_enqueue_style( 'hypermarket-style', get_theme_file_uri( sprintf( '/%s/theme.css', HYPERMARKET_THEME_DIST_PATH ) ), '', HYPERMARKET_THEME_VERSION );
 			wp_style_add_data( 'hypermarket-style', 'rtl', 'replace' );
 
 			/**
@@ -350,7 +350,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			/**
 			 * Scripts
 			 */
-			$script_dir = sprintf( '%s/js/theme.js', HYPERMARKET_THEME_DIST_PATH );
+			$script_dir = sprintf( '%s/theme.js', HYPERMARKET_THEME_DIST_PATH );
 			$script_asset = hypermarket_dependency_extraction( sprintf( '%s/%s', get_template_directory(), $script_dir ) );
 			wp_enqueue_script( 'hypermarket-script', get_theme_file_uri( sprintf( '/%s', $script_dir ) ), $script_asset['dependencies'], $script_asset['version'], true );
 
@@ -423,12 +423,12 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			/**
 			 * Styles
 			 */
-			wp_enqueue_style( 'hypermarket-editor-style', get_theme_file_uri( sprintf( '/%s/css/editor.css', HYPERMARKET_THEME_DIST_PATH ) ), '', HYPERMARKET_THEME_VERSION );
+			wp_enqueue_style( 'hypermarket-editor-style', get_theme_file_uri( sprintf( '/%s/editor.css', HYPERMARKET_THEME_DIST_PATH ) ), '', HYPERMARKET_THEME_VERSION );
 			wp_style_add_data( 'hypermarket-editor-style', 'rtl', 'replace' );
 			/**
 			 * Scripts
 			 */
-			$script_dir = sprintf( '%s/js/editor.js', HYPERMARKET_THEME_DIST_PATH );
+			$script_dir = sprintf( '%s/editor.js', HYPERMARKET_THEME_DIST_PATH );
 			$script_asset = hypermarket_dependency_extraction( sprintf( '%s/%s', get_template_directory(), $script_dir ), array( 'wp-data', 'wp-dom-ready', 'wp-edit-post' ) );
 			wp_enqueue_script( 'hypermarket-editor-script', get_theme_file_uri( sprintf( '/%s', $script_dir ) ), $script_asset['dependencies'], $script_asset['version'], true );
 		}
