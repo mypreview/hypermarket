@@ -3,6 +3,13 @@
  */
 html {
 	-webkit-text-size-adjust: 100%;
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
 }
 
 /**
@@ -10,6 +17,8 @@ html {
  */
 body {
 	margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 main {
@@ -418,7 +427,10 @@ progress {
  * Media
  */
 img {
+	display: block;
 	border-style: none;
+    height: auto;
+    max-width: 100%;
 }
 svg {
 	max-width: 100%;
