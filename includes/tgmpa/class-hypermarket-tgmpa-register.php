@@ -3,10 +3,12 @@
  * This file represents of the code that Hypermarket theme 
  * would use to register the recommended plugins.
  *
- * @link        https://github.com/TGMPA/TGM-Plugin-Activation
- * @since       2.0.0
- * @package     hypermarket
- * @author      MyPreview (Github: @mahdiyazdani, @mypreview)
+ * @link       https://www.upwork.com/fl/mahdiyazdani
+ * @author     Mahdi Yazdani <mahdiyazdani@mail.com>
+ * @since      2.0.0
+ *
+ * @package    hypermarket
+ * @subpackage hypermarket/includes/tgmpa
  */
 
 // Exit if accessed directly.
@@ -24,6 +26,7 @@ if ( ! class_exists( 'Hypermarket_TGMPA_Register' ) ) :
 		/**
 		 * Setup class.
 		 *
+		 * @since   1.0.0
 		 * @return  void
 		 */
 		public function __construct() {
@@ -35,6 +38,7 @@ if ( ! class_exists( 'Hypermarket_TGMPA_Register' ) ) :
 		/**
 		 * Registers the required plugins to be installed with Conj theme.
 		 *
+		 * @since   1.0.0
 		 * @return  void
 		 */
 		public function tgmpa_register() {
