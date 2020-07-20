@@ -34,13 +34,12 @@
 					 * Functions hooked into `hypermarket_header` action
 					 *
 					 * @hooked hypermarket_skip_links              - 5
-					 * @hooked hypermarket_div                    - 10
-					 * @hooked hypermarket_site_branding          - 20
-					 * @hooked hypermarket_div                    - 45
-					 * @hooked hypermarket_myaccount_link         - 50
-					 * @hooked hypermarket_cart                   - 60
-					 * @hooked hypermarket_div_close              - 65
-					 * @hooked hypermarket_primary_menu           - 80
+					 * @hooked hypermarket_site_branding          - 10
+					 * @hooked hypermarket_primary_menu           - 20
+					 * @hooked hypermarket_div                    - 25
+					 * @hooked hypermarket_myaccount_link         - 30
+					 * @hooked hypermarket_cart                   - 40
+					 * @hooked hypermarket_div_close              - 45
 					 */
 					do_action( 'hypermarket_header' ); 
 

@@ -72,7 +72,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce_Adjacent_Products' ) ) :
 		/**
 		 * Get adjacent product or circle back to the first/last valid product.
 		 *
-		 * @return  WC_Product|false            Product object if successful. False if no valid product is found.
+		 * @return  WC_Product|false      Product object if successful. False if no valid product is found.
 		 */
 		public function get_product() {
 			global $post;
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce_Adjacent_Products' ) ) :
 		/**
 		 * Get adjacent post.
 		 *
-		 * @return  WP_POST|false               Post object if successful. False if no valid post is found.
+		 * @return  WP_POST|false      Post object if successful. False if no valid post is found.
 		 */
 		private function get_adjacent() {
 			global $post;
@@ -129,7 +129,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce_Adjacent_Products' ) ) :
 		 * date with date of the next post to consider.
 		 *
 		 * @param   string $where      The `WHERE` clause in the SQL.
-		 * @return  WP_POST|false               Post object if successful. False if no valid post is found.
+		 * @return  WP_POST|false      Post object if successful. False if no valid post is found.
 		 */
 		public function filter_post_where( $where ) {
 			global $post;
@@ -142,7 +142,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce_Adjacent_Products' ) ) :
 		/**
 		 * Query WooCommerce for either the first or last products.
 		 *
-		 * @return  WC_Product|false            Post object if successful. False if no valid post is found.
+		 * @return  WC_Product|false      Post object if successful. False if no valid post is found.
 		 */
 		private function query_wc() {
 			global $post;
