@@ -3,9 +3,12 @@
  * Adjacent (neighbouring) products class.
  * Fetches links to the next/previous products on the single product page.
  *
- * @since       2.0.0
- * @package     hypermarket
- * @author      MyPreview (Github: @mahdiyazdani, @mypreview)
+ * @link       https://www.upwork.com/fl/mahdiyazdani
+ * @author     Mahdi Yazdani <mahdiyazdani@mail.com>
+ * @since      2.0.0
+ *
+ * @package    hypermarket
+ * @subpackage hypermarket/includes/woocommerce
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

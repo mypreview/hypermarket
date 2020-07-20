@@ -1,10 +1,13 @@
 <?php
 /**
- * Hypermarket WooCommerce class
+ * The class that defines the integration between theme and WooCommerce plugin.
  *
- * @since       2.0.0
- * @package     hypermarket
- * @author      MyPreview (Github: @mahdiyazdani, @mypreview, @gookalani)
+ * @link       https://www.upwork.com/fl/mahdiyazdani
+ * @author     Mahdi Yazdani <mahdiyazdani@mail.com>
+ * @since      2.0.0
+ *
+ * @package    hypermarket
+ * @subpackage hypermarket/includes/woocommerce
  */
 
 // Exit if accessed directly.
@@ -21,7 +24,8 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 
 		/**
 		 * Setup class.
-		 * 
+		 *
+		 * @since   1.0.0
 		 * @return  void
 		 */
 		public function __construct() {
@@ -41,6 +45,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 * runs before the init hook. The init hook is too late for some features, such
 		 * as indicating support for post thumbnails.
 		 *
+		 * @since   1.0.0
 		 * @return  void
 		 */
 		public function setup() {
@@ -75,6 +80,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		/**
 		 * Enqueue scripts and styles.
 		 *
+		 * @since   1.0.0
 		 * @return  void
 		 */
 		public function enqueue() {
@@ -90,6 +96,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		/**
 		 * Add WooCommerce specific classes to the body tag
 		 *
+		 * @since   1.0.0
 		 * @param   array $classes    Css classes applied to the body tag.
 		 * @return  array       $classes    Modified to include 'woocommerce-active' class
 		 */
@@ -114,6 +121,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		/**
 		 * Related Products Args
 		 *
+		 * @since   1.0.0
 		 * @param   array $args   Related products args.
 		 * @return  array       $args   Modified number of related products args
 		 */
@@ -132,6 +140,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		/**
 		 * Product gallery thumbnail columns
 		 *
+		 * @since   1.0.0
 		 * @return  integer             Number of columns
 		 * @return  integer
 		 */
@@ -148,6 +157,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		/**
 		 * Remove the breadcrumb delimiter.
 		 *
+		 * @since   1.0.0
 		 * @param   array $defaults   The breadcrumb defaults.
 		 * @return  array               The breadcrumb defaults.
 		 */
@@ -162,6 +172,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		/**
 		 * Modifies flexslider args.
 		 *
+		 * @since   1.0.0
 		 * @param   array $args       The current flexslider arguments.
 		 * @return  array
 		 */
