@@ -2,9 +2,12 @@
 /**
  * Hypermarket Jetpack Class
  *
- * @since       2.0.0
- * @package     hypermarket
- * @author      MyPreview (Github: @mahdiyazdani, @mypreview)
+ * @link       https://www.upwork.com/fl/mahdiyazdani
+ * @author     Mahdi Yazdani <mahdiyazdani@mail.com>
+ * @since      2.0.0
+ *
+ * @package    hypermarket
+ * @subpackage hypermarket/includes/jetpack
  */
 
 // Exit if accessed directly.
@@ -21,7 +24,8 @@ if ( ! class_exists( 'Hypermarket_Jetpack' ) ) :
 
 		/**
 		 * Setup class.
-		 * 
+		 *
+		 * @since   1.0.0
 		 * @return  void
 		 */
 		public function __construct() {
@@ -30,7 +34,8 @@ if ( ! class_exists( 'Hypermarket_Jetpack' ) ) :
 
 		/**
 		 * Theme support for content options.
-		 * 
+		 *
+		 * @since   1.0.0
 		 * @return  void
 		 */
 		public function setup() {

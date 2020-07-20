@@ -60,6 +60,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce_Adjacent_Products' ) ) :
 		/**
 		 * Setup class.
 		 *
+		 * @since   1.0.0
 		 * @param   bool         $in_same_term       Whether post should be in a same taxonomy term. Default false.
 		 * @param   array|string $excluded_terms     Comma-separated list of excluded term IDs. Default empty.
 		 * @param   string       $taxonomy           Taxonomy, if $in_same_term is true. Default 'product_cat'.
@@ -75,6 +76,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce_Adjacent_Products' ) ) :
 		/**
 		 * Get adjacent product or circle back to the first/last valid product.
 		 *
+		 * @since   1.0.0
 		 * @return  WC_Product|false      Product object if successful. False if no valid product is found.
 		 */
 		public function get_product() {
@@ -111,6 +113,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce_Adjacent_Products' ) ) :
 		/**
 		 * Get adjacent post.
 		 *
+		 * @since   1.0.0
 		 * @return  WP_POST|false      Post object if successful. False if no valid post is found.
 		 */
 		private function get_adjacent() {
@@ -131,6 +134,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce_Adjacent_Products' ) ) :
 		 * Filters the WHERE clause in the SQL for an adjacent post query, replacing the
 		 * date with date of the next post to consider.
 		 *
+		 * @since   1.0.0
 		 * @param   string $where      The `WHERE` clause in the SQL.
 		 * @return  WP_POST|false      Post object if successful. False if no valid post is found.
 		 */
@@ -145,6 +149,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce_Adjacent_Products' ) ) :
 		/**
 		 * Query WooCommerce for either the first or last products.
 		 *
+		 * @since   1.0.0
 		 * @return  WC_Product|false      Post object if successful. False if no valid post is found.
 		 */
 		private function query_wc() {
