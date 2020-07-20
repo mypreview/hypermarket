@@ -9,7 +9,6 @@
  *
  * @package    hypermarket
  * @subpackage hypermarket/includes/tgmpa
- * @phpcs:disable
  */
 
 // Exit if accessed directly.
@@ -31,9 +30,7 @@ if ( ! class_exists( 'Hypermarket_TGMPA_Register' ) ) :
 		 * @return  void
 		 */
 		public function __construct() {
-
 			add_action( 'tgmpa_register', array( $this, 'tgmpa_register' ) );
-
 		}
 
 		/**
@@ -69,7 +66,8 @@ if ( ! class_exists( 'Hypermarket_TGMPA_Register' ) ) :
 				'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
 				'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
 				'is_automatic' => false,                   // Automatically activate plugins after installation or not.
-				'message'      => '',                      // Message to output right before the plugins table.                
+				'message'      => '',                      // Message to output right before the plugins table.       
+				//phpcs:ignore Squiz.PHP.CommentedOutCode.Found, Squiz.Commenting.BlockComment.NoEmptyLineBefore        
 				/*
 				'strings'      => array(
 					'page_title'                      => __( 'Install Required Plugins', 'hypermarket' ),

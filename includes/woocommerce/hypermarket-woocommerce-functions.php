@@ -135,8 +135,10 @@ if ( ! function_exists( 'hypermarket_promoted_products' ) ) :
 	function hypermarket_promoted_products( $per_page = '2', $columns = '2', $recent_fallback = true ) {
 		if ( hypermarket_is_woocommerce_activated() ) {
 			if ( wc_get_featured_product_ids() ) {
+				/* translators: 1: Open h2 tag, Close h2 tag. */
 				printf( esc_html__( '%1$sFeatured Products%2$s', 'hypermarket' ), '<h2>', '</h2>' );
 
+				//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				echo hypermarket_do_shortcode(
 					'featured_products',
 					array(
@@ -145,8 +147,10 @@ if ( ! function_exists( 'hypermarket_promoted_products' ) ) :
 					)
 				); 
 			} elseif ( wc_get_product_ids_on_sale() ) {
+				/* translators: 1: Open h2 tag, Close h2 tag. */
 				printf( esc_html__( '%1$sOn Sale Now%2$s', 'hypermarket' ), '<h2>', '</h2>' );
 
+				//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				echo hypermarket_do_shortcode(
 					'sale_products',
 					array(
@@ -155,8 +159,10 @@ if ( ! function_exists( 'hypermarket_promoted_products' ) ) :
 					)
 				); 
 			} elseif ( $recent_fallback ) {
+				/* translators: 1: Open h2 tag, Close h2 tag. */
 				printf( esc_html__( '%1$sNew In Store%2$s', 'hypermarket' ), '<h2>', '</h2>' );
 
+				//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				echo hypermarket_do_shortcode(
 					'recent_products',
 					array(

@@ -8,7 +8,7 @@
  *
  * @package    hypermarket
  * @subpackage hypermarket/includes
- * @phpcs:disable
+ * @phpcs:ignoreFile
  */
 
 if ( ! function_exists( 'wp_body_open' ) ) {
