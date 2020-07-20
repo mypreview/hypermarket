@@ -1,0 +1,702 @@
+# Copyright (C) 2020 MyPreview
+# This file is distributed under the GNU General Public License v3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Hypermarket 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/hypermarket\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-07-20T20:51:22+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: hypermarket\n"
+
+#. Theme Name of the theme
+msgid "Hypermarket"
+msgstr ""
+
+#. Theme URI of the theme
+msgid "https://mypreview.github.io/hypermarket"
+msgstr ""
+
+#. Description of the theme
+msgid "XXXXXXXXX"
+msgstr ""
+
+#. Author of the theme
+msgid "MyPreview"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://www.mypreview.one"
+msgstr ""
+
+#: 404.php:20
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:22
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr ""
+
+#: 404.php:23
+msgid "Search"
+msgstr ""
+
+#. translators: 1: title.
+#: comments.php:37
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#. translators: 1: comment count number, 2: title.
+#: comments.php:43
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:74
+msgid "Comments are closed."
+msgstr ""
+
+#: includes/class-hypermarket.php:182
+msgid "Small"
+msgstr ""
+
+#: includes/class-hypermarket.php:187
+msgid "Normal"
+msgstr ""
+
+#: includes/class-hypermarket.php:192
+msgid "Medium"
+msgstr ""
+
+#: includes/class-hypermarket.php:197
+msgid "Large"
+msgstr ""
+
+#: includes/class-hypermarket.php:202
+msgid "Huge"
+msgstr ""
+
+#: includes/class-hypermarket.php:219
+msgid "Black"
+msgstr ""
+
+#: includes/class-hypermarket.php:224
+msgid "White"
+msgstr ""
+
+#: includes/class-hypermarket.php:241
+msgid "Picton Blue to Mariner"
+msgstr ""
+
+#: includes/class-hypermarket.php:256
+msgid "Primary"
+msgstr ""
+
+#: includes/class-hypermarket.php:257
+msgid "Handheld"
+msgstr ""
+
+#: includes/class-hypermarket.php:296
+msgid "Sidebar"
+msgstr ""
+
+#. translators: 1: column number
+#: includes/class-hypermarket.php:311
+msgid "Footer Column %1$d"
+msgstr ""
+
+#. translators: 1: column number
+#: includes/class-hypermarket.php:314
+msgid "Widgets added here will appear in column %1$d of the footer."
+msgstr ""
+
+#. translators: 1: row number, 2: column number
+#: includes/class-hypermarket.php:317
+msgid "Footer Row %1$d - Column %2$d"
+msgstr ""
+
+#. translators: 1: column number, 2: row number
+#: includes/class-hypermarket.php:320
+msgid "Widgets added here will appear in column %1$d of footer row %2$d."
+msgstr ""
+
+#: includes/class-hypermarket.php:524
+msgid "Post Navigation"
+msgstr ""
+
+#: includes/hypermarket-template-functions.php:86
+msgid "Proudly powered by WordPress"
+msgstr ""
+
+#: includes/hypermarket-template-functions.php:86
+msgid "Built with %s &amp; WooCommerce"
+msgstr ""
+
+#: includes/hypermarket-template-functions.php:180
+msgid "Primary Navigation"
+msgstr ""
+
+#: includes/hypermarket-template-functions.php:206
+msgid "Skip to navigation"
+msgstr ""
+
+#: includes/hypermarket-template-functions.php:211
+msgid "Skip to content"
+msgstr ""
+
+#. translators: %s: open div
+#: includes/hypermarket-template-functions.php:253
+msgid "%sPages:"
+msgstr ""
+
+#. translators: %s: post title
+#: includes/hypermarket-template-functions.php:345
+msgid "Continue reading %s"
+msgstr ""
+
+#: includes/hypermarket-template-functions.php:354
+msgid "Pages:"
+msgstr ""
+
+#. translators: 1: Open span tag, 2: Close span tag, 3: Output time.
+#: includes/hypermarket-template-functions.php:391
+msgid "%1$sPosted on%2$s %3$s"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: includes/hypermarket-template-functions.php:426
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: includes/hypermarket-template-functions.php:450
+#: includes/hypermarket-template-functions.php:452
+msgid ", "
+msgstr ""
+
+#. translators: 1: Open span tag, 2: Close span tag.
+#: includes/hypermarket-template-functions.php:462
+msgid "%1$sCategory:%2$s"
+msgid_plural "%1$sCategories:%2$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: Open span tag, 2: Close span tag.
+#: includes/hypermarket-template-functions.php:474
+msgid "%1$sTag:%2$s"
+msgid_plural "%1$sTags:%2$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: Open span tag, 2: Close span tag.
+#: includes/hypermarket-template-functions.php:497
+msgctxt "Next post"
+msgid "%1$sNext%2$s"
+msgstr ""
+
+#. translators: 1: Open span tag, 2: Close span tag.
+#: includes/hypermarket-template-functions.php:499
+msgctxt "Previous post"
+msgid "%1$sPrevious%2$s"
+msgstr ""
+
+#. translators: 1: Open span tag, 2: Close span tag.
+#: includes/hypermarket-template-functions.php:516
+msgctxt "Next post"
+msgid "%1$sNext post:%2$s"
+msgstr ""
+
+#. translators: 1: Open span tag, 2: Close span tag.
+#: includes/hypermarket-template-functions.php:518
+msgctxt "Previous post"
+msgid "%1$sPrevious post:%2$s"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:328
+msgid "Install Required Plugins"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:329
+msgid "Install Plugins"
+msgstr ""
+
+#. translators: %s: plugin name.
+#: includes/tgmpa/class-tgm-plugin-activation.php:331
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#. translators: %s: plugin name.
+#: includes/tgmpa/class-tgm-plugin-activation.php:333
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:334
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#. translators: 1: plugin name(s).
+#: includes/tgmpa/class-tgm-plugin-activation.php:335
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: includes/tgmpa/class-tgm-plugin-activation.php:341
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: includes/tgmpa/class-tgm-plugin-activation.php:347
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: includes/tgmpa/class-tgm-plugin-activation.php:353
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: includes/tgmpa/class-tgm-plugin-activation.php:359
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name(s).
+#: includes/tgmpa/class-tgm-plugin-activation.php:365
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:371
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:376
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:381
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:386
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:387
+#: includes/tgmpa/class-tgm-plugin-activation.php:828
+#: includes/tgmpa/class-tgm-plugin-activation.php:2554
+#: includes/tgmpa/class-tgm-plugin-activation.php:3605
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:388
+#: includes/tgmpa/class-tgm-plugin-activation.php:3180
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:389
+#: includes/tgmpa/class-tgm-plugin-activation.php:2973
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name.
+#: includes/tgmpa/class-tgm-plugin-activation.php:391
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: includes/tgmpa/class-tgm-plugin-activation.php:393
+msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
+msgstr ""
+
+#. translators: 1: dashboard link.
+#: includes/tgmpa/class-tgm-plugin-activation.php:395
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:396
+msgid "Dismiss this notice"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:397
+msgid "There are one or more required or recommended plugins to install, update or activate."
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:398
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:523
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:524
+msgid "Update Required"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:937
+msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:937
+#: includes/tgmpa/class-tgm-plugin-activation.php:947
+msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:947
+msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:1136
+#: includes/tgmpa/class-tgm-plugin-activation.php:2969
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
+
+#. translators: %s: version number
+#: includes/tgmpa/class-tgm-plugin-activation.php:2003
+msgid "TGMPA v%s"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2294
+msgid "Required"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2297
+msgid "Recommended"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2313
+msgid "WordPress Repository"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2316
+msgid "External Source"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2319
+msgid "Pre-Packaged"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2336
+msgid "Not Installed"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2340
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2342
+msgid "Active"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2348
+msgid "Required Update not Available"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2351
+msgid "Requires Update"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2354
+msgid "Update recommended"
+msgstr ""
+
+#. translators: 1: install status, 2: update status
+#: includes/tgmpa/class-tgm-plugin-activation.php:2363
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#. translators: 1: number of plugins.
+#: includes/tgmpa/class-tgm-plugin-activation.php:2409
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: includes/tgmpa/class-tgm-plugin-activation.php:2413
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: includes/tgmpa/class-tgm-plugin-activation.php:2417
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: includes/tgmpa/class-tgm-plugin-activation.php:2421
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2503
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2511
+msgid "Installed version:"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2519
+msgid "Minimum required version:"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2531
+msgid "Available version:"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2554
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2568
+msgid "Plugin"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2569
+msgid "Source"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2570
+msgid "Type"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2574
+msgid "Version"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2575
+msgid "Status"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: includes/tgmpa/class-tgm-plugin-activation.php:2624
+msgid "Install %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: includes/tgmpa/class-tgm-plugin-activation.php:2629
+msgid "Update %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: includes/tgmpa/class-tgm-plugin-activation.php:2635
+msgid "Activate %2$s"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2705
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2738
+msgid "Install"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2744
+msgid "Update"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2747
+msgid "Activate"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2778
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2780
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2821
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2823
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2929
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:2955
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:3179
+msgid "Plugin activation failed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: includes/tgmpa/class-tgm-plugin-activation.php:3523
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#. translators: 1: plugin name, 2: error message.
+#: includes/tgmpa/class-tgm-plugin-activation.php:3526
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: includes/tgmpa/class-tgm-plugin-activation.php:3528
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:3532
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: includes/tgmpa/class-tgm-plugin-activation.php:3534
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: includes/tgmpa/class-tgm-plugin-activation.php:3534
+#: includes/tgmpa/class-tgm-plugin-activation.php:3542
+msgid "Show Details"
+msgstr ""
+
+#. translators: 1: plugin name.
+#: includes/tgmpa/class-tgm-plugin-activation.php:3534
+#: includes/tgmpa/class-tgm-plugin-activation.php:3542
+msgid "Hide Details"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:3535
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: includes/tgmpa/class-tgm-plugin-activation.php:3537
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:3540
+msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: includes/tgmpa/class-tgm-plugin-activation.php:3542
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: includes/tgmpa/class-tgm-plugin-activation.php:3543
+msgid "All installations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: includes/tgmpa/class-tgm-plugin-activation.php:3545
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#. translators: 1: Open anchor tag, 2: Close anchor tag.
+#: includes/woocommerce/hypermarket-woocommerce-functions.php:71
+msgid "%1$sMy Account%2$s"
+msgstr ""
+
+#. translators: 1: Open anchor tag, 2: Close anchor tag.
+#: includes/woocommerce/hypermarket-woocommerce-functions.php:71
+msgid "View your account page"
+msgstr ""
+
+#. translators: 1: Open anchor tag, 2: Close anchor tag.
+#: includes/woocommerce/hypermarket-woocommerce-functions.php:87
+msgid "%1$sSearch%2$s"
+msgstr ""
+
+#. translators: 1: Open h2 tag, Close h2 tag.
+#: includes/woocommerce/hypermarket-woocommerce-functions.php:139
+msgid "%1$sFeatured Products%2$s"
+msgstr ""
+
+#. translators: 1: Open h2 tag, Close h2 tag.
+#: includes/woocommerce/hypermarket-woocommerce-functions.php:151
+msgid "%1$sOn Sale Now%2$s"
+msgstr ""
+
+#. translators: 1: Open h2 tag, Close h2 tag.
+#: includes/woocommerce/hypermarket-woocommerce-functions.php:163
+msgid "%1$sNew In Store%2$s"
+msgstr ""
+
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:181
+msgid "Out of Stock"
+msgstr ""
+
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:196
+msgid "Remove from the quantity"
+msgstr ""
+
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:210
+msgid "Add to the quantity"
+msgstr ""
+
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:253
+msgid "More products"
+msgstr ""
+
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:315
+msgid "You&#8217;re viewing:"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Fluid Template"
+msgstr ""
+
+#. translators: %s: search term
+#: search.php:26
+msgid "Search Results for: %s"
+msgstr ""
+
+#: template-parts/content-none.php:16
+msgid "Nothing Found"
+msgstr ""
+
+#. translators: 1: URL
+#: template-parts/content-none.php:28
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:36
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:42
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
