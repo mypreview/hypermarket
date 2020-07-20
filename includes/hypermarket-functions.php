@@ -10,26 +10,6 @@
  * @subpackage hypermarket/includes
  */
 
-if ( ! function_exists( 'hypermarket_is_woocommerce_activated' ) ) :
-	/**
-	 * Query WooCommerce activation
-	 */
-	function hypermarket_is_woocommerce_activated() {
-		return class_exists( 'WooCommerce' ) ? true : false;
-	}
-endif;
-
-if ( ! function_exists( 'hypermarket_is_fluid_template' ) ) :
-	/**
-	 * Checks if the current page is the fluid template.
-	 *
-	 * @return  bool
-	 */
-	function hypermarket_is_fluid_template() {
-		return is_page_template( 'page-templates/template-fluid.php' ) ? true : false;
-	}
-endif;
-
 if ( ! function_exists( 'hypermarket_get_file_assets' ) ) :
 	/**
 	 * Reterive dependency extraction array for a given resource.
@@ -53,6 +33,33 @@ if ( ! function_exists( 'hypermarket_get_file_assets' ) ) :
 		);
 
 		return $file_asset;
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_is_fluid_template' ) ) :
+	/**
+	 * Checks if the current page is the fluid template.
+	 *
+	 * @return  bool
+	 */
+	function hypermarket_is_fluid_template() {
+		return is_page_template( 'page-templates/template-fluid.php' ) ? true : false;
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_is_woocommerce_activated' ) ) :
+	/**
+	 * Query WooCommerce activation.
+	 *
+	 * @since    1.0.0
+	 * @return   bool
+	 */
+	function hypermarket_is_woocommerce_activated() {
+		if ( class_exists( 'WooCommerce' ) ) {
+			return true;
+		}
+			
+		return false;
 	}
 endif;
 

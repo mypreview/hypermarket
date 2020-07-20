@@ -26,8 +26,8 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'after_setup_theme', array( $this, 'setup' ) );
+			add_action( 'hypermarket_enqueue_scripts', array( $this, 'enqueue' ) );
 			add_filter( 'hypermarket_body_classes', array( $this, 'body_classes' ) );
-			add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ), 20 );
 			add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
 			add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'thumbnail_columns' ) );
@@ -73,6 +73,21 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		}
 
 		/**
+		 * Enqueue scripts and styles.
+		 *
+		 * @return  void
+		 */
+		public function enqueue() {
+			$woocommerce_asset_name = 'woocommerce';
+			$woocommerce_asset      = hypermarket_get_file_assets( $woocommerce_asset_name );
+			// Styles.
+			wp_enqueue_style( sprintf( '%s-%s-style', $hypermarket->slug, $woocommerce_asset_name ), get_theme_file_uri( sprintf( '/dist/%s.css', $woocommerce_asset_name ) ), '', $woocommerce_asset['version'], 'all' );
+			wp_style_add_data( sprintf( '%s-%s-style', $hypermarket->slug, $woocommerce_asset_name ), 'rtl', 'replace' );
+			// Scripts.
+			wp_enqueue_script( sprintf( '%s-%s-script', $hypermarket->slug, $woocommerce_asset_name ), get_theme_file_uri( sprintf( '/dist/%s.js', $woocommerce_asset_name ) ), $woocommerce_asset['dependencies'], $woocommerce_asset['version'], true );
+		}
+
+		/**
 		 * Add WooCommerce specific classes to the body tag
 		 *
 		 * @param   array $classes    Css classes applied to the body tag.
@@ -94,26 +109,6 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			}
 
 			return $classes;
-		}
-
-		/**
-		 * Enqueue scripts and styles.
-		 *
-		 * @return  void
-		 */
-		public function scripts() {
-			/**
-			 * Styles
-			 */
-			wp_enqueue_style( 'hypermarket-woocommerce-style', get_theme_file_uri( sprintf( '/%s/woocommerce.css', HYPERMARKET_THEME_DIST_PATH ) ), array( 'hypermarket-style' ), HYPERMARKET_THEME_VERSION );
-			wp_style_add_data( 'hypermarket-woocommerce-style', 'rtl', 'replace' );
-
-			/**
-			 * Scripts
-			 */
-			$script_dir   = sprintf( '%s/woocommerce.js', HYPERMARKET_THEME_DIST_PATH );
-			$script_asset = hypermarket_dependency_extraction( sprintf( '%s/%s', get_template_directory(), $script_dir ), array( 'hypermarket-script' ) );
-			wp_enqueue_script( 'hypermarket-woocommerce-script', get_theme_file_uri( sprintf( '/%s', $script_dir ) ), $script_asset['dependencies'], $script_asset['version'], true );
 		}
 
 		/**

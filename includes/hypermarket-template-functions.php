@@ -21,96 +21,16 @@ if ( ! function_exists( 'hypermarket_display_comments' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_comment' ) ) :
-	/**
-	 * Comment template
-	 *
-	 * @param   array $comment    The comment array.
-	 * @param   array $args       The comment args.
-	 * @param   int   $depth      The comment depth.
-	 * @return  void
-	 */
-	function hypermarket_comment( $comment, $args, $depth ) {
-		if ( 'div' === $args['style'] ) {
-			$tag       = 'div';
-			$add_below = 'comment';
-		} else {
-			$tag       = 'li';
-			$add_below = 'div-comment';
-		}
-		?><<?php echo esc_attr( $tag ); ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID(); ?>">
-			<div class="comment-body">
-				<div class="comment-meta commentmetadata">
-					<div class="comment-author vcard">
-					<?php 
-						echo get_avatar( $comment, 128 );
-						printf( wp_kses_post( '<cite class="fn">%s</cite>', 'hypermarket' ), get_comment_author_link() ); 
-					?>
-					</div>
-					<?php 
-					if ( '0' === $comment->comment_approved ) : 
-						?>
-						<em class="comment-awaiting-moderation">
-						<?php 
-							esc_attr_e( 'Your comment is awaiting moderation.', 'hypermarket' );
-						?>
-						</em>
-						<br />
-						<?php 
-					endif; 
-					?>
-					<a href="<?php echo esc_url( htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ); ?>" class="comment-date">
-					<?php 
-						printf( '<time datetime="%s">%s</time>', get_comment_date( 'c' ), get_comment_date() ); 
-					?>
-					</a>
-				</div><!-- .comment-meta -->
-				<?php 
-				if ( 'div' !== $args['style'] ) : 
-					?>
-					<div id="div-comment-<?php comment_ID(); ?>" class="comment-content">
-					<?php 
-				endif; 
-				?>
-				<div class="comment-text">
-				<?php 
-					comment_text(); 
-				?>
-				</div><!-- .comment-text -->
-				<div class="reply">
-				<?php
-					comment_reply_link(
-						array_merge(
-							$args,
-							array(
-								'add_below' => $add_below,
-								'depth'     => $depth,
-								'max_depth' => $args['max_depth'],
-							)
-						)
-					);
-								   edit_comment_link( __( 'Edit', 'hypermarket' ), '  ', '' );
-				?>
-				</div><!-- .reply -->
-			</div>
-			<?php 
-			if ( 'div' !== $args['style'] ) : 
-				?>
-		</div>
-				<?php 
-		endif;
-	}
-endif;
-
 if ( ! function_exists( 'hypermarket_footer_widgets' ) ) :
 	/**
 	 * Display the footer widget regions.
 	 *
+	 * @since   1.0.0
 	 * @return  void
 	 */
 	function hypermarket_footer_widgets() {
-		$rows    = intval( apply_filters( 'hypermarket_footer_widget_rows', 2 ) );
-		$regions = intval( apply_filters( 'hypermarket_footer_widget_columns', 3 ) );
+		$rows    = intval( apply_filters( 'hypermarket_footer_widget_rows', 1 ) );
+		$regions = intval( apply_filters( 'hypermarket_footer_widget_columns', 5 ) );
 
 		for ( $row = 1; $row <= $rows; $row++ ) :
 			// Defines the number of active columns in this footer row.
@@ -119,29 +39,33 @@ if ( ! function_exists( 'hypermarket_footer_widgets' ) ) :
 					$columns = $region;
 					break;
 				}
-			} // End of the loop.
+			}
 
 			if ( isset( $columns ) ) :
 				?>
 				<div class=<?php echo '"footer-widgets row-' . esc_attr( $row ) . ' col-' . esc_attr( $columns ) . ' fix"'; ?>>
-				<?php
-				for ( $column = 1; $column <= $columns; $column++ ) :
-					$footer_n = $column + $regions * ( $row - 1 );
+					<div class="col-full">
+						<?php
+						for ( $column = 1; $column <= $columns; $column++ ) :
+							$footer_n = $column + $regions * ( $row - 1 );
 
-					if ( is_active_sidebar( 'footer-' . esc_attr( $footer_n ) ) ) :
+							if ( is_active_sidebar( 'footer-' . esc_attr( $footer_n ) ) ) :
+								?>
+								<div class="block footer-widget-<?php echo esc_attr( $column ); ?>">
+								<?php 
+									dynamic_sidebar( sprintf( 'footer-%d', esc_attr( $footer_n ) ) );
+								?>
+								</div>
+								<?php
+							endif;
+						endfor;
 						?>
-							<div class="block footer-widget-<?php echo esc_attr( $column ); ?>">
-						<?php dynamic_sidebar( sprintf( 'footer-%d', esc_attr( $footer_n ) ) ); ?>
-							</div>
-							<?php
-										endif;
-					endfor; // End of the loop.
-				?>
+					</div>
 				</div><!-- .footer-widgets.row-<?php echo esc_attr( $row ); ?> -->
 				<?php
 				unset( $columns );
 			endif;
-		endfor; // End of the loop.
+		endfor;
 	}
 endif;
 
@@ -182,6 +106,19 @@ if ( ! function_exists( 'hypermarket_credit' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_get_sidebar' ) ) :
+	/**
+	 * Display default sidebar area.
+	 *
+	 * @since   1.0.0
+	 * @return  void
+	 */
+	function hypermarket_get_sidebar() {
+		$region = hypermarket_is_blog_archive() ? 'blog' : null;
+		get_sidebar( $region );
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_site_branding' ) ) :
 	/**
 	 * Site branding wrapper and display
@@ -191,9 +128,7 @@ if ( ! function_exists( 'hypermarket_site_branding' ) ) :
 	function hypermarket_site_branding() {
 		?>
 		<div class="site-branding">
-		<?php 
-			hypermarket_site_title_or_logo(); 
-		?>
+			<?php hypermarket_site_title_or_logo(); ?>
 		</div>
 		<?php
 	}
@@ -227,50 +162,35 @@ if ( ! function_exists( 'hypermarket_site_title_or_logo' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_primary_navigation' ) ) {
+if ( ! function_exists( 'hypermarket_primary_menu' ) ) :
 	/**
-	 * Display primary navigation.
+	 * Display primary menu.
 	 *
+	 * @since   1.0.0
 	 * @return  void
 	 */
-	function hypermarket_primary_navigation() {
+	function hypermarket_primary_menu() {
 		?>
-		<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'hypermarket' ); ?>">
-			<button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false">
-				<span>
-				<?php 
-					echo esc_attr(
-						apply_filters( 
-							'hypermarket_menu_toggle_text',
-							__( 'Menu', 'hypermarket' ) 
-						) 
-					);  // WPCS: XSS ok.
-				?>
-				</span>
-			</button>
+		<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'hypermarket' ); ?>"  itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement" role="navigation">
 			<?php
 			wp_nav_menu(
 				array(
 					'theme_location'  => 'primary',
+					'container'       => 'div',
 					'container_class' => 'primary-navigation',
 				)
 			);
-					wp_nav_menu(
-						array(
-							'theme_location'  => 'handheld',
-							'container_class' => 'handheld-navigation',
-						)
-					);
 			?>
 		</nav><!-- #site-navigation -->
 		<?php
 	}
-}
+endif;
 
-if ( ! function_exists( 'hypermarket_skip_links' ) ) {
+if ( ! function_exists( 'hypermarket_skip_links' ) ) :
 	/**
 	 * Skip links
 	 *
+	 * @since   1.0.0
 	 * @return  void
 	 */
 	function hypermarket_skip_links() {
@@ -287,34 +207,33 @@ if ( ! function_exists( 'hypermarket_skip_links' ) ) {
 		</a>
 		<?php
 	}
-}
+endif;
 
-if ( ! function_exists( 'hypermarket_page_header' ) ) {
+if ( ! function_exists( 'hypermarket_page_header' ) ) :
 	/**
 	 * Display the page header
 	 *
+	 * @since   1.0.0
 	 * @return  void
 	 */
 	function hypermarket_page_header() {
-		if ( is_front_page() && hypermarket_is_fluid_template() ) {
-			return;
-		}
-
 		?>
 		<header class="entry-header">
-		<?php
-			hypermarket_post_thumbnail( 'full' );
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		?>
+			<?php
+			if ( ! is_singular( 'page' ) ) {
+				the_title( '<h1 class="entry-title">', '</h1>' );
+			}
+			?>
 		</header><!-- .entry-header -->
 		<?php
 	}
-}
+endif;
 
-if ( ! function_exists( 'hypermarket_page_content' ) ) {
+if ( ! function_exists( 'hypermarket_page_content' ) ) :
 	/**
 	 * Display the post content
 	 *
+	 * @since   1.0.0
 	 * @return  void
 	 */
 	function hypermarket_page_content() {
@@ -333,24 +252,122 @@ if ( ! function_exists( 'hypermarket_page_content' ) ) {
 		</div><!-- .entry-content -->
 		<?php
 	}
-}
+endif;
 
-if ( ! function_exists( 'hypermarket_post_meta' ) ) {
+if ( ! function_exists( 'hypermarket_post_header' ) ) :
 	/**
-	 * Display the post meta
+	 * Display the post header with a link to the single post.
 	 *
+	 * @since   1.0.0
 	 * @return  void
 	 */
-	function hypermarket_post_meta() {
-		if ( 'post' !== get_post_type() ) {
+	function hypermarket_post_header() {
+		?>
+		<header class="entry-header">
+			<?php
+			do_action( 'hypermarket_post_header_before' );
+
+			if ( is_single() ) {
+				the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
+			} else {
+				the_title( sprintf( '<h2 class="alpha entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
+			}
+
+			if ( 'post' === get_post_type() ) :
+				?>
+			<div class="entry-meta">
+				<?php
+					/**
+					 * Functions hooked in to `hypermarket_post_meta` action.
+					 *
+					 * @hooked  hypermarket_post_meta           - 10
+					 * @hooked  hypermarket_post_taxonomy       - 20
+					 */
+					do_action( 'hypermarket_post_meta' );
+				?>
+			</div>
+				<?php
+				/**
+				 * Functions hooked in to `hypermarket_post_header_after` action.
+				 *
+				 * @hooked  hypermarket_post_excerpt        - 10
+				 */
+				do_action( 'hypermarket_post_header_after' );
+			endif;
+			?>
+		</header><!-- .entry-header -->
+		<?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_post_excerpt' ) ) :
+	/**
+	 * Display the post excerpt.
+	 *
+	 * @since   1.0.0
+	 * @return  void
+	 */
+	function hypermarket_post_excerpt() {
+		// Bail early on single post view.
+		if ( is_single() ) {
 			return;
 		}
+		?>
+		<div class="entry-excerpt" itemprop="text">
+			<?php the_excerpt(); ?>
+		</div><!-- .entry-excerpt -->
+		<?php
+	}
+endif;
 
+if ( ! function_exists( 'hypermarket_post_content' ) ) :
+	/**
+	 * Display the post content with a link to the single post.
+	 *
+	 * @since   1.0.0
+	 * @return  void
+	 */
+	function hypermarket_post_content() {
+		?>
+		<div class="entry-content" itemprop="text">
+			<?php
+			do_action( 'hypermarket_post_content_before' );
+
+			the_content(
+				sprintf(
+					/* translators: %s: post title */
+					__( 'Continue reading %s', 'hypermarket' ),
+					'<span class="screen-reader-text">' . get_the_title() . '</span>'
+				)
+			);
+
+			do_action( 'hypermarket_post_content_after' );
+
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . __( 'Pages:', 'hypermarket' ),
+					'after'  => '</div>',
+				)
+			);
+			?>
+		</div><!-- .entry-content -->
+		<?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_post_meta' ) ) :
+	/**
+	 * Display the post meta.
+	 *
+	 * @since    1.0.0
+	 * @return   void
+	 */
+	function hypermarket_post_meta() {
 		// Posted on.
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+			$time_string = '<time class="entry-date published" datetime="%1$s" itemprop="datePublished">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 		}
 
 		$time_string = sprintf(
@@ -364,32 +381,12 @@ if ( ! function_exists( 'hypermarket_post_meta' ) ) {
 		$output_time_string = sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>', esc_url( get_permalink() ), $time_string );
 		$posted_on          = '
 			<span class="posted-on">' .
-			/* translators: %s: post date */
-			sprintf( __( 'Posted on %s', 'hypermarket' ), $output_time_string ) .
+			/* translators: 1: Open span tag, 2: Close span tag, 3: Output time. */
+			sprintf( esc_html__( '%1$sPosted on%2$s %3$s', 'hypermarket' ), '<span class="screen-reader-text">', '</span>', $output_time_string ) .
 			'</span>';
 
-		// Author.
-		$author = sprintf(
-			'<span class="post-author">%1$s <a href="%2$s" class="url fn" rel="author">%3$s</a></span>',
-			__( 'by', 'hypermarket' ),
-			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_html( get_the_author() )
-		);
-
-		// Comments.
-		$comments = '';
-
-		if ( ! post_password_required() && ( comments_open() || 0 !== intval( get_comments_number() ) ) ) {
-			$comments_number = get_comments_number_text( __( 'Leave a comment', 'hypermarket' ), __( '1 Comment', 'hypermarket' ), __( '% Comments', 'hypermarket' ) );
-			$comments        = sprintf(
-				'<span class="post-comments">&mdash; <a href="%1$s">%2$s</a></span>',
-				esc_url( get_comments_link() ),
-				$comments_number
-			);
-		}
-
 		echo wp_kses(
-			sprintf( '%1$s %2$s %3$s', $posted_on, $author, $comments ),
+			$posted_on,
 			array(
 				'span' => array(
 					'class' => array(),
@@ -406,12 +403,13 @@ if ( ! function_exists( 'hypermarket_post_meta' ) ) {
 			)
 		);
 	}
-}
+endif;
 
-if ( ! function_exists( 'hypermarket_edit_post_link' ) ) {
+if ( ! function_exists( 'hypermarket_edit_post_link' ) ) :
 	/**
-	 * Display the edit link
+	 * Display the edit link.
 	 *
+	 * @since   1.0.0
 	 * @return  void
 	 */
 	function hypermarket_edit_post_link() {
@@ -432,12 +430,13 @@ if ( ! function_exists( 'hypermarket_edit_post_link' ) ) {
 			'</div>'
 		);
 	}
-}
+endif;
 
-if ( ! function_exists( 'hypermarket_post_taxonomy' ) ) {
+if ( ! function_exists( 'hypermarket_post_taxonomy' ) ) :
 	/**
-	 * Display the post taxonomies
+	 * Display the post taxonomies.
 	 *
+	 * @since   1.0.0
 	 * @return  void
 	 */
 	function hypermarket_post_taxonomy() {
@@ -453,8 +452,9 @@ if ( ! function_exists( 'hypermarket_post_taxonomy' ) ) {
 			?>
 				<div class="cat-links">
 				<?php
-				echo esc_html( _n( 'Category:', 'Categories:', count( get_the_category() ), 'hypermarket' ) ); // WPCS: XSS ok.
-				echo wp_kses_post( $categories_list ); // WPCS: XSS ok.
+				/* translators: 1: Open span tag, 2: Close span tag. */
+				printf( _n( '%1$sCategory:%2$s', '%1$sCategories:%2$s', count( get_the_category() ), 'hypermarket' ), '<span class="screen-reader-text">', '</span>' ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo wp_kses_post( $categories_list ); 
 				?>
 				</div>
 				<?php
@@ -462,10 +462,11 @@ if ( ! function_exists( 'hypermarket_post_taxonomy' ) ) {
 
 		if ( $tags_list ) :
 			?>
-				<div class="tags-links">
+				<div class="tags-links screen-reader-text">
 				<?php 
-				echo esc_html( _n( 'Tag:', 'Tags:', count( get_the_tags() ), 'hypermarket' ) ); // WPCS: XSS ok.
-				echo wp_kses_post( $tags_list ); // WPCS: XSS ok.
+				/* translators: 1: Open span tag, 2: Close span tag. */
+				printf( _n( '%1$sTag:%2$s', '%1$sTags:%2$s', count( get_the_tags() ), 'hypermarket' ), '<span class="screen-reader-text">', '</span>' ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo wp_kses_post( $tags_list ); 
 				?>
 				</div>
 				<?php 
@@ -474,70 +475,120 @@ if ( ! function_exists( 'hypermarket_post_taxonomy' ) ) {
 		</aside>
 		<?php
 	}
-}
+endif;
 
-if ( ! function_exists( 'hypermarket_paging_nav' ) ) {
+if ( ! function_exists( 'hypermarket_paging_nav' ) ) :
 	/**
 	 * Display navigation to next/previous set of posts when applicable.
 	 *
+	 * @since   1.0.0
 	 * @return  void
 	 */
 	function hypermarket_paging_nav() {
 		$args = array(
 			'type'      => 'list',
-			'next_text' => _x( 'Next', 'Next post', 'hypermarket' ),
-			'prev_text' => _x( 'Previous', 'Previous post', 'hypermarket' ),
+			/* translators: 1: Open span tag, 2: Close span tag. */
+			'next_text' => sprintf( _x( '%1$sNext%2$s', 'Next post', 'hypermarket' ), '<span class="screen-reader-text">', '</span>' ),
+			/* translators: 1: Open span tag, 2: Close span tag. */
+			'prev_text' => sprintf( _x( '%1$sPrevious%2$s', 'Previous post', 'hypermarket' ), '<span class="screen-reader-text">', '</span>' ),
 		);
 
 		the_posts_pagination( $args );
 	}
-}
+endif;
 
-if ( ! function_exists( 'hypermarket_post_nav' ) ) {
+if ( ! function_exists( 'hypermarket_post_nav' ) ) :
 	/**
 	 * Display navigation to next/previous post when applicable.
 	 *
+	 * @since    1.0.0
 	 * @return  void
 	 */
 	function hypermarket_post_nav() {
 		$args = array(
+			/* translators: 1: Open span tag, 2: Close span tag. */
 			'next_text' => sprintf( _x( '%1$sNext post:%2$s', 'Next post', 'hypermarket' ), '<span class="screen-reader-text">', ' </span>%title' ),
+			/* translators: 1: Open span tag, 2: Close span tag. */
 			'prev_text' => sprintf( _x( '%1$sPrevious post:%2$s', 'Previous post', 'hypermarket' ), '<span class="screen-reader-text">', ' </span>%title' ),
 		);
 
 		the_post_navigation( $args );
 	}
-}
+endif;
 
-if ( ! function_exists( 'hypermarket_get_sidebar' ) ) {
+if ( ! function_exists( 'hypermarket_post_thumbnail' ) ) :
 	/**
-	 * Display the sidebar
+	 * Display post thumbnail.
 	 *
+	 * @since   1.0.0
 	 * @return  void
 	 */
-	function hypermarket_get_sidebar() {
-		get_sidebar();
-	}
-}
+	function hypermarket_post_thumbnail() {
+		// Determines whether the query is for an existing single post of any post type.
+		if ( is_singular() ) : 
+			?>
 
-if ( ! function_exists( 'hypermarket_post_thumbnail' ) ) {
+			<div class="post-thumbnail" itemprop="ImageObject">
+				<?php the_post_thumbnail( 'post-thumbnail' ); ?>
+			</div><!-- .post-thumbnail -->
+
+			<?php 
+		else : 
+			?>
+
+			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1" itemprop="ImageObject">
+				<?php
+				the_post_thumbnail(
+					'post-thumbnail',
+					array(
+						'alt' => the_title_attribute(
+							array(
+								'echo' => false,
+							)
+						),
+					)
+				);
+				?>
+			</a>
+			
+			<?php
+		endif; // End is_singular().
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_div' ) ) :
 	/**
-	 * Display post thumbnail
+	 * Open div.
 	 *
-	 * @param   string $size   The post thumbnail size.
+	 * @since   1.0.0
 	 * @return  void
 	 */
-	function hypermarket_post_thumbnail( $size = 'full' ) {
-		if ( has_post_thumbnail() ) {
-			the_post_thumbnail( $size );
-		}
+	function hypermarket_div() {
+		?>
+		<div class="div">
+		<?php
 	}
-}
+endif;
 
-if ( ! function_exists( 'hypermarket_container' ) ) {
+if ( ! function_exists( 'hypermarket_div_close' ) ) :
 	/**
-	 * The container
+	 * Close div.
 	 *
+	 * @since   1.0.0
+	 * @return  void
+	 */
+	function hypermarket_div_close() {
+		?>
+		</div>
+		<?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_container' ) ) :
+	/**
+	 * The container.
+	 *
+	 * @since   1.0.0
 	 * @return  void
 	 */
 	function hypermarket_container() {
@@ -545,17 +596,4 @@ if ( ! function_exists( 'hypermarket_container' ) ) {
 		<div class="col-full">
 		<?php
 	}
-}
-
-if ( ! function_exists( 'hypermarket_container_close' ) ) {
-	/**
-	 * The container close
-	 *
-	 * @return  void
-	 */
-	function hypermarket_container_close() {
-		?>
-		</div>
-		<?php
-	}
-}
+endif;
