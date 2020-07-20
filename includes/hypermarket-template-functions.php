@@ -11,6 +11,7 @@ if ( ! function_exists( 'hypermarket_display_comments' ) ) :
 	/**
 	 * Display comments
 	 *
+	 * @since   1.0.0
 	 * @return  void
 	 */
 	function hypermarket_display_comments() {
@@ -73,6 +74,7 @@ if ( ! function_exists( 'hypermarket_credit' ) ) :
 	/**
 	 * Display the theme credit.
 	 *
+	 * @since   1.0.0
 	 * @return  void
 	 */
 	function hypermarket_credit() {
@@ -123,6 +125,7 @@ if ( ! function_exists( 'hypermarket_site_branding' ) ) :
 	/**
 	 * Site branding wrapper and display
 	 *
+	 * @since   1.0.0
 	 * @return  void
 	 */
 	function hypermarket_site_branding() {
@@ -138,6 +141,7 @@ if ( ! function_exists( 'hypermarket_site_title_or_logo' ) ) :
 	/**
 	 * Display the site title or logo
 	 *
+	 * @since   1.0.0
 	 * @param   bool $echo   Echo the string or return it.
 	 * @return  string
 	 */
