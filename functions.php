@@ -27,33 +27,30 @@ define( 'HYPERMARKET_THEME_URI', $hypermarket_theme->get( 'ThemeURI' ) );
 $hypermarket = (object) array(
 	'version'    => HYPERMARKET_THEME_VERSION,
 	'slug'       => 'hypermarket',
-	'main'       => require get_parent_theme_file_path( '/inc/class-hypermarket.php' ),
-	// 'customizer' => require get_parent_theme_file_path( '/inc/customizer/class-hypermarket-customizer.php' )
+	'main'       => require get_parent_theme_file_path( '/includes/class-hypermarket.php' ),
 );
 
-require get_parent_theme_file_path( '/inc/hypermarket-functions.php' );
-require get_parent_theme_file_path( '/inc/hypermarket-template-hooks.php' );
-require get_parent_theme_file_path( '/inc/hypermarket-template-functions.php' );
+require get_parent_theme_file_path( '/includes/hypermarket-functions.php' );
+require get_parent_theme_file_path( '/includes/hypermarket-template-hooks.php' );
+require get_parent_theme_file_path( '/includes/hypermarket-template-functions.php' );
 
 if ( class_exists( 'Jetpack' ) ) {
-	$hypermarket->jetpack = require get_parent_theme_file_path( '/inc/jetpack/class-hypermarket-jetpack.php' );
+	$hypermarket->jetpack = require get_parent_theme_file_path( '/includes/jetpack/class-hypermarket-jetpack.php' );
 }
 
 if ( hypermarket_is_woocommerce_activated() ) {
-	$hypermarket->woocommerce = require get_parent_theme_file_path( '/inc/woocommerce/class-hypermarket-woocommerce.php' );
-	// $hypermarket->woocommerce_customizer = require get_parent_theme_file_path( '/inc/woocommerce/class-hypermarket-woocommerce-customizer.php' );
+	$hypermarket->woocommerce = require get_parent_theme_file_path( '/includes/woocommerce/class-hypermarket-woocommerce.php' );
 
-	require get_parent_theme_file_path( '/inc/woocommerce/class-hypermarket-woocommerce-adjacent-products.php' );
-	require get_parent_theme_file_path( '/inc/woocommerce/hypermarket-woocommerce-template-hooks.php' );
-	require get_parent_theme_file_path( '/inc/woocommerce/hypermarket-woocommerce-template-functions.php' );
-	// require get_parent_theme_file_path( '/inc/woocommerce/hypermarket-woocommerce-functions.php' );
+	require get_parent_theme_file_path( '/includes/woocommerce/class-hypermarket-woocommerce-adjacent-products.php' );
+	require get_parent_theme_file_path( '/includes/woocommerce/hypermarket-woocommerce-template-hooks.php' );
+	require get_parent_theme_file_path( '/includes/woocommerce/hypermarket-woocommerce-template-functions.php' );
+	require get_parent_theme_file_path( '/includes/woocommerce/hypermarket-woocommerce-functions.php' );
 }
 
 if ( is_admin() ) {
-	// $hypermarket->admin = require get_parent_theme_file_path( '/inc/admin/class-hypermarket-admin.php' );
-	$hypermarket->tgmpa = require get_parent_theme_file_path( '/inc/tgmpa/class-hypermarket-tgmpa-register.php' );
+	$hypermarket->tgmpa = require get_parent_theme_file_path( '/includes/tgmpa/class-hypermarket-tgmpa-register.php' );
 
-	require get_parent_theme_file_path( '/inc/tgmpa/class-tgm-plugin-activation.php' );
+	require get_parent_theme_file_path( '/includes/tgmpa/class-tgm-plugin-activation.php' );
 }
 
 /**
