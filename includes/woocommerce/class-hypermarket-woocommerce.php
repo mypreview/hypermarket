@@ -141,7 +141,6 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 * Product gallery thumbnail columns
 		 *
 		 * @since   1.0.0
-		 * @return  integer             Number of columns
 		 * @return  integer
 		 */
 		public function thumbnail_columns() {

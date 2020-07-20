@@ -262,7 +262,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			/**
 			 * Enqueue editor styles.
 			 */
-			add_editor_style( array( sprintf( '%s/legacy-editor.css', HYPERMARKET_THEME_DIST_PATH ), $this->google_fonts() ) );
+			add_editor_style( array( 'dist/legacy-editor.css', $this->google_fonts() ) );
 		}
 
 		/**
@@ -298,7 +298,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 				'description' => '',
 			);
 
-			$rows    = intval( apply_filters( 'hypermarket_footer_widget_rows', 2 ) );
+			$rows    = intval( apply_filters( 'hypermarket_footer_widget_rows', 1 ) );
 			$regions = intval( apply_filters( 'hypermarket_footer_widget_columns', 3 ) );
 
 			for ( $row = 1; $row <= $rows; $row++ ) {
@@ -354,7 +354,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 				 * 'hypermarket_footer_4_widget_tags' -> (Row 2)
 				 */
 				$filter_hook = sprintf( 'hypermarket_%s_widget_tags', $sidebar );
-				$widget_tags = apply_filters( $filter_hook, $widget_tags );
+				$widget_tags = apply_filters( $filter_hook, $widget_tags ); //phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 
 				if ( is_array( $widget_tags ) ) {
 					register_sidebar( $args + $widget_tags );
@@ -368,6 +368,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * @return  void
 		 */
 		public function enqueue() {
+			global $hypermarket;
 			$public_asset_name = 'public';
 			$public_asset      = hypermarket_get_file_assets( $public_asset_name );
 
@@ -394,6 +395,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * @return  void
 		 */
 		public function enqueue_editor() {
+			global $hypermarket;
 			$editor_asset_name = 'editor';
 			$editor_asset      = hypermarket_get_file_assets( $editor_asset_name );
 
@@ -427,6 +429,8 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * @return  array   $urls            URLs to print for resource hints.
 		 */
 		public function preconnect_gstatic( $urls, $relation_type ) {
+			global $hypermarket;
+
 			if ( wp_style_is( sprintf( '%s-fonts', $hypermarket->slug ), 'queue' ) && 'preconnect' === $relation_type ) {
 				$urls[] = array(
 					'crossorigin',
@@ -444,7 +448,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * @return  array
 		 */
 		public function body_classes( $classes ) {
-			// The list of WordPress global browser checks
+			// The list of WordPress global browser checks.
 			$browsers = apply_filters( 
 				'hypermarket_browser_names',
 				array( 
@@ -492,13 +496,14 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 				$classes[] = 'blog-archive';
 			}
 
-			// Check the globals to see if the browser is in there and return a string with the match
+			// Check the globals to see if the browser is in there and return a string with the match.
 			if ( is_array( $browsers ) && ! empty( $browsers ) ) {
-				// Search and filter the classnames using a callback function
+				// Search and filter the classnames using a callback function.
 				$classes[] = join(
 					' ',
 					array_filter(
 						$browsers,
+						// phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
 						function( $browser ) {
 							return $GLOBALS[ $browser ];
 						} 
@@ -525,14 +530,14 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		}
 
 		/**
-		 * Replaces "[...]" (appended to automatically generated excerpts) with `...`
+		 * Replaces "[...]" (appended to automatically generated excerpts) with `...`.
 		 *
 		 * @param   string $excerpt    Excerpt more string.
 		 * @return  string
 		 */
-		public function custom_excerpt_more( $more ) {
+		public function custom_excerpt_more( $excerpt ) {
 			if ( is_admin() ) {
-				return $more;
+				return $excerpt;
 			}
 
 			return apply_filters( 'hypermarket_custom_excerpt_more', '&hellip;' );

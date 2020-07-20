@@ -57,3 +57,114 @@ if ( ! function_exists( 'hypermarket_get_next_product' ) ) :
 		return $product->get_product();
 	}
 endif;
+
+if ( ! function_exists( 'hypermarket_myaccount_link' ) ) :
+	/**
+	 * Myaccount page link.
+	 * Displayed a link to the myaccount page.
+	 *
+	 * @since   1.0.0
+	 * @return  void
+	 */
+	function hypermarket_myaccount_link() {
+		/* translators: 1: Open anchor tag, 2: Close anchor tag. */
+		printf( esc_html__( '%1$sMy Account%2$s', 'hypermarket' ), sprintf( '<a href="%s" class="%s" title="%s">', esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ), 'site-myaccount', esc_attr__( 'View your account page', 'hypermarket' ) ), '</a>' );
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_product_search' ) ) :
+	/**
+	 * Display product search
+	 *
+	 * @since   1.0.0
+	 * @return  void
+	 */
+	function hypermarket_product_search() {
+		?>
+		<div class="site-search">
+		<?php 
+			/* translators: 1: Open anchor tag, 2: Close anchor tag. */
+			printf( esc_html__( '%1$sSearch%2$s', 'hypermarket' ), '<a href="#">', '</a>' );
+			the_widget( 'WC_Widget_Product_Search', 'title=' ); 
+		?>
+		</div>
+		<?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_cart' ) ) :
+	/**
+	 * Display Header Cart.
+	 *
+	 * @since   1.0.0
+	 * @return  void
+	 */
+	function hypermarket_cart() {
+		if ( is_cart() ) {
+			$class = 'current-menu-item';
+		} else {
+			$class = '';
+		}
+		?>
+		<div class="site-header__cart">
+			<ul class="menu">
+				<li class="<?php echo esc_attr( $class ); ?>">
+					<?php hypermarket_cart_link(); ?>
+				</li>
+				<li>
+					<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
+				</li>
+			</ul>
+		</div>
+		<?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_promoted_products' ) ) :
+	/**
+	 * Featured and On-Sale Products
+	 * Check for featured products then on-sale products and use the appropiate shortcode.
+	 * If neither exist, it can fallback to show recently added products.
+	 *
+	 * @since   1.0.0
+	 * @param   integer $per_page           Total products to display.
+	 * @param   integer $columns            Columns to arrange products in to.
+	 * @param   boolean $recent_fallback    Should the function display recent products as a fallback when there are no featured or on-sale products?.
+	 * @return  void
+	 */
+	function hypermarket_promoted_products( $per_page = '2', $columns = '2', $recent_fallback = true ) {
+		if ( hypermarket_is_woocommerce_activated() ) {
+			if ( wc_get_featured_product_ids() ) {
+				printf( esc_html__( '%1$sFeatured Products%2$s', 'hypermarket' ), '<h2>', '</h2>' );
+
+				echo hypermarket_do_shortcode(
+					'featured_products',
+					array(
+						'per_page' => $per_page,
+						'columns'  => $columns,
+					)
+				); 
+			} elseif ( wc_get_product_ids_on_sale() ) {
+				printf( esc_html__( '%1$sOn Sale Now%2$s', 'hypermarket' ), '<h2>', '</h2>' );
+
+				echo hypermarket_do_shortcode(
+					'sale_products',
+					array(
+						'per_page' => $per_page,
+						'columns'  => $columns,
+					)
+				); 
+			} elseif ( $recent_fallback ) {
+				printf( esc_html__( '%1$sNew In Store%2$s', 'hypermarket' ), '<h2>', '</h2>' );
+
+				echo hypermarket_do_shortcode(
+					'recent_products',
+					array(
+						'per_page' => $per_page,
+						'columns'  => $columns,
+					)
+				); 
+			}
+		}
+	}
+endif;

@@ -83,9 +83,10 @@ if ( ! class_exists( 'Hypermarket_WooCommerce_Adjacent_Products' ) ) :
 			global $post;
 			$product               = false;
 			$this->current_product = $post->ID;
+			$adjacent              = $this->_get_adjacent();
 
 			// Try to get a valid product via `get_adjacent_post()`.
-			while ( $adjacent = $this->_get_adjacent() ) {
+			while ( $adjacent ) {
 				$product = wc_get_product( $adjacent->ID );
 
 				if ( $product && $product->is_visible() ) {

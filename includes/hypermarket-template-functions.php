@@ -31,7 +31,7 @@ if ( ! function_exists( 'hypermarket_footer_widgets' ) ) :
 	 */
 	function hypermarket_footer_widgets() {
 		$rows    = intval( apply_filters( 'hypermarket_footer_widget_rows', 1 ) );
-		$regions = intval( apply_filters( 'hypermarket_footer_widget_columns', 5 ) );
+		$regions = intval( apply_filters( 'hypermarket_footer_widget_columns', 3 ) );
 
 		for ( $row = 1; $row <= $rows; $row++ ) :
 			// Defines the number of active columns in this footer row.
@@ -78,10 +78,12 @@ if ( ! function_exists( 'hypermarket_credit' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_credit() {
+		global $hypermarket;
 		$links_output = '';
 
 		if ( apply_filters( 'hypermarket_credit_link', true ) ) {
-			$links_output .= sprintf( '<a href="%s" target="_blank" title="%s" rel="author">%s</a>.', esc_url( HYPERMARKET_THEME_URI ), esc_attr__( 'Proudly powered by WordPress', 'hypermarket' ), sprintf( esc_html__( 'Built with %s &amp; WooCommerce', 'hypermarket' ), HYPERMARKET_THEME_NAME ) );
+			//phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+			$links_output .= sprintf( '<a href="%s" target="_blank" title="%s" rel="author">%s</a>.', esc_url( $hypermarket->theme_uri ), esc_attr__( 'Proudly powered by WordPress', 'hypermarket' ), sprintf( esc_html__( 'Built with %s &amp; WooCommerce', 'hypermarket' ), $hypermarket->name ) );
 		}
 
 		if ( apply_filters( 'hypermarket_privacy_policy_link', true ) && function_exists( 'the_privacy_policy_link' ) ) {
@@ -100,7 +102,7 @@ if ( ! function_exists( 'hypermarket_credit' ) ) :
 			?>
 				<br />
 				<?php
-				echo wp_kses_post( $links_output ); // WPCS: XSS ok.
+				echo wp_kses_post( $links_output ); 
 			endif; 
 		?>
 		</div><!-- .site-info -->
@@ -162,7 +164,7 @@ if ( ! function_exists( 'hypermarket_site_title_or_logo' ) ) :
 			return $html;
 		}
 
-		echo $html; // WPCS: XSS ok.
+		echo $html; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 endif;
 
@@ -553,8 +555,7 @@ if ( ! function_exists( 'hypermarket_post_thumbnail' ) ) :
 					)
 				);
 				?>
-			</a>
-			
+			</a>			
 			<?php
 		endif; // End is_singular().
 	}

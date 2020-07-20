@@ -9,6 +9,7 @@
  *
  * @package    hypermarket
  * @subpackage hypermarket/includes/tgmpa
+ * @phpcs:disable
  */
 
 // Exit if accessed directly.
