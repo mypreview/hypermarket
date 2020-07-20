@@ -85,7 +85,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce_Adjacent_Products' ) ) :
 			$this->current_product = $post->ID;
 
 			// Try to get a valid product via `get_adjacent_post()`.
-			while ( $adjacent = $this->get_adjacent() ) {
+			while ( $adjacent = $this->_get_adjacent() ) {
 				$product = wc_get_product( $adjacent->ID );
 
 				if ( $product && $product->is_visible() ) {
@@ -101,33 +101,13 @@ if ( ! class_exists( 'Hypermarket_WooCommerce_Adjacent_Products' ) ) :
 			}
 
 			// No valid product found; Query WC for first/last product.
-			$product = $this->query_wc();
+			$product = $this->_query_wc();
 
 			if ( $product ) {
 				return $product;
 			}
 
 			return false;
-		}
-
-		/**
-		 * Get adjacent post.
-		 *
-		 * @since   1.0.0
-		 * @return  WP_POST|false      Post object if successful. False if no valid post is found.
-		 */
-		private function get_adjacent() {
-			global $post;
-
-			$direction = $this->previous ? 'previous' : 'next';
-
-			add_filter( sprintf( 'get_%s_post_where', $direction ), array( $this, 'filter_post_where' ) );
-
-			$adjacent = get_adjacent_post( $this->in_same_term, $this->excluded_terms, $this->previous, $this->taxonomy );
-
-			remove_filter( sprintf( 'get_%s_post_where', $direction ), array( $this, 'filter_post_where' ) );
-
-			return $adjacent;
 		}
 
 		/**
@@ -147,12 +127,34 @@ if ( ! class_exists( 'Hypermarket_WooCommerce_Adjacent_Products' ) ) :
 		}
 
 		/**
+		 * Get adjacent post.
+		 *
+		 * @since   1.0.0
+		 * @return  WP_POST|false      Post object if successful. False if no valid post is found.
+		 * @phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
+		 */
+		private function _get_adjacent() {
+			global $post;
+
+			$direction = $this->previous ? 'previous' : 'next';
+
+			add_filter( sprintf( 'get_%s_post_where', $direction ), array( $this, 'filter_post_where' ) );
+
+			$adjacent = get_adjacent_post( $this->in_same_term, $this->excluded_terms, $this->previous, $this->taxonomy );
+
+			remove_filter( sprintf( 'get_%s_post_where', $direction ), array( $this, 'filter_post_where' ) );
+
+			return $adjacent;
+		}
+
+		/**
 		 * Query WooCommerce for either the first or last products.
 		 *
 		 * @since   1.0.0
 		 * @return  WC_Product|false      Post object if successful. False if no valid post is found.
+		 * @phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
 		 */
-		private function query_wc() {
+		private function _query_wc() {
 			global $post;
 			$args = array(
 				'limit'      => 2,
