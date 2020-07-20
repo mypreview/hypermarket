@@ -7,26 +7,36 @@
  * It is used to display a page when nothing more specific matches a query.
  * E.g., it puts together the home page when no home.php file exists.
  *
- * @link 		https://developer.wordpress.org/themes/basics/template-hierarchy/
- * @since 	    2.0.0
- * @package 	hypermarket
- * @author  	MyPreview (Github: @mahdiyazdani, @mypreview)
+ * @link        https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link        https://www.upwork.com/fl/mahdiyazdani
+ * @author      Mahdi Yazdani <mahdiyazdani@mail.com>
+ * @since       1.0.0
+ *
+ * @package     hypermarket
  */
 
 get_header(); 
 
-	?><div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main"><?php
+?><div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+		<?php
 		
-			if ( have_posts() ) :
-				get_template_part( 'loop' );
-			else :
-				get_template_part( 'template-parts/content', 'none' );
-			endif;
+		if ( have_posts() ) :
+			get_template_part( 'loop' );
+		else :
+			get_template_part( 'template-parts/content', 'none' );
+		endif;
 		
-		?></main><!-- #main -->
-	</div><!-- #primary --><?php
+		?>
+		</main><!-- #main -->
+	</div><!-- #primary -->
+<?php
 
-	do_action( 'hypermarket_sidebar' );
+/**
+ * Functions hooked into `hypermarket_sidebar` action
+ *
+ * @hooked  hypermarket_get_sidebar         - 10
+ */
+do_action( 'hypermarket_sidebar' );
 
 get_footer();

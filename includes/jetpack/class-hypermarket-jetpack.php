@@ -2,15 +2,15 @@
 /**
  * Hypermarket Jetpack Class
  *
- * @since 	    2.0.0
- * @package 	hypermarket
- * @author  	MyPreview (Github: @mahdiyazdani, @mypreview)
+ * @since       2.0.0
+ * @package     hypermarket
+ * @author      MyPreview (Github: @mahdiyazdani, @mypreview)
  */
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; 
-} // End If Statement
+}
 
 if ( ! class_exists( 'Hypermarket_Jetpack' ) ) :
 
@@ -31,31 +31,33 @@ if ( ! class_exists( 'Hypermarket_Jetpack' ) ) :
 		/**
 		 * Theme support for content options.
 		 * 
-		 * @return 	void
+		 * @return  void
 		 */
 		public function setup() {
 			add_theme_support( 
-				'jetpack-content-options', apply_filters( 
-					'hypermarket_jetpack_content_args', array(
-						'blog-display' => array( 'content', 'excerpt' ),
-						'author-bio' 		 => true,
+				'jetpack-content-options',
+				apply_filters( 
+					'hypermarket_jetpack_content_args',
+					array(
+						'blog-display'       => array( 'content', 'excerpt' ),
+						'author-bio'         => true,
 						'author-bio-default' => true,
-						'post-details' => array(
+						'post-details'       => array(
 							'stylesheet' => 'hypermarket-style',
-							'date' 		 => '.posted-on',
+							'date'       => '.posted-on',
 							'categories' => '.cat-links',
-							'tags' 		 => '.tags-links',
-							'author' 	 => '.byline',
-							'comment' 	 => '.comments-link'
+							'tags'       => '.tags-links',
+							'author'     => '.byline',
+							'comment'    => '.comments-link',
 						),
-						'featured-images' => array(
-							'archive' 	  	  => true,
+						'featured-images'    => array(
+							'archive'         => true,
 							'archive-default' => true,
-							'post' 			  => true,
-							'post-default' 	  => true,
-							'page' 			  => true,
-							'page-default' 	  => true
-						) 
+							'post'            => true,
+							'post-default'    => true,
+							'page'            => true,
+							'page-default'    => true,
+						), 
 					) 
 				) 
 			);

@@ -11,28 +11,22 @@
  *
  * For more information on hooks, actions, and filters,
  *
- * @see 		https://codex.wordpress.org/Theme_Development
- * @see 		https://codex.wordpress.org/Plugin_API
- * @since 	    2.0.0
- * @package 	hypermarket
- * @author  	MyPreview (Github: @mahdiyazdani, @mypreview)
+ * @see         https://codex.wordpress.org/Theme_Development
+ * @see         https://codex.wordpress.org/Plugin_API
+ * @author      Mahdi Yazdani <mahdiyazdani@mail.com>
+ * @since       2.0.0
+ *
+ * @package     hypermarket
  */
 
 // Assign the "Hypermarket" info to constants.
-$this_theme = wp_get_theme( 'hypermarket' );
-define( 'HYPERMARKET_THEME_NAME', $this_theme->get( 'Name' ) );
-define( 'HYPERMARKET_THEME_URI', $this_theme->get( 'ThemeURI' ) );
-define( 'HYPERMARKET_THEME_AUTHOR', $this_theme->get( 'Author' ) );
-define( 'HYPERMARKET_THEME_AUTHOR_URI', $this_theme->get( 'AuthorURI' ) );
-define( 'HYPERMARKET_THEME_VERSION', $this_theme->get( 'Version' ) );
-define( 'HYPERMARKET_THEME_DIST_PATH', 'assets/dist' );
+$hypermarket_theme = wp_get_theme( 'hypermarket' );
+define( 'HYPERMARKET_THEME_NAME', $hypermarket_theme->get( 'Name' ) );
+define( 'HYPERMARKET_THEME_URI', $hypermarket_theme->get( 'ThemeURI' ) );
 
 $hypermarket = (object) array(
 	'version'    => HYPERMARKET_THEME_VERSION,
-
-	/**
-	 * Initialize all the things.
-	 */
+	'slug'       => 'hypermarket',
 	'main'       => require get_parent_theme_file_path( '/inc/class-hypermarket.php' ),
 	// 'customizer' => require get_parent_theme_file_path( '/inc/customizer/class-hypermarket-customizer.php' )
 );
@@ -43,24 +37,42 @@ require get_parent_theme_file_path( '/inc/hypermarket-template-functions.php' );
 
 if ( class_exists( 'Jetpack' ) ) {
 	$hypermarket->jetpack = require get_parent_theme_file_path( '/inc/jetpack/class-hypermarket-jetpack.php' );
-} // End If Statement
+}
 
 if ( hypermarket_is_woocommerce_activated() ) {
-	$hypermarket->woocommerce            = require get_parent_theme_file_path( '/inc/woocommerce/class-hypermarket-woocommerce.php' );
+	$hypermarket->woocommerce = require get_parent_theme_file_path( '/inc/woocommerce/class-hypermarket-woocommerce.php' );
 	// $hypermarket->woocommerce_customizer = require get_parent_theme_file_path( '/inc/woocommerce/class-hypermarket-woocommerce-customizer.php' );
 
 	require get_parent_theme_file_path( '/inc/woocommerce/class-hypermarket-woocommerce-adjacent-products.php' );
 	require get_parent_theme_file_path( '/inc/woocommerce/hypermarket-woocommerce-template-hooks.php' );
 	require get_parent_theme_file_path( '/inc/woocommerce/hypermarket-woocommerce-template-functions.php' );
 	// require get_parent_theme_file_path( '/inc/woocommerce/hypermarket-woocommerce-functions.php' );
-} // End If Statement
+}
 
 if ( is_admin() ) {
 	// $hypermarket->admin = require get_parent_theme_file_path( '/inc/admin/class-hypermarket-admin.php' );
 	$hypermarket->tgmpa = require get_parent_theme_file_path( '/inc/tgmpa/class-hypermarket-tgmpa-register.php' );
 
 	require get_parent_theme_file_path( '/inc/tgmpa/class-tgm-plugin-activation.php' );
-} // End If Statement
+}
+
+/**
+ * Begins execution of the theme.
+ *
+ * Since everything within the theme is registered via hooks,
+ * then kicking off the theme from this point in the file does
+ * not affect the page life cycle.
+ *
+ * @since    1.0.0
+ */
+function hypermarket_run() {
+	$theme = new Hypermarket();
+	// Check for WooCommerce before initialization of the class.
+	if ( hypermarket_is_woocommerce_activated() ) {
+		$woocommerce = new Hypermarket_WooCommerce();
+	}
+}
+hypermarket_run();
 
 /**
  * Note: Do not add any custom code here!

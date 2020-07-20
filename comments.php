@@ -4,10 +4,12 @@
  * This is the template that displays the area of the page that contains both 
  * the current comments and the comment form.
  *
- * @link 		https://developer.wordpress.org/themes/basics/template-hierarchy/
- * @since 	    2.0.0
- * @package 	hypermarket
- * @author  	MyPreview (Github: @mahdiyazdani, @mypreview)
+ * @link        https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link        https://www.upwork.com/fl/mahdiyazdani
+ * @author      Mahdi Yazdani <mahdiyazdani@mail.com>
+ * @since       2.0.0
+ *
+ * @package     hypermarket
  */
 
 /*
@@ -17,57 +19,65 @@
  */
 if ( post_password_required() ) {
 	return;
-} // End If Statement
+}
+?>
 
-?><section id="comments" class="comments-area" aria-label="<?php esc_html_e( 'Post Comments', 'hypermarket' ); ?>"><?php
+<div id="comments" class="comments-area">
 
+	<?php
+	// You can start editing here -- including this comment!
 	if ( have_comments() ) :
+		?>
+		<h2 class="comments-title">
+			<?php
+			$hypermarket_comment_count = get_comments_number();
+			if ( '1' === $hypermarket_comment_count ) {
+				printf(
+					/* translators: 1: title. */
+					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'hypermarket' ),
+					sprintf( '<span>%s</span>', wp_kses_post( get_the_title() ) )
+				);
+			} else {
+				printf( 
+					/* translators: 1: comment count number, 2: title. */
+					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $hypermarket_comment_count, 'comments title', 'hypermarket' ) ),
+					number_format_i18n( $hypermarket_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					sprintf( '<span>%s</span>', wp_kses_post( get_the_title() ) )
+				);
+			}
+			?>
+		</h2><!-- .comments-title -->
 
-		?><h2 class="comments-title"><?php
+		<?php the_comments_navigation(); ?>
 
-			printf( // WPCS: XSS OK.
-				/* translators: 1: number of comments, 2: post title */
-				esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'hypermarket' ) ),
-				number_format_i18n( get_comments_number() ),
-				sprintf( '<span>%s</span>', get_the_title() )
-			);
-
-		?></h2><?php 
-
-		// Check for comment navigation.
-		the_comments_navigation();
-
-		?><ol class="comment-list"><?php
+		<ol class="comment-list">
+			<?php
 			wp_list_comments(
-				apply_filters( 
-						'hypermarket_list_comments_args', array(
+				apply_filters(
+					'hypermarket_list_comments_args',
+					array(
 						'style'       => 'ol',
 						'avatar_size' => 100,
 						'short_ping'  => true,
-						'callback'    => 'hypermarket_comment'
-					) 
-				)
+					)
+				) 
 			);
-		?></ol><!-- .comment-list --><?php 
+			?>
+		</ol><!-- .comment-list -->
 
-		// Check for comment navigation.
+		<?php
 		the_comments_navigation();
 
-	endif;
+		// If comments are closed and there are comments, let's leave a little note, shall we?
+		if ( ! comments_open() ) :
+			?>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'hypermarket' ); ?></p>
+			<?php
+		endif;
 
-	if ( ! comments_open() && 0 !== intval( get_comments_number() ) && post_type_supports( get_post_type(), 'comments' ) ) :
-		
-		?><p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'hypermarket' ); ?></p><?php
+	endif; // Check for have_comments().
 
-	endif;
+	comment_form();
+	?>
 
-	$args = apply_filters(
-		'hypermarket_comment_form_args', array(
-			'title_reply_before' => '<span id="reply-title" class="gamma comment-reply-title">',
-			'title_reply_after'  => '</span>',
-		)
-	);
-
-	comment_form( $args );
-
-?></section><!-- #comments -->
+</div><!-- #comments -->

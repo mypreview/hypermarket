@@ -3,10 +3,12 @@
  * The loop template file.
  * Included on pages like index.php, archive.php and `search.php` to display a loop of posts.
  *
- * @link 		https://codex.wordpress.org/The_Loop
- * @since 	    2.0.0
- * @package 	hypermarket
- * @author  	MyPreview (Github: @mahdiyazdani, @mypreview)
+ * @link        https://codex.wordpress.org/The_Loop
+ * @link        https://www.upwork.com/fl/mahdiyazdani
+ * @author      Mahdi Yazdani <mahdiyazdani@mail.com>
+ * @since       2.0.0
+ *
+ * @package     hypermarket
  */
 
 do_action( 'hypermarket_loop_before' );
@@ -27,6 +29,6 @@ endwhile;
 /**
  * Functions hooked in to `hypermarket_paging_nav` action
  *
- * @hooked hypermarket_paging_nav 		- 10
+ * @hooked hypermarket_paging_nav       - 10
  */
 do_action( 'hypermarket_loop_after' );

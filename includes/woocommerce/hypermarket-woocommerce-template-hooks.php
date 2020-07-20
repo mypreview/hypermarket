@@ -2,9 +2,9 @@
 /**
  * Hypermarket WooCommerce hooks
  *
- * @since 	    2.0.0
- * @package 	hypermarket
- * @author  	MyPreview (Github: @mahdiyazdani, @mypreview)
+ * @since       2.0.0
+ * @package     hypermarket
+ * @author      MyPreview (Github: @mahdiyazdani, @mypreview)
  */
 
 /**

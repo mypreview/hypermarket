@@ -3,16 +3,16 @@
  * This file represents of the code that Hypermarket theme 
  * would use to register the recommended plugins.
  *
- * @link       	https://github.com/TGMPA/TGM-Plugin-Activation
- * @since 	    2.0.0
- * @package 	hypermarket
- * @author  	MyPreview (Github: @mahdiyazdani, @mypreview)
+ * @link        https://github.com/TGMPA/TGM-Plugin-Activation
+ * @since       2.0.0
+ * @package     hypermarket
+ * @author      MyPreview (Github: @mahdiyazdani, @mypreview)
  */
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; 
-} // End If Statement
+}
 
 if ( ! class_exists( 'Hypermarket_TGMPA_Register' ) ) :
 
@@ -39,16 +39,17 @@ if ( ! class_exists( 'Hypermarket_TGMPA_Register' ) ) :
 		 */
 		public function tgmpa_register() {
 			$plugins = apply_filters( 
-				'hypermarket_tgmpa_plugins', array(
+				'hypermarket_tgmpa_plugins',
+				array(
 					array(
-						'name' 	  => 'WooCommerce',
-						'slug' 	  => 'woocommerce',
-						'version' => '3.4.0'
+						'name'    => 'WooCommerce',
+						'slug'    => 'woocommerce',
+						'version' => '3.4.0',
 					),
 					array(
 						'name' => 'Container Block',
-						'slug' => 'container-block'
-					)
+						'slug' => 'container-block',
+					),
 				) 
 			);
 

@@ -2,15 +2,15 @@
 /**
  * Hypermarket WooCommerce class
  *
- * @since 	    2.0.0
- * @package 	hypermarket
- * @author  	MyPreview (Github: @mahdiyazdani, @mypreview, @gookalani)
+ * @since       2.0.0
+ * @package     hypermarket
+ * @author      MyPreview (Github: @mahdiyazdani, @mypreview, @gookalani)
  */
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; 
-} // End If Statement
+}
 
 if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 
@@ -41,12 +41,14 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 * runs before the init hook. The init hook is too late for some features, such
 		 * as indicating support for post thumbnails.
 		 *
-		 * @return 	void
+		 * @return  void
 		 */
 		public function setup() {
 			add_theme_support(
-				'woocommerce', apply_filters(
-					'hypermarket_woocommerce_args', array(
+				'woocommerce',
+				apply_filters(
+					'hypermarket_woocommerce_args',
+					array(
 						'single_image_width'    => 416,
 						'thumbnail_image_width' => 324,
 						'product_grid'          => array(
@@ -54,7 +56,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 							'default_rows'    => 4,
 							'min_columns'     => 1,
 							'max_columns'     => 6,
-							'min_rows'        => 1
+							'min_rows'        => 1,
 						),
 					)
 				)
@@ -73,8 +75,8 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		/**
 		 * Add WooCommerce specific classes to the body tag
 		 *
-		 * @param  	array 		$classes 	Css classes applied to the body tag.
-		 * @return 	array 		$classes 	Modified to include 'woocommerce-active' class
+		 * @param   array $classes    Css classes applied to the body tag.
+		 * @return  array       $classes    Modified to include 'woocommerce-active' class
 		 */
 		public function body_classes( $classes ) {
 			$classes[] = 'woocommerce-active';
@@ -82,14 +84,14 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			// Add class if WooCommerce ajax is disabled.
 			if ( ! wc_string_to_bool( get_option( 'woocommerce_enable_ajax_add_to_cart' ) ) ) {
 				$classes[] = 'no-wc-ajax';
-			} // End If Statement
+			}
 
 			// Remove `no-wc-breadcrumb` body class.
 			$key = array_search( 'no-wc-breadcrumb', $classes, true );
 
 			if ( false !== $key ) {
 				unset( $classes[ $key ] );
-			} // End If Statement
+			}
 
 			return $classes;
 		}
@@ -109,7 +111,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			/**
 			 * Scripts
 			 */
-			$script_dir = sprintf( '%s/woocommerce.js', HYPERMARKET_THEME_DIST_PATH );
+			$script_dir   = sprintf( '%s/woocommerce.js', HYPERMARKET_THEME_DIST_PATH );
 			$script_asset = hypermarket_dependency_extraction( sprintf( '%s/%s', get_template_directory(), $script_dir ), array( 'hypermarket-script' ) );
 			wp_enqueue_script( 'hypermarket-woocommerce-script', get_theme_file_uri( sprintf( '/%s', $script_dir ) ), $script_asset['dependencies'], $script_asset['version'], true );
 		}
@@ -117,14 +119,15 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		/**
 		 * Related Products Args
 		 *
-		 * @param  	array 		$args 	Related products args.
-		 * @return  array 		$args 	Modified number of related products args
+		 * @param   array $args   Related products args.
+		 * @return  array       $args   Modified number of related products args
 		 */
 		public function related_products_args( $args ) {
 			$args = apply_filters(
-				'hypermarket_related_products_args', array(
+				'hypermarket_related_products_args',
+				array(
 					'posts_per_page' => 3,
-					'columns'        => 3
+					'columns'        => 3,
 				)
 			);
 
@@ -134,7 +137,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		/**
 		 * Product gallery thumbnail columns
 		 *
-		 * @return 	integer 			Number of columns
+		 * @return  integer             Number of columns
 		 * @return  integer
 		 */
 		public function thumbnail_columns() {
@@ -142,7 +145,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 
 			if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 				$columns = 5;
-			} // End If Statement
+			}
 
 			return intval( apply_filters( 'hypermarket_product_thumbnail_columns', $columns ) );
 		}
@@ -150,8 +153,8 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		/**
 		 * Remove the breadcrumb delimiter.
 		 *
-		 * @param  	array 	$defaults 	The breadcrumb defaults.
-		 * @return 	array           	The breadcrumb defaults.
+		 * @param   array $defaults   The breadcrumb defaults.
+		 * @return  array               The breadcrumb defaults.
 		 */
 		public function change_breadcrumb_delimiter( $defaults ) {
 			$defaults['delimiter']   = '<span class="breadcrumb-separator"> / </span>';
@@ -164,17 +167,15 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		/**
 		 * Modifies flexslider args.
 		 *
-		 * @param 	array 	$args 		The current flexslider arguments.
-		 * @return 	array
+		 * @param   array $args       The current flexslider arguments.
+		 * @return  array
 		 */
 		public function flexslider_args( $args ) {
-			$args['smoothHeight'] = FALSE;
-			$args['useCSS'] = is_rtl();
+			$args['smoothHeight'] = false;
+			$args['useCSS']       = is_rtl();
 
 			return apply_filters( 'hypermarket_product_flexslider_args', $args );
 		}
 
 	}
 endif;
-
-return new Hypermarket_WooCommerce();

@@ -22,127 +22,127 @@ const jsonp = 'webpackHypermarketJsonp';
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 const config = {
-    entry: {
-        'legacy-editor': './src/legacy-editor/style.css',
-        editor: './src/editor/style.css',
-        woocommerce: './src/woocommerce',
-        public: './src/public',
-    },
-    output: {
-        path: path.resolve( __dirname, './dist/' ),
-        filename: '[name].js',
-        libraryTarget: 'this',
-        // This fixes an issue with multiple webpack projects using chunking
-        // See https://webpack.js.org/configuration/output/#outputjsonpfunction
-        jsonpFunction: jsonp,
-    },
-    mode: NODE_ENV,
-    performance: {
-        hints: false,
-    },
-    stats: {
-        all: false,
-        assets: true,
-        builtAt: true,
-        colors: true,
-        errors: true,
-        hash: true,
-        timings: true,
-    },
-    watchOptions: {
-        ignored: /node_modules/,
-    },
-    devtool: NODE_ENV === 'development' ? 'source-map' : false,
-    module: {
-        rules: [
-            {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                use: [
-                    require.resolve( 'thread-loader' ),
-                    {
-                        loader: require.resolve( 'babel-loader' ),
-                        options: {
-                            cacheDirectory: process.env.BABEL_CACHE_DIRECTORY || true,
-                        },
-                    },
-                ],
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 1,
-                        },
-                    },
-                    {
-                        loader: 'postcss-loader',
-                    },
-                ],
-            },
-            {
-                test: /\.(ttf|eot|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-                use: {
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                    },
-                },
-            },
-            {
-                test: /\.(png|jpg|gif|svg)$/i,
-                use: {
-                    loader: 'url-loader',
-                    options: {
-                        encoding: true,
-                    },
-                },
-            },
-        ],
-    },
-    externals: {
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery',
-    },
-    optimization: {
-        minimize: true,
-        minimizer: [
-            new TerserPlugin( {
-                extractComments: false,
-            } ),
-        ],
-    },
-    plugins: [
-        new CleanWebpackPlugin(),
-        new BundleAnalyzerPlugin( {
-            openAnalyzer: false,
-            analyzerPort: 7000,
-        } ),
-        new FixStyleOnlyEntriesPlugin(),
-        new MiniCssExtractPlugin( {
-            filename: '[name].css',
-        } ),
-        new WebpackRTLPlugin( {
-            filename: '[name]-rtl.css',
-        } ),
-        new ProgressBarPlugin( {
-            format:
-                chalk.blue( 'Build core script' ) + ' [:bar] ' + chalk.green( ':percent' ) + ' :msg (:elapsed seconds)',
-        } ),
-        new DependencyExtractionWebpackPlugin( {
-            injectPolyfill: true,
-        } ),
-        new WebpackNotifierPlugin( {
-            title: package,
-            alwaysNotify: true,
-            skipFirstNotification: true,
-        } ),
-    ],
+	entry: {
+		'legacy-editor': './src/legacy-editor/style.css',
+		editor: './src/editor/style.css',
+		woocommerce: './src/woocommerce',
+		public: './src/public',
+	},
+	output: {
+		path: path.resolve( __dirname, './dist/' ),
+		filename: '[name].js',
+		libraryTarget: 'this',
+		// This fixes an issue with multiple webpack projects using chunking
+		// See https://webpack.js.org/configuration/output/#outputjsonpfunction
+		jsonpFunction: jsonp,
+	},
+	mode: NODE_ENV,
+	performance: {
+		hints: false,
+	},
+	stats: {
+		all: false,
+		assets: true,
+		builtAt: true,
+		colors: true,
+		errors: true,
+		hash: true,
+		timings: true,
+	},
+	watchOptions: {
+		ignored: /node_modules/,
+	},
+	devtool: NODE_ENV === 'development' ? 'source-map' : false,
+	module: {
+		rules: [
+			{
+				test: /\.jsx?$/,
+				exclude: /node_modules/,
+				use: [
+					require.resolve( 'thread-loader' ),
+					{
+						loader: require.resolve( 'babel-loader' ),
+						options: {
+							cacheDirectory: process.env.BABEL_CACHE_DIRECTORY || true,
+						},
+					},
+				],
+			},
+			{
+				test: /\.css$/,
+				use: [
+					'style-loader',
+					MiniCssExtractPlugin.loader,
+					{
+						loader: 'css-loader',
+						options: {
+							importLoaders: 1,
+						},
+					},
+					{
+						loader: 'postcss-loader',
+					},
+				],
+			},
+			{
+				test: /\.(ttf|eot|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+				use: {
+					loader: 'file-loader',
+					options: {
+						name: '[name].[ext]',
+					},
+				},
+			},
+			{
+				test: /\.(png|jpg|gif|svg)$/i,
+				use: {
+					loader: 'url-loader',
+					options: {
+						encoding: true,
+					},
+				},
+			},
+		],
+	},
+	externals: {
+		$: 'jquery',
+		jQuery: 'jquery',
+		'window.jQuery': 'jquery',
+	},
+	optimization: {
+		minimize: true,
+		minimizer: [
+			new TerserPlugin( {
+				extractComments: false,
+			} ),
+		],
+	},
+	plugins: [
+		new CleanWebpackPlugin(),
+		new BundleAnalyzerPlugin( {
+			openAnalyzer: false,
+			analyzerPort: 7000,
+		} ),
+		new FixStyleOnlyEntriesPlugin(),
+		new MiniCssExtractPlugin( {
+			filename: '[name].css',
+		} ),
+		new WebpackRTLPlugin( {
+			filename: '[name]-rtl.css',
+		} ),
+		new ProgressBarPlugin( {
+			format:
+				chalk.blue( 'Build core script' ) + ' [:bar] ' + chalk.green( ':percent' ) + ' :msg (:elapsed seconds)',
+		} ),
+		new DependencyExtractionWebpackPlugin( {
+			injectPolyfill: true,
+		} ),
+		new WebpackNotifierPlugin( {
+			title: package,
+			alwaysNotify: true,
+			skipFirstNotification: true,
+		} ),
+	],
 };
 
 // Export the following module
