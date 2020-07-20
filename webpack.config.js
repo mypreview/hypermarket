@@ -1,6 +1,6 @@
 /**
- * All of the the JavaScript compile functionality 
- * for Container Block plugin reside in this file.
+ * All of the the JavaScript compile functionality
+ * for the "Hypermarket" theme reside in this file.
  *
  * @requires    Webpack
  * @package     hypermarket
@@ -9,31 +9,36 @@
 const path = require( 'path' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 const { CleanWebpackPlugin } = require( 'clean-webpack-plugin' );
+const { BundleAnalyzerPlugin } = require( 'webpack-bundle-analyzer' );
 const ProgressBarPlugin = require( 'progress-bar-webpack-plugin' );
-const UglifyJsPlugin = require( 'uglifyjs-webpack-plugin' );
+const TerserPlugin = require( 'terser-webpack-plugin' );
 const DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' );
+const FixStyleOnlyEntriesPlugin = require( 'webpack-fix-style-only-entries' );
 const WebpackRTLPlugin = require( 'webpack-rtl-plugin' );
+const WebpackNotifierPlugin = require( 'webpack-notifier' );
 const chalk = require( 'chalk' );
+const package = 'Hypermarket';
+const jsonp = 'webpackHypermarketJsonp';
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 const config = {
     entry: {
-        'theme': './assets/src/theme/index.js',
-        'editor': './assets/src/editor/index.js',
-        'legacy-editor': './assets/src/legacy-editor/index.js',
-        'woocommerce': './assets/src/woocommerce/index.js'
+        'legacy-editor': './src/legacy-editor/style.css',
+        editor: './src/editor/style.css',
+        woocommerce: './src/woocommerce',
+        public: './src/public',
     },
     output: {
-        path: path.resolve( __dirname, './assets/dist/' ),
+        path: path.resolve( __dirname, './dist/' ),
         filename: '[name].js',
         libraryTarget: 'this',
         // This fixes an issue with multiple webpack projects using chunking
         // See https://webpack.js.org/configuration/output/#outputjsonpfunction
-        jsonpFunction: 'webpackHypermarketJsonp'
+        jsonpFunction: jsonp,
     },
     mode: NODE_ENV,
     performance: {
-        hints: false
+        hints: false,
     },
     stats: {
         all: false,
@@ -42,10 +47,10 @@ const config = {
         colors: true,
         errors: true,
         hash: true,
-        timings: true
+        timings: true,
     },
     watchOptions: {
-        ignored: /node_modules/
+        ignored: /node_modules/,
     },
     devtool: NODE_ENV === 'development' ? 'source-map' : false,
     module: {
@@ -53,83 +58,91 @@ const config = {
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader?cacheDirectory',
-                    options: {
-                        presets: [ '@wordpress/babel-preset-default' ]
-                    }
-                }
+                use: [
+                    require.resolve( 'thread-loader' ),
+                    {
+                        loader: require.resolve( 'babel-loader' ),
+                        options: {
+                            cacheDirectory: process.env.BABEL_CACHE_DIRECTORY || true,
+                        },
+                    },
+                ],
             },
             {
-                test:/\.css$/,
-                exclude: /node_modules/,
+                test: /\.css$/,
                 use: [
                     'style-loader',
                     MiniCssExtractPlugin.loader,
-                    { 
-                        loader: 'css-loader', 
-                        options: { 
-                            importLoaders: 1
-                        } 
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                        },
                     },
                     {
                         loader: 'postcss-loader',
-                        options: {
-                            plugins: [
-                                require( 'autoprefixer' )
-                            ]
-                        }
-                    }
-                ]
+                    },
+                ],
             },
             {
-                test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+                test: /\.(ttf|eot|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
                 use: {
                     loader: 'file-loader',
-                    options: { 
-                        limit: 50000,
-                        mimetype: 'application/font-woff',
+                    options: {
                         name: '[name].[ext]',
-                        outputPath: './dist/'
-                    }
-                }
-            }
+                    },
+                },
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/i,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        encoding: true,
+                    },
+                },
+            },
         ],
     },
     externals: {
         $: 'jquery',
         jQuery: 'jquery',
-        'window.jQuery': 'jquery'
+        'window.jQuery': 'jquery',
     },
     optimization: {
-        minimizer: [ 
-            new UglifyJsPlugin( {
-                cache: true,
-                parallel: true,
-                uglifyOptions: {
-                    output: {
-                        ie8: false,
-                        comments: false
-                    }
-                }
-            } )
-        ]
+        minimize: true,
+        minimizer: [
+            new TerserPlugin( {
+                extractComments: false,
+            } ),
+        ],
     },
     plugins: [
         new CleanWebpackPlugin(),
+        new BundleAnalyzerPlugin( {
+            openAnalyzer: false,
+            analyzerPort: 7000,
+        } ),
+        new FixStyleOnlyEntriesPlugin(),
         new MiniCssExtractPlugin( {
-            filename: '[name].css'
+            filename: '[name].css',
         } ),
         new WebpackRTLPlugin( {
-            filename: '[name]-rtl.css'
+            filename: '[name]-rtl.css',
         } ),
         new ProgressBarPlugin( {
-            format: chalk.blue( 'Build core script' ) + ' [:bar] ' + chalk.green( ':percent' ) + ' :msg (:elapsed seconds)',
+            format:
+                chalk.blue( 'Build core script' ) + ' [:bar] ' + chalk.green( ':percent' ) + ' :msg (:elapsed seconds)',
         } ),
-        new DependencyExtractionWebpackPlugin( { 
-            injectPolyfill: true 
-        } )
-    ]
+        new DependencyExtractionWebpackPlugin( {
+            injectPolyfill: true,
+        } ),
+        new WebpackNotifierPlugin( {
+            title: package,
+            alwaysNotify: true,
+            skipFirstNotification: true,
+        } ),
+    ],
 };
 
 // Export the following module
