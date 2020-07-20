@@ -21,11 +21,10 @@
 
 // Assign the "Hypermarket" info to constants.
 $hypermarket_theme = wp_get_theme( 'hypermarket' );
-define( 'HYPERMARKET_THEME_NAME', $hypermarket_theme->get( 'Name' ) );
-define( 'HYPERMARKET_THEME_URI', $hypermarket_theme->get( 'ThemeURI' ) );
-
-$hypermarket = (object) array(
-	'version'    => HYPERMARKET_THEME_VERSION,
+$hypermarket       = (object) array(
+	'version'    => $hypermarket_theme->get( 'Version' ),
+	'name'       => $hypermarket_theme->get( 'Name' ),
+	'theme_uri'  => $hypermarket_theme->get( 'ThemeURI' ),
 	'slug'       => 'hypermarket',
 	'main'       => require get_parent_theme_file_path( '/includes/class-hypermarket.php' ),
 );
