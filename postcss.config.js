@@ -16,6 +16,8 @@ module.exports = ( { env } ) => ( {
 		'postcss-calc': {},
 		'postcss-size': {},
 		'postcss-position': {},
+		'postcss-hidden': {},
+		'postcss-short-border-radius': {},
 		'postcss-transform-shortcut': {},
 		'postcss-selector-not': {},
 		'postcss-combine-media-query': {},
