@@ -415,9 +415,12 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * @return  void
 		 */
 		public function child_scripts() {
+			global $hypermarket;
+
+			// Whether a child theme is in use.
 			if ( is_child_theme() ) {
 				$child_theme = wp_get_theme( get_stylesheet() );
-				wp_enqueue_style( 'hypermarket-child-style', get_stylesheet_uri(), '', apply_filters( 'hypermarket_child_style_version', $child_theme->get( 'Version' ) ) );
+				wp_enqueue_style( sprintf( '%s-child-style', $hypermarket->slug ), get_stylesheet_uri(), '', apply_filters( 'hypermarket_child_style_version', $child_theme->get( 'Version' ) ) );
 			}
 		}
 
@@ -431,6 +434,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		public function preconnect_gstatic( $urls, $relation_type ) {
 			global $hypermarket;
 
+			// Check whether the main CSS stylesheet has been added to the queue.
 			if ( wp_style_is( sprintf( '%s-fonts', $hypermarket->slug ), 'queue' ) && 'preconnect' === $relation_type ) {
 				$urls[] = array(
 					'crossorigin',

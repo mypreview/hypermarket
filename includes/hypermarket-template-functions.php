@@ -53,9 +53,7 @@ if ( ! function_exists( 'hypermarket_footer_widgets' ) ) :
 							if ( is_active_sidebar( 'footer-' . esc_attr( $footer_n ) ) ) :
 								?>
 								<div class="block footer-widget-<?php echo esc_attr( $column ); ?>">
-								<?php 
-									dynamic_sidebar( sprintf( 'footer-%d', esc_attr( $footer_n ) ) );
-								?>
+									<?php dynamic_sidebar( sprintf( 'footer-%d', esc_attr( $footer_n ) ) ); ?>
 								</div>
 								<?php
 							endif;
