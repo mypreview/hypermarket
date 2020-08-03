@@ -1,0 +1,47 @@
+/* Site logo */
+.site-header {
+	position: relative;
+	z-index: 50;
+	width: 100%;
+	min-height: var(--navbar-min-height);
+
+	a {
+		text-decoration: none;
+	}
+}
+
+.site-title {
+	font-size: calc(var(--font-size-base) * 1.25);
+	font-weight: 500;
+
+	a {
+		color: inherit;
+	}
+}
+
+.site-description {
+	font-style: italic;
+	padding-top: 9px;
+    font-size: calc(var(--font-size-base) * 0.687);
+}
+
+.site-branding {
+	padding: 25px 0;
+	margin-right: 20px;
+
+	> * {
+		line-height: inherit;
+		margin-bottom: 0;
+	}
+
+	img {
+		max-width: var(--image-logo-width);
+	}
+}
+
+/* Main Navigation */
+.main-navigation {
+	ul {
+		@extend %none-list-style;
+	}
+}
