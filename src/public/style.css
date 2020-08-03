@@ -6,3 +6,7 @@
 @import "./scaffolding/style.css";
 @import "./typography/style.css";
 @import "./forms/style.css";
+@import "./buttons/style.css";
+@import "./navbar/style.css";
+@import "./tables/style.css";
+@import "./pagination/style.css";
