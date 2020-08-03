@@ -1,0 +1,9 @@
+%color-shift {
+  transition: color .3;
+}
+
+%caption {
+	color: #555d66;
+	font-size: 13px;
+	text-align: center;
+}
