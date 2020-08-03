@@ -41,6 +41,7 @@ h6 {
 
 p {
 	margin-bottom: var(--line-height-computed);
+	margin-top: 0;
 }
 
 .has-small-font-size {
