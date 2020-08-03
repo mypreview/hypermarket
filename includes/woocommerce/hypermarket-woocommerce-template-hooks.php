@@ -26,19 +26,17 @@ add_action( 'hypermarket_header', 'hypermarket_div_close', 45 );
 /**
  * Footer
  *
- * @see  hypermarket_hypermarket_toolbar()
+ * @see  hypermarket_handheld_toolbar()
  */
-add_action( 'hypermarket_after_footer', 'hypermarket_hypermarket_toolbar', PHP_INT_MAX );
+add_action( 'hypermarket_after_footer', 'hypermarket_handheld_toolbar', PHP_INT_MAX );
 
 /**
  * Content
  *
  * @see  hypermarket_breadcrumb()
- * @see  hypermarket_filter_widget_region()
  * @see  hypermarket_shop_messages()
  */
 add_action( 'hypermarket_before_content', 'hypermarket_breadcrumb' );
-add_action( 'hypermarket_before_content', 'hypermarket_filter_widget_region', 20 );
 add_action( 'hypermarket_content_top', 'hypermarket_shop_messages' );
 
 /**
