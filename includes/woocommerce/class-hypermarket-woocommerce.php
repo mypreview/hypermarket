@@ -84,6 +84,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 * @return  void
 		 */
 		public function enqueue() {
+			global $hypermarket;
 			$woocommerce_asset_name = 'woocommerce';
 			$woocommerce_asset      = hypermarket_get_file_assets( $woocommerce_asset_name );
 			// Styles.
