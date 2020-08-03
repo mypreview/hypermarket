@@ -53,6 +53,7 @@
 		"postcss-custom-selectors": "^5.1.2",
 		"postcss-each": "^0.10.0",
 		"postcss-extend": "^1.0.5",
+		"postcss-fontpath": "^1.0.0",
 		"postcss-for": "^2.1.1",
 		"postcss-hidden": "^1.0.7",
 		"postcss-if-media": "^1.0.3",
