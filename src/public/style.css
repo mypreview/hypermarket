@@ -1,4 +1,6 @@
 @import "./normalize/style.css";
+@import "./../fonts/style.css";
+@import "material-icons/css/material-icons.css";
 @import "./variables/style.css";
 @import "./placeholders/style.css";
 @import "./scaffolding/style.css";
