@@ -72,6 +72,25 @@ if ( ! function_exists( 'hypermarket_myaccount_link' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_cart_link' ) ) :
+	/**
+	 * Cart Link
+	 * Displayed a link to the cart including the number of items present and the cart total
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_cart_link() {
+		?><a class="site-cart-contents" href="<?php echo esc_url( wc_get_checkout_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'hypermarket' ); ?>">
+			<?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?>
+			<span class="site-cart-contents__count">
+				<?php echo intval( WC()->cart->get_cart_contents_count() ); ?>
+			</span>
+		</a>
+		<?php
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_product_search' ) ) :
 	/**
 	 * Display product search
