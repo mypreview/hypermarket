@@ -11,7 +11,7 @@ if ( ! function_exists( 'hypermarket_display_comments' ) ) :
 	/**
 	 * Display comments
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_display_comments() {
@@ -26,7 +26,7 @@ if ( ! function_exists( 'hypermarket_footer_widgets' ) ) :
 	/**
 	 * Display the footer widget regions.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_footer_widgets() {
@@ -72,7 +72,7 @@ if ( ! function_exists( 'hypermarket_credit' ) ) :
 	/**
 	 * Display the theme credit.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_credit() {
@@ -112,7 +112,7 @@ if ( ! function_exists( 'hypermarket_get_sidebar' ) ) :
 	/**
 	 * Display default sidebar area.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_get_sidebar() {
@@ -125,7 +125,7 @@ if ( ! function_exists( 'hypermarket_site_branding' ) ) :
 	/**
 	 * Site branding wrapper and display
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_site_branding() {
@@ -141,7 +141,7 @@ if ( ! function_exists( 'hypermarket_site_title_or_logo' ) ) :
 	/**
 	 * Display the site title or logo
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @param   bool $echo   Echo the string or return it.
 	 * @return  string
 	 */
@@ -170,7 +170,7 @@ if ( ! function_exists( 'hypermarket_primary_menu' ) ) :
 	/**
 	 * Display primary menu.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_primary_menu() {
@@ -194,7 +194,7 @@ if ( ! function_exists( 'hypermarket_skip_links' ) ) :
 	/**
 	 * Skip links
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_skip_links() {
@@ -217,7 +217,7 @@ if ( ! function_exists( 'hypermarket_page_header' ) ) :
 	/**
 	 * Display the page header
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_page_header() {
@@ -237,7 +237,7 @@ if ( ! function_exists( 'hypermarket_page_content' ) ) :
 	/**
 	 * Display the post content
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_page_content() {
@@ -262,7 +262,7 @@ if ( ! function_exists( 'hypermarket_post_header' ) ) :
 	/**
 	 * Display the post header with a link to the single post.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_post_header() {
@@ -308,7 +308,7 @@ if ( ! function_exists( 'hypermarket_post_excerpt' ) ) :
 	/**
 	 * Display the post excerpt.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_post_excerpt() {
@@ -328,7 +328,7 @@ if ( ! function_exists( 'hypermarket_post_content' ) ) :
 	/**
 	 * Display the post content with a link to the single post.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_post_content() {
@@ -363,7 +363,7 @@ if ( ! function_exists( 'hypermarket_post_meta' ) ) :
 	/**
 	 * Display the post meta.
 	 *
-	 * @since    1.0.0
+	 * @since    2.0.0
 	 * @return   void
 	 */
 	function hypermarket_post_meta() {
@@ -413,7 +413,7 @@ if ( ! function_exists( 'hypermarket_edit_post_link' ) ) :
 	/**
 	 * Display the edit link.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_edit_post_link() {
@@ -440,7 +440,7 @@ if ( ! function_exists( 'hypermarket_post_taxonomy' ) ) :
 	/**
 	 * Display the post taxonomies.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_post_taxonomy() {
@@ -485,7 +485,7 @@ if ( ! function_exists( 'hypermarket_paging_nav' ) ) :
 	/**
 	 * Display navigation to next/previous set of posts when applicable.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_paging_nav() {
@@ -505,7 +505,7 @@ if ( ! function_exists( 'hypermarket_post_nav' ) ) :
 	/**
 	 * Display navigation to next/previous post when applicable.
 	 *
-	 * @since    1.0.0
+	 * @since    2.0.0
 	 * @return  void
 	 */
 	function hypermarket_post_nav() {
@@ -524,7 +524,7 @@ if ( ! function_exists( 'hypermarket_post_thumbnail' ) ) :
 	/**
 	 * Display post thumbnail.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_post_thumbnail() {
@@ -563,7 +563,7 @@ if ( ! function_exists( 'hypermarket_div' ) ) :
 	/**
 	 * Open div.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_div() {
@@ -577,7 +577,7 @@ if ( ! function_exists( 'hypermarket_div_close' ) ) :
 	/**
 	 * Close div.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_div_close() {
@@ -591,7 +591,7 @@ if ( ! function_exists( 'hypermarket_container' ) ) :
 	/**
 	 * The container.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_container() {

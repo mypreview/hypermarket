@@ -26,7 +26,7 @@ if ( ! class_exists( 'Hypermarket_TGMPA_Register' ) ) :
 		/**
 		 * Setup class.
 		 *
-		 * @since   1.0.0
+		 * @since   2.0.0
 		 * @return  void
 		 */
 		public function __construct() {
@@ -36,7 +36,7 @@ if ( ! class_exists( 'Hypermarket_TGMPA_Register' ) ) :
 		/**
 		 * Registers the required plugins to be installed with Conj theme.
 		 *
-		 * @since   1.0.0
+		 * @since   2.0.0
 		 * @return  void
 		 */
 		public function tgmpa_register() {

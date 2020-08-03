@@ -24,7 +24,8 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 
 		/**
 		 * Setup class.
-		 * 
+		 *
+		 * @since   2.0.0
 		 * @return  void
 		 */
 		public function __construct() {
@@ -50,6 +51,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * runs before the init hook. The init hook is too late for some features, such
 		 * as indicating support for post thumbnails.
 		 *
+		 * @since   2.0.0
 		 * @return  void
 		 */
 		public function setup() {
@@ -269,6 +271,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * Handles JavaScript detection.
 		 * Adds a `js` class to the root `<html>` element when JavaScript is detected.
 		 *
+		 * @since   2.0.0
 		 * @return  void
 		 */
 		public function javascript_detection() {
@@ -278,6 +281,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		/**
 		 * Add a pingback url auto-discovery header for singularly identifiable articles.
 		 *
+		 * @since   2.0.0
 		 * @return  void
 		 */
 		public function pingback_header() {
@@ -289,6 +293,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		/**
 		 * Register widget areas.
 		 *
+		 * @since   2.0.0
 		 * @return  void
 		 */
 		public function widgets_init() {
@@ -365,6 +370,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		/**
 		 * Enqueue scripts and styles.
 		 *
+		 * @since   2.0.0
 		 * @return  void
 		 */
 		public function enqueue() {
@@ -391,7 +397,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		/**
 		 * Enqueue supplemental block editor assets.
 		 *
-		 * @since   1.0.0
+		 * @since   2.0.0
 		 * @return  void
 		 */
 		public function enqueue_editor() {
@@ -412,6 +418,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * primary css and the separate WooCommerce css.
 		 * Wait for the WooCommerce...
 		 *
+		 * @since   2.0.0
 		 * @return  void
 		 */
 		public function child_scripts() {
@@ -429,7 +436,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 *
 		 * @param   array $urls            URLs to print for resource hints.
 		 * @param   array $relation_type   The relation type the URLs are printed.
-		 * @return  array   $urls            URLs to print for resource hints.
+		 * @return  array $urls            URLs to print for resource hints.
 		 */
 		public function preconnect_gstatic( $urls, $relation_type ) {
 			global $hypermarket;
@@ -448,7 +455,8 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		/**
 		 * Adds custom classes to the array of body classes.
 		 *
-		 * @param   array $classes        Classes for the body element.
+		 * @since   2.0.0
+		 * @param   array $classes   Classes for the body element.
 		 * @return  array
 		 */
 		public function body_classes( $classes ) {
@@ -522,10 +530,12 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * Custom navigation markup template hooked 
 		 * into `navigation_markup_template` filter hook.
 		 *
-		 * @return  string      $template   Modified version of the default template.
+		 * @since   2.0.0
+		 * @return  string $template   Modified version of the default template.
 		 */
 		public function navigation_markup_template() {
-			$template  = '<nav id="post-navigation" class="navigation %1$s" role="navigation" aria-label="' . esc_html__( 'Post Navigation', 'hypermarket' ) . '">';
+			/* translators: 1: Open nav tag, 2: Close nav tag. */
+			$template  = sprintf( esc_html__( '%1$sPost Navigation%2$s', 'hypermarket' ), '<nav id="post-navigation" class="navigation %1$s" role="navigation" aria-label="', '">';
 			$template .= '<h2 class="screen-reader-text">%2$s</h2>';
 			$template .= '<div class="nav-links">%3$s</div>';
 			$template .= '</nav>';
@@ -536,7 +546,8 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		/**
 		 * Replaces "[...]" (appended to automatically generated excerpts) with `...`.
 		 *
-		 * @param   string $excerpt    Excerpt more string.
+		 * @since   2.0.0
+		 * @param   string $excerpt   Excerpt more string.
 		 * @return  string
 		 */
 		public function custom_excerpt_more( $excerpt ) {
@@ -550,7 +561,8 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		/**
 		 * Move the comment text field to the bottom.
 		 *
-		 * @param   array $fields     The comment fields.
+		 * @since   2.0.0
+		 * @param   array $fields   The comment fields.
 		 * @return  array
 		 */
 		public function move_comment_field_to_bottom( $fields ) {
@@ -564,6 +576,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		/**
 		 * Adds a span around post counts in category widget.
 		 *
+		 * @since   2.0.0
 		 * @param   html $links      HTML markup of the links.
 		 * @return  html
 		 */
@@ -577,7 +590,8 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		/**
 		 * Adds a span around post counts in archive widget.
 		 *
-		 * @param   html $links      HTML markup of the links.
+		 * @since   2.0.0
+		 * @param   html $links   HTML markup of the links.
 		 * @return  html
 		 */
 		public function archive_count_span( $links ) {
@@ -590,7 +604,8 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		/**
 		 * Register Google fonts.
 		 *
-		 * @return  string      Google fonts URL for the theme.
+		 * @since   2.0.0
+		 * @return  string   Google fonts URL for the theme.
 		 */
 		public function google_fonts() {
 			$google_fonts = apply_filters(

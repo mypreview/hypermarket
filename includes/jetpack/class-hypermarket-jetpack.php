@@ -25,7 +25,7 @@ if ( ! class_exists( 'Hypermarket_Jetpack' ) ) :
 		/**
 		 * Setup class.
 		 *
-		 * @since   1.0.0
+		 * @since   2.0.0
 		 * @return  void
 		 */
 		public function __construct() {
@@ -35,10 +35,12 @@ if ( ! class_exists( 'Hypermarket_Jetpack' ) ) :
 		/**
 		 * Theme support for content options.
 		 *
-		 * @since   1.0.0
+		 * @since   2.0.0
 		 * @return  void
 		 */
 		public function setup() {
+			global $hypermarket;
+			
 			add_theme_support( 
 				'jetpack-content-options',
 				apply_filters( 
@@ -48,7 +50,7 @@ if ( ! class_exists( 'Hypermarket_Jetpack' ) ) :
 						'author-bio'         => true,
 						'author-bio-default' => true,
 						'post-details'       => array(
-							'stylesheet' => 'hypermarket-style',
+							'stylesheet' => sprintf( '%s-style', $hypermarket->slug ),
 							'date'       => '.posted-on',
 							'categories' => '.cat-links',
 							'tags'       => '.tags-links',

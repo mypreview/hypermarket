@@ -14,7 +14,7 @@ if ( ! function_exists( 'hypermarket_is_product_archive' ) ) :
 	/**
 	 * Checks if the current page is a product archive
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  bool
 	 */
 	function hypermarket_is_product_archive() {
@@ -30,7 +30,7 @@ if ( ! function_exists( 'hypermarket_get_previous_product' ) ) :
 	/**
 	 * Retrieves the previous product.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @param   bool         $in_same_term       Optional. Whether post should be in a same taxonomy term. Default false.
 	 * @param   array|string $excluded_terms     Optional. Comma-separated list of excluded term IDs. Default empty.
 	 * @param   string       $taxonomy           Optional. Taxonomy, if $in_same_term is true. Default 'product_cat'.
@@ -46,7 +46,7 @@ if ( ! function_exists( 'hypermarket_get_next_product' ) ) :
 	/**
 	 * Retrieves the next product.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @param   bool         $in_same_term       Optional. Whether post should be in a same taxonomy term. Default false.
 	 * @param   array|string $excluded_terms     Optional. Comma-separated list of excluded term IDs. Default empty.
 	 * @param   string       $taxonomy           Optional. Taxonomy, if $in_same_term is true. Default 'product_cat'.
@@ -63,7 +63,7 @@ if ( ! function_exists( 'hypermarket_myaccount_link' ) ) :
 	 * Myaccount page link.
 	 * Displayed a link to the myaccount page.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_myaccount_link() {
@@ -76,7 +76,7 @@ if ( ! function_exists( 'hypermarket_product_search' ) ) :
 	/**
 	 * Display product search
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_product_search() {
@@ -96,7 +96,7 @@ if ( ! function_exists( 'hypermarket_cart' ) ) :
 	/**
 	 * Display Header Cart.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_cart() {
@@ -126,7 +126,7 @@ if ( ! function_exists( 'hypermarket_promoted_products' ) ) :
 	 * Check for featured products then on-sale products and use the appropiate shortcode.
 	 * If neither exist, it can fallback to show recently added products.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @param   integer $per_page           Total products to display.
 	 * @param   integer $columns            Columns to arrange products in to.
 	 * @param   boolean $recent_fallback    Should the function display recent products as a fallback when there are no featured or on-sale products?.

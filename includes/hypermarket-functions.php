@@ -14,7 +14,7 @@ if ( ! function_exists( 'hypermarket_get_file_assets' ) ) :
 	/**
 	 * Reterive dependency extraction array for a given resource.
 	 *
-	 * @since    1.0.0
+	 * @since    2.0.0
 	 * @param    string $filename        Asset name (filename).
 	 * @param    array  $dependencies    Array of asset dependencies.
 	 * @return   void|array
@@ -40,6 +40,7 @@ if ( ! function_exists( 'hypermarket_is_fluid_template' ) ) :
 	/**
 	 * Checks if the current page is the fluid template.
 	 *
+	 * @since   2.0.0
 	 * @return  bool
 	 */
 	function hypermarket_is_fluid_template() {
@@ -51,7 +52,7 @@ if ( ! function_exists( 'hypermarket_is_woocommerce_activated' ) ) :
 	/**
 	 * Query WooCommerce activation.
 	 *
-	 * @since    1.0.0
+	 * @since    2.0.0
 	 * @return   bool
 	 */
 	function hypermarket_is_woocommerce_activated() {
@@ -67,7 +68,7 @@ if ( ! function_exists( 'hypermarket_is_blog_archive' ) ) :
 	/**
 	 * Checks if the current page is a blog post archive.
 	 *
-	 * @since    1.0.0
+	 * @since    2.0.0
 	 * @return   bool
 	 */
 	function hypermarket_is_blog_archive() {
@@ -83,7 +84,7 @@ if ( ! function_exists( 'hypermarket_get_background_color' ) ) :
 	/**
 	 * Get the content background color.
 	 *
-	 * @since    1.0.0
+	 * @since    2.0.0
 	 * @return   array                  
 	 */
 	function hypermarket_get_background_color() {
@@ -97,6 +98,7 @@ if ( ! function_exists( 'hypermarket_do_shortcode' ) ) :
 	/**
 	 * Call a shortcode function by tag name.
 	 *
+	 * @since   2.0.0
 	 * @param   string $tag        The shortcode whose function to call.
 	 * @param   array  $atts       The attributes to pass to the shortcode function. Optional.
 	 * @param   array  $content    The shortcode's content. Default is null (none).
@@ -117,6 +119,7 @@ if ( ! function_exists( 'hypermarket_header_styles' ) ) :
 	/**
 	 * Apply inline style to the theme header.
 	 *
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_header_styles() {
@@ -145,7 +148,7 @@ if ( ! function_exists( 'hypermarket_generate_css' ) ) :
 	/**
 	 * Generate CSS.
 	 *
-	 * @since    1.0.0
+	 * @since    2.0.0
 	 * @param    string $selector  The CSS selector.
 	 * @param    string $style     The CSS style.
 	 * @param    string $value     The CSS value.
@@ -177,7 +180,7 @@ if ( ! function_exists( 'hypermarket_minify_inline_css' ) ) :
 	/**
 	 * Minifies the given CSS styles.
 	 *
-	 * @since    1.0.0
+	 * @since    2.0.0
 	 * @param    string $css    CSS styles.
 	 * @return   void|string                     
 	 */
@@ -240,7 +243,7 @@ if ( ! function_exists( 'hypermarket_generate_editor_styles' ) ) :
 	/**
 	 * Build CSS reflecting colors, fonts and other options set in the Gutenberg editor, and return them for output.
 	 *
-	 * @since    1.0.0
+	 * @since    2.0.0
 	 * @return   void|string
 	 */
 	function hypermarket_generate_editor_styles() {

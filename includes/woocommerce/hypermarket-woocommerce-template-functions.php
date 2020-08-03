@@ -14,7 +14,7 @@ if ( ! function_exists( 'hypermarket_shop_messages' ) ) :
 	/**
 	 * WooCommerce shop messages.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_shop_messages() {
@@ -28,7 +28,7 @@ if ( ! function_exists( 'hypermarket_breadcrumb' ) ) :
 	/**
 	 * Outputs WooCommerce breadcrumbs.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_breadcrumb() {
@@ -45,7 +45,7 @@ if ( ! function_exists( 'hypermarket_before_content' ) ) :
 	 * Before Content
 	 * Wraps all WooCommerce content in wrappers which match the theme markup
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_before_content() {
@@ -60,7 +60,7 @@ if ( ! function_exists( 'hypermarket_after_content' ) ) :
 	 * After Content
 	 * Closes the wrapping divs
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_after_content() {
@@ -83,7 +83,7 @@ if ( ! function_exists( 'hypermarket_cart_link_fragment' ) ) :
 	 * Cart Fragments
 	 * Ensure cart contents update when products are added to the cart via AJAX
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @param   array $fragments      Fragments to refresh via AJAX.
 	 * @return  array
 	 */
@@ -102,7 +102,7 @@ if ( ! function_exists( 'hypermarket_handheld_toolbar' ) ) :
 	/**
 	 * Display a menu intended for use on handheld devices
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_handheld_toolbar() {
@@ -170,7 +170,7 @@ if ( ! function_exists( 'hypermarket_product_loop_sold_out_flash' ) ) :
 	/**
 	 * Get the `Sold out` flash for the loop.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_product_loop_sold_out_flash() {
@@ -188,7 +188,7 @@ if ( ! function_exists( 'hypermarket_quantity_minus_btn' ) ) :
 	/**
 	 * Quantity minus (decrement) button.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_quantity_minus_btn() {
@@ -202,7 +202,7 @@ if ( ! function_exists( 'hypermarket_quantity_plus_btn' ) ) :
 	/**
 	 * Quantity plus (increment) button.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_quantity_plus_btn() {
@@ -219,7 +219,7 @@ if ( ! function_exists( 'hypermarket_woocommerce_pagination' ) ) :
 	 * but since Hypermarket adds pagination before that function is excuted we need a separate function to
 	 * determine whether or not to display the pagination.
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_woocommerce_pagination() {
@@ -233,7 +233,7 @@ if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
 	/**
 	 * Single product pagination
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_single_product_pagination() {
@@ -283,7 +283,7 @@ if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
 	/**
 	 * Sticky add to cart bar
 	 *
-	 * @since   1.0.0
+	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_sticky_single_add_to_cart() {
