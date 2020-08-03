@@ -6,6 +6,10 @@ html {
 	overflow-x: hidden;
 }
 
+*:focus {
+	outline: none;
+}
+
 /**
  * Sections
  */
@@ -66,8 +70,7 @@ kbd {
 	border-radius: 0;
 }
 
-ul,
-ol {
+ul, ol {
 	padding-start: 18px;
 	margin-top: 0;
 	margin-bottom: var(--line-height-computed);
@@ -92,8 +95,8 @@ dd {
 
 abbr[title],
 abbr[data-original-title] {
-	cursor: help;
-	border-bottom: 1px dotted;
+  cursor: help;
+  border-bottom: 1px dotted;
 }
 
 blockquote {
@@ -155,32 +158,6 @@ figure {
 .wp-block-image {
 	margin-bottom: 0;
 	width: 100%;
-}
-
-.wp-block-table {
-	table {
-		border-collapse: collapse;
-	}
-
-	td,
-	th {
-		border: 1px solid;
-		text-align: start;
-		word-break: normal;
-		padding: 0.5em;
-	}
-
-	thead {
-		border-bottom: 3px solid;
-	}
-
-	tfoot {
-		border-top: 3px solid;
-	}
-
-	figcaption {
-		@extend %caption;
-	}
 }
 
 .wp-block-video {
