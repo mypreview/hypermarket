@@ -21,6 +21,7 @@ module.exports = ( { env } ) => ( {
 		'postcss-transform-shortcut': {},
 		'postcss-selector-not': {},
 		'postcss-combine-media-query': {},
+		'postcss-normalize': {},
 		autoprefixer: {},
 	},
 } );

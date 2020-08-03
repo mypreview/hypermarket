@@ -61,6 +61,7 @@
 		"postcss-mixins": "^6.2.3",
 		"postcss-nested": "^4.2.1",
 		"postcss-nested-ancestors": "^2.0.0",
+		"postcss-normalize": "^9.0.0",
 		"postcss-position": "^1.1.0",
 		"postcss-quantity-queries": "^0.5.0",
 		"postcss-selector-not": "^4.0.0",
