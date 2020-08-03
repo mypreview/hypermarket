@@ -297,6 +297,8 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * @return  void
 		 */
 		public function widgets_init() {
+			global $hypermarket;
+			
 			$sidebar_args['sidebar'] = array(
 				'name'        => __( 'Sidebar', 'hypermarket' ),
 				'id'          => 'sidebar-1',
@@ -358,7 +360,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 				 * 'hypermarket_footer_3_widget_tags' -> (Row 2)
 				 * 'hypermarket_footer_4_widget_tags' -> (Row 2)
 				 */
-				$filter_hook = sprintf( 'hypermarket_%s_widget_tags', $sidebar );
+				$filter_hook = sprintf( '%s_%s_widget_tags', $hypermarket->slug, $sidebar );
 				$widget_tags = apply_filters( $filter_hook, $widget_tags ); //phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 
 				if ( is_array( $widget_tags ) ) {
@@ -536,10 +538,33 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * @return  string $template   Modified version of the default template.
 		 */
 		public function navigation_markup_template() {
+			$return               = '';
+			$needle               = '%%';
+			$current_page         = sprintf( '<span aria-current="page" class="page-numbers current">%s</span>', $needle );
+			$previous_posts_label = esc_html__( 'Prev', 'hypermarket' );
+			$next_posts_label     = esc_html__( 'Next', 'hypermarket' );
+			$previous_posts_link  = get_previous_posts_link();
+			$next_posts_link      = get_next_posts_link();
+
+			// Whether the previous posts page link exists.
+			if ( ! empty( $previous_posts_link ) ) {
+				$return .= get_previous_posts_link( $previous_posts_label );
+			} else {
+				$return .= str_replace( $needle, $previous_posts_label, $current_page );
+			}
+
+			// Whether the next posts page link exists.
+			if ( ! empty( $next_posts_link ) ) {
+				$return .= get_next_posts_link( $next_posts_label );
+			} else {
+				$return .= str_replace( $needle, $next_posts_label, $current_page );
+			}
+
 			/* translators: 1: Open nav tag, 2: Close nav tag. */
-			$template  = sprintf( esc_html__( '%1$sPost Navigation%2$s', 'hypermarket' ), '<nav id="post-navigation" class="navigation %1$s" role="navigation" aria-label="', '">';
+			$template  = sprintf( esc_html__( '%1$sPost Navigation%2$s', 'hypermarket' ), '<nav id="post-navigation" class="navigation %1$s" role="navigation" aria-label="', '">' );
 			$template .= '<h2 class="screen-reader-text">%2$s</h2>';
 			$template .= '<div class="nav-links">%3$s</div>';
+			$template .= sprintf( '<div class="navigation__pager">%s</div>', $return );
 			$template .= '</nav>';
 
 			return apply_filters( 'hypermarket_navigation_markup_template', $template );
