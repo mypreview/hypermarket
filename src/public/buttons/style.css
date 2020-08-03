@@ -1,0 +1,45 @@
+.wp-block-button {
+	max-width: 100%;
+
+	&s {
+		display: flex;
+		flex-wrap: wrap;
+
+		&.aligncenter {
+			justify-content: center;
+		}
+
+		&.alignright {
+			justify-content: flex-end;
+		}
+
+		&.alignleft {
+			justify-content: flex-start;
+		}
+	}
+}
+
+.wp-block-button__link,
+button,
+.button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	max-width: 100%;
+	min-height: var(--btn-height);
+	font-size: calc(var(--font-size-base) * 0.875);
+	border-width: 0;
+	border-radius: var(--border-radius-base);
+	padding: 0 22px;
+	text-transform: uppercase;
+	text-decoration: none;
+	margin: 10px 8px 10px 0;
+	touch-action: manipulation;
+	appearance: none;
+	transition: color 0.3s ease-out, background-color 0.3s ease-out;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	cursor: pointer;
+}
