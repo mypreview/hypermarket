@@ -9,9 +9,9 @@ input,
 button,
 select,
 textarea {
-	font-family: inherit;
-	font-size: inherit;
-	line-height: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 input,
@@ -23,16 +23,17 @@ textarea {
 	font-size: calc(var(--font-size-base) * 0.875);
 	text-transform: none;
 	border: 2px solid;
-	border-radius: 3px;
-	background-color: transparent;
-	margin-bottom: 8px;
+	border-radius: var(--border-radius-base);
+	margin-bottom: var(--line-height-computed);
 	appearance: none;
-	transition: border-color 0.3s;
-	padding: 11px;
+	padding: 0 16px;
+	@extend %border-shift;
+}
 
-	&:focus {
-		border-color: var(--silver-chalice-color);
-	}
+textarea {
+	height: auto;
+	padding: 13px 16px;
+	resize: vertical;
 }
 
 select,
@@ -52,102 +53,52 @@ select {
 
 }
 
-.select2 {
-	&-container--default {
-		^&-selection--single {
-			border-color: var(--alto-color);
-			border-radius: 3px;
-			height: 39px;
-
-			^^&-selection__rendered {
-				padding: 5px 24px 5px 11px;
-				font-size: calc(var(--font-size-base) * 0.6px);
-			}
-
-			^^&-selection__arrow {
-				b {
-					border-width: 7px 5px 0 5px;
-					margin-start: -8px;
-					margin-top: 2px;
-					border-radius: 2px;
-					border-color: var(--silver-color) transparent transparent transparent;
-				}
-			}
-		}
-	}
-}
-
-input:focus,
-optgroup:focus,
-select:focus,
-textarea:focus {
-	border-color: var(--alt-color);
-}
-
-input::placeholder,
-textarea::placeholder {
-	color: var(--text-dark);
-}
-
-textarea {
-	height: 142px;
-	resize: vertical;
-}
-
 optgroup {
 	margin-bottom: 24px;
 }
 
 [type="checkbox"] {
-	&:checked {
-		&::before {
-			content: "\e91e";
-			font-family: keyportal;
-			start: 1px;
-			top: -1px;
-			position: absolute;
-		}
+	border-radius: 1px;
+	&::before {
+		position: absolute;
+		display: block;
+		font-family: 'Material Icons';
+		content: "\e5ca";
+		color: #fff;
+		line-height: 1;
+		top: -2px;
+		left: -1px;
 	}
 }
 
 [type="radio"] {
+	border-radius: 50%;
 	&:checked {
-		&::before {
-			content: "";
-			width: 10px;
-			start: 2px;
-			height: 10px;
-			top: 2px;
-			position: absolute;
-			background-color: var(--text-color);
-			border-radius: 2px;
-		}
+		border-width: 4px;
 	}
 }
 
 [type="checkbox"],
 [type="radio"] {
 	position: absolute;
-	width: 16px;
-	height: 16px;
-	margin: 0 10px 0 0;
-	border-radius: 2px;
+	width: 15px;
+	height: 15px;
+	vertical-align: middle;
+	margin: 3px 0 0 2px;
+	border: 2px solid;
+	background-clip: padding-box;
 	cursor: pointer;
-
-	&:checked {
-		border-color: var(--silver-chalice-color);
-	}
+	padding: 0;
 
 	+ label {
-		font-size: calc(var(--font-size-base) * 0.6px);
-		margin-bottom: 0;
-		padding-start: 26px;
+		display: inline-block;
+		margin-left: 27px;
+		margin-bottom: 12px;
 	}
 }
 
 [disabled]
 .disabled {
-	color: var(--gray-light);
 	opacity: 0.88;
 	cursor: not-allowed;
 }
@@ -155,57 +106,4 @@ optgroup {
 button,
 input {
 	overflow: visible;
-}
-
-.wp-block-button {
-	max-width: 100%;
-
-	&s {
-		display: flex;
-		flex-wrap: wrap;
-
-		&.aligncenter {
-			justify-content: center;
-		}
-
-		&.alignright {
-			justify-content: flex-end;
-		}
-
-		&.alignleft {
-			justify-content: flex-start;
-		}
-	}
-
-	&__link {
-		min-width: 152px;
-	}
-}
-
-.wp-block-button__link,
-button,
-.button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-	max-width: 100%;
-	min-height: 40px;
-	border-radius: 3px;
-	padding: 5px 21px;
-	text-transform: none;
-	appearance: none;
-	transition: color 0.3s, background-color 0.3s;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	border-width: 0;
-	cursor: pointer;
-	font-weight: 700;
-
-	&:hover,
-	&:focus {
-		color: var(--primary-color);
-		background-color: var(--tundora-color);
-	}
 }
