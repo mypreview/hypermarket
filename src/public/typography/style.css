@@ -1,0 +1,74 @@
+:--heading {
+	margin-top: 0;
+	line-height: var(--headings-line-height);
+}
+
+h1 {
+	margin-bottom: calc(var(--line-height-computed) * 1.2);
+	font-size: calc(var(--font-size-base) * 2.5);
+	font-weight: 300;
+}
+
+h2 {
+	margin-bottom: var(--line-height-computed);
+	font-size: calc(var(--font-size-base) * 1.875);
+	font-weight: 300;
+}
+
+h3 {
+	margin-bottom: calc(var(--line-height-computed) * 1.2);
+	font-size: calc(var(--font-size-base) * 1.625);
+	font-weight: 300;
+}
+
+h4 {
+	margin-bottom: calc(var(--line-height-computed) * 1.4);
+	font-size: calc(var(--font-size-base) * 1.375);
+	font-weight: 400;
+}
+
+h5 {
+	margin-bottom: calc(var(--line-height-computed) * 2);
+	font-size: calc(var(--font-size-base) * 1.125);
+	font-weight: 400;
+}
+
+h6 {
+	font-size: var(--font-size-base);
+	margin-bottom: calc(var(--line-height-computed) * 2);
+	font-weight: 500;
+}
+
+p {
+	margin-bottom: var(--line-height-computed);
+}
+
+.has-small-font-size {
+	font-size: calc(var(--font-size-base) * 0.875);
+}
+
+.has-regular-font-size {
+	font-size: var(--font-size-base);
+}
+
+.has-large-font-size {
+	font-size: calc(var(--font-size-base) * 1.125);
+}
+
+a {
+	text-decoration: underline;
+	@extend %color-shift
+
+	&:focus,
+	&:hover {
+		text-decoration: none;
+	}
+
+	.has-text-color & {
+		color: inherit;
+	}
+}
+
+ins {
+	text-decoration: none;
+}
