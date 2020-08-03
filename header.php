@@ -28,7 +28,6 @@
 		<?php do_action( 'hypermarket_before_header' ); ?>
 
 		<header id="masthead" class="site-header" itemscope="itemscope" itemtype="http://schema.org/WPHeader" role="banner">
-			<div class="col-full">
 				<?php
 					/**
 					 * Functions hooked into `hypermarket_header` action
@@ -44,7 +43,6 @@
 					do_action( 'hypermarket_header' ); 
 
 				?>
-			</div>
 		</header><!-- #masthead -->
 
 		<?php do_action( 'hypermarket_before_content' ); ?>
