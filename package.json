@@ -85,7 +85,8 @@
 		"webpack-rtl-plugin": "^2.0.0"
 	},
 	"dependencies": {
-		"es6-object-assign": "^1.1.0"
+		"es6-object-assign": "^1.1.0",
+		"material-icons": "^0.3.1"
 	},
 	"browserslist": [
 		"extends @wordpress/browserslist-config"
