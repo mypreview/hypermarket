@@ -378,6 +378,8 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			$public_asset_name = 'public';
 			$public_asset      = hypermarket_get_file_assets( $public_asset_name );
 
+			// Remove the previously enqueued block-editor stylesheet.
+			wp_dequeue_style( 'wp-block-library' );
 			// Fonts.
 			// phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 			wp_enqueue_style( sprintf( '%s-fonts', $hypermarket->slug ), $this->google_fonts(), array(), null );
