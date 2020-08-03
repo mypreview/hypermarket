@@ -59,7 +59,7 @@ a {
 	text-decoration: underline;
 	@extend %color-shift
 
-	&:focus,
+		&:focus,
 	&:hover {
 		text-decoration: none;
 	}

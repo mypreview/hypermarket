@@ -1,5 +1,5 @@
 %color-shift {
-  transition: color .3;
+	transition: color 0.3;
 }
 
 %caption {

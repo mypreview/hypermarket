@@ -66,7 +66,8 @@ kbd {
 	border-radius: 0;
 }
 
-ul, ol {
+ul,
+ol {
 	padding-start: 18px;
 	margin-top: 0;
 	margin-bottom: var(--line-height-computed);
@@ -91,8 +92,8 @@ dd {
 
 abbr[title],
 abbr[data-original-title] {
-  cursor: help;
-  border-bottom: 1px dotted;
+	cursor: help;
+	border-bottom: 1px dotted;
 }
 
 blockquote {
@@ -125,7 +126,7 @@ blockquote {
 }
 
 address {
-	margin-bottom: var(--line-height-computed);;
+	margin-bottom: var(--line-height-computed);
 	font-style: normal;
 	line-height: var(--line-height-base);
 }
