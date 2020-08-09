@@ -22,6 +22,6 @@
 		 * @hooked hypermarket_div_close              - 35
 		 * @hooked hypermarket_page_content           - 40
 		 */
-		do_action( 'hypermarket_page', 'post-thumbnail', get_the_ID() );
+		do_action( 'hypermarket_page' );
 	?>
 </article><!-- #post-## -->
