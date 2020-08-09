@@ -1,7 +1,7 @@
 table {
 	border-collapse: collapse;
 	width: 100%;
-  	max-width: 100%;
+	max-width: 100%;
 }
 
 td,
@@ -32,21 +32,21 @@ th {
 	@media (--screen-xs) {
 		width: 100%;
 		overflow-y: hidden;
-    	-ms-overflow-style: -ms-autohiding-scrollbar;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
 
-    	th,
+		th,
 		td {
-	        white-space: nowrap;
-			
+			white-space: nowrap;
+
 			&:first-child {
 				border-start: 0;
 			}
 			&:last-child {
 				border-end: 0;
 			}
-	    }
+		}
 
-	    tbody,
+		tbody,
 		tfoot {
 			tr:last-child {
 				th,

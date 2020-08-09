@@ -22,7 +22,7 @@
 .site-description {
 	font-style: italic;
 	padding-top: 9px;
-    font-size: calc(var(--font-size-base) * 0.687);
+	font-size: calc(var(--font-size-base) * 0.687);
 }
 
 .site-branding {

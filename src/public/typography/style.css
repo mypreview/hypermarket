@@ -61,7 +61,7 @@ a {
 	@extend %color-shift
 
 		&:focus,
-	&:hover {
+		&:hover {
 		text-decoration: none;
 	}
 

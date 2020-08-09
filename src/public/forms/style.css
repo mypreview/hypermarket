@@ -9,9 +9,9 @@ input,
 button,
 select,
 textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
 }
 
 input,
@@ -62,7 +62,7 @@ optgroup {
 	&::before {
 		position: absolute;
 		display: block;
-		font-family: 'Material Icons';
+		font-family: "Material Icons";
 		content: "\e5ca";
 		color: #fff;
 		line-height: 1;
