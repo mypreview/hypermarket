@@ -33,10 +33,7 @@ require get_parent_theme_file_path( '/includes/hypermarket-functions.php' );
 require get_parent_theme_file_path( '/includes/hypermarket-template-hooks.php' );
 require get_parent_theme_file_path( '/includes/hypermarket-template-functions.php' );
 
-if ( class_exists( 'Jetpack' ) ) {
-	$hypermarket->jetpack = require get_parent_theme_file_path( '/includes/jetpack/class-hypermarket-jetpack.php' );
-}
-
+// Query WooCommerce activation.
 if ( hypermarket_is_woocommerce_activated() ) {
 	$hypermarket->woocommerce = require get_parent_theme_file_path( '/includes/woocommerce/class-hypermarket-woocommerce.php' );
 
@@ -46,6 +43,12 @@ if ( hypermarket_is_woocommerce_activated() ) {
 	require get_parent_theme_file_path( '/includes/woocommerce/hypermarket-woocommerce-functions.php' );
 }
 
+// Query Jetpack activation.
+if ( hypermarket_is_jetpack_activated() ) {
+	$hypermarket->jetpack = require get_parent_theme_file_path( '/includes/jetpack/class-hypermarket-jetpack.php' );
+}
+
+// Determines whether the current request is for an administrative interface page.
 if ( is_admin() ) {
 	$hypermarket->tgmpa = require get_parent_theme_file_path( '/includes/tgmpa/class-hypermarket-tgmpa-register.php' );
 
@@ -59,13 +62,19 @@ if ( is_admin() ) {
  * then kicking off the theme from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.0.0
+ * @since    2.0.0
  */
 function hypermarket_run() {
 	$theme = new Hypermarket();
+	
 	// Check for WooCommerce before initialization of the class.
 	if ( hypermarket_is_woocommerce_activated() ) {
 		$woocommerce = new Hypermarket_WooCommerce();
+	}
+
+	// Check for Jetpack before initialization of the class.
+	if ( hypermarket_is_jetpack_activated() ) {
+		$woocommerce = new Hypermarket_Jetpack();
 	}
 }
 hypermarket_run();
