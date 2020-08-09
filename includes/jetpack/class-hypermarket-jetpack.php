@@ -72,5 +72,3 @@ if ( ! class_exists( 'Hypermarket_Jetpack' ) ) :
 
 	}
 endif;
-
-return new Hypermarket_Jetpack();
