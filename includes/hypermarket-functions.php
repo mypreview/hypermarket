@@ -64,6 +64,22 @@ if ( ! function_exists( 'hypermarket_is_woocommerce_activated' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_is_jetpack_activated' ) ) :
+	/**
+	 * Query Jetpack activation.
+	 *
+	 * @since    2.0.0
+	 * @return   bool
+	 */
+	function hypermarket_is_jetpack_activated() {
+		if ( class_exists( 'Jetpack' ) ) {
+			return true;
+		}
+			
+		return false;
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_is_blog_archive' ) ) :
 	/**
 	 * Checks if the current page is a blog post archive.
