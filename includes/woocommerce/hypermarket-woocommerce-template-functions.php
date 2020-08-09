@@ -121,11 +121,11 @@ if ( ! function_exists( 'hypermarket_handheld_toolbar' ) ) :
 			),
 		);
 
-		if ( wc_get_page_id( 'myaccount' ) === -1 ) {
+		if ( -1 === wc_get_page_id( 'myaccount' ) ) {
 			unset( $links['myaccount'] );
 		}
 
-		if ( wc_get_page_id( 'cart' ) === -1 ) {
+		if ( -1 === wc_get_page_id( 'cart' ) ) {
 			unset( $links['cart'] );
 		}
 
