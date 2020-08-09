@@ -12,7 +12,7 @@
 
 if ( ! function_exists( 'hypermarket_is_product_archive' ) ) :
 	/**
-	 * Checks if the current page is a product archive
+	 * Checks if the current page is a product archive.
 	 *
 	 * @since   2.0.0
 	 * @return  bool
@@ -26,6 +26,20 @@ if ( ! function_exists( 'hypermarket_is_product_archive' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_is_cart_available' ) ) {
+	/**
+	 * Validates whether the WooCommerce Cart instance is available in the request.
+	 *
+	 * @since   2.0.0
+	 * @return  bool
+	 */
+	function hypermarket_is_cart_available() {
+		$woo = WC();
+		
+		return ( $woo instanceof WooCommerce ) && ( $woo->cart instanceof WC_Cart );
+	}
+}
+
 if ( ! function_exists( 'hypermarket_get_previous_product' ) ) :
 	/**
 	 * Retrieves the previous product.
@@ -34,7 +48,7 @@ if ( ! function_exists( 'hypermarket_get_previous_product' ) ) :
 	 * @param   bool         $in_same_term       Optional. Whether post should be in a same taxonomy term. Default false.
 	 * @param   array|string $excluded_terms     Optional. Comma-separated list of excluded term IDs. Default empty.
 	 * @param   string       $taxonomy           Optional. Taxonomy, if $in_same_term is true. Default 'product_cat'.
-	 * @return  WC_Product|false                            Product object if successful. False if no valid product is found.
+	 * @return  WC_Product|false                           Product object if successful. False if no valid product is found.
 	 */
 	function hypermarket_get_previous_product( $in_same_term = false, $excluded_terms = '', $taxonomy = 'product_cat' ) {
 		$product = new Hypermarket_WooCommerce_Adjacent_Products( $in_same_term, $excluded_terms, $taxonomy, true );
@@ -50,7 +64,7 @@ if ( ! function_exists( 'hypermarket_get_next_product' ) ) :
 	 * @param   bool         $in_same_term       Optional. Whether post should be in a same taxonomy term. Default false.
 	 * @param   array|string $excluded_terms     Optional. Comma-separated list of excluded term IDs. Default empty.
 	 * @param   string       $taxonomy           Optional. Taxonomy, if $in_same_term is true. Default 'product_cat'.
-	 * @return  WC_Product|false                            Product object if successful. False if no valid product is found.
+	 * @return  WC_Product|false                           Product object if successful. False if no valid product is found.
 	 */
 	function hypermarket_get_next_product( $in_same_term = false, $excluded_terms = '', $taxonomy = 'product_cat' ) {
 		$product = new Hypermarket_WooCommerce_Adjacent_Products( $in_same_term, $excluded_terms, $taxonomy );
@@ -81,6 +95,11 @@ if ( ! function_exists( 'hypermarket_cart_link' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_cart_link() {
+		// Bail early, in case the WooCommerce cart is not available.
+		if ( ! hypermarket_is_cart_available() ) {
+			return;
+		}
+
 		?><a class="site-cart-contents" href="<?php echo esc_url( wc_get_checkout_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'hypermarket' ); ?>">
 			<?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?>
 			<span class="site-cart-contents__count">
