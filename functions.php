@@ -27,6 +27,7 @@ $hypermarket       = (object) array(
 	'theme_uri'  => $hypermarket_theme->get( 'ThemeURI' ),
 	'slug'       => 'hypermarket',
 	'main'       => require get_parent_theme_file_path( '/includes/class-hypermarket.php' ),
+	'customize'  => require get_parent_theme_file_path( '/includes/customize/class-hypermarket-customize.php' ),
 );
 
 require get_parent_theme_file_path( '/includes/hypermarket-functions.php' );
@@ -67,6 +68,11 @@ if ( is_admin() ) {
 function hypermarket_run() {
 	$theme = new Hypermarket();
 	
+	// Whether the site is being previewed in the Customizer.
+	if ( is_customize_preview() ) {
+		$customize = new Hypermarket_Customize();
+	}
+
 	// Check for WooCommerce before initialization of the class.
 	if ( hypermarket_is_woocommerce_activated() ) {
 		$woocommerce = new Hypermarket_WooCommerce();
