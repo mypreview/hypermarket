@@ -37,18 +37,11 @@ if ( ! class_exists( 'Hypermarket_Arbitrary_Customize_Control' ) ) :
 		public $description = '';
 
 		/**
-		 * The CSS class var
-		 *
-		 * @var string $classname
-		 */
-		public $classname = '';
-
-		/**
 		 * The dashicon var
 		 *
 		 * @var string $dashicon
 		 */
-		public $dashicon = '';
+		public $dashicon = 'info';
 
 		/**
 		 * Renter the control
@@ -61,10 +54,10 @@ if ( ! class_exists( 'Hypermarket_Arbitrary_Customize_Control' ) ) :
 				default:
 					// Call-out.
 				case 'callout': 
-					printf( '<div class="customize-control-callout %1$s"><div class="heading"><span class="customize-control-title">%2$s</span><span class="customize-control-dashicon"><i class="dashicon %3$s"></i></span></div>', esc_attr( $this->classname ), esc_html( $this->label ), esc_attr( $this->dashicon ) );
+					printf( '<div class="customize-control-callout"><div class="heading"><span class="customize-control-title">%s</span><span class="customize-control-dashicon"><i class="dashicons dashicons-%s"></i></span></div>', esc_html( $this->label ), esc_attr( $this->dashicon ) );
 					// Append description if there is any to display!
 					if ( $this->description ) {
-						printf( '<div class="description %1$s">%2$s</div>', esc_attr( $this->classname ), wp_kses_post( $this->description ) );
+						printf( '<div class="description">%s</div>', wp_kses_post( $this->description ) );
 					}
 					?>
 					</div>
