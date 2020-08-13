@@ -142,7 +142,7 @@ if ( ! function_exists( 'hypermarket_site_title_or_logo' ) ) :
 	 * Display the site title or logo
 	 *
 	 * @since   2.0.0
-	 * @param   bool $echo   Echo the string or return it.
+	 * @param   bool $echo   Optional. Echo the string or return it.
 	 * @return  string
 	 */
 	function hypermarket_site_title_or_logo( $echo = true ) {

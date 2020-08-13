@@ -165,9 +165,9 @@ if ( ! function_exists( 'hypermarket_promoted_products' ) ) :
 	 * If neither exist, it can fallback to show recently added products.
 	 *
 	 * @since   2.0.0
-	 * @param   integer $per_page           Total products to display.
-	 * @param   integer $columns            Columns to arrange products in to.
-	 * @param   boolean $recent_fallback    Should the function display recent products as a fallback when there are no featured or on-sale products?.
+	 * @param   integer $per_page           Optional. Total products to display.
+	 * @param   integer $columns            Optional. Columns to arrange products in to.
+	 * @param   boolean $recent_fallback    Optional. Should the function display recent products as a fallback when there are no featured or on-sale products?.
 	 * @return  void
 	 */
 	function hypermarket_promoted_products( $per_page = '2', $columns = '2', $recent_fallback = true ) {
