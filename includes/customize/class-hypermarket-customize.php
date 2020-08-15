@@ -30,7 +30,7 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
-			add_action( 'hypermarket_customize_register_controls', array( $this, 'customize_register_colors' ) );
+			add_action( 'hypermarket_customize_register_controls', array( $this, 'register_colors' ) );
 		}
 
 		/**
@@ -41,6 +41,7 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		 * @return  void
 		 */
 		public function customize_register( $wp_customize ) {
+			// Add `Colors` customize panel.
 			$wp_customize->add_panel(
 				'hypermarket_colors_panel',
 				array(
@@ -62,8 +63,9 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		 * @param   WP_Customize_Manager $hm_customize   Theme Customizer object.
 		 * @return  void
 		 */
-		public function customize_register_colors( $hm_customize ) {
-			$controls = self::get_customize_controls( 'colors' );
+		public function register_colors( $hm_customize ) {
+			$group    = 'color';
+			$controls = self::get_controls( $group );
 
 			// Check whether there are any controls to register.
 			if ( is_array( $controls ) && ! empty( $controls ) ) {
@@ -104,7 +106,7 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 											'transport'  => 'refresh',
 											'capability' => 'edit_theme_options',
 											// phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores, WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
-											'default'    => apply_filters( sprintf( '%s_default', esc_html( $control_id ) ), sanitize_hex_color( $control_default_value ) ),
+											'default'    => apply_filters( sprintf( '%s_default', self::get_sanitized( '', $control_id ) ), self::get_sanitized( $group, $control_default_value ) ),
 											'sanitize_callback' => 'sanitize_hex_color',
 										) 
 									);
@@ -136,13 +138,13 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		 * @since   2.0.0
 		 * @return  array
 		 */
-		public static function get_default_customize_settings() {
+		public static function get_default_settings() {
 			global $hypermarket;
 			$setting_prefix = 'hypermarket_customize';
 			$settings       = apply_filters(
 				'hypermarket_default_customize_values',
 				array(
-					'colors' => array(
+					'color' => array(
 						array(
 							'id'       => sprintf( '%s_general_colors', $setting_prefix ),
 							'title'    => esc_html__( 'General', 'hypermarket' ),
@@ -199,14 +201,79 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		 * @param   string $control     Optional. Customizer section id.
 		 * @return  array
 		 */
-		public static function get_customize_controls( $control = null ) {
-			$controls = self::get_default_customize_settings();
+		public static function get_controls( $control = null ) {
+			$controls = self::get_default_settings();
 
 			if ( is_array( $controls ) && ! is_null( $control ) && isset( $controls[ $control ] ) ) {
 				return $controls[ $control ];
 			}
 
 			return $controls;
+		}
+
+		/**
+		 * Add extra CSS styles to a registered stylesheet.
+		 *
+		 * @since   2.0.0
+		 * @return  string
+		 */
+		public static function get_css() {
+			$return = ':root {';
+			$groups = self::get_controls();
+
+			if ( is_array( $groups ) && ! empty( $groups ) ) {
+				// Loop through Customize groups.
+				foreach ( $groups as $group ) {
+					// Loop through Customize sections.
+					foreach ( $group as $section ) {
+						$section_controls = (array) $section['controls'];
+
+						// Make sure there are at least one control to register!
+						if ( ! empty( $section_controls ) ) {
+							foreach ( $section_controls as $control ) {
+
+								// Determine if the control id is declared and is different than null.
+								if ( isset( $control['id'] ) ) {
+									$control_id            = (string) $control['id'];
+									$control_var           = (string) $control['var'];
+									$control_default_value = (string) isset( $control['default'] ) ? $control['default'] : '';
+									$control_value         = (string) get_theme_mod( $control_id, $control_default_value );
+
+									$return .= sprintf( '--%s: %s;', self::get_sanitized( '', $control_var ), self::get_sanitized( $group, $control_value ) );
+								}
+							}
+						}
+					}
+				}
+			}
+
+			$return .= '}';
+			$return  = apply_filters( 'hypermarket_customize_inline_css', $return );
+			return hypermarket_minify_inline_css( $return );
+		}
+
+		/**
+		 * Sanitize an input.
+		 *
+		 * @param  string     $group   Optional. The group id of the control.
+		 * @param  int|string $input             The value to sanitize.
+		 * @return mixed
+		 */
+		public static function get_sanitized( $group = '', $input ) {
+			$return = '';
+
+			switch ( $group ) {
+				case 'color':
+					// Sanitizes a hex color.
+					$return = sanitize_hex_color( $input );
+					break;
+				default:
+					// Escaping for HTML blocks.
+					$return = esc_html( $input );
+					break;
+			}
+
+			return $return;
 		}
 	}
 endif;
