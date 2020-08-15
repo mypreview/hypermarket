@@ -255,15 +255,45 @@ if ( ! function_exists( 'hypermarket_minify_inline_css' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_generate_editor_styles' ) ) :
+if ( ! function_exists( 'hypermarket_slugify' ) ) :
+	/**
+	 * Slugifies every string, even when it contains unicode!
+	 *
+	 * @since    2.0.0
+	 * @param    string $input  The value to slugify.
+	 * @return   string
+	 */
+	function hypermarket_slugify( $input ) {
+		// Replace non letter or digits by -.
+		$input = preg_replace( '~[^\pL\d]+~u', '-', $input );
+		// Transliterate.
+		$input = iconv( 'utf-8', 'us-ascii//TRANSLIT', $input );
+		// Remove unwanted characters.
+		$input = preg_replace( '~[^-\w]+~', '', $input );
+		// Trim.
+		$input = trim( $input, '-' );
+		// Remove duplicate -.
+		$input = preg_replace( '~-+~', '-', $input );
+		// Lowercase.
+		$input = strtolower( $input );
+
+		if ( empty( $input ) ) {
+			return 'n-a';
+		}
+
+		return $input;
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_generate_editor_css' ) ) :
 	/**
 	 * Build CSS reflecting colors, fonts and other options set in the Gutenberg editor, and return them for output.
 	 *
 	 * @since    2.0.0
 	 * @return   void|string
 	 */
-	function hypermarket_generate_editor_styles() {
-		$css              = null;
+	function hypermarket_generate_editor_css() {
+		$return           = null;
 		$font_sizes       = get_theme_support( 'editor-font-sizes' );
 		$color_palette    = get_theme_support( 'editor-color-palette' );
 		$gradient_presets = get_theme_support( 'editor-gradient-presets' );
@@ -272,7 +302,7 @@ if ( ! function_exists( 'hypermarket_generate_editor_styles' ) ) :
 		if ( ! empty( $font_sizes ) && is_array( $font_sizes ) ) {
 			$font_sizes = $font_sizes[0];
 			foreach ( $font_sizes as $font_size ) {
-				$css .= hypermarket_generate_css( sprintf( '.has-%s-font-size', $font_size['slug'] ), 'font-size', $font_size['size'], '', 'px' );
+				$return .= hypermarket_generate_css( sprintf( '.has-%s-font-size', $font_size['slug'] ), 'font-size', $font_size['size'], '', 'px' );
 			}
 		}
 
@@ -280,8 +310,8 @@ if ( ! function_exists( 'hypermarket_generate_editor_styles' ) ) :
 		if ( ! empty( $color_palette ) && is_array( $color_palette ) ) {
 			$color_palette = $color_palette[0];
 			foreach ( $color_palette as $color ) {
-				$css .= hypermarket_generate_css( sprintf( '.has-%s-color', $color['slug'] ), 'color', $color['color'], '', '', false );
-				$css .= hypermarket_generate_css( sprintf( '.has-%s-background-color', $color['slug'] ), 'background-color', $color['color'] );
+				$return .= hypermarket_generate_css( sprintf( '.has-%s-color', $color['slug'] ), 'color', sprintf( 'var(--%s)', $color['var'] ), '', '', false );
+				$return .= hypermarket_generate_css( sprintf( '.has-%s-background-color', $color['slug'] ), 'background-color', sprintf( 'var(--%s)', $color['var'] ) );
 			}
 		}
 
@@ -289,10 +319,10 @@ if ( ! function_exists( 'hypermarket_generate_editor_styles' ) ) :
 		if ( ! empty( $gradient_presets ) && is_array( $gradient_presets ) ) {
 			$gradient_presets = $gradient_presets[0];
 			foreach ( $gradient_presets as $gradient ) {
-				$css .= hypermarket_generate_css( sprintf( '.has-%s-gradient-background', $gradient['slug'] ), 'background-image', $gradient['gradient'] );
+				$return .= hypermarket_generate_css( sprintf( '.has-%s-gradient-background', $gradient['slug'] ), 'background-image', $gradient['gradient'] );
 			}
 		}
 
-		return hypermarket_minify_inline_css( $css );
+		return hypermarket_minify_inline_css( $return );
 	}
 endif;
