@@ -239,10 +239,10 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 					if ( isset( $group['settings'] ) ) {
 						// Loop through Customize sections.
 						foreach ( $group['settings'] as $section ) {
-							$section_controls = (array) $section['controls'];
+							$controls = isset( $section['controls'] ) ? $section['controls'] : array();
 							// Make sure there are at least one control to register!
-							if ( ! empty( $section_controls ) ) {
-								foreach ( $section_controls as $control ) {
+							if ( is_array( $controls ) && ! empty( $controls ) ) {
+								foreach ( $controls as $control ) {
 									// Determine if the control id is declared and is different than null.
 									if ( isset( $control['id'] ) ) {
 										$control_id            = (string) $control['id'];
