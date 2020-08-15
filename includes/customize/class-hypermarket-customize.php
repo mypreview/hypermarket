@@ -41,18 +41,6 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		 * @return  void
 		 */
 		public function customize_register( $wp_customize ) {
-			// Add `Colors` customize panel.
-			$wp_customize->add_panel(
-				'hypermarket_colors_panel',
-				array(
-					'priority'    => 30,
-					'capability'  => 'edit_theme_options',
-					'title'       => __( 'Colors', 'hypermarket' ),
-					'description' => __( 'This option allows you to choose a color, view color suggestions, refine with the color picker and apply background color changes.', 'hypermarket' ),
-				) 
-			);
-
-
 			do_action( 'hypermarket_customize_register_controls', $wp_customize );
 		}
 
@@ -64,11 +52,32 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		 * @return  void
 		 */
 		public function register_colors( $hm_customize ) {
-			$group    = 'color';
-			$controls = self::get_controls( $group );
+			global $hypermarket;
+			$id         = 'color';
+			$capability = 'edit_theme_options';
+			$group      = self::get_controls( $id );
+			$panel_id   = sprintf( '%s_%s_panel', $hypermarket->slug, $id );
 
 			// Check whether there are any controls to register.
-			if ( is_array( $controls ) && ! empty( $controls ) ) {
+			if ( is_array( $group ) && ! empty( $group ) && isset( $group['settings'] ) ) {
+				$group_title       = (string) isset( $group['title'] ) ? $group['title'] : '';
+				$group_description = (string) isset( $group['description'] ) ? $group['description'] : '';
+				$group_priority    = (int) isset( $group['priority'] ) ? $group['priority'] : 30;
+
+				// Add `Colors` customize panel.
+				$hm_customize->add_panel(
+					esc_html( $panel_id ),
+					array(
+						'title'       => esc_html( $group['title'] ),
+						'description' => esc_html( $group['description'] ),
+						'priority'    => intval( $group_priority ),
+						'capability'  => esc_html( $capability ),
+					) 
+				);
+
+				// List of Customizer controls.
+				$controls = isset( $group['settings'] ) ? $group['settings'] : array();
+				
 				// Loop through Customize sections.
 				foreach ( $controls as $section ) {
 					// Determine if the section id is declared and is different than null.
@@ -82,15 +91,14 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 							esc_html( $section_id ),
 							array(
 								'title'      => esc_html( $section_title ),
-								'panel'      => 'hypermarket_colors_panel',
-								'capability' => 'edit_theme_options',
+								'panel'      => esc_html( $panel_id ),
+								'capability' => esc_html( $capability ),
 							) 
 						);
 
 						// Make sure there are at least one control to register!
 						if ( ! empty( $section_controls ) ) {
 							foreach ( $section_controls as $control ) {
-
 								// Determine if the control id is declared and is different than null.
 								if ( isset( $control['id'] ) ) {
 									$control_id            = (string) $control['id'];
@@ -145,45 +153,49 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 				'hypermarket_default_customize_values',
 				array(
 					'color' => array(
-						array(
-							'id'       => sprintf( '%s_general_colors', $setting_prefix ),
-							'title'    => esc_html__( 'General', 'hypermarket' ),
-							'controls' => array(
-								array(
-									'var'     => sprintf( '%s-general-primary', $hypermarket->slug ),
-									'id'      => sprintf( '%s_general_primary_color', $setting_prefix ),
-									'label'   => esc_html__( 'Primary', 'hypermarket' ),
-									'default' => '#77cde3',
+						'title'       => __( 'Colors', 'hypermarket' ),
+						'description' => __( 'This option allows you to choose a color, view color suggestions, refine with the color picker and apply background color changes.', 'hypermarket' ),
+						'settings'    => array( 
+							array(
+								'id'       => sprintf( '%s_general_colors', $setting_prefix ),
+								'title'    => esc_html__( 'General', 'hypermarket' ),
+								'controls' => array(
+									array(
+										'var'     => sprintf( '%s-general-primary', $hypermarket->slug ),
+										'id'      => sprintf( '%s_general_primary_color', $setting_prefix ),
+										'label'   => esc_html__( 'Primary', 'hypermarket' ),
+										'default' => '#77cde3',
+									),
 								),
 							),
-						),
-						array(
-							'id'       => sprintf( '%s_alert_colors', $setting_prefix ),
-							'title'    => esc_html__( 'Alert', 'hypermarket' ),
-							'controls' => array(
-								array(
-									'var'     => sprintf( '%s-alert-info', $hypermarket->slug ),
-									'id'      => sprintf( '%s_alert_info_color', $setting_prefix ),
-									'label'   => esc_html__( 'Info', 'hypermarket' ),
-									'default' => '#93c4ef',
-								),
-								array(
-									'var'     => sprintf( '%s-alert-success', $hypermarket->slug ),
-									'id'      => sprintf( '%s_alert_success_color', $setting_prefix ),
-									'label'   => esc_html__( 'Success', 'hypermarket' ),
-									'default' => '#a7c04d',
-								),
-								array(
-									'var'     => sprintf( '%s-alert-warning', $hypermarket->slug ),
-									'id'      => sprintf( '%s_alert_warning_color', $setting_prefix ),
-									'label'   => esc_html__( 'Warning', 'hypermarket' ),
-									'default' => '#ffce2b',
-								),
-								array(
-									'var'     => sprintf( '%s-alert-danger', $hypermarket->slug ),
-									'id'      => sprintf( '%s_alert_danger_color', $setting_prefix ),
-									'label'   => esc_html__( 'Danger', 'hypermarket' ),
-									'default' => '#ef0568',
+							array(
+								'id'       => sprintf( '%s_alert_colors', $setting_prefix ),
+								'title'    => esc_html__( 'Alert', 'hypermarket' ),
+								'controls' => array(
+									array(
+										'var'     => sprintf( '%s-alert-info', $hypermarket->slug ),
+										'id'      => sprintf( '%s_alert_info_color', $setting_prefix ),
+										'label'   => esc_html__( 'Info', 'hypermarket' ),
+										'default' => '#93c4ef',
+									),
+									array(
+										'var'     => sprintf( '%s-alert-success', $hypermarket->slug ),
+										'id'      => sprintf( '%s_alert_success_color', $setting_prefix ),
+										'label'   => esc_html__( 'Success', 'hypermarket' ),
+										'default' => '#a7c04d',
+									),
+									array(
+										'var'     => sprintf( '%s-alert-warning', $hypermarket->slug ),
+										'id'      => sprintf( '%s_alert_warning_color', $setting_prefix ),
+										'label'   => esc_html__( 'Warning', 'hypermarket' ),
+										'default' => '#ffce2b',
+									),
+									array(
+										'var'     => sprintf( '%s-alert-danger', $hypermarket->slug ),
+										'id'      => sprintf( '%s_alert_danger_color', $setting_prefix ),
+										'label'   => esc_html__( 'Danger', 'hypermarket' ),
+										'default' => '#ef0568',
+									),
 								),
 							),
 						),
@@ -224,22 +236,22 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 			if ( is_array( $groups ) && ! empty( $groups ) ) {
 				// Loop through Customize groups.
 				foreach ( $groups as $group ) {
-					// Loop through Customize sections.
-					foreach ( $group as $section ) {
-						$section_controls = (array) $section['controls'];
+					if ( isset( $group['settings'] ) ) {
+						// Loop through Customize sections.
+						foreach ( $group['settings'] as $section ) {
+							$section_controls = (array) $section['controls'];
+							// Make sure there are at least one control to register!
+							if ( ! empty( $section_controls ) ) {
+								foreach ( $section_controls as $control ) {
+									// Determine if the control id is declared and is different than null.
+									if ( isset( $control['id'] ) ) {
+										$control_id            = (string) $control['id'];
+										$control_var           = (string) $control['var'];
+										$control_default_value = (string) isset( $control['default'] ) ? $control['default'] : '';
+										$control_value         = (string) get_theme_mod( $control_id, $control_default_value );
 
-						// Make sure there are at least one control to register!
-						if ( ! empty( $section_controls ) ) {
-							foreach ( $section_controls as $control ) {
-
-								// Determine if the control id is declared and is different than null.
-								if ( isset( $control['id'] ) ) {
-									$control_id            = (string) $control['id'];
-									$control_var           = (string) $control['var'];
-									$control_default_value = (string) isset( $control['default'] ) ? $control['default'] : '';
-									$control_value         = (string) get_theme_mod( $control_id, $control_default_value );
-
-									$return .= sprintf( '--%s: %s;', self::get_sanitized( '', $control_var ), self::get_sanitized( $group, $control_value ) );
+										$return .= sprintf( '--%s: %s;', self::get_sanitized( '', $control_var ), self::get_sanitized( $group, $control_value ) );
+									}
 								}
 							}
 						}
