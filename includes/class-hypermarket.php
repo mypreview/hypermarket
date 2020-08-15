@@ -30,6 +30,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'after_setup_theme', array( $this, 'setup' ) );
+			add_action( 'hypermarket_after_setup_theme', array( $this, 'editor_color_palette' ) );
 			add_action( 'wp_head', array( $this, 'javascript_detection' ), 0 );
 			add_action( 'wp_head', array( $this, 'pingback_header' ) );
 			add_action( 'widgets_init', array( $this, 'widgets_init' ) );
@@ -210,45 +211,6 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			);
 
 			/**
-			 * Add support for editor color palettes.
-			 */
-			add_theme_support( 
-				'editor-color-palette',
-				apply_filters(
-					'hypermarket_color_palette_args',
-					array(
-						array(
-							'name'  => __( 'Black', 'hypermarket' ),
-							'slug'  => 'black',
-							'color' => '#000000',
-						),
-						array(
-							'name'  => __( 'White', 'hypermarket' ),
-							'slug'  => 'white',
-							'color' => '#FFFFFF',
-						),
-					)
-				) 
-			);
-
-			/**
-			 * Add support for editor gradient presets.
-			 */
-			add_theme_support( 
-				'editor-gradient-presets',
-				apply_filters(
-					'hypermarket_gradient_presets_args',
-					array(
-						array(
-							'name'     => __( 'Picton Blue to Mariner', 'hypermarket' ),
-							'slug'     => 'picton-blue-to-mariner',
-							'gradient' => 'linear-gradient(180deg,rgb(77, 166, 226),rgb(48, 102, 204))',
-						),
-					)
-				) 
-			);
-
-			/**
 			 * This theme uses `wp_nav_menu()` in four location.
 			 */
 			register_nav_menus(
@@ -265,6 +227,62 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			 * Enqueue editor styles.
 			 */
 			add_editor_style( array( 'dist/legacy-editor.css', $this->google_fonts() ) );
+
+			/**
+			 * Add 'hypermarket_after_setup_theme' action.
+			 */
+			do_action( 'hypermarket_after_setup_theme' );
+		}
+
+		/**
+		 * Add support for editor color palettes.
+		 * 
+		 * @since   2.0.0
+		 * @return  void
+		 */
+		public function editor_color_palette() {
+			global $hypermarket;
+			$id            = 'color';
+			$color_palette = array();
+			$group         = Hypermarket_Customize::get_controls( $id );
+
+			if ( is_array( $group ) && ! empty( $group ) && isset( $group['settings'] ) ) {
+				// Pluck the `Controls` field out of each object in the list.
+				$sections = (array) wp_list_pluck( $group['settings'], 'controls' );
+				// Make sure there are at least one section to loop through!
+				if ( is_array( $sections ) && ! empty( $sections ) ) {
+					foreach ( $sections as $controls ) {
+						if ( is_array( $controls ) && ! empty( $controls ) ) {
+							foreach ( $controls as $control ) {
+								// Determine if the control id is declared and is different than null.
+								if ( isset( $control['id'] ) ) {
+									$control_id            = (string) $control['id'];
+									$control_var           = (string) $control['var'];
+									$control_label         = (string) isset( $control['label'] ) ? $control['label'] : '';
+									$control_description   = (string) isset( $control['description'] ) ? $control['description'] : '';
+									$control_default_value = (string) isset( $control['default'] ) ? $control['default'] : '';
+									$control_value         = (string) get_theme_mod( $control_id, $control_default_value );
+									$control_slug          = (string) hypermarket_slugify( $control_label . $control_description );
+									$color_palette[]       = array(
+										'name'  => esc_html( $control_label ),
+										'slug'  => esc_html( $control_slug ),
+										'var'   => esc_html( $control_var ),
+										'color' => Hypermarket_Customize::get_sanitized( $id, $control_value ),
+									);
+								}
+							}
+						}
+					}
+				}
+			}
+
+			add_theme_support( 
+				'editor-color-palette',
+				apply_filters(
+					'hypermarket_color_palette_args',
+					(array) $color_palette
+				) 
+			);
 		}
 
 		/**
@@ -389,6 +407,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			wp_enqueue_style( sprintf( '%s-style', $hypermarket->slug ), get_theme_file_uri( sprintf( '/dist/%s.css', $public_asset_name ) ), '', $public_asset['version'], 'all' );
 			wp_style_add_data( sprintf( '%s-style', $hypermarket->slug ), 'rtl', 'replace' );
 			wp_add_inline_style( sprintf( '%s-style', $hypermarket->slug ), Hypermarket_Customize::get_css() );
+			wp_add_inline_style( sprintf( '%s-style', $hypermarket->slug ), hypermarket_generate_editor_css() );
 			// Scripts.
 			wp_enqueue_script( sprintf( '%s-script', $hypermarket->slug ), get_theme_file_uri( sprintf( '/dist/%s.js', $public_asset_name ) ), $public_asset['dependencies'], $public_asset['version'], true );
 
