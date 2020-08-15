@@ -29,7 +29,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 * @return  void
 		 */
 		public function __construct() {
-			add_action( 'after_setup_theme', array( $this, 'setup' ) );
+			add_action( 'hypermarket_after_setup_theme', array( $this, 'setup' ) );
 			add_action( 'hypermarket_enqueue_scripts', array( $this, 'enqueue' ) );
 			add_filter( 'hypermarket_body_classes', array( $this, 'body_classes' ) );
 			add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
@@ -41,7 +41,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 
 		/**
 		 * Sets up theme defaults and registers support for various WooCommerce features.
-		 * Note that this function is hooked into the `after_setup_theme` hook, which
+		 * Note that this function is hooked into the `hypermarket_after_setup_theme` hook, which
 		 * runs before the init hook. The init hook is too late for some features, such
 		 * as indicating support for post thumbnails.
 		 *
@@ -70,11 +70,6 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			add_theme_support( 'wc-product-gallery-zoom' );
 			add_theme_support( 'wc-product-gallery-lightbox' );
 			add_theme_support( 'wc-product-gallery-slider' );
-
-			/**
-			 * Add 'hypermarket_woocommerce_setup' action.
-			 */
-			do_action( 'hypermarket_woocommerce_setup' );
 		}
 
 		/**
