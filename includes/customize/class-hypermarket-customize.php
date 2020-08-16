@@ -7,7 +7,7 @@
  * @since      2.0.0
  *
  * @package    hypermarket
- * @subpackage hypermarket/includes/customizer
+ * @subpackage hypermarket/includes/customize
  */
 
 // Exit if accessed directly.
@@ -41,6 +41,9 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		 * @return  void
 		 */
 		public function customize_register( $wp_customize ) {
+			// Import Customizer custom control(s).
+			require get_parent_theme_file_path( '/includes/customize/class-hypermarket-customize-range-control.php' );
+
 			do_action( 'hypermarket_customize_register_controls', $wp_customize );
 		}
 
@@ -166,6 +169,12 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 										'label'   => esc_html__( 'Primary', 'hypermarket' ),
 										'default' => '#77cde3',
 									),
+									array(
+										'var'     => sprintf( '%s-general-background', $hypermarket->slug ),
+										'id'      => sprintf( '%s_general_background_color', $setting_prefix ),
+										'label'   => esc_html__( 'Background', 'hypermarket' ),
+										'default' => '#ffffff',
+									),
 								),
 							),
 							array(
@@ -195,6 +204,48 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 										'id'      => sprintf( '%s_alert_danger_color', $setting_prefix ),
 										'label'   => esc_html__( 'Danger', 'hypermarket' ),
 										'default' => '#ef0568',
+									),
+								),
+							),
+						),
+					),
+					'font' => array(
+						'title'       => __( 'Fonts', 'hypermarket' ),
+						'description' => __( '...', 'hypermarket' ),
+						'settings'    => array( 
+							array(
+								'id'       => sprintf( '%s_general_fonts', $setting_prefix ),
+								'title'    => esc_html__( 'General', 'hypermarket' ),
+								'controls' => array(
+									array(
+										'var'     => sprintf( '%s-general-small', $hypermarket->slug ),
+										'id'      => sprintf( '%s_general_small_font', $setting_prefix ),
+										'label'   => esc_html__( 'Small', 'hypermarket' ),
+										'default' => 14,
+									),
+									array(
+										'var'     => sprintf( '%s-general-normal', $hypermarket->slug ),
+										'id'      => sprintf( '%s_general_normal_font', $setting_prefix ),
+										'label'   => esc_html__( 'Normal', 'hypermarket' ),
+										'default' => 16,
+									),
+									array(
+										'var'     => sprintf( '%s-general-medium', $hypermarket->slug ),
+										'id'      => sprintf( '%s_general_medium_font', $setting_prefix ),
+										'label'   => esc_html__( 'Medium', 'hypermarket' ),
+										'default' => 23,
+									),
+									array(
+										'var'     => sprintf( '%s-general-large', $hypermarket->slug ),
+										'id'      => sprintf( '%s_general_large_font', $setting_prefix ),
+										'label'   => esc_html__( 'Large', 'hypermarket' ),
+										'default' => 26,
+									),
+									array(
+										'var'     => sprintf( '%s-general-huge', $hypermarket->slug ),
+										'id'      => sprintf( '%s_general_huge_font', $setting_prefix ),
+										'label'   => esc_html__( 'Huge', 'hypermarket' ),
+										'default' => 37,
 									),
 								),
 							),
