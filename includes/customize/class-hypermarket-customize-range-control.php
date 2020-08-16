@@ -41,14 +41,14 @@ if ( ! class_exists( 'Hypermarket_Customize_Range_Control' ) ) :
 					<input 
 						type="range" 
 						class="customize-control-range__field"
-						value="<?php echo esc_attr( $this->value() ); ?>" 
+						value="<?php echo absint( $this->value() ); ?>" 
 						<?php 
 						$this->input_attrs();
 						$this->link(); 
 						?>
-					 />
+					/>
 					<span class="customize-control-range__value">
-						<?php echo intval( 0 ); ?>
+						<?php echo absint( $this->value() ); ?>
 					</span>
 				</span>
 			</div>
