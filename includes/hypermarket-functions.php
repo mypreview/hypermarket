@@ -115,10 +115,10 @@ if ( ! function_exists( 'hypermarket_do_shortcode' ) ) :
 	 * Call a shortcode function by tag name.
 	 *
 	 * @since   2.0.0
-	 * @param   string $tag        The shortcode whose function to call.
-	 * @param   array  $atts       The attributes to pass to the shortcode function. Optional.
-	 * @param   array  $content    The shortcode's content. Default is null (none).
-	 * @return  string|bool             False on failure, the result of the shortcode on success.
+	 * @param   string $tag                  The shortcode whose function to call.
+	 * @param   array  $atts       Optional. The attributes to pass to the shortcode function.
+	 * @param   array  $content    Optional. The shortcode's content. Default is null (none).
+	 * @return  string|bool        
 	 */
 	function hypermarket_do_shortcode( $tag, array $atts = array(), $content = null ) {
 		global $shortcode_tags;
@@ -255,12 +255,77 @@ if ( ! function_exists( 'hypermarket_minify_inline_css' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_sanitize_method' ) ) :
+	/**
+	 * Returns the proper method name based on given input/value type to sanitize.
+	 *
+	 * @param  string $group   The group id or input type.
+	 * @return mixed
+	 */
+	function hypermarket_sanitize_method( $group ) {
+		$return = '';
+
+		switch ( $group ) {
+			case 'color':
+			case 'hex':
+				// Sanitizes a hex color.
+				$return = 'sanitize_hex_color';
+				break;
+			case 'font':
+			case 'number':
+				// Convert a value to non-negative integer.
+				$return = 'absint';
+				break;
+			default:
+				// Escaping for HTML blocks.
+				$return = 'esc_html';
+				break;
+		}
+
+		return $return;
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_sanitize_array' ) ) :
+	/**
+	 * Recursive sanitation for an array input.
+	 *
+	 * @param  array $input    The value to sanitize.
+	 * @return string|array
+	 */
+	function hypermarket_sanitize_array( $input ) {
+		foreach ( $input as $key => $value ) {
+			if ( is_array( $value ) ) {
+				$value = recursive_sanitize_text_field( $value );
+			} else {
+				$value = sanitize_text_field( $value );
+			}
+		}
+
+		return $input;
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_sanitize' ) ) :
+	/**
+	 * Sanitize the given input/value.
+	 *
+	 * @param  int|string $input              The value to sanitize.
+	 * @param  string     $group    Optional. The group id of the control or input type.
+	 * @return mixed
+	 */
+	function hypermarket_sanitize( $input, $group = '' ) {
+		$method = (string) hypermarket_sanitize_method( $group );
+		return call_user_func( $method, $input );
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_slugify' ) ) :
 	/**
 	 * Slugifies every string, even when it contains unicode!
 	 *
 	 * @since    2.0.0
-	 * @param    string $input  The value to slugify.
+	 * @param    string $input    The value to slugify.
 	 * @return   string
 	 */
 	function hypermarket_slugify( $input ) {
@@ -285,6 +350,54 @@ if ( ! function_exists( 'hypermarket_slugify' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_generate_editor_features' ) ) :
+	/**
+	 * Enhancements to opt-in to and the ability to extend and customize core WordPress editor.
+	 *
+	 * @since    2.0.0
+	 * @param    string $id    The group id or key name.
+	 * @return   array
+	 */
+	function hypermarket_generate_editor_features( $id ) {
+		$return = array();
+		$value  = 'font' === $id ? 'size' : $id;
+		$group  = Hypermarket_Customize::get_controls( $id );
+
+		if ( is_array( $group ) && ! empty( $group ) && isset( $group['settings'] ) ) {
+			// Pluck the `Controls` list out of each object in the list.
+			$sections = (array) wp_list_pluck( $group['settings'], 'controls' );
+			// Make sure there are at least one section to loop through!
+			if ( is_array( $sections ) && ! empty( $sections ) ) {
+				foreach ( $sections as $controls ) {
+					if ( is_array( $controls ) && ! empty( $controls ) ) {
+						foreach ( $controls as $control ) {
+							// Determine if the control id is declared and is different than null.
+							if ( isset( $control['id'] ) ) {
+								$control_id            = (string) $control['id'];
+								$control_var           = (string) $control['var'];
+								$control_label         = isset( $control['label'] ) ? (string) $control['label'] : '';
+								$control_description   = isset( $control['description'] ) ? (string) $control['description'] : '';
+								$control_suffix        = isset( $control['suffix'] ) ? (string) $control['suffix'] : '';
+								$control_default_value = isset( $control['default'] ) ? (string) $control['default'] : '';
+								$control_value         = (string) get_theme_mod( $control_id, $control_default_value );
+								$control_slug          = (string) hypermarket_slugify( $control_label . $control_description );
+								$return[]              = array(
+									'name'  => esc_html( $control_label ),
+									'slug'  => esc_html( $control_slug ),
+									'var'   => esc_html( $control_var ),
+									$value  => hypermarket_sanitize( $control_value, $id ),
+								);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		return (array) $return;
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_generate_editor_css' ) ) :
 	/**
 	 * Build CSS reflecting colors, fonts and other options set in the Gutenberg editor, and return them for output.
@@ -302,7 +415,7 @@ if ( ! function_exists( 'hypermarket_generate_editor_css' ) ) :
 		if ( ! empty( $font_sizes ) && is_array( $font_sizes ) ) {
 			$font_sizes = $font_sizes[0];
 			foreach ( $font_sizes as $font_size ) {
-				$return .= hypermarket_generate_css( sprintf( '.has-%s-font-size', $font_size['slug'] ), 'font-size', $font_size['size'], '', 'px' );
+				$return .= hypermarket_generate_css( sprintf( '.has-%s-font-size', $font_size['slug'] ), 'font-size', sprintf( 'var(--%s)', $font_size['var'] ) );
 			}
 		}
 
@@ -310,7 +423,7 @@ if ( ! function_exists( 'hypermarket_generate_editor_css' ) ) :
 		if ( ! empty( $color_palette ) && is_array( $color_palette ) ) {
 			$color_palette = $color_palette[0];
 			foreach ( $color_palette as $color ) {
-				$return .= hypermarket_generate_css( sprintf( '.has-%s-color', $color['slug'] ), 'color', sprintf( 'var(--%s)', $color['var'] ), '', '', false );
+				$return .= hypermarket_generate_css( sprintf( '.has-%s-color', $color['slug'] ), 'color', sprintf( 'var(--%s)', $color['var'] ) );
 				$return .= hypermarket_generate_css( sprintf( '.has-%s-background-color', $color['slug'] ), 'background-color', sprintf( 'var(--%s)', $color['var'] ) );
 			}
 		}
