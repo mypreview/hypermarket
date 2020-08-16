@@ -247,7 +247,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			$group         = Hypermarket_Customize::get_controls( $id );
 
 			if ( is_array( $group ) && ! empty( $group ) && isset( $group['settings'] ) ) {
-				// Pluck the `Controls` field out of each object in the list.
+				// Pluck the `Controls` list out of each object in the list.
 				$sections = (array) wp_list_pluck( $group['settings'], 'controls' );
 				// Make sure there are at least one section to loop through!
 				if ( is_array( $sections ) && ! empty( $sections ) ) {
@@ -316,7 +316,6 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 */
 		public function widgets_init() {
 			global $hypermarket;
-			
 			$sidebar_args['sidebar'] = array(
 				'name'        => __( 'Sidebar', 'hypermarket' ),
 				'id'          => 'sidebar-1',
