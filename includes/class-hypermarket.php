@@ -142,38 +142,6 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			);
 
 			/**
-			 * Set up the WordPress core custom background feature.
-			 */
-			add_theme_support(
-				'custom-background',
-				apply_filters(
-					'hypermarket_custom_background_args',
-					array(
-						'default-color' => apply_filters( 'hypermarket_default_background_color', 'ffffff' ),
-						'default-image' => '',
-					)
-				)
-			);
-
-			/**
-			 * Set up the WordPress core custom header feature.
-			 */
-			add_theme_support(
-				'custom-header',
-				apply_filters(
-					'hypermarket_custom_header_args',
-					array(
-						'default-image' => '',
-						'header-text'   => false,
-						'width'         => 1950,
-						'height'        => 500,
-						'flex-width'    => true,
-						'flex-height'   => true,
-					)
-				)
-			);
-
-			/**
 			 * Add support for editor font sizes.
 			 */
 			add_theme_support( 
