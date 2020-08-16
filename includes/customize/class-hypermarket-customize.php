@@ -29,8 +29,26 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		 * @return  void
 		 */
 		public function __construct() {
+			add_action( 'customize_controls_enqueue_scripts', array( $this, 'enqueue' ) );
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
-			add_action( 'hypermarket_customize_register_controls', array( $this, 'register_colors' ) );
+		}
+
+		/**
+		 * Enqueue Customizer control scripts.
+		 *
+		 * @since   2.0.0
+		 * @return  void
+		 */
+		public function enqueue() {
+			global $hypermarket;
+			$asset_name = 'customize';
+			$asset      = hypermarket_get_file_assets( $asset_name );
+
+			// Styles.
+			wp_enqueue_style( sprintf( '%s-customize-style', $hypermarket->slug ), get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
+			wp_style_add_data( sprintf( '%s-customize-style', $hypermarket->slug ), 'rtl', 'replace' );
+			// Scripts.
+			wp_enqueue_script( sprintf( '%s-customize-script', $hypermarket->slug ), get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), array( 'jquery', 'customize-controls' ), $asset['version'], true );
 		}
 
 		/**
@@ -42,105 +60,14 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		 */
 		public function customize_register( $wp_customize ) {
 			// Import Customizer custom control(s).
+			// phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			require get_parent_theme_file_path( '/includes/customize/class-hypermarket-customize-range-control.php' );
+			// Registers Customizer color controls.
+			$this->_register_controls( $wp_customize, 'color', 'WP_Customize_Color_Control' );
+			// Registers Customizer font controls.
+			$this->_register_controls( $wp_customize, 'font', 'Hypermarket_Customize_Range_Control' );
 
 			do_action( 'hypermarket_customize_register_controls', $wp_customize );
-		}
-
-		/**
-		 * Registers Customizer color controls.
-		 *
-		 * @since   2.0.0
-		 * @param   WP_Customize_Manager $hm_customize   Theme Customizer object.
-		 * @return  void
-		 */
-		public function register_colors( $hm_customize ) {
-			global $hypermarket;
-			$id         = 'color';
-			$capability = 'edit_theme_options';
-			$group      = self::get_controls( $id );
-			$panel_id   = sprintf( '%s_%s_panel', $hypermarket->slug, $id );
-
-			// Check whether there are any controls to register.
-			if ( is_array( $group ) && ! empty( $group ) && isset( $group['settings'] ) ) {
-				$group_title       = (string) isset( $group['title'] ) ? $group['title'] : '';
-				$group_description = (string) isset( $group['description'] ) ? $group['description'] : '';
-				$group_priority    = (int) isset( $group['priority'] ) ? $group['priority'] : 30;
-
-				// Add `Colors` customize panel.
-				$hm_customize->add_panel(
-					esc_html( $panel_id ),
-					array(
-						'title'       => esc_html( $group['title'] ),
-						'description' => esc_html( $group['description'] ),
-						'priority'    => intval( $group_priority ),
-						'capability'  => esc_html( $capability ),
-					) 
-				);
-
-				// List of Customizer controls.
-				$controls = isset( $group['settings'] ) ? $group['settings'] : array();
-				
-				// Loop through Customize sections.
-				foreach ( $controls as $section ) {
-					// Determine if the section id is declared and is different than null.
-					if ( isset( $section['id'] ) ) {
-						$section_id       = (string) $section['id'];
-						$section_title    = (string) $section['title'];
-						$section_controls = (array) $section['controls'];
-
-						// Registers a new customize section.
-						$hm_customize->add_section(
-							esc_html( $section_id ),
-							array(
-								'title'      => esc_html( $section_title ),
-								'panel'      => esc_html( $panel_id ),
-								'capability' => esc_html( $capability ),
-							) 
-						);
-
-						// Make sure there are at least one control to register!
-						if ( ! empty( $section_controls ) ) {
-							foreach ( $section_controls as $control ) {
-								// Determine if the control id is declared and is different than null.
-								if ( isset( $control['id'] ) ) {
-									$control_id            = (string) $control['id'];
-									$control_label         = (string) isset( $control['label'] ) ? $control['label'] : '';
-									$control_description   = (string) isset( $control['description'] ) ? $control['description'] : '';
-									$control_default_value = (string) isset( $control['default'] ) ? $control['default'] : '#ffffff';
-
-									// Registers a new customize setting.
-									$hm_customize->add_setting(
-										esc_html( $control_id ),
-										array(
-											'type'       => 'theme_mod',
-											'transport'  => 'refresh',
-											'capability' => 'edit_theme_options',
-											// phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores, WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
-											'default'    => apply_filters( sprintf( '%s_default', self::get_sanitized( '', $control_id ) ), self::get_sanitized( $group, $control_default_value ) ),
-											'sanitize_callback' => 'sanitize_hex_color',
-										) 
-									);
-									
-									// Registers a new customize control.
-									$hm_customize->add_control(
-										new WP_Customize_Color_Control(
-											$hm_customize,
-											esc_html( $control_id ),
-											array(
-												'label'    => esc_html( $control_label ),
-												'description' => esc_html( $control_description ),
-												'section'  => esc_html( $section_id ),
-												'settings' => esc_html( $control_id ),
-											) 
-										) 
-									);
-								}
-							}
-						}
-					}
-				}
-			}
 		}
 
 		/**
@@ -152,6 +79,14 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		public static function get_default_settings() {
 			global $hypermarket;
 			$setting_prefix = 'hypermarket_customize';
+			$font_attrs     = apply_filters(
+				'hypermarket_customize_font_attrs',
+				array(
+					'min'  => 1,
+					'max'  => 100,
+					'step' => 1,
+				) 
+			);
 			$settings       = apply_filters(
 				'hypermarket_default_customize_values',
 				array(
@@ -222,30 +157,40 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 										'id'      => sprintf( '%s_general_small_font', $setting_prefix ),
 										'label'   => esc_html__( 'Small', 'hypermarket' ),
 										'default' => 14,
+										'suffix'  => 'px',
+										'attrs'   => $font_attrs,
 									),
 									array(
 										'var'     => sprintf( '%s-general-normal', $hypermarket->slug ),
 										'id'      => sprintf( '%s_general_normal_font', $setting_prefix ),
 										'label'   => esc_html__( 'Normal', 'hypermarket' ),
 										'default' => 16,
+										'suffix'  => 'px',
+										'attrs'   => $font_attrs,
 									),
 									array(
 										'var'     => sprintf( '%s-general-medium', $hypermarket->slug ),
 										'id'      => sprintf( '%s_general_medium_font', $setting_prefix ),
 										'label'   => esc_html__( 'Medium', 'hypermarket' ),
 										'default' => 23,
+										'suffix'  => 'px',
+										'attrs'   => $font_attrs,
 									),
 									array(
 										'var'     => sprintf( '%s-general-large', $hypermarket->slug ),
 										'id'      => sprintf( '%s_general_large_font', $setting_prefix ),
 										'label'   => esc_html__( 'Large', 'hypermarket' ),
 										'default' => 26,
+										'suffix'  => 'px',
+										'attrs'   => $font_attrs,
 									),
 									array(
 										'var'     => sprintf( '%s-general-huge', $hypermarket->slug ),
 										'id'      => sprintf( '%s_general_huge_font', $setting_prefix ),
 										'label'   => esc_html__( 'Huge', 'hypermarket' ),
 										'default' => 37,
+										'suffix'  => 'px',
+										'attrs'   => $font_attrs,
 									),
 								),
 							),
@@ -298,10 +243,10 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 									if ( isset( $control['id'] ) ) {
 										$control_id            = (string) $control['id'];
 										$control_var           = (string) $control['var'];
-										$control_default_value = (string) isset( $control['default'] ) ? $control['default'] : '';
+										$control_suffix        = isset( $control['suffix'] ) ? (string) $control['suffix'] : '';
+										$control_default_value = isset( $control['default'] ) ? (string) $control['default'] : '';
 										$control_value         = (string) get_theme_mod( $control_id, $control_default_value );
-
-										$return .= sprintf( '--%s: %s;', self::get_sanitized( '', $control_var ), self::get_sanitized( $group, $control_value ) );
+										$return               .= sprintf( '--%s: %s;', hypermarket_sanitize( $control_var ), hypermarket_sanitize( $control_value, $group ) . $control_suffix );
 									}
 								}
 							}
@@ -316,27 +261,103 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		}
 
 		/**
-		 * Sanitize an input.
+		 * Registers Customizer controls.
 		 *
-		 * @param  string     $group   Optional. The group id of the control.
-		 * @param  int|string $input             The value to sanitize.
-		 * @return mixed
+		 * @since   2.0.0
+		 * @param   WP_Customize_Manager $hm_customize   Theme Customizer object.
+		 * @param   string               $id             The group id or key name.
+		 * @param   string               $class          Theme Customizer control class name.
+		 * @return  void
+		 * @phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
 		 */
-		public static function get_sanitized( $group = '', $input ) {
-			$return = '';
+		private function _register_controls( $hm_customize, $id, $class ) {
+			global $hypermarket;
+			$capability = 'edit_theme_options';
+			$group      = self::get_controls( $id );
+			$panel_id   = sprintf( '%s_%s_panel', $hypermarket->slug, $id );
 
-			switch ( $group ) {
-				case 'color':
-					// Sanitizes a hex color.
-					$return = sanitize_hex_color( $input );
-					break;
-				default:
-					// Escaping for HTML blocks.
-					$return = esc_html( $input );
-					break;
+			// Check whether there are any controls to register.
+			if ( is_array( $group ) && ! empty( $group ) && isset( $group['settings'] ) ) {
+				$group_title       = isset( $group['title'] ) ? (string) $group['title'] : '';
+				$group_description = isset( $group['description'] ) ? (string) $group['description'] : '';
+				$group_priority    = isset( $group['priority'] ) ? (int) $group['priority'] : 30;
+
+				// Add `Colors` customize panel.
+				$hm_customize->add_panel(
+					esc_html( $panel_id ),
+					array(
+						'title'       => esc_html( $group['title'] ),
+						'description' => esc_html( $group['description'] ),
+						'priority'    => intval( $group_priority ),
+						'capability'  => esc_html( $capability ),
+					) 
+				);
+
+				// List of Customizer controls.
+				$controls = isset( $group['settings'] ) ? $group['settings'] : array();
+				
+				// Loop through Customize sections.
+				foreach ( $controls as $section ) {
+					// Determine if the section id is declared and is different than null.
+					if ( isset( $section['id'] ) ) {
+						$section_id       = (string) $section['id'];
+						$section_title    = (string) $section['title'];
+						$section_controls = (array) $section['controls'];
+
+						// Registers a new customize section.
+						$hm_customize->add_section(
+							esc_html( $section_id ),
+							array(
+								'title'      => esc_html( $section_title ),
+								'panel'      => esc_html( $panel_id ),
+								'capability' => esc_html( $capability ),
+							) 
+						);
+
+						// Make sure there are at least one control to register!
+						if ( ! empty( $section_controls ) ) {
+							foreach ( $section_controls as $control ) {
+								// Determine if the control id is declared and is different than null.
+								if ( isset( $control['id'] ) ) {
+									$control_id            = (string) $control['id'];
+									$control_label         = isset( $control['label'] ) ? (string) $control['label'] : '';
+									$control_description   = isset( $control['description'] ) ? (string) $control['description'] : '';
+									$control_default_value = isset( $control['default'] ) ? (string) $control['default'] : '';
+									$control_attrs         = isset( $control['attrs'] ) ? (array) $control['attrs'] : array();
+
+									// Registers a new customize setting.
+									$hm_customize->add_setting(
+										esc_html( $control_id ),
+										array(
+											'type'       => 'theme_mod',
+											'transport'  => 'refresh',
+											'capability' => 'edit_theme_options',
+											// phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores, WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
+											'default'    => apply_filters( sprintf( '%s_default', hypermarket_sanitize( $control_id ) ), hypermarket_sanitize( $control_default_value, $group ) ),
+											'sanitize_callback' => hypermarket_sanitize_method( $group ),
+										) 
+									);
+									
+									// Registers a new customize control.
+									$hm_customize->add_control(
+										new $class(
+											$hm_customize,
+											esc_html( $control_id ),
+											array(
+												'label'    => esc_html( $control_label ),
+												'description' => esc_html( $control_description ),
+												'section'  => esc_html( $section_id ),
+												'settings' => esc_html( $control_id ),
+												'input_attrs' => hypermarket_sanitize_array( $control_attrs ),
+											) 
+										) 
+									);
+								}
+							}
+						}
+					}
+				}
 			}
-
-			return $return;
 		}
 	}
 endif;
