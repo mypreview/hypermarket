@@ -80,13 +80,13 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 */
 		public function enqueue() {
 			global $hypermarket;
-			$woocommerce_asset_name = 'woocommerce';
-			$woocommerce_asset      = hypermarket_get_file_assets( $woocommerce_asset_name );
+			$asset_name = 'woocommerce';
+			$asset      = hypermarket_get_file_assets( $asset_name );
 			// Styles.
-			wp_enqueue_style( sprintf( '%s-%s-style', $hypermarket->slug, $woocommerce_asset_name ), get_theme_file_uri( sprintf( '/dist/%s.css', $woocommerce_asset_name ) ), '', $woocommerce_asset['version'], 'all' );
-			wp_style_add_data( sprintf( '%s-%s-style', $hypermarket->slug, $woocommerce_asset_name ), 'rtl', 'replace' );
+			wp_enqueue_style( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
+			wp_style_add_data( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), 'rtl', 'replace' );
 			// Scripts.
-			wp_enqueue_script( sprintf( '%s-%s-script', $hypermarket->slug, $woocommerce_asset_name ), get_theme_file_uri( sprintf( '/dist/%s.js', $woocommerce_asset_name ) ), $woocommerce_asset['dependencies'], $woocommerce_asset['version'], true );
+			wp_enqueue_script( sprintf( '%s-%s-script', $hypermarket->slug, $asset_name ), get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
 		}
 
 		/**
