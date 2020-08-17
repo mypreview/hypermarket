@@ -99,6 +99,18 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 								'title'    => esc_html__( 'General', 'hypermarket' ),
 								'controls' => array(
 									array(
+										'var'     => sprintf( '%s-general-text', $hypermarket->slug ),
+										'id'      => sprintf( '%s_general_text_color', $setting_prefix ),
+										'label'   => esc_html__( 'Text', 'hypermarket' ),
+										'default' => '#606060',
+									),
+									array(
+										'var'     => sprintf( '%s-general-quote', $hypermarket->slug ),
+										'id'      => sprintf( '%s_general_quote_color', $setting_prefix ),
+										'label'   => esc_html__( 'Blockquote', 'hypermarket' ),
+										'default' => '#333333',
+									),
+									array(
 										'var'     => sprintf( '%s-general-primary', $hypermarket->slug ),
 										'id'      => sprintf( '%s_general_primary_color', $setting_prefix ),
 										'label'   => esc_html__( 'Primary', 'hypermarket' ),
