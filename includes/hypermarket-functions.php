@@ -381,8 +381,9 @@ if ( ! function_exists( 'hypermarket_generate_editor_features' ) ) :
 								$control_default_value = isset( $control['default'] ) ? (string) $control['default'] : '';
 								$control_value         = (string) get_theme_mod( $control_id, $control_default_value );
 								$control_slug          = (string) hypermarket_slugify( $control_label . $control_description );
+								$control_name          = ! empty( $control_description ) ? (string) sprintf( '%s %s', $control_label, $control_description ) : $control_label;
 								$return[]              = array(
-									'name'  => esc_html( $control_label ),
+									'name'  => esc_html( $control_name ),
 									'slug'  => esc_html( $control_slug ),
 									'var'   => esc_html( $control_var ),
 									$value  => hypermarket_sanitize( $control_value, $id ),
