@@ -331,9 +331,9 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 
 			// phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 			wp_enqueue_style( sprintf( '%s-fonts', $hypermarket->slug ), $this->google_fonts(), array(), null );
-			wp_enqueue_style( sprintf( '%s-editor-style', $hypermarket->slug ), get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'] );
-			wp_style_add_data( sprintf( '%s-editor-style', $hypermarket->slug ), 'rtl', 'replace' );
-			wp_add_inline_style( sprintf( '%s-editor-style', $hypermarket->slug ), Hypermarket_Customize::get_css() );
+			wp_enqueue_style( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'] );
+			wp_style_add_data( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), 'rtl', 'replace' );
+			wp_add_inline_style( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), Hypermarket_Customize::get_css() );
 		}
 
 		/**

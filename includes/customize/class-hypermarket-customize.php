@@ -45,10 +45,10 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 			$asset      = hypermarket_get_file_assets( $asset_name );
 
 			// Styles.
-			wp_enqueue_style( sprintf( '%s-customize-style', $hypermarket->slug ), get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
-			wp_style_add_data( sprintf( '%s-customize-style', $hypermarket->slug ), 'rtl', 'replace' );
+			wp_enqueue_style( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
+			wp_style_add_data( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), 'rtl', 'replace' );
 			// Scripts.
-			wp_enqueue_script( sprintf( '%s-customize-script', $hypermarket->slug ), get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), array( 'jquery', 'customize-controls' ), $asset['version'], true );
+			wp_enqueue_script( sprintf( '%s-%s-script', $hypermarket->slug, $asset_name ), get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), array( 'jquery', 'customize-controls' ), $asset['version'], true );
 		}
 
 		/**
