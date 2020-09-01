@@ -334,6 +334,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			wp_enqueue_style( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'] );
 			wp_style_add_data( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), 'rtl', 'replace' );
 			wp_add_inline_style( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), Hypermarket_Customize::get_css() );
+			wp_add_inline_style( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), hypermarket_generate_editor_css() );
 		}
 
 		/**
