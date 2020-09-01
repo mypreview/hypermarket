@@ -141,6 +141,11 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			);
 
 			/**
+			 * Add support for custom line heights.
+			 */
+			add_theme_support( 'custom-line-height' );
+
+			/**
 			 * Add support for editor font sizes.
 			 */
 			add_theme_support( 
