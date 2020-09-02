@@ -1,6 +1,9 @@
 %color-shift {
 	transition: color 0.3;
 }
+%opacity-shift {
+	transition: opacity 0.3;
+}
 %border-shift {
 	transition: border 0.3;
 }
