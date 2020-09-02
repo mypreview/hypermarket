@@ -7,10 +7,15 @@ module.exports = ( { env } ) => ( {
 		'postcss-extend': {},
 		'postcss-nested-ancestors': {},
 		'postcss-nested': {},
-		'postcss-css-variables': {},
+		'postcss-variables-prefixer': {
+			prefix: 'hypermarket-',
+		},
+		'postcss-css-variables': {
+			preserve: true,
+		},
 		'postcss-custom-selectors': {},
-		'postcss-custom-media': {},
 		'postcss-if-media': {},
+		'postcss-custom-media': {},
 		'postcss-quantity-queries': {},
 		'postcss-start-to-end': {},
 		'postcss-calc': {},
