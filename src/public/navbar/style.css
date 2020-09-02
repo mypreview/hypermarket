@@ -57,7 +57,8 @@
 
     a {
     	color: var(--general-text);
-	    padding: 0 15px;
+	    padding: 15px;
+    	display: block;
 
     	&:hover {
     		color: var(--general-text-alt);
@@ -104,12 +105,17 @@
 		position: absolute;
 		width: 240px;
 		left: 0;
-		top: 100%;
+		top: calc(100% + 9px);
 		margin-top: -14px;
 		padding: 20px;
 		text-align: left;
 		background-color: var(--general-background);
 		border: 1px solid var(--general-border);
+
+		a {
+			padding: 0;
+			font-size: calc(var(--general-small) * 6/7);
+		}
 	}
 
 	li {
