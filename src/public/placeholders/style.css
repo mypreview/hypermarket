@@ -1,11 +1,13 @@
 %color-shift {
-	transition: color 0.3;
+	transition: color 0.3s;
 }
+
 %opacity-shift {
-	transition: opacity 0.3;
+	transition: opacity 0.3s;
 }
+
 %border-shift {
-	transition: border 0.3;
+	transition: border 0.3s;
 }
 
 %caption {
