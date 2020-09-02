@@ -14,11 +14,11 @@
 	--image-logo-width: 115px;
 	--table-cell-padding: 15px;
 	--general-text: #606060;
-	--general-text-alt: #999999;
-	--general-quote: #333333;
+	--general-text-alt: #999;
+	--general-quote: #333;
 	--general-primary: #77cde3;
 	--general-border: #ededed;
-	--general-background: #ffffff;
+	--general-background: #fff;
 	--alert-info: #93c4ef;
 	--alert-success: #a7c04d;
 	--alert-warning: #ffce2b;

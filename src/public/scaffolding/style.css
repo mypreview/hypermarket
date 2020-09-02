@@ -72,7 +72,10 @@ ol {
 	margin-top: 0;
 	margin-bottom: var(--line-height-computed);
 	line-height: 1.8;
-	ul, ol { margin-bottom: 0; }
+	ul,
+	ol {
+		margin-bottom: 0;
+	}
 }
 
 dl {

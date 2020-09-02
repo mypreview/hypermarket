@@ -34,12 +34,12 @@ textarea {
 
 	&:focus {
 		border-color: var(--general-primary);
-	    outline: none;
-  	}
+		outline: none;
+	}
 
-  	&:placeholder {
-  		color: var(--general-text);
-  	}
+	&:placeholder {
+		color: var(--general-text);
+	}
 }
 
 textarea {

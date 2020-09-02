@@ -4,7 +4,7 @@
 
 	li {
 		display: inline-block;
-		color:  var(--general-text);
+		color: var(--general-text);
 
 		a,
 		span {
@@ -13,7 +13,7 @@
 			@extent %opacity-shift;
 
 			&:hover {
-				opacity: .55;
+				opacity: 0.55;
 			}
 		}
 
@@ -23,7 +23,7 @@
 		}
 
 		.current {
-			opacity: .55;
+			opacity: 0.55;
 		}
 	}
 }

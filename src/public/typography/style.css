@@ -1,6 +1,6 @@
 body {
 	font-size: var(--general-normal);
-	font-family: 'Work Sans';
+	font-family: "Work Sans";
 	font-weight: 400;
 	line-height: var(--line-height-base);
 	color: var(--general-text);
@@ -70,7 +70,7 @@ a {
 	text-decoration: underline;
 	@extend %color-shift
 
-	&:focus,
+		&:focus,
 	&:hover {
 		color: var(--general-primary);
 		text-decoration: none;
