@@ -119,7 +119,9 @@ const config = {
 		],
 	},
 	plugins: [
-		new CleanWebpackPlugin(),
+		new CleanWebpackPlugin( {
+			cleanStaleWebpackAssets: false,
+		} ),
 		new BundleAnalyzerPlugin( {
 			openAnalyzer: false,
 			analyzerPort: 7000,
