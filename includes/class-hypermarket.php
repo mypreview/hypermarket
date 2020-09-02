@@ -277,11 +277,6 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 				 * 'hypermarket_footer_1_widget_tags' -> (Row 1)
 				 * 'hypermarket_footer_2_widget_tags' -> (Row 1)
 				 * 'hypermarket_footer_3_widget_tags' -> (Row 1)
-				 * 'hypermarket_footer_4_widget_tags' -> (Row 1)
-				 * 'hypermarket_footer_1_widget_tags' -> (Row 2)
-				 * 'hypermarket_footer_2_widget_tags' -> (Row 2)
-				 * 'hypermarket_footer_3_widget_tags' -> (Row 2)
-				 * 'hypermarket_footer_4_widget_tags' -> (Row 2)
 				 */
 				$filter_hook = sprintf( '%s_%s_widget_tags', $hypermarket->slug, $sidebar );
 				$widget_tags = apply_filters( $filter_hook, $widget_tags ); //phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
