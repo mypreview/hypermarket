@@ -10,6 +10,13 @@ html {
 	outline: none;
 }
 
+body {
+	background-color: var(--general-background);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 /**
  * Sections
  */
@@ -40,17 +47,6 @@ html {
 	clear: both;
 }
 
-/**
- * Typography
- */
-body {
-	font-size: var(--font-size-base);
-	font-weight: 400;
-	line-height: var(--line-height-base);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
 
 /**
  * Elements
@@ -59,7 +55,7 @@ hr {
 	margin-top: var(--line-height-computed);
 	margin-bottom: var(--line-height-computed);
 	border: 0;
-	border-top: 1px solid;
+	border-top: 1px solid var(--general-border);
 }
 
 .wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
@@ -72,10 +68,11 @@ kbd {
 
 ul,
 ol {
-	padding-start: 18px;
+	padding-left: 18px;
 	margin-top: 0;
 	margin-bottom: var(--line-height-computed);
 	line-height: 1.8;
+	ul, ol { margin-bottom: 0; }
 }
 
 dl {
@@ -90,7 +87,7 @@ dt {
 
 dd {
 	line-height: var(--line-height-base);
-	margin-start: 0;
+	margin-left: 0;
 	margin-bottom: 15px;
 }
 
@@ -104,13 +101,15 @@ blockquote {
 	position: relative;
 	padding: 12px 0 12px 25px;
 	margin: 0;
-	font-size: calc(var(--font-size-base) * 1.125);
+	font-size: calc(var(--general-normal) * 1.125);
 	font-weight: 300;
-	border-start: 5px solid;
+	color: var(--general-quote);
+	border-left: 5px solid var(--general-border);
 
 	cite {
 		display: block;
-		font-size: calc(var(--font-size-base) * 0.875);
+		font-size: var(--general-small);
+		color: var(--general-text-alt);
 		margin-top: 10px;
 		font-style: normal;
 
@@ -120,7 +119,8 @@ blockquote {
 			content: "";
 			width: 20px;
 			height: 1px;
-			margin-end: 9px;
+			background-color: var(--general-text-alt);
+			margin-right: 9px;
 		}
 	}
 
@@ -190,7 +190,7 @@ svg {
 			flex-basis: 100% !important;
 
 			&:nth-child(2n) {
-				margin-start: 0;
+				margin-left: 0;
 			}
 		}
 	}
@@ -203,5 +203,5 @@ svg {
 	width: 100vw;
 	position: relative;
 	start: 50%;
-	margin-start: -50vw;
+	margin-left: -50vw;
 }

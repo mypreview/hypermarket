@@ -1,6 +1,7 @@
 label {
 	display: block;
-	font-size: calc(var(--font-size-base) * 0.875);
+	font-size: var(--general-small);
+	color: var(--general-text);
 	margin-bottom: 8px;
 	font-weight: 500;
 }
@@ -20,14 +21,25 @@ textarea {
 	display: block;
 	width: 100%;
 	line-height: var(--line-height-base);
-	font-size: calc(var(--font-size-base) * 0.875);
+	font-size: var(--general-small);
+	color: var(--general-text);
 	text-transform: none;
-	border: 2px solid;
+	border: 2px solid var(--general-border);
 	border-radius: var(--border-radius-base);
+	background-color: var(--general-background);
 	margin-bottom: var(--line-height-computed);
 	appearance: none;
 	padding: 0 16px;
 	@extend %border-shift;
+
+	&:focus {
+		border-color: var(--general-primary);
+	    outline: none;
+  	}
+
+  	&:placeholder {
+  		color: var(--general-text);
+  	}
 }
 
 textarea {
@@ -44,7 +56,7 @@ input {
 select {
 	background-repeat: no-repeat;
 	background-position: calc(100% - 7.25px) center;
-	padding-end: 24px;
+	padding-right: 24px;
 	cursor: pointer;
 
 	&::-ms-expand {
@@ -85,7 +97,7 @@ optgroup {
 	height: 15px;
 	vertical-align: middle;
 	margin: 3px 0 0 2px;
-	border: 2px solid;
+	border: 2px solid var(--general-border);
 	background-clip: padding-box;
 	cursor: pointer;
 	padding: 0;

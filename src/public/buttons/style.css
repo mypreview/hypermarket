@@ -27,7 +27,9 @@ button,
 [type="submit"] {
 	max-width: 100%;
 	min-height: var(--btn-height);
-	font-size: calc(var(--font-size-base) * 0.875);
+	font-size: var(--general-small);
+	color: var(--general-background);
+	background-color: var(--general-primary);
 	border-width: 0;
 	border-radius: var(--border-radius-base);
 	padding: 0 22px;
