@@ -1,14 +1,28 @@
 :root {
-	--font-size-base: 16px;
+	--general-small: 14px;
+	--general-normal: 16px;
+	--general-medium: 23px;
+	--general-large: 26px;
+	--general-huge: 37px;
 	--line-height-base: 1.5;
 	--headings-line-height: 1.3;
-	--line-height-computed: calc(var(--font-size-base) * var(--line-height-base));
+	--line-height-computed: 24px;
 	--border-radius-base: 5px;
 	--border-radius-small: 4px;
 	--btn-height: 48px;
 	--navbar-min-height: 80px;
 	--image-logo-width: 115px;
 	--table-cell-padding: 15px;
+	--general-text: #606060;
+	--general-text-alt: #999999;
+	--general-quote: #333333;
+	--general-primary: #77cde3;
+	--general-border: #ededed;
+	--general-background: #ffffff;
+	--alert-info: #93c4ef;
+	--alert-success: #a7c04d;
+	--alert-warning: #ffce2b;
+	--alert-danger: #ef0568;
 }
 
 @custom-media --screen-lg-min (min-width: 75.0625em);
