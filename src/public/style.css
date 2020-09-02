@@ -1,8 +1,8 @@
 @import "./normalize/style.css";
 @import "./../fonts/style.css";
+@import "./placeholders/style.css";
 @import "material-icons/css/material-icons.css";
 @import "./variables/style.css";
-@import "./placeholders/style.css";
 @import "./scaffolding/style.css";
 @import "./typography/style.css";
 @import "./forms/style.css";
@@ -10,3 +10,4 @@
 @import "./navbar/style.css";
 @import "./tables/style.css";
 @import "./pagination/style.css";
+@import "./keyframes/style.css";
