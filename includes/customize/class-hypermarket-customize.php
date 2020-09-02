@@ -105,6 +105,13 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 										'default' => '#606060',
 									),
 									array(
+										'var'     => sprintf( '%s-general-text-alt', $hypermarket->slug ),
+										'id'      => sprintf( '%s_general_text_alt_color', $setting_prefix ),
+										'label'   => esc_html__( 'Text', 'hypermarket' ),
+										'description'   => esc_html__( 'Alternate', 'hypermarket' ),
+										'default' => '#999999',
+									),
+									array(
 										'var'     => sprintf( '%s-general-quote', $hypermarket->slug ),
 										'id'      => sprintf( '%s_general_quote_color', $setting_prefix ),
 										'label'   => esc_html__( 'Blockquote', 'hypermarket' ),
@@ -115,6 +122,12 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 										'id'      => sprintf( '%s_general_primary_color', $setting_prefix ),
 										'label'   => esc_html__( 'Primary', 'hypermarket' ),
 										'default' => '#77cde3',
+									),
+									array(
+										'var'     => sprintf( '%s-general-border', $hypermarket->slug ),
+										'id'      => sprintf( '%s_general_border_color', $setting_prefix ),
+										'label'   => esc_html__( 'Border', 'hypermarket' ),
+										'default' => '#ededed',
 									),
 									array(
 										'var'     => sprintf( '%s-general-background', $hypermarket->slug ),
