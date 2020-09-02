@@ -105,11 +105,11 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 										'default' => '#606060',
 									),
 									array(
-										'var'     => sprintf( '%s-general-text-alt', $hypermarket->slug ),
-										'id'      => sprintf( '%s_general_text_alt_color', $setting_prefix ),
-										'label'   => esc_html__( 'Text', 'hypermarket' ),
-										'description'   => esc_html__( 'Alternate', 'hypermarket' ),
-										'default' => '#999999',
+										'var'         => sprintf( '%s-general-text-alt', $hypermarket->slug ),
+										'id'          => sprintf( '%s_general_text_alt_color', $setting_prefix ),
+										'label'       => esc_html__( 'Text', 'hypermarket' ),
+										'description' => esc_html__( 'Alternate', 'hypermarket' ),
+										'default'     => '#999999',
 									),
 									array(
 										'var'     => sprintf( '%s-general-quote', $hypermarket->slug ),
