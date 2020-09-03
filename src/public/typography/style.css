@@ -71,7 +71,7 @@ a {
 	@extend %color-shift
 
 		&:focus,
-	&:hover {
+		&:hover {
 		color: var(--general-primary);
 		text-decoration: none;
 	}

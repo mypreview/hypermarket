@@ -1,8 +1,8 @@
 .site-header {
 	.div {
 		padding: 15px 0;
-	    display: flex;
-    	align-items: center;
+		display: flex;
+		align-items: center;
 	}
 
 	&__cart {
@@ -18,38 +18,38 @@
 
 			&:last-child {
 				display: none;
-			    position: absolute;
-			    width: 270px;
-			    right: 0;
-			    top: calc(100% + 12px);
-			    margin: -14px 0 0;
-			    padding: 25px 20px;
-			    text-align: left;
-			    background-color: var(--general-background);
-			    border: 1px solid var(--general-border);
-			    cursor: default;
+				position: absolute;
+				width: 270px;
+				right: 0;
+				top: calc(100% + 12px);
+				margin: -14px 0 0;
+				padding: 25px 20px;
+				text-align: left;
+				background-color: var(--general-background);
+				border: 1px solid var(--general-border);
+				cursor: default;
 			}
 		}
 
 		&:hover {
 			li:last-child {
 				display: block;
-    			animation: slideUp 0.4s;
+				animation: slideUp 0.4s;
 			}
 		}
 	}
 }
 .site-myaccount {
 	font-size: 0;
-    padding: 3px 20px 5px;
-    color: var(--general-text);
+	padding: 3px 20px 5px;
+	color: var(--general-text);
 	@extend %color-shift;
 
-	&:before {
-	    content: "\e7fd";
-        font-family: 'Material Icons';
-    	right: 0;
-    	font-size: calc(var(--general-normal) * 1.5);
+	&::before {
+		content: "\e7fd";
+		font-family: "Material Icons";
+		right: 0;
+		font-size: calc(var(--general-normal) * 1.5);
 	}
 
 	&:hover {
@@ -59,13 +59,13 @@
 
 .site-cart-contents {
 	display: flex;
-    padding: 5px 0 0 18px;
-    color: var(--general-text);
-    @extend %color-shift;
+	padding: 5px 0 0 18px;
+	color: var(--general-text);
+	@extend %color-shift;
 
-	&:before {
+	&::before {
 		content: "\e8cb";
-		font-family: 'Material Icons';
+		font-family: "Material Icons";
 		font-size: calc(var(--general-normal) * 1.5);
 		margin-top: -3px;
 	}
@@ -79,15 +79,15 @@
 	}
 
 	&__count {
-	    display: block;
-	    width: 16px;
-	    height: 16px;
-	    margin-top: 2px;
-	    line-height: 16px;
-	    font-size: calc(var(--general-normal) * .75);
-	    color: var(--general-background);
-	    text-align: center;
-	    border-radius: 50%;
-	    background-color: var(--general-primary);
+		display: block;
+		width: 16px;
+		height: 16px;
+		margin-top: 2px;
+		line-height: 16px;
+		font-size: calc(var(--general-normal) * 0.75);
+		color: var(--general-background);
+		text-align: center;
+		border-radius: 50%;
+		background-color: var(--general-primary);
 	}
 }

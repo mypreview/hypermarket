@@ -52,7 +52,7 @@ nav {
 		margin: 0;
 	}
 
-	li:before {
+	li::before {
 		display: hidden;
 	}
 }
@@ -100,7 +100,7 @@ nav {
 		@extend %none-list-style;
 	}
 
-	> div {	    
+	> div {
 		> ul {
 			display: flex;
 			justify-content: center;
@@ -121,13 +121,13 @@ nav {
 
 		.sub-menu {
 			top: 0;
-		    left: 100%;
-		    margin-top: -6px;
+			left: 100%;
+			margin-top: -6px;
 		}
 
 		li {
 			&:nth-child(n+2) {
-			    margin-top: 8px;
+				margin-top: 8px;
 			}
 		}
 
@@ -137,9 +137,9 @@ nav {
 		}
 
 		.menu-item-has-children {
-			> a:after {
-				content:"\e037";
-				font-size: .9em;
+			> a::after {
+				content: "\e037";
+				font-size: 0.9em;
 				margin-left: 8px;
 				margin-top: -3px;
 			}
