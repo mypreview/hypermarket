@@ -38,10 +38,14 @@ button,
 	margin: 10px 8px 10px 0;
 	touch-action: manipulation;
 	appearance: none;
-	transition: color 0.3s ease-out, background-color 0.3s ease-out;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
 	cursor: pointer;
+	@extend %color-background-shift;
+
+	&:hover {
+		background-color: var(--general-primary-alt);
+	}
 }
