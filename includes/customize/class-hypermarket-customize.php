@@ -124,6 +124,13 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 										'default' => '#77cde3',
 									),
 									array(
+										'var'     => sprintf( '%s-general-primary-alt', $hypermarket->slug ),
+										'id'      => sprintf( '%s_general_primary_alt_color', $setting_prefix ),
+										'label'   => esc_html__( 'Primary', 'hypermarket' ),
+										'description' => esc_html__( 'Alternate', 'hypermarket' ),
+										'default' => '#51bfdb',
+									),
+									array(
 										'var'     => sprintf( '%s-general-border', $hypermarket->slug ),
 										'id'      => sprintf( '%s_general_border_color', $setting_prefix ),
 										'label'   => esc_html__( 'Border', 'hypermarket' ),
