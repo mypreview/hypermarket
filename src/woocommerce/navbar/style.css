@@ -1,6 +1,6 @@
 .site-header {
 	.div {
-		padding: 15px 0;
+		padding: 10px 0;
 		display: flex;
 		align-items: center;
 	}
@@ -15,33 +15,37 @@
 
 		li {
 			list-style: none;
-
-			&:last-child {
-				display: none;
-				position: absolute;
-				width: 270px;
-				right: 0;
-				top: calc(100% + 12px);
-				margin: -14px 0 0;
-				padding: 25px 20px;
-				text-align: left;
-				background-color: var(--general-background);
-				border: 1px solid var(--general-border);
-				cursor: default;
-			}
 		}
 
-		&:hover {
-			li:last-child {
-				display: block;
-				animation: slideUp 0.4s;
+		> ul {
+			> li {
+				&:last-child {
+					display: none;
+					position: absolute;
+					width: 270px;
+					right: 0;
+					top: calc(100% + 12px);
+					margin: -14px 0 0;
+					padding: 25px 20px;
+					text-align: left;
+					background-color: var(--general-background);
+					border: 1px solid var(--general-border);
+					cursor: default;
+				}
+			}
+
+			&:hover {
+				> li:last-child {
+					display: block;
+					animation: slideUp 0.4s;
+				}
 			}
 		}
 	}
 }
 .site-myaccount {
 	font-size: 0;
-	padding: 3px 20px 5px;
+	padding: 8px 20px 10px;
 	color: var(--general-text);
 	@extend %color-shift;
 
@@ -59,7 +63,7 @@
 
 .site-cart-contents {
 	display: flex;
-	padding: 5px 0 0 18px;
+	padding: 10px 0 5px 18px;
 	color: var(--general-text);
 	@extend %color-shift;
 
