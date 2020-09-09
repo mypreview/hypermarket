@@ -1,24 +1,24 @@
 .product {
 	&s {
 		padding-left: 0;
-	    display: grid;
-	    grid-gap: 30px;
+		display: grid;
+		grid-gap: 30px;
 
-	    &.columns-2 {
-	    	grid-template-columns: repeat(2, 1fr);
-	    }
-	    &.columns-3 {
-	    	grid-template-columns: repeat(3, 1fr);
-	    }
-	    &.columns-4 {
-	    	grid-template-columns: repeat(4, 1fr);
-	    }
-	    &.columns-5 {
-	    	grid-template-columns: repeat(5, 1fr);
-	    }
-	    &.columns-6 {
-	    	grid-template-columns: repeat(6, 1fr);
-	    }
+		&.columns-2 {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		&.columns-3 {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		&.columns-4 {
+			grid-template-columns: repeat(4, 1fr);
+		}
+		&.columns-5 {
+			grid-template-columns: repeat(5, 1fr);
+		}
+		&.columns-6 {
+			grid-template-columns: repeat(6, 1fr);
+		}
 	}
 
 	li& {

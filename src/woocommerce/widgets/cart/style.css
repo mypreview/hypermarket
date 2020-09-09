@@ -5,20 +5,20 @@
 .woocommerce-mini-cart {
 	&__empty-message {
 		margin-bottom: 0;
-    	font-style: italic;
+		font-style: italic;
 	}
 
 	&-item {
-    	position: relative;
-	    padding: 0 0 15px 80px;
-    	border-bottom: 1px solid var(--general-border);
-    	margin-bottom: 15px;
-	    min-height: 80px;
-        display: flex;
-    	flex-direction: column;
+		position: relative;
+		padding: 0 0 15px 80px;
+		border-bottom: 1px solid var(--general-border);
+		margin-bottom: 15px;
+		min-height: 80px;
+		display: flex;
+		flex-direction: column;
 
-    	a {
-    		@extend %color-shift;
+		a {
+			@extend %color-shift;
 			color: var(--general-text);
 
 			&:not(.remove) {
@@ -26,27 +26,27 @@
 
 				&:hover {
 					color: var(--general-text-alt);
-					opacity: .95;
+					opacity: 0.95;
 				}
 			}
-    	}
+		}
 
-    	.remove {
+		.remove {
 			font-size: 0;
 
-			&:before {
-			    content: "\e5cd";
-		        font-family: 'Material Icons';
-		        font-size: var(--general-normal);
-		        line-height: 1;
+			&::before {
+				content: "\e5cd";
+				font-family: "Material Icons";
+				font-size: var(--general-normal);
+				line-height: 1;
 				position: absolute;
-			    right: 0;
-			    top: 0;
+				right: 0;
+				top: 0;
 			}
 
 			&:hover {
-		    	color: var(--alert-danger);
-		    }
+				color: var(--alert-danger);
+			}
 		}
 
 		.quantity {
@@ -56,18 +56,18 @@
 
 	.attachment-woocommerce_thumbnail {
 		position: absolute;
-	    max-width: 65px;
-	    left: 0;
-	    top: 0;
+		max-width: 65px;
+		left: 0;
+		top: 0;
 	}
 
 	&__total {
-	    display: flex;
-    	justify-content: space-between;
+		display: flex;
+		justify-content: space-between;
 
 		strong {
 			color: var(--general-text-alt);
-		    font-weight: 400;
+			font-weight: 400;
 		}
 
 		.woocommerce-Price-amount {
@@ -76,26 +76,26 @@
 	}
 
 	&__buttons {
-	    display: grid;
-	    grid-template-columns: 1fr 1fr;
-	    grid-gap: 13px;
-	    margin-bottom: 0;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 13px;
+		margin-bottom: 0;
 
-	    .button {
-	    	margin: 0;
-	    	min-height: 36px;
-    		font-size: calc(var(--general-small) * 6/7);
-    		padding: 0 15px;
+		.button {
+			margin: 0;
+			min-height: 36px;
+			font-size: calc(var(--general-small) * 6/7);
+			padding: 0 15px;
 
-    		&:not(.checkout) {
-    			background-color: transparent;
-    			color: var(--general-text);
-    			border: 2px solid var(--general-border);
+			&:not(.checkout) {
+				background-color: transparent;
+				color: var(--general-text);
+				border: 2px solid var(--general-border);
 
-    			&:hover {
-    				background-color: var(--general-border);
-    			}
-    		}
-	    }
+				&:hover {
+					background-color: var(--general-border);
+				}
+			}
+		}
 	}
 }
