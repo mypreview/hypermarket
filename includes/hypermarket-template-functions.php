@@ -284,8 +284,9 @@ if ( ! function_exists( 'hypermarket_post_header' ) ) :
 					/**
 					 * Functions hooked in to `hypermarket_post_meta` action.
 					 *
-					 * @hooked  hypermarket_post_meta           - 10
-					 * @hooked  hypermarket_post_taxonomy       - 20
+					 * @hokked  hypermarket_posted_by           - 10
+					 * @hooked  hypermarket_posted_on           - 20
+					 * @hooked  hypermarket_post_taxonomy       - 30
 					 */
 					do_action( 'hypermarket_post_meta' );
 				?>
@@ -359,14 +360,32 @@ if ( ! function_exists( 'hypermarket_post_content' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_post_meta' ) ) :
+if ( ! function_exists( 'hypermarket_posted_by' ) ) :
 	/**
-	 * Display the post meta.
+	 * Retrieve the author of the current post.
 	 *
 	 * @since    2.0.0
 	 * @return   void
 	 */
-	function hypermarket_post_meta() {
+	function hypermarket_posted_by() {
+		// Author.
+		printf(
+			'<span class="post-author">%1$s <a href="%2$s" class="url fn" rel="author">%3$s</a></span>',
+			esc_html__( 'by', 'hypermarket' ),
+			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+			esc_html( get_the_author() )
+		);
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_posted_on' ) ) :
+	/**
+	 * Display the post published/updated date.
+	 *
+	 * @since    2.0.0
+	 * @return   void
+	 */
+	function hypermarket_posted_on() {
 		// Posted on.
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
@@ -444,10 +463,10 @@ if ( ! function_exists( 'hypermarket_post_taxonomy' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_post_taxonomy() {
-		/* translators: used between list items, there is a space after the comma */
+		/* translators: used between list items, there is a space after the comma. */
 		$categories_list = get_the_category_list( __( ', ', 'hypermarket' ) );
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', __( ', ', 'hypermarket' ) );
+		/* translators: used between list items, there is a # after the each tag name. */
+		$tags_list = get_the_tag_list( '#', __( ' #', 'hypermarket' ) );
 		
 		?>
 		<aside class="entry-taxonomy">
@@ -457,7 +476,7 @@ if ( ! function_exists( 'hypermarket_post_taxonomy' ) ) :
 				<div class="cat-links">
 				<?php
 				/* translators: 1: Open span tag, 2: Close span tag. */
-				printf( _n( '%1$sCategory:%2$s', '%1$sCategories:%2$s', count( get_the_category() ), 'hypermarket' ), '<span class="screen-reader-text">', '</span>' ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( _n( '%1$sin%2$s', '%1$sCategories:%2$s', count( get_the_category() ), 'hypermarket' ), '<span>', '</span>' ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				echo wp_kses_post( $categories_list ); 
 				?>
 				</div>
@@ -466,7 +485,7 @@ if ( ! function_exists( 'hypermarket_post_taxonomy' ) ) :
 
 		if ( $tags_list ) :
 			?>
-				<div class="tags-links screen-reader-text">
+				<div class="tags-links">
 				<?php 
 				/* translators: 1: Open span tag, 2: Close span tag. */
 				printf( _n( '%1$sTag:%2$s', '%1$sTags:%2$s', count( get_the_tags() ), 'hypermarket' ), '<span class="screen-reader-text">', '</span>' ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
