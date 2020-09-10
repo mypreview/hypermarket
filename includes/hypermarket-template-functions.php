@@ -248,7 +248,7 @@ if ( ! function_exists( 'hypermarket_page_content' ) ) :
 			wp_link_pages(
 				array(
 					/* translators: %s: open div */
-					'before' => sprintf( __( '%sPages:', 'hypermarket' ), '<div class="page-links">' ),
+					'before' => sprintf( esc_html__( '%sPages:', 'hypermarket' ), '<div class="page-links">' ),
 					'after'  => '</div>',
 				)
 			);
