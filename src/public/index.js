@@ -1,4 +1,5 @@
 import './style.css';
+import { navbar } from './navbar';
 import { skipLinkFocus } from './skip-link-focus';
 
 /**
@@ -8,7 +9,7 @@ import forEach from 'lodash/forEach';
 import domReady from '@wordpress/dom-ready';
 
 domReady( () => {
-	forEach( [ skipLinkFocus ], ( component ) => {
+	forEach( [ navbar, skipLinkFocus ], ( component ) => {
 		component.ready();
 	} );
 } );
