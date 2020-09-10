@@ -57,6 +57,7 @@ add_action( 'hypermarket_sidebar', 'hypermarket_get_sidebar' );
  * @see  hypermarket_post_content()
  * @see  hypermarket_edit_post_link()
  * @see  hypermarket_post_footnote()
+ * @see  hypermarket_post_nav()
  * @see  hypermarket_display_comments()
  * @see  hypermarket_post_excerpt()
  */
@@ -68,8 +69,9 @@ add_action( 'hypermarket_single_post', 'hypermarket_post_meta', 20 );
 add_action( 'hypermarket_single_post', 'hypermarket_post_thumbnail', 30 );
 add_action( 'hypermarket_single_post', 'hypermarket_post_content', 40 );
 add_action( 'hypermarket_single_post_bottom', 'hypermarket_edit_post_link' );
-add_action( 'hypermarket_single_post_bottom', 'hypermarket_post_footnote' );
-add_action( 'hypermarket_single_post_bottom', 'hypermarket_display_comments', 20 );
+add_action( 'hypermarket_single_post_bottom', 'hypermarket_post_footnote', 20 );
+add_action( 'hypermarket_single_post_bottom', 'hypermarket_post_nav', 30 );
+add_action( 'hypermarket_single_post_bottom', 'hypermarket_display_comments', 40 );
 add_action( 'hypermarket_post_header_after', 'hypermarket_post_excerpt' );
 
 /**
