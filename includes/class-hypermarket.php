@@ -297,6 +297,13 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			global $hypermarket;
 			$asset_name = 'public';
 			$asset      = hypermarket_get_file_assets( $asset_name );
+			$l10n       = apply_filters(
+				'hypermarket_l10n_args',
+				array(
+					'isRTL'    => (bool) is_rtl(),
+					'isMobile' => (bool) wp_is_mobile(),
+				) 
+			);
 
 			// Remove the previously enqueued block-editor stylesheet.
 			wp_dequeue_style( 'wp-block-library' );
@@ -310,6 +317,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			wp_add_inline_style( sprintf( '%s-style', $hypermarket->slug ), hypermarket_generate_editor_css() );
 			// Scripts.
 			wp_enqueue_script( sprintf( '%s-script', $hypermarket->slug ), get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
+			wp_localize_script( sprintf( '%s-script', $hypermarket->slug ), 'hypermarket', $l10n );
 
 			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 				wp_enqueue_script( 'comment-reply' );
