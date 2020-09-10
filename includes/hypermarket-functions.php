@@ -131,6 +131,72 @@ if ( ! function_exists( 'hypermarket_do_shortcode' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_post_categories' ) ) :
+	/**
+	 * Retrieve category list for a post in either HTML list or custom format.
+	 *
+	 * @since   2.0.0
+	 * @param   bool $echo      Echo the output.
+	 * @return  string        
+	 */
+	function hypermarket_post_categories( $echo = false ) {
+		// Categories.
+		/* translators: used between list items, there is a space after the comma. */
+		$category_list = get_the_category_list( __( ', ', 'hypermarket' ) );
+		$return        = '';
+		
+		if ( $category_list ) {
+			$return = sprintf(
+				/* translators: 1: Open div tag, 2: Close div tag. */
+				esc_html__( '%1$sin %2$s', 'hypermarket' ),
+				'<div class="post-categories">',
+				sprintf(
+					'%s</div>',
+					$category_list 
+				)
+			);
+		}
+
+		if ( $echo ) {
+			//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo $return; 
+		}
+
+		return $return;
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_post_tags' ) ) :
+	/**
+	 * Retrieve the tags for a post formatted as a string.
+	 *
+	 * @since   2.0.0
+	 * @param   bool $echo      Echo the output.
+	 * @return  string        
+	 */
+	function hypermarket_post_tags( $echo = false ) {
+		// Tags.
+		/* translators: used between list items, there is a # after the each tag name. */
+		$tag_list = get_the_tag_list( '#', __( ' #', 'hypermarket' ) );
+		$return   = '';
+		
+		if ( $tag_list ) {
+			$return = sprintf(
+				'<div class="post-tags">%s</div>',
+				/* translators: 1: Open span tag, 2: Close span tag. */
+				sprintf( _n( '%1$sTag:%2$s', '%1$sTags:%2$s', count( get_the_tags() ), 'hypermarket' ), '<span class="screen-reader-text">', sprintf( '</span>%s', $tag_list ) )
+			);
+		}
+
+		if ( $echo ) {
+			//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo $return; 
+		}
+
+		return $return;
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_header_styles' ) ) :
 	/**
 	 * Apply inline style to the theme header.
@@ -157,6 +223,37 @@ if ( ! function_exists( 'hypermarket_header_styles' ) ) :
 		foreach ( $styles as $style => $value ) {
 			echo esc_attr( $style . ': ' . $value . '; ' );
 		} // End of the loop.
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_allowed_html' ) ) :
+	/**
+	 * An array of allowed HTML elements and attributes, or a context name such as 'post'.
+	 *
+	 * @since   2.0.0
+	 * @return  array
+	 */
+	function hypermarket_allowed_html() {
+		return (array) apply_filters(
+			'hypermarket_allowed_html_args',
+			array(
+				'div' => array(
+					'class' => array(),
+				),
+				'span' => array(
+					'class' => array(),
+				),
+				'a' => array(
+					'href'  => array(),
+					'title' => array(),
+					'rel'   => array(),
+				),
+				'time' => array(
+					'datetime' => array(),
+					'class'    => array(),
+				),
+			) 
+		);
 	}
 endif;
 
