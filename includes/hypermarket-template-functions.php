@@ -185,7 +185,7 @@ if ( ! function_exists( 'hypermarket_primary_menu' ) ) :
 				)
 			);
 			?>
-		</nav><!-- #site-navigation -->
+		</nav>
 		<?php
 	}
 endif;
@@ -228,7 +228,7 @@ if ( ! function_exists( 'hypermarket_page_header' ) ) :
 				the_title( '<h1 class="entry-title">', '</h1>' );
 			}
 			?>
-		</header><!-- .entry-header -->
+		</header>
 		<?php
 	}
 endif;
@@ -253,7 +253,7 @@ if ( ! function_exists( 'hypermarket_page_content' ) ) :
 				)
 			);
 		?>
-		</div><!-- .entry-content -->
+		</div>
 		<?php
 	}
 endif;
@@ -277,31 +277,80 @@ if ( ! function_exists( 'hypermarket_post_header' ) ) :
 				the_title( sprintf( '<h2 class="alpha entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 			}
 
-			if ( 'post' === get_post_type() ) :
-				?>
-			<div class="entry-meta">
-				<?php
-					/**
-					 * Functions hooked in to `hypermarket_post_meta` action.
-					 *
-					 * @hokked  hypermarket_posted_by           - 10
-					 * @hooked  hypermarket_posted_on           - 20
-					 * @hooked  hypermarket_post_taxonomy       - 30
-					 */
-					do_action( 'hypermarket_post_meta' );
-				?>
-			</div>
-				<?php
-				/**
-				 * Functions hooked in to `hypermarket_post_header_after` action.
-				 *
-				 * @hooked  hypermarket_post_excerpt        - 10
-				 */
-				do_action( 'hypermarket_post_header_after' );
-			endif;
+			do_action( 'hypermarket_post_header_after' );
 			?>
-		</header><!-- .entry-header -->
+		</header>
 		<?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_post_meta' ) ) :
+	/**
+	 * Display the post meta.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_post_meta() {
+		if ( 'post' !== get_post_type() ) {
+			return;
+		}
+
+		// Posted on.
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		}
+
+		$time_string = sprintf(
+			$time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() ),
+			esc_attr( get_the_modified_date( 'c' ) ),
+			esc_html( get_the_modified_date() )
+		);
+
+		$output_time_string = sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>', esc_url( get_permalink() ), $time_string );
+
+		$posted_on = '
+			<span class="posted-on">' .
+			/* translators: %s: post date */
+			sprintf( __( 'Posted on %s', 'hypermarket' ), $output_time_string ) .
+			'</span>';
+
+		// Author.
+		$author = sprintf(
+			'<span class="post-author">%1$s <a href="%2$s" class="url fn" rel="author">%3$s</a></span>',
+			__( 'by', 'hypermarket' ),
+			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+			esc_html( get_the_author() )
+		);
+
+		// Comments.
+		$comments        = '';
+		$comments_before = '<span class="screen-reader-text">';
+		$comments_after  = '</span>';
+
+		if ( ! post_password_required() && ( comments_open() || 0 !== intval( get_comments_number() ) ) ) {
+			/* translators: 1: Open span tag, 2: Close span tag. */
+			$comments_number = get_comments_number_text( sprintf( esc_html__( '0%1$sLeave a comment%2$s', 'hypermarket' ), $comments_before, $comments_after ), sprintf( esc_html__( '1%1$sComment%2$s', 'hypermarket' ), $comments_before, $comments_after ), sprintf( esc_html__( '%%%1$sComments%2$s', 'hypermarket' ), $comments_before, $comments_after ) );
+
+			$comments = sprintf(
+				'<span class="post-comments"><a href="%1$s">%2$s</a></span>',
+				esc_url( get_comments_link() ),
+				$comments_number
+			);
+		}
+
+		// Categories.
+		// Output categories only if the current query is for an existing single post.
+		$categories = is_single() ? hypermarket_post_categories() : '';
+		
+		echo wp_kses(
+			sprintf( '<div class="entry-meta">%1$s %2$s %3$s %4$s</div>', $author, $categories, $posted_on, $comments ),
+			hypermarket_allowed_html()
+		);
 	}
 endif;
 
@@ -320,7 +369,7 @@ if ( ! function_exists( 'hypermarket_post_excerpt' ) ) :
 		?>
 		<div class="entry-excerpt" itemprop="text">
 			<?php the_excerpt(); ?>
-		</div><!-- .entry-excerpt -->
+		</div>
 		<?php
 	}
 endif;
@@ -342,7 +391,7 @@ if ( ! function_exists( 'hypermarket_post_content' ) ) :
 				sprintf(
 					/* translators: %s: post title */
 					__( 'Continue reading %s', 'hypermarket' ),
-					'<span class="screen-reader-text">' . get_the_title() . '</span>'
+					sprintf( '<span class="screen-reader-text">%s</span>', get_the_title() )
 				)
 			);
 
@@ -350,80 +399,32 @@ if ( ! function_exists( 'hypermarket_post_content' ) ) :
 
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . __( 'Pages:', 'hypermarket' ),
+					/* translators: %s: Open div tag. */
+					'before' => sprintf( esc_html__( '%sPages:', 'hypermarket' ), '<div class="page-links">' ),
 					'after'  => '</div>',
 				)
 			);
 			?>
-		</div><!-- .entry-content -->
+		</div>
 		<?php
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_posted_by' ) ) :
+if ( ! function_exists( 'hypermarket_post_footnote' ) ) :
 	/**
-	 * Retrieve the author of the current post.
+	 * Display meta-data placed at the bottom of a post content.
 	 *
-	 * @since    2.0.0
-	 * @return   void
+	 * @since   2.0.0
+	 * @return  void
 	 */
-	function hypermarket_posted_by() {
-		// Author.
-		printf(
-			'<span class="post-author">%1$s <a href="%2$s" class="url fn" rel="author">%3$s</a></span>',
-			esc_html__( 'by', 'hypermarket' ),
-			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_html( get_the_author() )
-		);
-	}
-endif;
-
-if ( ! function_exists( 'hypermarket_posted_on' ) ) :
-	/**
-	 * Display the post published/updated date.
-	 *
-	 * @since    2.0.0
-	 * @return   void
-	 */
-	function hypermarket_posted_on() {
-		// Posted on.
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s" itemprop="datePublished">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-		}
-
-		$time_string = sprintf(
-			$time_string,
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( 'c' ) ),
-			esc_html( get_the_modified_date() )
-		);
-
-		$output_time_string = sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>', esc_url( get_permalink() ), $time_string );
-		$posted_on          = '
-			<span class="posted-on">' .
-			/* translators: 1: Open span tag, 2: Close span tag, 3: Output time. */
-			sprintf( esc_html__( '%1$sPosted on%2$s %3$s', 'hypermarket' ), '<span class="screen-reader-text">', '</span>', $output_time_string ) .
-			'</span>';
+	function hypermarket_post_footnote() {
+		// Output categories only if the current query is for the archive pages.
+		$categories = hypermarket_is_blog_archive() ? hypermarket_post_categories() : '';
+		$tags       = hypermarket_post_tags();
 
 		echo wp_kses(
-			$posted_on,
-			array(
-				'span' => array(
-					'class' => array(),
-				),
-				'a'    => array(
-					'href'  => array(),
-					'title' => array(),
-					'rel'   => array(),
-				),
-				'time' => array(
-					'datetime' => array(),
-					'class'    => array(),
-				),
-			)
+			sprintf( '<div class="entry-footnote">%1$s %2$s</div>', $categories, $tags ),
+			hypermarket_allowed_html()
 		);
 	}
 endif;
@@ -452,51 +453,6 @@ if ( ! function_exists( 'hypermarket_edit_post_link' ) ) :
 			'<div class="edit-link">',
 			'</div>'
 		);
-	}
-endif;
-
-if ( ! function_exists( 'hypermarket_post_taxonomy' ) ) :
-	/**
-	 * Display the post taxonomies.
-	 *
-	 * @since   2.0.0
-	 * @return  void
-	 */
-	function hypermarket_post_taxonomy() {
-		/* translators: used between list items, there is a space after the comma. */
-		$categories_list = get_the_category_list( __( ', ', 'hypermarket' ) );
-		/* translators: used between list items, there is a # after the each tag name. */
-		$tags_list = get_the_tag_list( '#', __( ' #', 'hypermarket' ) );
-		
-		?>
-		<aside class="entry-taxonomy">
-		<?php
-		if ( $categories_list ) :
-			?>
-				<div class="cat-links">
-				<?php
-				/* translators: 1: Open span tag, 2: Close span tag. */
-				printf( _n( '%1$sin%2$s', '%1$sCategories:%2$s', count( get_the_category() ), 'hypermarket' ), '<span>', '</span>' ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				echo wp_kses_post( $categories_list ); 
-				?>
-				</div>
-				<?php
-			endif;
-
-		if ( $tags_list ) :
-			?>
-				<div class="tags-links">
-				<?php 
-				/* translators: 1: Open span tag, 2: Close span tag. */
-				printf( _n( '%1$sTag:%2$s', '%1$sTags:%2$s', count( get_the_tags() ), 'hypermarket' ), '<span class="screen-reader-text">', '</span>' ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				echo wp_kses_post( $tags_list ); 
-				?>
-				</div>
-				<?php 
-			endif;
-		?>
-		</aside>
-		<?php
 	}
 endif;
 
@@ -551,18 +507,18 @@ if ( ! function_exists( 'hypermarket_post_thumbnail' ) ) :
 		if ( is_singular() ) : 
 			?>
 
-			<div class="post-thumbnail" itemprop="ImageObject">
-				<?php the_post_thumbnail( 'post-thumbnail' ); ?>
-			</div><!-- .post-thumbnail -->
+			<div class="entry-thumbnail" itemprop="ImageObject">
+				<?php the_post_thumbnail( 'entry-thumbnail' ); ?>
+			</div>
 
 			<?php 
 		else : 
 			?>
 
-			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1" itemprop="ImageObject">
+			<a class="entry-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1" itemprop="ImageObject">
 				<?php
 				the_post_thumbnail(
-					'post-thumbnail',
+					'entry-thumbnail',
 					array(
 						'alt' => the_title_attribute(
 							array(
