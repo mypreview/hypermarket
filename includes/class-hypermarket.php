@@ -456,9 +456,15 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * into `navigation_markup_template` filter hook.
 		 *
 		 * @since   2.0.0
-		 * @return  string $template   Modified version of the default template.
+		 * @param   array $args       Available arguments.
+		 * @return  html
 		 */
-		public function navigation_markup_template() {
+		public function navigation_markup_template( $args ) {
+			// Bail early, in case the current query is for an existing single post of any post type.
+			if ( is_singular() ) {
+				return $args;
+			}
+
 			$return               = '';
 			$needle               = '%%';
 			$current_page         = sprintf( '<span aria-current="page" class="page-numbers current">%s</span>', $needle );
