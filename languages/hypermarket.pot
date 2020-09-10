@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-08-03T09:43:04+00:00\n"
+"POT-Creation-Date: 2020-09-10T23:48:30+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: hypermarket\n"
@@ -63,74 +63,157 @@ msgstr[1] ""
 msgid "Comments are closed."
 msgstr ""
 
-#: includes/class-hypermarket.php:184
-msgid "Small"
-msgstr ""
-
-#: includes/class-hypermarket.php:189
-msgid "Normal"
-msgstr ""
-
-#: includes/class-hypermarket.php:194
-msgid "Medium"
-msgstr ""
-
-#: includes/class-hypermarket.php:199
-msgid "Large"
-msgstr ""
-
-#: includes/class-hypermarket.php:204
-msgid "Huge"
-msgstr ""
-
-#: includes/class-hypermarket.php:221
-msgid "Black"
-msgstr ""
-
-#: includes/class-hypermarket.php:226
-msgid "White"
-msgstr ""
-
-#: includes/class-hypermarket.php:243
-msgid "Picton Blue to Mariner"
-msgstr ""
-
-#: includes/class-hypermarket.php:258
+#: includes/class-hypermarket.php:177
+#: includes/customize/class-hypermarket-customize.php:123
+#: includes/customize/class-hypermarket-customize.php:129
 msgid "Primary"
 msgstr ""
 
-#: includes/class-hypermarket.php:259
+#: includes/class-hypermarket.php:178
 msgid "Handheld"
 msgstr ""
 
-#: includes/class-hypermarket.php:301
+#: includes/class-hypermarket.php:226
 msgid "Sidebar"
 msgstr ""
 
 #. translators: 1: column number
-#: includes/class-hypermarket.php:316
+#: includes/class-hypermarket.php:241
 msgid "Footer Column %1$d"
 msgstr ""
 
 #. translators: 1: column number
-#: includes/class-hypermarket.php:319
+#: includes/class-hypermarket.php:244
 msgid "Widgets added here will appear in column %1$d of the footer."
 msgstr ""
 
 #. translators: 1: row number, 2: column number
-#: includes/class-hypermarket.php:322
+#: includes/class-hypermarket.php:247
 msgid "Footer Row %1$d - Column %2$d"
 msgstr ""
 
 #. translators: 1: column number, 2: row number
-#: includes/class-hypermarket.php:325
+#: includes/class-hypermarket.php:250
 msgid "Widgets added here will appear in column %1$d of footer row %2$d."
 msgstr ""
 
+#: includes/class-hypermarket.php:479
+msgid "Prev"
+msgstr ""
+
+#: includes/class-hypermarket.php:480
+msgid "Next"
+msgstr ""
+
 #. translators: 1: Open nav tag, 2: Close nav tag.
-#: includes/class-hypermarket.php:538
+#: includes/class-hypermarket.php:499
 msgid "%1$sPost Navigation%2$s"
 msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:94
+msgid "Colors"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:95
+msgid "This option allows you to choose a color, view color suggestions, refine with the color picker and apply background color changes."
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:99
+#: includes/customize/class-hypermarket-customize.php:185
+msgid "General"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:104
+#: includes/customize/class-hypermarket-customize.php:110
+msgid "Text"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:111
+#: includes/customize/class-hypermarket-customize.php:130
+msgid "Alternate"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:117
+msgid "Blockquote"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:136
+msgid "Border"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:142
+msgid "Background"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:149
+msgid "Alert"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:154
+msgid "Info"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:160
+msgid "Success"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:166
+msgid "Warning"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:172
+msgid "Danger"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:180
+msgid "Fonts"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:181
+msgid "..."
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:190
+msgid "Small"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:198
+msgid "Normal"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:206
+msgid "Medium"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:214
+msgid "Large"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:222
+msgid "Huge"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma.
+#: includes/hypermarket-functions.php:145
+msgid ", "
+msgstr ""
+
+#. translators: 1: Open div tag, 2: Close div tag.
+#: includes/hypermarket-functions.php:151
+msgid "%1$sin %2$s"
+msgstr ""
+
+#. translators: used between list items, there is a # after the each tag name.
+#: includes/hypermarket-functions.php:180
+msgid " #"
+msgstr ""
+
+#. translators: 1: Open span tag, 2: Close span tag.
+#: includes/hypermarket-functions.php:187
+msgid "%1$sTag:%2$s"
+msgid_plural "%1$sTags:%2$s"
+msgstr[0] ""
+msgstr[1] ""
 
 #: includes/hypermarket-template-functions.php:84
 msgid "Proudly powered by WordPress"
@@ -153,71 +236,58 @@ msgid "Skip to content"
 msgstr ""
 
 #. translators: %s: open div
+#. translators: %s: Open div tag.
 #: includes/hypermarket-template-functions.php:251
+#: includes/hypermarket-template-functions.php:403
 msgid "%sPages:"
 msgstr ""
 
+#. translators: %s: post date
+#: includes/hypermarket-template-functions.php:319
+msgid "Posted on %s"
+msgstr ""
+
+#: includes/hypermarket-template-functions.php:325
+msgid "by"
+msgstr ""
+
+#. translators: 1: Open span tag, 2: Close span tag.
+#: includes/hypermarket-template-functions.php:337
+msgid "0%1$sLeave a comment%2$s"
+msgstr ""
+
+#. translators: 1: Open span tag, 2: Close span tag.
+#: includes/hypermarket-template-functions.php:337
+msgid "1%1$sComment%2$s"
+msgstr ""
+
+#. translators: 1: Open span tag, 2: Close span tag.
+#: includes/hypermarket-template-functions.php:337
+msgid "%%%1$sComments%2$s"
+msgstr ""
+
 #. translators: %s: post title
-#: includes/hypermarket-template-functions.php:343
+#: includes/hypermarket-template-functions.php:393
 msgid "Continue reading %s"
 msgstr ""
 
-#: includes/hypermarket-template-functions.php:352
-msgid "Pages:"
-msgstr ""
-
-#. translators: 1: Open span tag, 2: Close span tag, 3: Output time.
-#: includes/hypermarket-template-functions.php:389
-msgid "%1$sPosted on%2$s %3$s"
-msgstr ""
-
 #. translators: %s: Name of current post. Only visible to screen readers
-#: includes/hypermarket-template-functions.php:424
+#: includes/hypermarket-template-functions.php:444
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
-#. translators: used between list items, there is a space after the comma
-#: includes/hypermarket-template-functions.php:448
-#: includes/hypermarket-template-functions.php:450
-msgid ", "
-msgstr ""
-
 #. translators: 1: Open span tag, 2: Close span tag.
-#: includes/hypermarket-template-functions.php:460
-msgid "%1$sCategory:%2$s"
-msgid_plural "%1$sCategories:%2$s"
-msgstr[0] ""
-msgstr[1] ""
-
-#. translators: 1: Open span tag, 2: Close span tag.
-#: includes/hypermarket-template-functions.php:472
-msgid "%1$sTag:%2$s"
-msgid_plural "%1$sTags:%2$s"
-msgstr[0] ""
-msgstr[1] ""
-
-#. translators: 1: Open span tag, 2: Close span tag.
-#: includes/hypermarket-template-functions.php:495
+#: includes/hypermarket-template-functions.php:470
+#: includes/hypermarket-template-functions.php:489
 msgctxt "Next post"
 msgid "%1$sNext%2$s"
 msgstr ""
 
 #. translators: 1: Open span tag, 2: Close span tag.
-#: includes/hypermarket-template-functions.php:497
+#: includes/hypermarket-template-functions.php:472
+#: includes/hypermarket-template-functions.php:491
 msgctxt "Previous post"
 msgid "%1$sPrevious%2$s"
-msgstr ""
-
-#. translators: 1: Open span tag, 2: Close span tag.
-#: includes/hypermarket-template-functions.php:514
-msgctxt "Next post"
-msgid "%1$sNext post:%2$s"
-msgstr ""
-
-#. translators: 1: Open span tag, 2: Close span tag.
-#: includes/hypermarket-template-functions.php:516
-msgctxt "Previous post"
-msgid "%1$sPrevious post:%2$s"
 msgstr ""
 
 #: includes/tgmpa/class-tgm-plugin-activation.php:328
@@ -627,32 +697,36 @@ msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
 #. translators: 1: Open anchor tag, 2: Close anchor tag.
-#: includes/woocommerce/hypermarket-woocommerce-functions.php:71
+#: includes/woocommerce/hypermarket-woocommerce-functions.php:85
 msgid "%1$sMy Account%2$s"
 msgstr ""
 
 #. translators: 1: Open anchor tag, 2: Close anchor tag.
-#: includes/woocommerce/hypermarket-woocommerce-functions.php:71
+#: includes/woocommerce/hypermarket-woocommerce-functions.php:85
 msgid "View your account page"
 msgstr ""
 
+#: includes/woocommerce/hypermarket-woocommerce-functions.php:105
+msgid "View your shopping cart"
+msgstr ""
+
 #. translators: 1: Open anchor tag, 2: Close anchor tag.
-#: includes/woocommerce/hypermarket-woocommerce-functions.php:87
+#: includes/woocommerce/hypermarket-woocommerce-functions.php:131
 msgid "%1$sSearch%2$s"
 msgstr ""
 
 #. translators: 1: Open h2 tag, Close h2 tag.
-#: includes/woocommerce/hypermarket-woocommerce-functions.php:139
+#: includes/woocommerce/hypermarket-woocommerce-functions.php:183
 msgid "%1$sFeatured Products%2$s"
 msgstr ""
 
 #. translators: 1: Open h2 tag, Close h2 tag.
-#: includes/woocommerce/hypermarket-woocommerce-functions.php:151
+#: includes/woocommerce/hypermarket-woocommerce-functions.php:195
 msgid "%1$sOn Sale Now%2$s"
 msgstr ""
 
 #. translators: 1: Open h2 tag, Close h2 tag.
-#: includes/woocommerce/hypermarket-woocommerce-functions.php:163
+#: includes/woocommerce/hypermarket-woocommerce-functions.php:207
 msgid "%1$sNew In Store%2$s"
 msgstr ""
 
