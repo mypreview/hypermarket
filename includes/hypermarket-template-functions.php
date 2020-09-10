@@ -486,9 +486,9 @@ if ( ! function_exists( 'hypermarket_post_nav' ) ) :
 	function hypermarket_post_nav() {
 		$args = array(
 			/* translators: 1: Open span tag, 2: Close span tag. */
-			'next_text' => sprintf( _x( '%1$sNext post:%2$s', 'Next post', 'hypermarket' ), '<span class="screen-reader-text">', ' </span>%title' ),
+			'next_text' => sprintf( _x( '%1$sNext%2$s', 'Next post', 'hypermarket' ), '<span aria-label="%title">', ' </span>' ),
 			/* translators: 1: Open span tag, 2: Close span tag. */
-			'prev_text' => sprintf( _x( '%1$sPrevious post:%2$s', 'Previous post', 'hypermarket' ), '<span class="screen-reader-text">', ' </span>%title' ),
+			'prev_text' => sprintf( _x( '%1$sPrevious%2$s', 'Previous post', 'hypermarket' ), '<span aria-label="%title">', ' </span>' ),
 		);
 
 		the_post_navigation( $args );
