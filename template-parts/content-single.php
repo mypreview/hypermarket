@@ -31,7 +31,8 @@
 		 *
 		 * @hooked hypermarket_edit_post_link         - 10
 		 * @hooked hypermarket_post_footnote          - 20
-		 * @hooked hypermarket_display_comments       - 30
+		 * @hooked hypermarket_post_nav               - 30
+		 * @hooked hypermarket_display_comments       - 40
 		 */
 		do_action( 'hypermarket_single_post_bottom' );
 
