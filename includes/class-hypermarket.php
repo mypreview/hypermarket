@@ -300,8 +300,8 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			$l10n       = apply_filters(
 				'hypermarket_l10n_args',
 				array(
-					'isRTL'    => (bool) is_rtl(),
-					'isMobile' => (bool) wp_is_mobile(),
+					'isRTL'    => is_rtl(),
+					'isMobile' => wp_is_mobile(),
 				) 
 			);
 
