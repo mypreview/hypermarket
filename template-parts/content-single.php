@@ -19,7 +19,10 @@
 		/**
 		 * Functions hooked into `hypermarket_single_post` add_action
 		 *
+		 * @hooked hypermarket_div                    - 5
 		 * @hooked hypermarket_post_header            - 10
+		 * @hooked hypermarket_breadcrumb             - 20
+		 * @hooked hypermarket_div_close              - 25
 		 * @hooked hypermarket_post_meta              - 20
 		 * @hooked hypermarket_post_thumbnail         - 30
 		 * @hooked hypermarket_post_content           - 40
