@@ -36,7 +36,6 @@ add_action( 'hypermarket_after_footer', 'hypermarket_handheld_toolbar', PHP_INT_
  * @see  hypermarket_breadcrumb()
  * @see  hypermarket_shop_messages()
  */
-add_action( 'hypermarket_before_content', 'hypermarket_breadcrumb' );
 add_action( 'hypermarket_content_top', 'hypermarket_shop_messages' );
 
 /**
@@ -58,8 +57,10 @@ add_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 30 );
 
 /**
  * Posts
+ * 
+ * @see  hypermarket_breadcrumb()
  */
-add_action( 'hypermarket_post_header_after', 'woocommerce_breadcrumb' );
+add_action( 'hypermarket_single_post', 'hypermarket_breadcrumb', 20 );
 
 /**
  * Products
