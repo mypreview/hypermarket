@@ -1,0 +1,58 @@
+.single-view {
+    max-width: 945px;
+    width: 100%;
+    margin: 0 auto;
+
+    .entry-meta {
+	    display: flex;
+	    font-size: var(--general-small);
+	    color: var(--general-text-alt);
+        padding-bottom: 18px;
+
+	    a {
+	    	color: inherit;
+	    	text-decoration: none;
+
+	    	&:hover {
+				color: var(--general-primary-alt);
+			}
+	    }
+	}
+
+	.post-author {
+		@extend %meta-divider;
+	}
+
+	.post-categories {
+		margin-right: auto;
+	}
+
+	.posted-on {
+		font-size: 0px;
+	    display: flex;
+    	align-items: center;
+		@extend %meta-divider;
+
+		time {
+			font-size: var(--general-small);
+		    @extend %meta-icon;
+
+			&:not(.published) {
+				display: hidden;
+			}
+
+			&:before {
+			    content: "\e916";
+			}
+		}
+	}
+
+	.post-comments {
+		a {
+			@extend %meta-icon;
+			&:before {
+		        content: "\e0cb";
+			}
+		}
+	}
+}
