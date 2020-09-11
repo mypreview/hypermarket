@@ -1,0 +1,26 @@
+.page-view,
+.single-view {
+	.entry-header {
+		@extend %alignfull;
+		background-color: var(--general-tile);
+		text-align: center;
+		margin-bottom: 60px;
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+
+	.entry-title {
+		@extend %colfull;
+		margin-bottom: 18px;
+
+		&:only-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.entry-thumbnail {
+		img {
+			margin: 0 auto 48px;
+		}
+	}
+}
