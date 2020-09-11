@@ -61,19 +61,23 @@ add_action( 'hypermarket_sidebar', 'hypermarket_get_sidebar' );
  * @see  hypermarket_display_comments()
  * @see  hypermarket_post_excerpt()
  */
-add_action( 'hypermarket_loop_post', 'hypermarket_post_thumbnail' );
-add_action( 'hypermarket_loop_post', 'hypermarket_post_header', 20 );
-add_action( 'hypermarket_loop_after', 'hypermarket_paging_nav' );
+add_action( 'hypermarket_loop_post', 'hypermarket_div', 5 );
+add_action( 'hypermarket_loop_post', 'hypermarket_post_header' );
+add_action( 'hypermarket_loop_post', 'hypermarket_post_meta', 20 );
+add_action( 'hypermarket_loop_post', 'hypermarket_div_close', 25 );
+add_action( 'hypermarket_loop_post', 'hypermarket_post_thumbnail', 30 );
+add_action( 'hypermarket_loop_post', 'hypermarket_post_excerpt', 40 );
+add_action( 'hypermarket_loop_post', 'hypermarket_post_footnote', 50 );
+add_action( 'hypermarket_single_post', 'hypermarket_div', 5 );
 add_action( 'hypermarket_single_post', 'hypermarket_post_header' );
-add_action( 'hypermarket_single_post', 'hypermarket_post_meta', 20 );
-add_action( 'hypermarket_single_post', 'hypermarket_post_thumbnail', 30 );
-add_action( 'hypermarket_single_post', 'hypermarket_post_content', 40 );
+add_action( 'hypermarket_single_post', 'hypermarket_div_close', 25 );
+add_action( 'hypermarket_single_post', 'hypermarket_post_meta', 30 );
+add_action( 'hypermarket_single_post', 'hypermarket_post_thumbnail', 40 );
+add_action( 'hypermarket_single_post', 'hypermarket_post_content', 50 );
 add_action( 'hypermarket_single_post_bottom', 'hypermarket_edit_post_link' );
 add_action( 'hypermarket_single_post_bottom', 'hypermarket_post_footnote', 20 );
 add_action( 'hypermarket_single_post_bottom', 'hypermarket_post_nav', 30 );
 add_action( 'hypermarket_single_post_bottom', 'hypermarket_display_comments', 40 );
-add_action( 'hypermarket_post_header_before', 'hypermarket_container' );
-add_action( 'hypermarket_post_header_after', 'hypermarket_div_close', 20 );
 
 /**
  * Pages
