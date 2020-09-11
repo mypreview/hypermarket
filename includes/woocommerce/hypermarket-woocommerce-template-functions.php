@@ -34,7 +34,7 @@ if ( ! function_exists( 'hypermarket_breadcrumb' ) ) :
 	function hypermarket_breadcrumb() {
 		$breadcrumbs = apply_filters( 'hypermarket_has_breadcrumbs', true );
 
-		if ( ! $breadcrumbs ) {
+		if ( $breadcrumbs ) {
 			woocommerce_breadcrumb();
 		}
 	}
