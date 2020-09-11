@@ -11,7 +11,7 @@
  * @subpackage  hypermarket/template-parts
  */
 
-?><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+?><article id="post-<?php the_ID(); ?>" <?php post_class( 'page-view' ); ?>>
 	<?php
 		/**
 		 * Functions hooked in to `hypermarket_page` add_action
