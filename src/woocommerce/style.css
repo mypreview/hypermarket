@@ -1,5 +1,6 @@
 @import "../public/placeholders/style.css";
 @import "../public/variables/style.css";
 @import "./navbar/style.css";
+@import "./breadcrumbs/style.css";
 @import "./widgets/style.css";
 @import "./products/style.css";
