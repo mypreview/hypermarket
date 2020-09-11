@@ -57,6 +57,11 @@ add_action( 'woocommerce_after_main_content', 'hypermarket_after_content' );
 add_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 30 );
 
 /**
+ * Posts
+ */
+add_action( 'hypermarket_post_header_after', 'woocommerce_breadcrumb' );
+
+/**
  * Products
  *
  * @see  hypermarket_edit_post_link()

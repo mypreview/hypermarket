@@ -277,6 +277,11 @@ if ( ! function_exists( 'hypermarket_post_header' ) ) :
 				the_title( sprintf( '<h2 class="alpha entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 			}
 
+			/**
+			 * Functions hooked in to `hypermarket_post_header_after` add_action
+			 *
+			 * @hooked woocommerce_breadcrumb             - 10
+			 */
 			do_action( 'hypermarket_post_header_after' );
 			?>
 		</header>
