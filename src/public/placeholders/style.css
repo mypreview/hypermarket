@@ -43,21 +43,21 @@
 }
 
 %meta-divider {
-	&:after {
-		content: '';
+	&::after {
+		content: "";
 		display: inline-block;
-	    width: 1px;
-	    height: 11px;
-	    margin: 0 10px;
-	    background-color: var(--general-text-alt);
-	    opacity: .5;
+		width: 1px;
+		height: 11px;
+		margin: 0 10px;
+		background-color: var(--general-text-alt);
+		opacity: 0.5;
 	}
 }
 %meta-icon {
 	display: flex;
-			
-	&:before {
-		font-family: 'Material Icons';
-        margin-right: 3px;
+
+	&::before {
+		font-family: "Material Icons";
+		margin-right: 3px;
 	}
 }
