@@ -26,3 +26,38 @@
 	padding: 0;
 	margin: 0;
 }
+
+%alignfull {
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	margin-left: -50vw;
+}
+
+%colfull {
+	max-width: 1140px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 15px;
+}
+
+%meta-divider {
+	&:after {
+		content: '';
+		display: inline-block;
+	    width: 1px;
+	    height: 11px;
+	    margin: 0 10px;
+	    background-color: var(--general-text-alt);
+	    opacity: .5;
+	}
+}
+%meta-icon {
+	display: flex;
+			
+	&:before {
+		font-family: 'Material Icons';
+        margin-right: 3px;
+	}
+}
