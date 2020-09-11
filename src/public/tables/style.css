@@ -7,7 +7,7 @@ table {
 td,
 th {
 	border: 1px solid;
-	text-align: start;
+	text-align: left;
 	word-break: normal;
 	vertical-align: top;
 	line-height: var(--line-height-base);
