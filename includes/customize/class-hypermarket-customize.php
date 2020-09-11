@@ -137,6 +137,12 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 										'default' => '#ededed',
 									),
 									array(
+										'var'     => sprintf( '%s-general-tile', $hypermarket->slug ),
+										'id'      => sprintf( '%s_general_tile_color', $setting_prefix ),
+										'label'   => esc_html__( 'Tile', 'hypermarket' ),
+										'default' => '#f5f5f5',
+									),
+									array(
 										'var'     => sprintf( '%s-general-background', $hypermarket->slug ),
 										'id'      => sprintf( '%s_general_background_color', $setting_prefix ),
 										'label'   => esc_html__( 'Background', 'hypermarket' ),
