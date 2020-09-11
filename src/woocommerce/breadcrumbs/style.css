@@ -1,0 +1,14 @@
+.woocommerce-breadcrumb {
+	@extend %colfull;
+	font-size: var(--general-small);
+	color: var(--general-text-alt);
+
+	a {
+		color: var(--general-text);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--general-primary-alt);
+		}
+	}
+}
