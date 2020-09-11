@@ -72,7 +72,8 @@ add_action( 'hypermarket_single_post_bottom', 'hypermarket_edit_post_link' );
 add_action( 'hypermarket_single_post_bottom', 'hypermarket_post_footnote', 20 );
 add_action( 'hypermarket_single_post_bottom', 'hypermarket_post_nav', 30 );
 add_action( 'hypermarket_single_post_bottom', 'hypermarket_display_comments', 40 );
-add_action( 'hypermarket_post_header_after', 'hypermarket_post_excerpt' );
+add_action( 'hypermarket_post_header_before', 'hypermarket_container' );
+add_action( 'hypermarket_post_header_after', 'hypermarket_div_close', 20 );
 
 /**
  * Pages

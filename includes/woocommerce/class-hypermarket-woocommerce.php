@@ -154,12 +154,12 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 *
 		 * @since   2.0.0
 		 * @param   array $defaults   The breadcrumb defaults.
-		 * @return  array               The breadcrumb defaults.
+		 * @return  array
 		 */
 		public function change_breadcrumb_delimiter( $defaults ) {
 			$defaults['delimiter']   = '<span class="breadcrumb-separator"> / </span>';
-			$defaults['wrap_before'] = '<div class="hypermarket-breadcrumb"><div class="col-full"><nav class="woocommerce-breadcrumb">';
-			$defaults['wrap_after']  = '</nav></div></div>';
+			$defaults['wrap_before'] = '<div class="hypermarket-breadcrumb"><nav class="woocommerce-breadcrumb">';
+			$defaults['wrap_after']  = '</nav></div>';
 
 			return $defaults;
 		}
