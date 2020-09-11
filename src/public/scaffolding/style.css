@@ -27,10 +27,7 @@ body {
 }
 
 .col-full {
-	max-width: 1140px;
-	width: 100%;
-	margin: 0 auto;
-	padding: 0 15px;
+	@extend %colfull;
 }
 
 /**
@@ -103,22 +100,21 @@ abbr[data-original-title] {
 blockquote {
 	position: relative;
 	padding: 12px 0 12px 25px;
-	margin: 0;
+	margin: 0 0 var(--line-height-computed);
 	font-size: calc(var(--general-normal) * 1.125);
 	font-weight: 300;
 	color: var(--general-quote);
 	border-left: 5px solid var(--general-border);
 
 	cite {
-		display: block;
+		display: flex;
+    	align-items: center;
 		font-size: var(--general-small);
 		color: var(--general-text-alt);
 		margin-top: 10px;
 		font-style: normal;
 
-		::before {
-			display: inline-block;
-			vertical-align: middle;
+		&:before {
 			content: "";
 			width: 20px;
 			height: 1px;
@@ -203,8 +199,5 @@ svg {
  * Alignment
  */
 .alignfull {
-	width: 100vw;
-	position: relative;
-	start: 50%;
-	margin-left: -50vw;
+	@extend %alignfull;
 }
