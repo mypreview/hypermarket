@@ -1,0 +1,54 @@
+.post-navigation {
+	.nav {
+		&-links {
+			display: flex;
+			padding: 15px 0;
+			border-style: solid;
+			border-color: var(--general-border);
+			border-width: 1px 0;
+			margin-top: 30px;
+
+	    	a {
+			    min-height: 32px;
+			    padding: 0 16px;
+			    border-radius: var(--border-radius-small);
+			    font-size: calc(var(--general-normal) * .75);
+			    border: 2px solid var(--general-border);
+			    display: flex;
+			    align-items: center;
+			    text-transform: uppercase;
+			    text-decoration: none;
+			    color: var(--general-text);
+			    @extend %color-background-shift;
+
+			    &:hover {
+		    		background-color: var(--general-border);
+			    }
+
+			    &:before {
+			    	content: "\e314";
+			    	font-family: 'Material Icons';
+			    }
+	    	}
+		}
+
+		&-previous {
+			a {
+				&:before {
+					margin: 0 4px 0 -3px;
+				}
+			}
+		}
+
+		&-next {
+			margin-left: auto;
+			a {
+				&:before {
+					order: 2;
+	    	        transform: scaleX(-1);
+	    	        margin: 0 -3px 0 4px;
+			    }
+			}
+		}
+	}
+}
