@@ -1,0 +1,103 @@
+.comment {
+	&s-area {
+		padding-top: 72px;
+	}
+
+	&-form {
+		@each $field in url,author,email {
+			&-$(field) {
+				width: calc(33.333% - 20px);
+				float: left;
+			}
+		}
+
+		&-email {
+			margin-right: 30px;
+			margin-left: 30px;
+		}
+	}
+
+	&-list {
+		padding-left: 0;
+	}
+
+	li& {
+		list-style: none;
+		margin: 0 0 30px 66px;
+		padding: 24px;
+   		background-color: var(--general-tile);
+    	position: relative;
+    	font-size: var(--general-small);
+	    line-height: 1.5;
+	    border-radius: var(--border-radius-small);
+	}
+
+	&-meta {
+		display: flex;
+    	justify-content: space-between;
+	    margin-bottom: 5px;
+
+    	a {
+    		color: inherit;
+    		text-decoration: none;
+    	}
+
+    	.says {
+    		display: hidden;
+    	}
+	}
+
+	&-author {
+		.fn {
+			font-weight: 500;
+			margin-right: 10px;
+		}
+
+		.avatar {
+			position: absolute;
+			width: 50px;
+		    top: 0;
+		    left: -66px;
+		    border-radius: var(--border-radius-base);
+		}
+	}
+
+	&-metadata {
+		color: var(--general-text-alt);
+		font-size: calc(var(--general-normal) * .75);
+	}
+
+	.reply {
+		text-align: right;
+	}
+
+	&-reply-link {
+		color: var(--general-text);
+		font-size: calc(var(--general-normal) * .75);
+		letter-spacing: .07em;
+    	text-transform: uppercase;
+    	text-decoration: none;
+    	display: inline-flex;
+
+    	&:before {
+		    content: "\e15e";
+		    font-family: 'Material Icons';
+	        padding-right: 3px;
+    	}
+	}
+
+	&-content {
+		p {
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.form-submit {
+    display: flex;
+
+    .submit {
+    	width: auto;
+    	margin: 0;
+    }
+}
