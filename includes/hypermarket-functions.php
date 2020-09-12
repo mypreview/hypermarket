@@ -177,7 +177,7 @@ if ( ! function_exists( 'hypermarket_post_tags' ) ) :
 	function hypermarket_post_tags( $echo = false ) {
 		// Tags.
 		/* translators: used between list items, there is a # after the each tag name. */
-		$tag_list = get_the_tag_list( '#', __( ' #', 'hypermarket' ) );
+		$tag_list = get_the_tag_list();
 		$return   = '';
 		
 		if ( $tag_list ) {
