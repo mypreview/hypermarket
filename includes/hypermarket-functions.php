@@ -96,6 +96,36 @@ if ( ! function_exists( 'hypermarket_is_blog_archive' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_has_blog_page' ) ) :
+	/**
+	 * Query if the blog posts page already configured and exists.
+	 *
+	 * @since    2.0.0
+	 * @return   bool
+	 */
+	function hypermarket_has_blog_page() {
+		$has_blog_page = (bool) get_option( 'page_for_posts', true );
+		return $has_blog_page ?? true;
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_blog_page_url' ) ) :
+	/**
+	 * Retrieve the URL for the blog posts page.
+	 *
+	 * @since    2.0.0
+	 * @return   bool
+	 */
+	function hypermarket_blog_page_url() {
+		if ( hypermarket_has_blog_page() ) {
+			$page_id = get_option( 'page_for_posts', 0 );
+			return get_the_permalink( $page_id );
+		} else {
+			return home_url();
+		}
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_site_title_or_logo' ) ) :
 	/**
 	 * Display the site title or logo
