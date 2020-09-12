@@ -30,6 +30,25 @@
     	font-size: var(--general-small);
 	    line-height: 1.5;
 	    border-radius: var(--border-radius-small);
+
+	    ^&-reply-title {
+		    margin-bottom: 10px;
+		    font-size: calc(var(--general-normal) * 1.25);
+
+		    small {
+		    	margin-left: 5px;
+		    }
+		}
+
+	    .children {
+	    	padding-left: 0;
+
+	    	.comment {
+	    		background-color: var(--general-border);
+    		    margin-top: 30px;
+    			margin-bottom: 0;
+	    	}
+	    }
 	}
 
 	&-meta {
@@ -83,6 +102,10 @@
 		    content: "\e15e";
 		    font-family: 'Material Icons';
 	        padding-right: 3px;
+    	}
+
+    	&:hover {
+    		color: var(--general-primary);
     	}
 	}
 
