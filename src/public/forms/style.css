@@ -1,9 +1,10 @@
 label {
 	display: block;
-	font-size: var(--general-small);
+	font-size: calc(var(--general-normal) * .75);
 	color: var(--general-text);
-	margin-bottom: 8px;
-	font-weight: 500;
+	margin-bottom: 7px;
+	padding-left: 18px;
+	text-transform: uppercase;
 }
 
 input,
@@ -27,7 +28,6 @@ textarea {
 	border: 2px solid var(--general-border);
 	border-radius: var(--border-radius-base);
 	background-color: var(--general-background);
-	margin-bottom: var(--line-height-computed);
 	appearance: none;
 	padding: 0 16px;
 	@extend %border-shift;
@@ -81,6 +81,11 @@ optgroup {
 		top: -2px;
 		left: -1px;
 	}
+
+	&:checked {
+		border-color: var(--general-primary);
+		background-color: var(--general-primary);
+	}
 }
 
 [type="radio"] {
@@ -96,7 +101,7 @@ optgroup {
 	width: 15px;
 	height: 15px;
 	vertical-align: middle;
-	margin: 3px 0 0 2px;
+	margin: 5px 0 0 2px;
 	border: 2px solid var(--general-border);
 	background-clip: padding-box;
 	cursor: pointer;
@@ -104,8 +109,7 @@ optgroup {
 
 	+ label {
 		display: inline-block;
-		margin-left: 27px;
-		margin-bottom: 12px;
+		margin: 0 0 0 9px;
 	}
 }
 
