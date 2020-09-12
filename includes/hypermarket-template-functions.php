@@ -488,7 +488,7 @@ if ( ! function_exists( 'hypermarket_post_nav' ) ) :
 			/* translators: 1: Open span tag, 2: Close span tag. */
 			'next_text' => sprintf( _x( '%1$sNext%2$s', 'Next post', 'hypermarket' ), '<span aria-label="%title">', ' </span>' ),
 			/* translators: 1: Open span tag, 2: Close span tag. */
-			'prev_text' => sprintf( _x( '%1$sPrevious%2$s', 'Previous post', 'hypermarket' ), '<span aria-label="%title">', ' </span>' ),
+			'prev_text' => sprintf( _x( '%1$sPrev%2$s', 'Previous post', 'hypermarket' ), '<span aria-label="%title">', ' </span>' ),
 		);
 
 		the_post_navigation( $args );
