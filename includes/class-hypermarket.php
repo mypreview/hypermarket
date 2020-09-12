@@ -467,11 +467,6 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * @return  html
 		 */
 		public function navigation_markup_template( $args ) {
-			// Bail early, in case the current query is for an existing single post of any post type.
-			if ( is_singular() ) {
-				return $args;
-			}
-
 			$return               = '';
 			$needle               = '%%';
 			$current_page         = sprintf( '<span aria-current="page" class="page-numbers current">%s</span>', $needle );
@@ -497,8 +492,16 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			/* translators: 1: Open nav tag, 2: Close nav tag. */
 			$template  = sprintf( esc_html__( '%1$sPost Navigation%2$s', 'hypermarket' ), '<nav id="post-navigation" class="navigation %1$s" role="navigation" aria-label="', '">' );
 			$template .= '<h2 class="screen-reader-text">%2$s</h2>';
-			$template .= '<div class="nav-links">%3$s</div>';
-			$template .= sprintf( '<div class="navigation__pager">%s</div>', $return );
+			$template .= '<div class="nav-links">%3$s';
+			// Append a blog page link in case the current request is for a single post view.
+			if ( is_single() && hypermarket_has_blog_page() ) {
+				$template .= sprintf( '<div class="nav-blog"><a href="%s" rel="blog"><span aria-label="%s"></span></a></div>', esc_url( hypermarket_blog_page_url() ), esc_attr__( 'All entries', 'hypermarket' ) );
+			}
+			$template .= '</div>';
+			// Whether the the previous or next posts page links are empty.
+			if ( ! empty( $previous_posts_link ) || ! empty( $next_posts_link ) ) {
+				$template .= sprintf( '<div class="navigation__pager">%s</div>', $return );
+			}
 			$template .= '</nav>';
 
 			return apply_filters( 'hypermarket_navigation_markup_template', $template );
