@@ -1,6 +1,6 @@
 .page-view,
 .single-view {
-	.entry-header {
+	.div {
 		@extend %alignfull;
 		background-color: var(--general-tile);
 		text-align: center;
@@ -22,5 +22,16 @@
 		img {
 			margin: 0 auto 48px;
 		}
+	}
+}
+
+.post-edit-link {
+	font-size: var(--general-small);
+    text-decoration: none;
+    display: inline-flex;
+    
+	&:before {
+		content: "\e3c9";
+		font-family: 'Material Icons';
 	}
 }
