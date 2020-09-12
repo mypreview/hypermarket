@@ -68,6 +68,7 @@ add_action( 'hypermarket_loop_post', 'hypermarket_div_close', 25 );
 add_action( 'hypermarket_loop_post', 'hypermarket_post_thumbnail', 30 );
 add_action( 'hypermarket_loop_post', 'hypermarket_post_excerpt', 40 );
 add_action( 'hypermarket_loop_post', 'hypermarket_post_footnote', 50 );
+add_action( 'hypermarket_loop_after', 'hypermarket_paging_nav' );
 add_action( 'hypermarket_single_post', 'hypermarket_div', 5 );
 add_action( 'hypermarket_single_post', 'hypermarket_post_header' );
 add_action( 'hypermarket_single_post', 'hypermarket_div_close', 25 );
