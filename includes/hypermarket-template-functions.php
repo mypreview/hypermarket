@@ -137,35 +137,6 @@ if ( ! function_exists( 'hypermarket_site_branding' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_site_title_or_logo' ) ) :
-	/**
-	 * Display the site title or logo
-	 *
-	 * @since   2.0.0
-	 * @param   bool $echo   Optional. Echo the string or return it.
-	 * @return  string
-	 */
-	function hypermarket_site_title_or_logo( $echo = true ) {
-		if ( has_custom_logo() ) {
-			$logo = get_custom_logo();
-			$html = is_home() ? sprintf( '<h1 class="logo">%s</h1>', $logo ) : $logo;
-		} else {
-			$tag  = is_home() ? 'h1' : 'div';
-			$html = sprintf( '<%s class="beta site-title"><a href="%s" rel="home">%s</a></%s>', esc_attr( $tag ), esc_url( home_url( '/' ) ), esc_html( get_bloginfo( 'name' ) ), esc_attr( $tag ) );
-
-			if ( '' !== get_bloginfo( 'description' ) ) {
-				$html .= sprintf( '<p class="site-description">%s</p>', esc_html( get_bloginfo( 'description', 'display' ) ) );
-			}
-		}
-
-		if ( ! $echo ) {
-			return $html;
-		}
-
-		echo $html; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	}
-endif;
-
 if ( ! function_exists( 'hypermarket_primary_menu' ) ) :
 	/**
 	 * Display primary menu.
@@ -464,6 +435,8 @@ if ( ! function_exists( 'hypermarket_paging_nav' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_paging_nav() {
+		global $wp_query;
+		
 		$args = array(
 			'type'      => 'list',
 			/* translators: 1: Open span tag, 2: Close span tag. */
