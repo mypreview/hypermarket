@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying post content.
+ * Template part for displaying posts.
  *
  * @link        https://developer.wordpress.org/themes/basics/template-hierarchy/
  * @link        https://www.upwork.com/fl/mahdiyazdani

@@ -40,7 +40,6 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			add_filter( 'body_class', array( $this, 'body_classes' ) );
 			add_filter( 'navigation_markup_template', array( $this, 'navigation_markup_template' ) );
 			add_filter( 'excerpt_more', array( $this, 'custom_excerpt_more' ) );
-			add_filter( 'comment_form_fields', array( $this, 'move_comment_field_to_bottom' ) );
 			add_filter( 'wp_list_categories', array( $this, 'cat_count_span' ) );
 			add_filter( 'get_archives_link', array( $this, 'archive_count_span' ) );
 		}
@@ -67,11 +66,11 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			 * Note: the first-loaded translation file overrides any following ones if the same translation is present.
 			 */
 			// Loads `wp-content/languages/themes/hypermarket-it_IT.mo`.
-			load_theme_textdomain( 'hypermarket', trailingslashit( WP_LANG_DIR ) . 'themes/' );
+			load_theme_textdomain( 'hypermarket', sprintf( '%sthemes/', trailingslashit( WP_LANG_DIR ) ) );
 			// Loads `wp-content/themes/child-theme-name/languages/it_IT.mo`.
-			load_theme_textdomain( 'hypermarket', get_stylesheet_directory() . '/languages' );
+			load_theme_textdomain( 'hypermarket', sprintf( '%s/languages', get_stylesheet_directory() ) );
 			// Loads `wp-content/themes/hypermarket/languages/it_IT.mo`.
-			load_theme_textdomain( 'hypermarket', get_template_directory() . '/languages' );
+			load_theme_textdomain( 'hypermarket', sprintf( '%s/languages', get_template_directory() ) );
 
 			/**
 			 * Add default posts and comments RSS feed links to head.
@@ -518,21 +517,6 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			}
 
 			return apply_filters( 'hypermarket_custom_excerpt_more', '&hellip;' );
-		}
-
-		/**
-		 * Move the comment text field to the bottom.
-		 *
-		 * @since   2.0.0
-		 * @param   array $fields   The comment fields.
-		 * @return  array
-		 */
-		public function move_comment_field_to_bottom( $fields ) {
-			$comment_field = $fields['comment'];
-			unset( $fields['comment'] );
-			$fields['comment'] = $comment_field;
-
-			return $fields;
 		}
 
 		/**
