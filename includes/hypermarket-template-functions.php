@@ -267,6 +267,9 @@ if ( ! function_exists( 'hypermarket_post_meta' ) ) :
 			return;
 		}
 
+		// Component classname.
+		$classname = 'entry-meta';
+
 		// Posted on.
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
@@ -317,9 +320,9 @@ if ( ! function_exists( 'hypermarket_post_meta' ) ) :
 		// Categories.
 		// Output categories only if the current query is for an existing single post.
 		$categories = is_single() ? hypermarket_post_categories() : '';
-		
+
 		echo wp_kses(
-			sprintf( '<div class="entry-meta">%1$s %2$s %3$s %4$s</div>', $author, $categories, $posted_on, $comments ),
+			sprintf( '<div class="%1$"><div class="%1$s__col">%2$s %3$s</div><div class="%1$s__col">%4$s %5$s</div></div>', $classname, $author, $categories, $posted_on, $comments ),
 			hypermarket_allowed_html()
 		);
 	}
@@ -389,12 +392,23 @@ if ( ! function_exists( 'hypermarket_post_footnote' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_post_footnote() {
-		// Output categories only if the current query is for the archive pages.
-		$categories = hypermarket_is_blog_archive() ? hypermarket_post_categories() : '';
+		global $post;
+		
+		$readmore = '';
+		$categories = '';
+		$classname  = 'entry-footnote'; // Component classname.
+		$post_id    = (int) $post->ID; // Retrieve the ID of the current item.
+		$post_title = get_the_title( $post_id ); // Retrieve post title.
 		$tags       = hypermarket_post_tags();
 
+		if ( hypermarket_is_blog_archive() ) {
+			/* translators: 1: Open anchor tag, 2: Close anchor tag. */
+			$readmore = hypermarket_is_blog_archive() ? sprintf( esc_html__( '%1$sRead more%2$s', 'hypermarket' ), sprintf( '<div class="%s__col"><a href="%s" class="more-link">', $classname, esc_url( get_the_permalink( $post_id ) ) ), sprintf( '<span class="screen-reader-text">%s</span></a></div>', wp_kses_post( $post_title ) ) ) : '';
+			$categories = hypermarket_post_categories(); // Output categories only if the current query is for the archive pages.
+		}
+
 		echo wp_kses(
-			sprintf( '<div class="entry-footnote">%1$s %2$s</div>', $categories, $tags ),
+			sprintf( '<div class="%1$s"><div class="%1$s__col">%2$s %3$s</div>%4$s</div>', $classname, $categories, $tags, $readmore ),
 			hypermarket_allowed_html()
 		);
 	}
