@@ -13,7 +13,7 @@
 				border: 2px solid var(--general-border);
 				display: flex;
 				align-items: center;
-			    justify-content: center;
+				justify-content: center;
 				text-transform: uppercase;
 				text-decoration: none;
 				color: var(--general-text);
@@ -27,20 +27,20 @@
 
 		@each $nav in previous, next {
 			&-$(nav) {
-			    width: 136px;
-    			display: flex;
+				width: 136px;
+				display: flex;
 
-    			a {
-    				padding: 0 16px;
+				a {
+					padding: 0 16px;
 					font-size: calc(var(--general-normal) * 0.75);
 					min-height: 36px;
-    			}
+				}
 			}
 		}
 
 		&-previous {
-		    order: 1;
-		    justify-content: flex-start;
+			order: 1;
+			justify-content: flex-start;
 			a {
 				&::before {
 					content: "\e314";
@@ -57,8 +57,8 @@
 		}
 
 		&-next {
-		    order: 3;
-		    justify-content: flex-end;
+			order: 3;
+			justify-content: flex-end;
 			a {
 				&::after {
 					content: "\e315";
@@ -75,13 +75,13 @@
 		}
 
 		&-blog {
-		    order: 2;
-	        margin: 0 auto;
+			order: 2;
+			margin: 0 auto;
 			a {
 				padding: 0 7px;
-			    min-width: 44px;
-    			min-height: 44px;
-    			font-size: calc(var(--general-normal) * 1.125)
+				min-width: 44px;
+				min-height: 44px;
+				font-size: calc(var(--general-normal) * 1.125);
 			}
 			span {
 				&::before {
