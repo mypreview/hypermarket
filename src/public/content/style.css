@@ -1,6 +1,6 @@
 .page-view,
 .single-view {
-	.div {
+	> .div {
 		@extend %alignfull;
 		background-color: var(--general-tile);
 		text-align: center;
