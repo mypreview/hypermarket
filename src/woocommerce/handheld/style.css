@@ -35,8 +35,8 @@
 		a {
 			font-size: 0;
 			color: var(--general-text);
-		    display: flex;
-    		justify-content: center;
+			display: flex;
+			justify-content: center;
 
 			&:hover {
 				color: var(--general-text-alt);
@@ -45,20 +45,20 @@
 			&::before {
 				content: "\e8b6";
 				font-family: "Material Icons";
-				font-size: calc(var(--general-normal) *1.5);
+				font-size: calc(var(--general-normal) * 1.5);
 			}
 		}
 
 		.widget {
 			size: 100% 0;
-		    position: absolute;
-		    left: 0;
-		    -webkit-transition: bottom .2s ease;
-		    -o-transition: .2s bottom ease;
-		    transition: bottom .2s ease;
-		    z-index: -2;
-		    bottom: 0;
-	        overflow: hidden;
+			position: absolute;
+			left: 0;
+			-webkit-transition: bottom 0.2s ease;
+			-o-transition: 0.2s bottom ease;
+			transition: bottom 0.2s ease;
+			z-index: -2;
+			bottom: 0;
+			overflow: hidden;
 		}
 
 		form {
@@ -66,11 +66,11 @@
 		}
 
 		.search-field {
-		    width: auto;
-    		flex-grow: 1;
-    		border-right-radius: 0;
-    		border-right-width: 0;
-    		
+			width: auto;
+			flex-grow: 1;
+			border-right-radius: 0;
+			border-right-width: 0;
+
 		}
 
 		[type="submit"] {
