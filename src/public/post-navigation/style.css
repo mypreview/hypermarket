@@ -9,13 +9,11 @@
 			margin-top: 30px;
 
 			a {
-				min-height: 32px;
-				padding: 0 16px;
 				border-radius: var(--border-radius-small);
-				font-size: calc(var(--general-normal) * 0.75);
 				border: 2px solid var(--general-border);
 				display: flex;
 				align-items: center;
+			    justify-content: center;
 				text-transform: uppercase;
 				text-decoration: none;
 				color: var(--general-text);
@@ -24,29 +22,71 @@
 				&:hover {
 					background-color: var(--general-border);
 				}
+			}
+		}
 
-				&::before {
-					content: "\e314";
-					font-family: "Material Icons";
-				}
+		@each $nav in previous, next {
+			&-$(nav) {
+			    width: 136px;
+    			display: flex;
+
+    			a {
+    				padding: 0 16px;
+					font-size: calc(var(--general-normal) * 0.75);
+					min-height: 36px;
+    			}
 			}
 		}
 
 		&-previous {
+		    order: 1;
+		    justify-content: flex-start;
 			a {
 				&::before {
+					content: "\e314";
+					font-family: "Material Icons";
 					margin: 0 4px 0 -3px;
+				}
+			}
+
+			&:first-child {
+				& + .nav-blog {
+					padding-right: 136px;
 				}
 			}
 		}
 
 		&-next {
-			margin-left: auto;
+		    order: 3;
+		    justify-content: flex-end;
 			a {
-				&::before {
-					order: 2;
-					transform: scaleX(-1);
+				&::after {
+					content: "\e315";
+					font-family: "Material Icons";
 					margin: 0 -3px 0 4px;
+				}
+			}
+
+			&:first-child {
+				& + .nav-blog {
+					padding-left: 136px;
+				}
+			}
+		}
+
+		&-blog {
+		    order: 2;
+	        margin: 0 auto;
+			a {
+				padding: 0 7px;
+			    min-width: 44px;
+    			min-height: 44px;
+    			font-size: calc(var(--general-normal) * 1.125)
+			}
+			span {
+				&::before {
+					content: "\e5d2";
+					font-family: "Material Icons";
 				}
 			}
 		}
