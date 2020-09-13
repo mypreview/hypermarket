@@ -3,6 +3,9 @@
 		padding: 10px 0;
 		display: flex;
 		align-items: center;
+		justify-content: flex-end;
+    	margin-left: 20px;
+    	width: 200px;
 	}
 
 	&__cart {
@@ -45,7 +48,7 @@
 }
 .site-myaccount {
 	font-size: 0;
-	padding: 8px 20px 10px;
+	padding: 10px 20px 5px;
 	color: var(--general-text);
 	@extend %color-shift;
 
