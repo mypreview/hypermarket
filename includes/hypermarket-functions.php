@@ -105,6 +105,7 @@ if ( ! function_exists( 'hypermarket_has_blog_page' ) ) :
 	 */
 	function hypermarket_has_blog_page() {
 		$has_blog_page = (bool) get_option( 'page_for_posts', true );
+		// phpcs:ignore PHPCompatibility.Operators.NewOperators.t_coalesceFound
 		return $has_blog_page ?? true;
 	}
 endif;
