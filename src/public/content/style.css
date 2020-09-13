@@ -27,11 +27,11 @@
 
 .post-edit-link {
 	font-size: var(--general-small);
-    text-decoration: none;
-    display: inline-flex;
-    
-	&:before {
+	text-decoration: none;
+	display: inline-flex;
+
+	&::before {
 		content: "\e3c9";
-		font-family: 'Material Icons';
+		font-family: "Material Icons";
 	}
 }

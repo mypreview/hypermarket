@@ -70,12 +70,12 @@
 					color: var(--general-primary-alt);
 				}
 
-				&:before {
-					content: '#';
+				&::before {
+					content: "#";
 				}
 
-				&:not(:last-child):after {
-					content: ',';
+				&:not(:last-child)::after {
+					content: ",";
 					margin-right: 4px;
 				}
 			}

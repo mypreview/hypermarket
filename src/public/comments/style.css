@@ -25,45 +25,45 @@
 		list-style: none;
 		margin: 0 0 30px 66px;
 		padding: 24px;
-   		background-color: var(--general-tile);
-    	position: relative;
-    	font-size: var(--general-small);
-	    line-height: 1.5;
-	    border-radius: var(--border-radius-small);
+		background-color: var(--general-tile);
+		position: relative;
+		font-size: var(--general-small);
+		line-height: 1.5;
+		border-radius: var(--border-radius-small);
 
-	    ^&-reply-title {
-		    margin-bottom: 10px;
-		    font-size: calc(var(--general-normal) * 1.25);
+		^&-reply-title {
+			margin-bottom: 10px;
+			font-size: calc(var(--general-normal) * 1.25);
 
-		    small {
-		    	margin-left: 5px;
-		    }
+			small {
+				margin-left: 5px;
+			}
 		}
 
-	    .children {
-	    	padding-left: 0;
+		.children {
+			padding-left: 0;
 
-	    	.comment {
-	    		background-color: var(--general-border);
-    		    margin-top: 30px;
-    			margin-bottom: 0;
-	    	}
-	    }
+			.comment {
+				background-color: var(--general-border);
+				margin-top: 30px;
+				margin-bottom: 0;
+			}
+		}
 	}
 
 	&-meta {
 		display: flex;
-    	justify-content: space-between;
-	    margin-bottom: 5px;
+		justify-content: space-between;
+		margin-bottom: 5px;
 
-    	a {
-    		color: inherit;
-    		text-decoration: none;
-    	}
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
 
-    	.says {
-    		display: hidden;
-    	}
+		.says {
+			display: hidden;
+		}
 	}
 
 	&-author {
@@ -75,15 +75,15 @@
 		.avatar {
 			position: absolute;
 			width: 50px;
-		    top: 0;
-		    left: -66px;
-		    border-radius: var(--border-radius-base);
+			top: 0;
+			left: -66px;
+			border-radius: var(--border-radius-base);
 		}
 	}
 
 	&-metadata {
 		color: var(--general-text-alt);
-		font-size: calc(var(--general-normal) * .75);
+		font-size: calc(var(--general-normal) * 0.75);
 	}
 
 	.reply {
@@ -92,21 +92,21 @@
 
 	&-reply-link {
 		color: var(--general-text);
-		font-size: calc(var(--general-normal) * .75);
-		letter-spacing: .07em;
-    	text-transform: uppercase;
-    	text-decoration: none;
-    	display: inline-flex;
+		font-size: calc(var(--general-normal) * 0.75);
+		letter-spacing: 0.07em;
+		text-transform: uppercase;
+		text-decoration: none;
+		display: inline-flex;
 
-    	&:before {
-		    content: "\e15e";
-		    font-family: 'Material Icons';
-	        padding-right: 3px;
-    	}
+		&::before {
+			content: "\e15e";
+			font-family: "Material Icons";
+			padding-right: 3px;
+		}
 
-    	&:hover {
-    		color: var(--general-primary);
-    	}
+		&:hover {
+			color: var(--general-primary);
+		}
 	}
 
 	&-content {
@@ -117,10 +117,10 @@
 }
 
 .form-submit {
-    display: flex;
+	display: flex;
 
-    .submit {
-    	width: auto;
-    	margin: 0;
-    }
+	.submit {
+		width: auto;
+		margin: 0;
+	}
 }

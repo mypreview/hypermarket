@@ -1,6 +1,6 @@
 label {
 	display: block;
-	font-size: calc(var(--general-normal) * .75);
+	font-size: calc(var(--general-normal) * 0.75);
 	color: var(--general-text);
 	margin-bottom: 7px;
 	padding-left: 18px;

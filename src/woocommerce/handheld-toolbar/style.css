@@ -1,13 +1,13 @@
 .site-handheld-toolbar {
 	position: sticky;
-    bottom: 0;
-    background-color: var(--general-tile);
+	bottom: 0;
+	background-color: var(--general-tile);
 
 	ul {
 		display: flex;
-	    align-items: center;
-	    padding-left: 0;
-    	margin-bottom: 0;
+		align-items: center;
+		padding-left: 0;
+		margin-bottom: 0;
 	}
 
 	li {
@@ -18,7 +18,7 @@
 		li {
 			width: 33.333%;
 			display: flex;
-   			justify-content: center;
+			justify-content: center;
 		}
 	}
 
@@ -33,16 +33,16 @@
 
 		a {
 			font-size: 0;
-		    color: var(--general-text);
+			color: var(--general-text);
 
-		    &:hover {
-		    	color: var(--general-text-alt);
-		    }
+			&:hover {
+				color: var(--general-text-alt);
+			}
 
-			&:before {
-			    content: "\e8b6";
-			    font-family: 'Material Icons';
-			    font-size: calc(var(--general-normal)*1.5);
+			&::before {
+				content: "\e8b6";
+				font-family: "Material Icons";
+				font-size: calc(var(--general-normal) *1.5);
 			}
 		}
 
