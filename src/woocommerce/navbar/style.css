@@ -53,8 +53,8 @@
 	@extend %color-shift;
 
 	&::before {
-		content: "\e7fd";
-		font-family: "Material Icons";
+		content: "\ee8e";
+		font-family: "boxicons";
 		right: 0;
 		font-size: calc(var(--general-normal) * 1.5);
 	}
@@ -71,8 +71,8 @@
 	@extend %color-shift;
 
 	&::before {
-		content: "\e8cb";
-		font-family: "Material Icons";
+		content: "\ee58";
+		font-family: "boxicons";
 		font-size: calc(var(--general-normal) * 1.5);
 		margin-top: -3px;
 	}

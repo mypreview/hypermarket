@@ -88,8 +88,8 @@ nav {
 		> a::after {
 			display: inline-block;
 			vertical-align: middle;
-			font-family: "Material Icons";
-			content: "\e5c5";
+			font-family: "boxicons";
+			content: "\e9f9";
 			font-size: 1.2em;
 			margin-left: 1px;
 			margin-top: -2px;
@@ -139,7 +139,7 @@ nav {
 
 		.menu-item-has-children {
 			> a::after {
-				content: "\e037";
+				content: "\e9ff";
 				font-size: 0.9em;
 				margin-left: 8px;
 				margin-top: -3px;
