@@ -1,7 +1,7 @@
 @import "./normalize/style.css";
+@import "boxicons/css/boxicons.css";
 @import "./../fonts/style.css";
 @import "./placeholders/style.css";
-@import "material-icons/css/material-icons.css";
 @import "./variables/style.css";
 @import "./scaffolding/style.css";
 @import "./typography/style.css";
