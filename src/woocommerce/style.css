@@ -2,6 +2,8 @@
 @import "../public/variables/style.css";
 @import "./navbar/style.css";
 @import "./breadcrumbs/style.css";
+@import "./quantity/style.css";
 @import "./widgets/style.css";
 @import "./products/style.css";
+@import "./cart/style.css";
 @import "./handheld-toolbar/style.css";
