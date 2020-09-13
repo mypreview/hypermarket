@@ -1,0 +1,7 @@
+.woocommerce-cart-form {
+	&__contents {
+		thead {
+			display: hidden;
+		}
+	}
+}
