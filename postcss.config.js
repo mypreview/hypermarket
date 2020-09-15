@@ -4,6 +4,7 @@ module.exports = ( { env } ) => ( {
 		'postcss-for': {},
 		'postcss-each': {},
 		'postcss-mixins': {},
+		'postcss-custom-selectors': {},
 		'postcss-nested-ancestors': {},
 		'postcss-nested': {},
 		'postcss-variables-prefixer': {
@@ -13,7 +14,6 @@ module.exports = ( { env } ) => ( {
 			preserve: true,
 		},
 		'postcss-extend': {},
-		'postcss-custom-selectors': {},
 		'postcss-if-media': {},
 		'postcss-custom-media': {},
 		'postcss-quantity-queries': {},
