@@ -15,4 +15,6 @@
 @import "./post-view/style.css";
 @import "./post-navigation/style.css";
 @import "./comments/style.css";
+@import "./share-button/style.css";
+@import "./icons/style.css";
 @import "./keyframes/style.css";
