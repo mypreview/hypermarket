@@ -55,7 +55,7 @@
 		color: var(--general-text);
 
 		&::before {
-			font-family: "boxicons";
+			font-family: boxicons;
 			font-size: calc(var(--general-normal) * 1.25);
 		}
 
@@ -67,7 +67,7 @@
 .site-myaccount {
 	font-size: 0;
 	padding: 10px 20px 5px;
-	
+
 
 	&::before {
 		content: "\ee8e";

@@ -74,8 +74,8 @@ optgroup {
 	&::before {
 		position: absolute;
 		display: block;
-		font-family: "boxicons";
-	    content: "\ea0f";
+		font-family: boxicons;
+		content: "\ea0f";
 		color: #fff;
 		line-height: 1;
 		top: -2px;

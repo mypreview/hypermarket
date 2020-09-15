@@ -102,7 +102,7 @@
 
 		&::before {
 			content: "\ee50";
-			font-family: "boxicons";
+			font-family: boxicons;
 			padding-right: 3px;
 		}
 

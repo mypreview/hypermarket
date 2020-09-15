@@ -48,7 +48,7 @@
 
 			&::before {
 				content: "\ebbc";
-				font-family: "boxicons";
+				font-family: boxicons;
 				font-size: calc(var(--general-normal) * 1.375);
 				padding-top: 4px;
 			}
@@ -73,12 +73,12 @@
 		.shown {
 			.widget {
 				bottom: 100%;
-			    height: auto;
-			    padding: 10px 10px 5px;
+				height: auto;
+				padding: 10px 10px 5px;
 
-			    form {
-			    	opacity: 1;
-			    }
+				form {
+					opacity: 1;
+				}
 			}
 		}
 

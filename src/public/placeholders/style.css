@@ -58,17 +58,17 @@
 	display: flex;
 
 	&::before {
-		font-family: "boxicons";
+		font-family: boxicons;
 		margin-right: 3px;
 	}
 }
 
 %clear {
-	&:before, 
-	&:after {
-		content: '';
-  		display: table;
-  		clear: both;
+	&::before,
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
 	}
 }
 
