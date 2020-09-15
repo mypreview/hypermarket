@@ -31,7 +31,7 @@
 	display: inline-flex;
 
 	&::before {
-		content: "\e3c9";
-		font-family: "Material Icons";
+	    content: "\ed50";
+    	font-family: "boxicons";
 	}
 }

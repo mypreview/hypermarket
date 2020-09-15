@@ -43,8 +43,8 @@
 			justify-content: flex-start;
 			a {
 				&::before {
-					content: "\e314";
-					font-family: "Material Icons";
+					content: "\ea1a";
+					font-family: "boxicons";
 					margin: 0 4px 0 -3px;
 				}
 			}
@@ -61,8 +61,8 @@
 			justify-content: flex-end;
 			a {
 				&::after {
-					content: "\e315";
-					font-family: "Material Icons";
+				    content: "\ea1d";
+					font-family: "boxicons";
 					margin: 0 -3px 0 4px;
 				}
 			}
@@ -85,8 +85,8 @@
 			}
 			span {
 				&::before {
-					content: "\e5d2";
-					font-family: "Material Icons";
+				    content: "\eb2a";
+					font-family: "boxicons";
 				}
 			}
 		}

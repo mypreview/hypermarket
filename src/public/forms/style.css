@@ -74,12 +74,12 @@ optgroup {
 	&::before {
 		position: absolute;
 		display: block;
-		font-family: "Material Icons";
-		content: "\e5ca";
+		font-family: "boxicons";
+	    content: "\ea0f";
 		color: #fff;
 		line-height: 1;
 		top: -2px;
-		left: -1px;
+		left: -2px;
 	}
 
 	&:checked {
@@ -110,6 +110,10 @@ optgroup {
 	+ label {
 		display: inline-block;
 		margin: 0 0 0 9px;
+	}
+
+	&:focus:not(:checked) {
+		border-color: var(--general-border);
 	}
 }
 

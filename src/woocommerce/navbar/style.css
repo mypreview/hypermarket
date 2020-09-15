@@ -12,7 +12,6 @@
 		position: relative;
 
 		ul {
-			margin: 0;
 			padding: 0;
 		}
 
@@ -20,19 +19,23 @@
 			list-style: none;
 		}
 
+		.widget {
+			padding: 25px 20px;
+			background-color: var(--general-background);
+			border: 1px solid var(--general-border);
+			width: 270px;
+		}
+
 		> ul {
+			margin-bottom: 0;
 			> li {
 				&:last-child {
 					display: none;
 					position: absolute;
-					width: 270px;
 					right: 0;
 					top: calc(100% + 12px);
 					margin: -14px 0 0;
-					padding: 25px 20px;
 					text-align: left;
-					background-color: var(--general-background);
-					border: 1px solid var(--general-border);
 					cursor: default;
 				}
 			}
@@ -46,39 +49,38 @@
 		}
 	}
 }
+
+@each $item in  myaccount, cart-contents {
+	.site-$(item) {
+		color: var(--general-text);
+
+		&::before {
+			font-family: "boxicons";
+			font-size: calc(var(--general-normal) * 1.25);
+		}
+
+		:--active {
+			color: var(--general-text-alt);
+		}
+	}
+}
 .site-myaccount {
 	font-size: 0;
 	padding: 10px 20px 5px;
-	color: var(--general-text);
-	@extend %color-shift;
+	
 
 	&::before {
 		content: "\ee8e";
-		font-family: "boxicons";
 		right: 0;
-		font-size: calc(var(--general-normal) * 1.5);
-	}
-
-	&:hover {
-		color: var(--general-text-alt);
 	}
 }
 
 .site-cart-contents {
 	display: flex;
 	padding: 10px 0 5px 18px;
-	color: var(--general-text);
-	@extend %color-shift;
 
 	&::before {
 		content: "\ee58";
-		font-family: "boxicons";
-		font-size: calc(var(--general-normal) * 1.5);
-		margin-top: -3px;
-	}
-
-	&:hover {
-		color: var(--general-text-alt);
 	}
 
 	.woocommerce-Price-amount {
