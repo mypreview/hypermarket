@@ -288,7 +288,7 @@ if ( ! function_exists( 'hypermarket_social_share_buttons' ) ) :
 		// Make sure we have at least one social share button to display.
 		if ( ! empty( $share_buttons ) && is_array( $share_buttons ) ) {
 			foreach ( $share_buttons as $network => $url ) {
-				$return .= sprintf( '<li class="%1$s__%2$s"><a href="%3$s" target="_blank" rel="noopener noreferrer"><span class="screen-reader-text">%2$s</span></a></li>', $classname, esc_attr( $network ), esc_url( $url ) ); 
+				$return .= sprintf( '<li class="%1$s__%2$s icon-%2$s"><a href="%3$s" target="_blank" rel="noopener noreferrer"><span class="screen-reader-text">%2$s</span></a></li>', $classname, esc_attr( $network ), esc_url( $url ) ); 
 			}
 		}
 
