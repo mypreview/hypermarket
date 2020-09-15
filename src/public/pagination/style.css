@@ -1,6 +1,8 @@
 .pagination {
 	font-size: var(--general-small);
 	padding-top: 12px;
+    display: flex;
+    align-items: flex-start;
 
 	li {
 		display: inline-block;
@@ -10,7 +12,7 @@
 		span {
 			display: inline-block;
 			padding: 2px 10px 2px 0;
-			@extent %opacity-shift;
+			@extend %opacity-shift;
 
 			&:hover {
 				opacity: 0.55;
@@ -18,12 +20,37 @@
 		}
 
 		a {
-			text-decoration: none;
-			color: inherit;
+			@extend %link-none;
+		}
+	}
+
+	.current {
+		opacity: 0.55;
+	}
+}
+
+.navigation {
+	&__pager {
+		display: flex;
+	    margin: 4px 0 0 30px;
+
+		a {
+			@extend %link-none;
+			@extend %opacity-shift;
+
+			&:hover {
+				opacity: 0.55;
+			}
+
+			:--active {
+				color: var(--general-text);
+			}
 		}
 
-		.current {
-			opacity: 0.55;
+		> * {
+			&:nth-last-child(2) {
+				@extend %meta-divider
+			}
 		}
 	}
 }
