@@ -16,6 +16,7 @@ const DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extrac
 const FixStyleOnlyEntriesPlugin = require( 'webpack-fix-style-only-entries' );
 const WebpackRTLPlugin = require( 'webpack-rtl-plugin' );
 const WebpackNotifierPlugin = require( 'webpack-notifier' );
+const LicenseCheckerWebpackPlugin = require( 'license-checker-webpack-plugin' );
 const chalk = require( 'chalk' );
 const package = 'Hypermarket';
 const jsonp = 'webpackHypermarketJsonp';
@@ -139,6 +140,9 @@ const config = {
 		} ),
 		new DependencyExtractionWebpackPlugin( {
 			injectPolyfill: true,
+		} ),
+		new LicenseCheckerWebpackPlugin( {
+			outputFilename: 'credits.txt',
 		} ),
 		new WebpackNotifierPlugin( {
 			title: package,
