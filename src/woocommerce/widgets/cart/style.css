@@ -3,6 +3,11 @@
 }
 
 .woocommerce-mini-cart {
+	max-height: 283px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-bottom: 15px;
+    
 	&__empty-message {
 		margin-bottom: 0;
 		font-style: italic;
@@ -12,19 +17,21 @@
 		position: relative;
 		padding: 0 0 15px 80px;
 		border-bottom: 1px solid var(--general-border);
-		margin-bottom: 15px;
 		min-height: 80px;
 		display: flex;
 		flex-direction: column;
 
+		&:nth-child(n+2) {
+			margin-top: 15px;
+		}
+
 		a {
-			@extend %color-shift;
 			color: var(--general-text);
 
 			&:not(.remove) {
 				padding-right: 16px;
 
-				&:hover {
+				:--active {
 					color: var(--general-text-alt);
 					opacity: 0.95;
 				}
@@ -35,16 +42,16 @@
 			font-size: 0;
 
 			&::before {
-				content: "\e5cd";
-				font-family: "Material Icons";
-				font-size: var(--general-normal);
+			    content: "\ec4e";
+				font-family: "boxicons";
+				font-size: calc(var(--general-normal) * 1.125);
 				line-height: 1;
 				position: absolute;
-				right: 0;
+				right: -3px;
 				top: 0;
 			}
 
-			&:hover {
+			:--active {
 				color: var(--alert-danger);
 			}
 		}
@@ -92,7 +99,7 @@
 				color: var(--general-text);
 				border: 2px solid var(--general-border);
 
-				&:hover {
+				:--active {
 					background-color: var(--general-border);
 				}
 			}
