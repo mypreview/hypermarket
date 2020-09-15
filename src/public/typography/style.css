@@ -68,10 +68,9 @@ p {
 a {
 	color: var(--general-primary);
 	text-decoration: underline;
-	@extend %color-shift
+	@extend %color-shift;
 
-		&:focus,
-		&:hover {
+		:--active {
 		color: var(--general-primary);
 		text-decoration: none;
 	}

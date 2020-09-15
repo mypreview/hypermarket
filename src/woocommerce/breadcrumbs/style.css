@@ -7,7 +7,7 @@
 		color: var(--general-text);
 		text-decoration: none;
 
-		&:hover {
+		:--active {
 			color: var(--general-primary-alt);
 		}
 	}

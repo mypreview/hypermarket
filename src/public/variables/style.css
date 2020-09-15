@@ -37,3 +37,4 @@
 @custom-media --screen-xs (max-width: 30em);
 
 @custom-selector :--heading h1, h2, h3, h4, h5, h6;
+@custom-selector :--active &:focus, &:hover;
