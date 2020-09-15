@@ -151,7 +151,7 @@ if ( ! function_exists( 'hypermarket_cart' ) ) :
 		}
 		?>
 		<div class="site-header__cart">
-			<ul class="menu">
+			<ul>
 				<li class="<?php echo esc_attr( $class ); ?>">
 					<?php hypermarket_cart_link(); ?>
 				</li>
