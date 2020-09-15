@@ -9,16 +9,17 @@
 	}
 
 	> .div {
-		width: 34.3%;
-		float: left;
-		padding-right: 11%;
+		width: 34.3% ?if media (--screen-sm-min);
+		float: left ?if media (--screen-sm-min);
+		padding-right: 11% ?if media (--screen-md-min);
+		padding-right: 30px ?if media (--screen-md);
 		display: flex;
 		flex-direction: column;
 	}
 
 	> *:not(.div) {
-		float: right;
-		width: 65.7%;
+		float: right ?if media (--screen-sm-min);
+		width: 65.7% ?if media (--screen-sm-min);
 	}
 
 	.entry {
@@ -51,9 +52,6 @@
 		}
 
 		&-footnote {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
 			padding-bottom: 18px;
 
 			&__col {
