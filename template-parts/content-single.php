@@ -14,18 +14,22 @@
 ?><article id="post-<?php the_ID(); ?>" <?php post_class( 'single-view' ); ?>>
 	<?php
 
-		do_action( 'hypermarket_single_post_top' );
-
 		/**
-		 * Functions hooked into `hypermarket_single_post` add_action
+		 * Functions hooked into `hypermarket_single_post_top` add_action
 		 *
 		 * @hooked hypermarket_div                    - 5
 		 * @hooked hypermarket_post_header            - 10
 		 * @hooked hypermarket_breadcrumb             - 20
 		 * @hooked hypermarket_div_close              - 25
-		 * @hooked hypermarket_post_meta              - 20
-		 * @hooked hypermarket_post_thumbnail         - 30
-		 * @hooked hypermarket_post_content           - 40
+		 */
+		do_action( 'hypermarket_single_post_top' );
+
+		/**
+		 * Functions hooked into `hypermarket_single_post` add_action
+		 *
+		 * @hooked hypermarket_post_meta              - 10
+		 * @hooked hypermarket_post_thumbnail         - 20
+		 * @hooked hypermarket_post_content           - 30
 		 */
 		do_action( 'hypermarket_single_post' );
 
