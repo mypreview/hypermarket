@@ -4,80 +4,101 @@
 	margin: 0 auto;
 
 	.entry-meta {
-		display: flex;
-		font-size: var(--general-small);
-		color: var(--general-text-alt);
-		padding-bottom: 18px;
-
-		a {
-			color: inherit;
-			text-decoration: none;
-
-			&:hover {
-				color: var(--general-primary-alt);
-			}
-		}
+		justify-content: space-between;
 	}
 
 	.post {
-		&-author {
-			@extend %meta-divider;
-		}
-
 		&-categories {
-			margin-right: auto;
+			margin-right: 15px;
 		}
 
 		&ed-on {
-			font-size: 0;
 			display: flex;
 			align-items: center;
 			@extend %meta-divider;
 
 			time {
-				font-size: var(--general-small);
 				@extend %meta-icon;
 
-				&:not(.published) {
-					display: hidden;
-				}
-
 				&::before {
-					content: "\e916";
-				}
-			}
-		}
-
-		&-comments {
-			a {
-				@extend %meta-icon;
-				&::before {
-					content: "\e0cb";
+					content: "\e9e5";
 				}
 			}
 		}
 
 		&-tags {
+			padding-top: 10px;
+		}
+	}
+}
+
+.post {
+	.entry {
+		&-meta {
+			display: flex;
+			flex-wrap: wrap;
 			font-size: var(--general-small);
 			color: var(--general-text-alt);
-			padding-top: 10px;
+			padding-bottom: 18px;
+
+			&__col {
+				display: flex;
+				flex-wrap: wrap;
+			}
 
 			a {
-				color: inherit;
-				text-decoration: none;
+				@extend %link-none;
 
-				&:hover {
-					color: var(--general-primary-alt);
+				:--active {
+					color: var(--general-text);
 				}
+			}
+		}
+	}
 
-				&::before {
-					content: "#";
-				}
+	&-author {
+		@extend %meta-divider;
+	}
 
-				&:not(:last-child)::after {
-					content: ",";
-					margin-right: 4px;
-				}
+	&ed-on {
+		font-size: 0;
+
+		time {
+			font-size: var(--general-small);
+
+			&:not(.published) {
+				display: hidden;
+			}
+		}
+	}
+
+	&-comments {
+		a {
+			@extend %meta-icon;
+			&::before {
+				content: "\ea43";
+			}
+		}
+	}
+
+	&-tags {
+		font-size: var(--general-small);
+		color: var(--general-text-alt);
+
+		a {
+			@extend %link-none;
+
+			:--active {
+				color: var(--general-text);
+			}
+
+			&::before {
+				content: "#";
+			}
+
+			&:not(:last-child)::after {
+				content: ",";
+				margin-right: 4px;
 			}
 		}
 	}
