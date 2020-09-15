@@ -4,6 +4,10 @@
 	background-color: var(--general-tile);
 	display: none ?if media (--screen-sm-min);
 
+	.input-focused & {
+		display: none;
+	}
+
 	ul {
 		display: flex;
 		align-items: center;
@@ -38,14 +42,15 @@
 			display: flex;
 			justify-content: center;
 
-			&:hover {
+			:--active {
 				color: var(--general-text-alt);
 			}
 
 			&::before {
-				content: "\e8b6";
-				font-family: "Material Icons";
-				font-size: calc(var(--general-normal) * 1.5);
+				content: "\ebbc";
+				font-family: "boxicons";
+				font-size: calc(var(--general-normal) * 1.375);
+				padding-top: 4px;
 			}
 		}
 
@@ -53,12 +58,28 @@
 			size: 100% 0;
 			position: absolute;
 			left: 0;
-			-webkit-transition: bottom 0.2s ease;
-			-o-transition: 0.2s bottom ease;
 			transition: bottom 0.2s ease;
 			z-index: -2;
 			bottom: 0;
 			overflow: hidden;
+			background-color: var(--general-tile);
+
+			form {
+				opacity: 0;
+				@extend %opacity-shift;
+			}
+		}
+
+		.shown {
+			.widget {
+				bottom: 100%;
+			    height: auto;
+			    padding: 10px 10px 5px;
+
+			    form {
+			    	opacity: 1;
+			    }
+			}
 		}
 
 		form {
