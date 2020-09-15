@@ -12,6 +12,7 @@
 @import "./pagination/style.css";
 @import "./content/style.css";
 @import "./single-view/style.css";
+@import "./post-view/style.css";
 @import "./post-navigation/style.css";
 @import "./comments/style.css";
 @import "./keyframes/style.css";
