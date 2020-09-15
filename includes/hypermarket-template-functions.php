@@ -322,7 +322,7 @@ if ( ! function_exists( 'hypermarket_post_meta' ) ) :
 		$categories = is_single() ? hypermarket_post_categories() : '';
 
 		echo wp_kses(
-			sprintf( '<div class="%1$"><div class="%1$s__col">%2$s %3$s</div><div class="%1$s__col">%4$s %5$s</div></div>', $classname, $author, $categories, $posted_on, $comments ),
+			sprintf( '<div class="%1$s"><div class="%1$s__col">%2$s %3$s</div><div class="%1$s__col">%4$s %5$s</div></div>', $classname, $author, $categories, $posted_on, $comments ),
 			hypermarket_allowed_html()
 		);
 	}
