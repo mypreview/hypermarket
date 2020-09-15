@@ -394,21 +394,25 @@ if ( ! function_exists( 'hypermarket_post_footnote' ) ) :
 	function hypermarket_post_footnote() {
 		global $post;
 		
-		$readmore = '';
-		$categories = '';
-		$classname  = 'entry-footnote'; // Component classname.
-		$post_id    = (int) $post->ID; // Retrieve the ID of the current item.
-		$post_title = get_the_title( $post_id ); // Retrieve post title.
-		$tags       = hypermarket_post_tags();
+		$categories    = '';
+		$share_buttons = '';
+		$readmore      = '';
+		$classname     = 'entry-footnote'; // Component classname.
+		$post_id       = (int) $post->ID; // Retrieve the ID of the current item.
+		$title         = get_the_title( $post_id ); // Retrieve post title.
+		$tags          = hypermarket_post_tags();
 
 		if ( hypermarket_is_blog_archive() ) {
 			/* translators: 1: Open anchor tag, 2: Close anchor tag. */
-			$readmore = hypermarket_is_blog_archive() ? sprintf( esc_html__( '%1$sRead more%2$s', 'hypermarket' ), sprintf( '<div class="%s__col"><a href="%s" class="more-link">', $classname, esc_url( get_the_permalink( $post_id ) ) ), sprintf( '<span class="screen-reader-text">%s</span></a></div>', wp_kses_post( $post_title ) ) ) : '';
+			$readmore   = hypermarket_is_blog_archive() ? sprintf( esc_html__( '%1$sRead more%2$s', 'hypermarket' ), sprintf( '<div class="%s__col"><a href="%s" class="more-link">', $classname, esc_url( get_the_permalink( $post_id ) ) ), sprintf( '<span class="screen-reader-text">%s</span></a></div>', wp_kses_post( $title ) ) ) : '';
 			$categories = hypermarket_post_categories(); // Output categories only if the current query is for the archive pages.
+		} else {
+			$permalink     = get_the_permalink( $post_id );
+			$share_buttons = hypermarket_social_share_buttons( $permalink, $title );
 		}
 
 		echo wp_kses(
-			sprintf( '<div class="%1$s"><div class="%1$s__col">%2$s %3$s</div>%4$s</div>', $classname, $categories, $tags, $readmore ),
+			sprintf( '<div class="%1$s"><div class="%1$s__col">%2$s %3$s</div><div class="%1$s__col">%4$s %5$s</div></div>', $classname, $categories, $tags, $readmore, $share_buttons ),
 			hypermarket_allowed_html()
 		);
 	}
