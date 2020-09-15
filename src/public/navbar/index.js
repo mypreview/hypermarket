@@ -10,7 +10,7 @@ export const navbar = {
 		navbar.els = {};
 		navbar.vars = {};
 		navbar.vars.elm = 'site-navigation';
-		navbar.els.submenu = $( `#${ navbar.vars.elm } .menu-item-has-children` );
+		navbar.els.$submenu = $( `#${ navbar.vars.elm } .menu-item-has-children` );
 	},
 	// Execute callback after the DOM is loaded.
 	ready() {
@@ -20,7 +20,7 @@ export const navbar = {
 	// Avoid sub-menus from going off-screen.
 	isOffScreen() {
 		const className = 'is-off-screen';
-		navbar.els.submenu.on( 'mouseenter mouseleave', function () {
+		navbar.els.$submenu.on( 'mouseenter mouseleave', function () {
 			if ( $( 'ul', this ).length ) {
 				const $window = $( window ),
 					windowWidth = $window.innerWidth(),
