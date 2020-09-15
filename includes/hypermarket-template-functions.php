@@ -400,7 +400,7 @@ if ( ! function_exists( 'hypermarket_post_footnote' ) ) :
 
 		if ( hypermarket_is_blog_archive() ) {
 			/* translators: 1: Open anchor tag, 2: Close anchor tag. */
-			$readmore   = hypermarket_is_blog_archive() ? sprintf( esc_html__( '%1$sRead more%2$s', 'hypermarket' ), sprintf( '<div class="%s__col"><a href="%s" class="more-link">', $classname, esc_url( get_the_permalink( $post_id ) ) ), sprintf( '<span class="screen-reader-text">%s</span></a></div>', wp_kses_post( $title ) ) ) : '';
+			$readmore   = hypermarket_is_blog_archive() ? sprintf( esc_html__( '%1$sRead more%2$s', 'hypermarket' ), sprintf( '<a href="%s" class="more-link">', esc_url( get_the_permalink( $post_id ) ) ), sprintf( '<span class="screen-reader-text">%s</span></a>', wp_kses_post( $title ) ) ) : '';
 			$categories = hypermarket_post_categories(); // Output categories only if the current query is for the archive pages.
 		} else {
 			$permalink     = get_the_permalink( $post_id );
@@ -490,6 +490,11 @@ if ( ! function_exists( 'hypermarket_post_thumbnail' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_post_thumbnail() {
+		// Bail early if the post has no featured image attached.
+		if ( ! has_post_thumbnail() ) {
+			return;
+		}
+
 		// Determines whether the query is for an existing single post of any post type.
 		if ( is_singular() ) : 
 			?>
