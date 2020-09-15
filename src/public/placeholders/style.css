@@ -35,7 +35,7 @@
 }
 
 %colfull {
-	max-width: 1140px;
+	max-width: 1170px;
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
@@ -53,11 +53,26 @@
 		opacity: 0.5;
 	}
 }
+
 %meta-icon {
 	display: flex;
 
 	&::before {
-		font-family: "Material Icons";
+		font-family: "boxicons";
 		margin-right: 3px;
 	}
+}
+
+%clear {
+	&:before, 
+	&:after {
+		content: '';
+  		display: table;
+  		clear: both;
+	}
+}
+
+%link-none {
+	color: inherit;
+	text-decoration: none;
 }
