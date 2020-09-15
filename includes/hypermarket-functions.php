@@ -257,6 +257,52 @@ if ( ! function_exists( 'hypermarket_post_tags' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_social_share_buttons' ) ) :
+	/**
+	 * Available list of networks for displaying social sharing buttons.
+	 *
+	 * @since    1.0.0
+	 * @param    string $permalink     Queried post permalink (URL).
+	 * @param    string $title         Queried post title.
+	 * @param    bool   $echo          Echo the share buttons.
+	 * @return   html
+	 */
+	function hypermarket_social_share_buttons( $permalink, $title, $echo = false ) {
+		// Component classname.
+		$classname     = 'entry-share';
+		$return        = sprintf( '<div class="%s"><ul>', $classname );
+		$share_buttons = apply_filters(
+			'hypermarket_social_share_buttons',
+			array(
+				'facebook' => sprintf( 'https://www.facebook.com/sharer/sharer.php?u=%1$s&amp;t=%2$s', $permalink, rawurlencode( $title ) ),
+				'linkedin' => sprintf( 'https://www.linkedin.com/shareArticle?mini=true&amp;url=%1$s&title=%2$s', $permalink, rawurlencode( $title ) ),
+				'twitter'  => sprintf( 'https://www.twitter.com/share?text=%1$s&amp;url=%2$s', rawurlencode( $title ), $permalink ),
+				'telegram' => sprintf( 'https://www.telegram.me/share/url?text=%1$s&amp;url=%2$s', rawurlencode( $title ), $permalink ),
+				'whatsapp' => sprintf( 'https://%1$s.whatsapp.com/send?text=%2$s&nbsp;%3$s', wp_is_mobile() ? 'api' : 'web', rawurlencode( $title ), $permalink ),
+				'email'    => sprintf( 'mailto:?subject=%1$s&amp;body=%2$s', rawurlencode( $title ), $permalink ),
+			),
+			$permalink,
+			$title
+		);
+
+		// Make sure we have at least one social share button to display.
+		if ( ! empty( $share_buttons ) && is_array( $share_buttons ) ) {
+			foreach ( $share_buttons as $network => $url ) {
+				$return .= sprintf( '<li class="%1$s__%2$s"><a href="%3$s" target="_blank" rel="noopener noreferrer"><span class="screen-reader-text">%2$s</span></a></li>', $classname, esc_attr( $network ), esc_url( $url ) ); 
+			}
+		}
+
+		$return .= '</ul></div>';
+
+		if ( $echo ) {
+			//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo $return; 
+		}
+
+		return $return;
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_header_styles' ) ) :
 	/**
 	 * Apply inline style to the theme header.
@@ -301,6 +347,9 @@ if ( ! function_exists( 'hypermarket_allowed_html' ) ) :
 					'class' => array(),
 				),
 				'span' => array(
+					'class' => array(),
+				),
+				'li' => array(
 					'class' => array(),
 				),
 				'a' => array(
