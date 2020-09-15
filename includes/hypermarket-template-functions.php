@@ -194,11 +194,7 @@ if ( ! function_exists( 'hypermarket_page_header' ) ) :
 	function hypermarket_page_header() {
 		?>
 		<header class="entry-header">
-			<?php
-			if ( ! is_singular( 'page' ) ) {
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			}
-			?>
+			<?php the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' ); ?>
 		</header>
 		<?php
 	}
