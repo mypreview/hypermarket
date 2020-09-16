@@ -16,29 +16,33 @@ textarea {
 	line-height: inherit;
 }
 
-input,
-select,
-textarea {
-	display: block;
-	width: 100%;
-	line-height: var(--line-height-base);
-	font-size: var(--general-small);
-	color: var(--general-text);
-	text-transform: none;
-	border: 2px solid var(--general-border);
-	border-radius: var(--border-radius-base);
-	background-color: var(--general-background);
-	appearance: none;
-	padding: 0 16px;
-	@extend %border-shift;
-
-	&:focus {
-		border-color: var(--general-primary);
-		outline: none;
-	}
-
-	&:placeholder {
+@each $form in input, select, textarea {
+	$(form) {
+		display: block;
+		width: 100%;
+		line-height: var(--line-height-base);
+		font-size: var(--general-small);
 		color: var(--general-text);
+		text-transform: none;
+		border: 2px solid var(--general-border);
+		border-radius: var(--border-radius-base);
+		background-color: var(--general-background);
+		appearance: none;
+		padding: 0 16px;
+		@extend %border-shift;
+
+		&:focus {
+			border-color: var(--general-primary);
+			outline: none;
+		}
+	}
+}
+
+input,
+textarea {
+	&::placeholder {
+		color: var(--general-text);
+		opacity: 1;
 	}
 }
 
