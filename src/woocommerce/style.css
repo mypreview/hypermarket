@@ -2,8 +2,11 @@
 @import "../public/variables/style.css";
 @import "./navbar/style.css";
 @import "./breadcrumbs/style.css";
+@import "./notice/style.css";
 @import "./quantity/style.css";
 @import "./widgets/style.css";
+@import "./forms/style.css";
 @import "./products/style.css";
 @import "./cart/style.css";
+@import "./checkout/style.css";
 @import "./handheld/style.css";
