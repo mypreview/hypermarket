@@ -11,6 +11,7 @@
 
 		:--active {
 			background-color: var(--general-background);
+			color: var(--general-text);
 		}
 	}
 
