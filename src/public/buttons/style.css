@@ -45,7 +45,12 @@ button,
 	cursor: pointer;
 	@extend %color-background-shift;
 
-	&:hover {
+	:--active {
 		background-color: var(--general-primary-alt);
+		color: var(--general-background);
+	}
+
+	&[disabled] {
+		@extend %disabled-button;
 	}
 }
