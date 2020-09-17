@@ -5,15 +5,18 @@ label {
 	margin-bottom: 7px;
 	padding-left: 18px;
 	text-transform: uppercase;
+
+	&[for] {
+		cursor: pointer;
+	}
 }
 
-input,
-button,
-select,
-textarea {
-	font-family: inherit;
-	font-size: inherit;
-	line-height: inherit;
+@each $field in input, select, button, textarea {
+	$(field) {
+		font-family: inherit;
+		font-size: inherit;
+		line-height: inherit;
+	}
 }
 
 @each $form in input, select, textarea {
@@ -58,9 +61,7 @@ input {
 }
 
 select {
-	background-repeat: no-repeat;
-	background-position: calc(100% - 7.25px) center;
-	padding-right: 24px;
+	@extend %select-icon;
 	cursor: pointer;
 
 	&::-ms-expand {
@@ -96,6 +97,7 @@ optgroup {
 	border-radius: 50%;
 	&:checked {
 		border-width: 4px;
+		border-color: var(--general-primary);
 	}
 }
 
@@ -121,7 +123,7 @@ optgroup {
 	}
 }
 
-[disabled]
+[disabled],
 .disabled {
 	opacity: 0.88;
 	cursor: not-allowed;
@@ -130,4 +132,52 @@ optgroup {
 button,
 input {
 	overflow: visible;
+}
+
+.select2 {
+	&-container {
+		&--default {
+			^^&-selection {
+				&--single {
+					@extend %select-icon;
+					border: 2px solid var(--general-border);
+				    height: 48px;
+				    display: flex;
+		    		align-items: center;
+				    padding-left: 8px;
+
+				    .select2-selection__arrow {
+				    	display: hidden;
+				    }
+				}
+			}
+
+			.select2-results__option {
+				&--highlighted {
+					&[aria-selected] {
+						color: var(--general-background);
+						background-color: var(--general-primary);
+					}
+				}
+
+				&[data-selected="true"][aria-selected="false"] {
+					background-color: var(--general-tile);
+				}
+			}
+		}
+	}
+
+	&-dropdown {
+		border-color: var(--general-border);
+		border-width: 2px;
+	}
+
+	&-search {
+		&--dropdown {
+			.select2-container--default & ^&__field {
+			    height: 38px;
+			    border: 2px solid var(--general-border);
+			}
+		}
+	}
 }
