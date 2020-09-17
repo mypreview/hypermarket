@@ -1,0 +1,31 @@
+.woocommerce-checkout {
+	form& {
+		display: flex;
+
+		#customer_details {
+			width: 67% ?if media (--screen-sm-min);
+		}
+
+		#order_review {
+			width: 33% ?if media (--screen-sm-min);
+			padding-left: 8% ?if media (--screen-md-min);
+        	padding-left: 30px ?if media (--screen-md) and (--screen-sm-min);
+		}
+	}
+
+	&-review-order-table {
+		thead {
+			display: hidden;
+		}
+
+		td,
+		th {
+			padding: 0;
+			border-bottom: 0;
+		}
+	}
+}
+
+#order_review_heading {
+	display: hidden;
+}
