@@ -95,13 +95,7 @@
 			padding: 0 15px;
 
 			&:not(.checkout) {
-				background-color: transparent;
-				color: var(--general-text);
-				border: 2px solid var(--general-border);
-
-				:--active {
-					background-color: var(--general-border);
-				}
+				@extend %alt-button;
 			}
 		}
 	}
