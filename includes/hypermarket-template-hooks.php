@@ -16,10 +16,12 @@
  * @see  hypermarket_skip_links()
  * @see  hypermarket_site_branding()
  * @see  hypermarket_primary_menu()
+ * @see  hypermarket_handheld_menu()
  */
 add_action( 'hypermarket_header', 'hypermarket_skip_links', 5 );
 add_action( 'hypermarket_header', 'hypermarket_site_branding' );
 add_action( 'hypermarket_header', 'hypermarket_primary_menu', 20 );
+add_action( 'hypermarket_header', 'hypermarket_handheld_menu', 50 );
 
 /**
  * Footer

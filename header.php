@@ -40,6 +40,7 @@
 					 * @hooked hypermarket_myaccount_link         - 30
 					 * @hooked hypermarket_cart                   - 40
 					 * @hooked hypermarket_div_close              - 45
+					 * @hooked hypermarket_handheld_menu          - 50
 					 */
 					do_action( 'hypermarket_header' ); 
 
