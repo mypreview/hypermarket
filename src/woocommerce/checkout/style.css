@@ -21,10 +21,10 @@
 		}
 
 		tr {
-		    display: flex;
-    		justify-content: space-between;
-    		flex-wrap: wrap;
-    		margin-bottom: 15px;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			margin-bottom: 15px;
 		}
 
 		td,
@@ -39,18 +39,18 @@
 		}
 
 		.woocommerce-shipping-methods {
-		    display: flex;
-    		flex-wrap: wrap;
+			display: flex;
+			flex-wrap: wrap;
 
-    		li {
-			    margin-right: 5px;
-    		}
+			li {
+				margin-right: 5px;
+			}
 		}
 	}
 
 	.order-total {
 		th {
-		    margin-top: 5px;
+			margin-top: 5px;
 		}
 	}
 }
@@ -61,9 +61,9 @@
 
 .wc_payment_method {
 	ul&s {
-	    @extend %none-list-style;
-    	color: var(--general-text-alt);
-    	font-size: var(--general-small);
+		@extend %none-list-style;
+		color: var(--general-text-alt);
+		font-size: var(--general-small);
 	}
 
 	p {
@@ -104,12 +104,12 @@
 
 		&-last {
 			width: auto;
-		    margin-left: 0;
+			margin-left: 0;
 		}
 	}
 
 	.button {
-	    width: 100%;
+		width: 100%;
 		margin: 0;
 		@extend %alt-button;
 	}

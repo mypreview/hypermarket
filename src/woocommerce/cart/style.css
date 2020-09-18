@@ -222,7 +222,7 @@
 }
 
 .order-total {
-	.woocommerce-Price-amount{
+	.woocommerce-Price-amount {
 		font-size: calc(var(--general-normal) * 1.375);
 	}
 

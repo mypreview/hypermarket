@@ -35,7 +35,7 @@
 
 .woocommerce-input-wrapper {
 	position: relative;
-    display: block;
+	display: block;
 }
 
 @each $validate in validated, invalid {
@@ -44,19 +44,19 @@
 			padding-right: 30px;
 		}
 
-		.select2-container--default .select2-selection--single, 
+		.select2-container--default .select2-selection--single,
 		select {
-		    background-position: calc(100% - 37.5px) 19px,calc(100% - 33px) 19px,100% 0;
-	        padding-right: 44px;
+			background-position: calc(100% - 37.5px) 19px, calc(100% - 33px) 19px, 100% 0;
+			padding-right: 44px;
 		}
 
-		.woocommerce-input-wrapper:before {
-		    font-family: boxicons;
-		    position: absolute;
-		    right: 10px;
-		    top: 11px;
-		    line-height: 1;
-		    font-size: var(--general-medium);
+		.woocommerce-input-wrapper::before {
+			font-family: boxicons;
+			position: absolute;
+			right: 10px;
+			top: 11px;
+			line-height: 1;
+			font-size: var(--general-medium);
 		}
 	}
 }
@@ -68,9 +68,9 @@
 		border-color: var(--alert-success);
 	}
 
-	.woocommerce-input-wrapper:before {
-	    content: "\ea0f";
-	    color: var(--alert-success);
+	.woocommerce-input-wrapper::before {
+		content: "\ea0f";
+		color: var(--alert-success);
 	}
 }
 
@@ -81,9 +81,9 @@
 		border-color: var(--alert-danger);
 	}
 
-	.woocommerce-input-wrapper:before {
-	    content: "\ec4e";
-	    color: var(--alert-danger);
+	.woocommerce-input-wrapper::before {
+		content: "\ec4e";
+		color: var(--alert-danger);
 	}
 }
 
