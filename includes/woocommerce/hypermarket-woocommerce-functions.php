@@ -102,7 +102,7 @@ if ( ! function_exists( 'hypermarket_cart_link' ) ) :
 
 		$cart_contents_count = (int) WC()->cart->get_cart_contents_count();
 
-		?><a class="site-cart-contents" href="<?php echo esc_url( wc_get_checkout_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'hypermarket' ); ?>">
+		?><a class="site-cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'hypermarket' ); ?>">
 			<?php 
 			echo wp_kses_post( WC()->cart->get_cart_subtotal() );
 			if ( $cart_contents_count ) : 
