@@ -1,5 +1,16 @@
+/**
+ * Stylesheet dependencies.
+ */
 import './style.css';
-import './vendor';
+
+/**
+ * Vendor (third-party) dependencies.
+ */
+import './../vendor';
+
+/**
+ * Custom scripts.
+ */
 import { buttons } from './buttons';
 import { navbar } from './navbar';
 import { skipLinkFocus } from './skip-link-focus';
