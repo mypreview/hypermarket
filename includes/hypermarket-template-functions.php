@@ -161,6 +161,30 @@ if ( ! function_exists( 'hypermarket_primary_menu' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_handheld_menu' ) ) :
+	/**
+	 * Display handheld (mobile) menu.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_handheld_menu() {
+		if ( has_nav_menu( 'handheld' ) ) {
+			wp_nav_menu(
+				array(
+					'theme_location'  => 'handheld',
+					'container'       => 'div',
+					'container_class' => 'site-handheld-menu',
+					'items_wrap'      => '%3$s',
+					'menu_id'         => '',
+					'menu_class'      => '',
+					'fallback_cb'     => '',
+				) 
+			);
+		}
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_skip_links' ) ) :
 	/**
 	 * Skip links
