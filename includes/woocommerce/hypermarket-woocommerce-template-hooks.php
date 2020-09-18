@@ -91,8 +91,9 @@ add_action( 'woocommerce_after_quantity_input_field', 'hypermarket_quantity_plus
 
 
 /**
- * Cart fragment
+ * Cart
  *
  * @see  hypermarket_cart_link_fragment()
  */
 add_filter( 'woocommerce_add_to_cart_fragments', 'hypermarket_cart_link_fragment' );
+add_action( 'woocommerce_proceed_to_checkout', 'hypermarket_cart_update_button', 15 );
