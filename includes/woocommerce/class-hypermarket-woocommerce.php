@@ -38,6 +38,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			add_filter( 'woocommerce_breadcrumb_defaults', array( $this, 'change_breadcrumb_delimiter' ) );
 			add_filter( 'woocommerce_single_product_carousel_options', array( $this, 'flexslider_args' ) );
 			add_filter( 'woocommerce_cart_item_remove_link', array( $this, 'remove_link' ) );
+			add_filter( 'woocommerce_order_button_text', array( $this, 'order_button_text' ) );
 		}
 
 		/**
@@ -190,7 +191,19 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		public function remove_link( $link ) {
 			/* translators: 1: Tooltip attribute, 2: Closing anchor tag. */
 			$link = is_cart() ? str_replace( '">', sprintf( esc_html__( '%1$sRemove%2$s', 'hypermarket' ), '" data-tippy-content="', '">' ), $link ) : $link;
-			return $link;
+			return apply_filters( 'hypermarket_cart_item_remove_link', $link );
+		}
+
+		/**
+		 * Overwrite `Place Order` button text on checkout page.
+		 * 
+		 * @since   2.0.0
+		 * @param   string $text    Default button text.
+		 * @return  string
+		 */
+		public function order_button_text( $text ) {
+			$text = esc_html_x( 'Checkout', 'place order button', 'hypermarket' );
+			return apply_filters( 'hypermarket_order_button_text', $text );
 		}
 
 	}
