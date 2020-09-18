@@ -177,12 +177,7 @@
 
 		.order-total {
 			order: -1;
-			font-size: calc(var(--general-normal) * 1.375);
 			color: var(--general-text);
-
-			strong {
-				font-weight: 400;
-			}
 		}
 	}
 
@@ -223,5 +218,15 @@
 
 	&::before {
 		content: "\ed4f";
+	}
+}
+
+.order-total {
+	.woocommerce-Price-amount{
+		font-size: calc(var(--general-normal) * 1.375);
+	}
+
+	strong {
+		font-weight: 400;
 	}
 }
