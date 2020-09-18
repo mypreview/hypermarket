@@ -30,6 +30,6 @@ export const buttons = {
 	},
 	// Re-initialize Waves on Ajax event(s) being triggered.
 	ajaxTrigger() {
-		buttons.els.$document.on( 'updated_cart_totals', buttons.initWaves );
+		buttons.els.$document.on( 'updated_checkout updated_cart_totals', buttons.initWaves );
 	},
 };
