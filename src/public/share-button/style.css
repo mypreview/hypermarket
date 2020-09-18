@@ -3,7 +3,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		margin: 0 -8px 0 0;
-    	padding-left: 0;
+		padding-left: 0;
 	}
 
 	li {
@@ -12,13 +12,13 @@
 
 	a {
 		@extend %link-none;
-	    margin: 8px 8px 0 0;
-	    width: 36px;
-    	height: 36px;
-    	display: inline-flex;
-	    align-items: center;
-    	justify-content: center;
-    	background-color: var(--general-tile);
-    	border-radius: var(--border-radius-small);
+		margin: 8px 8px 0 0;
+		width: 36px;
+		height: 36px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--general-tile);
+		border-radius: var(--border-radius-small);
 	}
 }

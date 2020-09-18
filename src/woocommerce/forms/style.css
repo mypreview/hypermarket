@@ -22,13 +22,13 @@
 .woocommerce-form {
 	@each $item in checkbox, radio {
 		&__label-for-$(item) {
-		    position: relative;
-	        padding-left: 27px;
+			position: relative;
+			padding-left: 27px;
 
-		    input {
-		    	left: 0;
-	    	    margin-top: 0;
-		    }
+			input {
+				left: 0;
+				margin-top: 0;
+			}
 		}
 	}
 }

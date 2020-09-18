@@ -1,10 +1,10 @@
 .icon {
-	&:before {
+	&::before {
 		font-family: boxicons;
 	}
 
 	&--facebook {
-		&:before {
+		&::before {
 			content: "\e920";
 		}
 
@@ -14,7 +14,7 @@
 	}
 
 	&--linkedin {
-		&:before {
+		&::before {
 			content: "\e93a";
 		}
 
@@ -24,7 +24,7 @@
 	}
 
 	&--twitter {
-		&:before {
+		&::before {
 			content: "\e962";
 		}
 
@@ -34,17 +34,17 @@
 	}
 
 	&--telegram {
-		&:before {
+		&::before {
 			content: "\e95e";
 		}
 
 		:--active {
-			color: #0088cc;
+			color: #08c;
 		}
 	}
 
 	&--whatsapp {
-		&:before {
+		&::before {
 			content: "\e968";
 		}
 
@@ -54,7 +54,7 @@
 	}
 
 	&--email {
-		&:before {
+		&::before {
 			content: "\ea8e";
 		}
 		:--active {
@@ -63,13 +63,13 @@
 	}
 
 	&--minus {
-		&:before {
+		&::before {
 			content: "\eb56";
 		}
 	}
 
 	&--plus {
-		&:before {
+		&::before {
 			content: "\eb89";
 		}
 	}

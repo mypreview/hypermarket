@@ -1,6 +1,6 @@
 @import "./normalize/style.css";
 @import "./../fonts/style.css";
-@import "./vendor/style.css";
+@import "./../vendor/style.css";
 @import "./placeholders/style.css";
 @import "./variables/style.css";
 @import "./scaffolding/style.css";

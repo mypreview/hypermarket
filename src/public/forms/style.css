@@ -141,14 +141,14 @@ input {
 				&--single {
 					@extend %select-icon;
 					border: 2px solid var(--general-border);
-				    height: 48px;
-				    display: flex;
-		    		align-items: center;
-				    padding-left: 8px;
+					height: 48px;
+					display: flex;
+					align-items: center;
+					padding-left: 8px;
 
-				    .select2-selection__arrow {
-				    	display: hidden;
-				    }
+					.select2-selection__arrow {
+						display: hidden;
+					}
 				}
 			}
 
@@ -175,8 +175,8 @@ input {
 	&-search {
 		&--dropdown {
 			.select2-container--default & ^&__field {
-			    height: 38px;
-			    border: 2px solid var(--general-border);
+				height: 38px;
+				border: 2px solid var(--general-border);
 			}
 		}
 	}

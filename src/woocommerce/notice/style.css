@@ -18,7 +18,7 @@
 				margin: 0;
 			}
 
-			&:before {
+			&::before {
 				font-family: boxicons;
 				position: absolute;
 				left: 14px;
@@ -26,17 +26,17 @@
 				font-size: var(--general-medium);
 			}
 
-			&:after {
-			    content: "";
-			    height: 100%;
-			    left: 0px;
-			    position: absolute;
-			    width: 4px;
-			    background: var(--general-text);
-			    opacity: .4;
-			    top: 0;
-			    bottom: 0;
-			    border-left-radius: var(--border-radius-base);
+			&::after {
+				content: "";
+				height: 100%;
+				left: 0;
+				position: absolute;
+				width: 4px;
+				background: var(--general-text);
+				opacity: 0.4;
+				top: 0;
+				bottom: 0;
+				border-left-radius: var(--border-radius-base);
 			}
 
 			.button {
@@ -67,7 +67,7 @@
 	&-error {
 		background-color: var(--alert-danger);
 
-		&:before {
+		&::before {
 			content: "\ed56";
 		}
 	}
@@ -75,7 +75,7 @@
 	&-info {
 		background-color: var(--alert-info);
 
-		&:before {
+		&::before {
 			content: "\eda7";
 		}
 	}
@@ -83,7 +83,7 @@
 	&-message {
 		background-color: var(--alert-success);
 
-		&:before {
+		&::before {
 			content: "\ea0f";
 		}
 	}

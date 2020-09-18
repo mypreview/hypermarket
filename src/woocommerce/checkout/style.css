@@ -9,7 +9,7 @@
 		#order_review {
 			width: 33% ?if media (--screen-sm-min);
 			padding-left: 8% ?if media (--screen-md-min);
-        	padding-left: 30px ?if media (--screen-md) and (--screen-sm-min);
+			padding-left: 30px ?if media (--screen-md) and (--screen-sm-min);
 		}
 	}
 
