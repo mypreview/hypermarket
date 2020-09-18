@@ -94,6 +94,18 @@ add_action( 'woocommerce_after_quantity_input_field', 'hypermarket_quantity_plus
  * Cart
  *
  * @see  hypermarket_cart_link_fragment()
+ * @see  hypermarket_cart_update_button()
+ * @see  hypermarket_button_proceed_to_checkout()
  */
+remove_action( 'woocommerce_proceed_to_checkout', 'woocommerce_button_proceed_to_checkout', 20 );
 add_filter( 'woocommerce_add_to_cart_fragments', 'hypermarket_cart_link_fragment' );
-add_action( 'woocommerce_proceed_to_checkout', 'hypermarket_cart_update_button', 15 );
+add_action( 'woocommerce_proceed_to_checkout', 'hypermarket_cart_update_button' );
+add_action( 'woocommerce_proceed_to_checkout', 'hypermarket_button_proceed_to_checkout', 20 );
+
+
+/**
+ * Checkout
+ *
+ * @see  hypermarket_button_back_to_cart()
+ */
+add_action( 'woocommerce_review_order_before_submit', 'hypermarket_button_back_to_cart' );
