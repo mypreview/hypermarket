@@ -12,6 +12,10 @@
 	a {
 		text-decoration: none;
 	}
+
+	.site-handheld-menu {
+		display: none;
+	}
 }
 
 .site-title {
