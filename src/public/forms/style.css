@@ -136,6 +136,8 @@ input {
 
 .select2 {
 	&-container {
+	    display: block;
+	    
 		&--default {
 			^^&-selection {
 				&--single {
