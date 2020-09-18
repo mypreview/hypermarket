@@ -27,7 +27,9 @@ module.exports = ( { env } ) => ( {
 		'postcss-selector-not': {},
 		'postcss-combine-media-query': {},
 		'postcss-normalize': {},
-		'postcss-fontpath': {},
+		'postcss-fontpath': {
+			formats: [ { type: 'woff2', ext: 'woff2' } ],
+		},
 		autoprefixer: {},
 	},
 } );
