@@ -114,6 +114,38 @@ if ( ! function_exists( 'hypermarket_cart_update_button' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_button_proceed_to_checkout' ) ) :
+	/**
+	 * Output the `Proceed to Checkout` button.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_button_proceed_to_checkout() {
+		?>
+		<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="checkout-button button alt wc-forward">
+			<?php echo esc_html_x( 'Checkout', 'proceed to checkout button', 'hypermarket' ); ?>
+		</a>
+		<?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_button_back_to_cart' ) ) :
+	/**
+	 * Output the `Back to Cart` button.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_button_back_to_cart() {
+		?>
+		<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="button place-order__back-to-cart">
+			<?php esc_html_e( 'Back to cart', 'hypermarket' ); ?>
+		</a>
+		<?php
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_handheld_toolbar' ) ) :
 	/**
 	 * Display a menu intended for use on handheld devices
