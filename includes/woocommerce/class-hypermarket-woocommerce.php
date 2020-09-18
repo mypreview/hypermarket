@@ -37,6 +37,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'thumbnail_columns' ) );
 			add_filter( 'woocommerce_breadcrumb_defaults', array( $this, 'change_breadcrumb_delimiter' ) );
 			add_filter( 'woocommerce_single_product_carousel_options', array( $this, 'flexslider_args' ) );
+			add_filter( 'woocommerce_cart_item_remove_link', array( $this, 'remove_link' ) );
 		}
 
 		/**
@@ -176,6 +177,19 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			$args['useCSS']       = is_rtl();
 
 			return apply_filters( 'hypermarket_product_flexslider_args', $args );
+		}
+
+		/**
+		 * Appends tooltip content attribute to the link.
+		 * Only append when viewing the cart page.
+		 *
+		 * @since   2.0.0
+		 * @param   html $link       HTML anchor tag.
+		 * @return  html
+		 */
+		public function remove_link( $link ) {
+			$link = is_cart() ? str_replace( '">', sprintf( esc_html__( '%1$sRemove%2$s', 'hypermarket' ), '" data-tippy-content="', '">' ), $link ) : $link;
+			return $link;
 		}
 
 	}
