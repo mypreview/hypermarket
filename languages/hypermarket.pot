@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-09-18T20:48:25+00:00\n"
+"POT-Creation-Date: 2020-09-18T21:33:52+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: hypermarket\n"
@@ -745,8 +745,13 @@ msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
 #. translators: 1: Tooltip attribute, 2: Closing anchor tag.
-#: includes/woocommerce/class-hypermarket-woocommerce.php:192
+#: includes/woocommerce/class-hypermarket-woocommerce.php:193
 msgid "%1$sRemove%2$s"
+msgstr ""
+
+#: includes/woocommerce/class-hypermarket-woocommerce.php:205
+msgctxt "place order button"
+msgid "Checkout"
 msgstr ""
 
 #. translators: 1: Open anchor tag, 2: Close anchor tag.
@@ -788,23 +793,32 @@ msgstr ""
 msgid "Update cart"
 msgstr ""
 
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:197
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:127
+msgctxt "proceed to checkout button"
+msgid "Checkout"
+msgstr ""
+
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:143
+msgid "Back to cart"
+msgstr ""
+
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:229
 msgid "Out of Stock"
 msgstr ""
 
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:212
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:244
 msgid "Remove from the quantity"
 msgstr ""
 
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:226
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:258
 msgid "Add to the quantity"
 msgstr ""
 
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:269
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:301
 msgid "More products"
 msgstr ""
 
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:331
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:363
 msgid "You&#8217;re viewing:"
 msgstr ""
 
