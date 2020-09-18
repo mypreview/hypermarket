@@ -48,10 +48,6 @@ if ( ! class_exists( 'Hypermarket_TGMPA_Register' ) ) :
 						'slug'    => 'woocommerce',
 						'version' => '3.4.0',
 					),
-					array(
-						'name' => 'Container Block',
-						'slug' => 'container-block',
-					),
 				) 
 			);
 
