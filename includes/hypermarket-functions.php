@@ -269,17 +269,44 @@ if ( ! function_exists( 'hypermarket_social_share_buttons' ) ) :
 	 */
 	function hypermarket_social_share_buttons( $permalink, $title, $echo = false ) {
 		// Component classname.
-		$classname     = 'entry-share';
-		$return        = sprintf( '<div class="%s"><ul>', $classname );
+		$classname = 'entry-share';
+		$return    = sprintf( '<div class="%1$s"><span class="%1$s__label">', $classname );
+		/* translators: %s: Post type. */
+		$return       .= sprintf( esc_html__( 'Share %s:', 'hypermarket' ), get_post_type() );
+		$return       .= '</span><ul>';
 		$share_buttons = apply_filters(
 			'hypermarket_social_share_buttons',
 			array(
-				'facebook' => sprintf( 'https://www.facebook.com/sharer/sharer.php?u=%1$s&amp;t=%2$s', $permalink, rawurlencode( $title ) ),
-				'linkedin' => sprintf( 'https://www.linkedin.com/shareArticle?mini=true&amp;url=%1$s&title=%2$s', $permalink, rawurlencode( $title ) ),
-				'twitter'  => sprintf( 'https://www.twitter.com/share?text=%1$s&amp;url=%2$s', rawurlencode( $title ), $permalink ),
-				'telegram' => sprintf( 'https://www.telegram.me/share/url?text=%1$s&amp;url=%2$s', rawurlencode( $title ), $permalink ),
-				'whatsapp' => sprintf( 'https://%1$s.whatsapp.com/send?text=%2$s&nbsp;%3$s', wp_is_mobile() ? 'api' : 'web', rawurlencode( $title ), $permalink ),
-				'email'    => sprintf( 'mailto:?subject=%1$s&amp;body=%2$s', rawurlencode( $title ), $permalink ),
+				array(
+					'label'   => esc_html_x( 'Facebook', 'share icon', 'hypermarket' ),
+					'network' => 'facebook',
+					'url'     => sprintf( 'https://www.facebook.com/sharer/sharer.php?u=%1$s&amp;t=%2$s', $permalink, rawurlencode( $title ) ),
+				),
+				array(
+					'label'   => esc_html_x( 'LinkedIn', 'share icon', 'hypermarket' ),
+					'network' => 'linkedin',
+					'url'     => sprintf( 'https://www.linkedin.com/shareArticle?mini=true&amp;url=%1$s&title=%2$s', $permalink, rawurlencode( $title ) ),
+				),
+				array(
+					'label'   => esc_html_x( 'Twitter', 'share icon', 'hypermarket' ),
+					'network' => 'twitter',
+					'url'     => sprintf( 'https://www.twitter.com/share?text=%1$s&amp;url=%2$s', rawurlencode( $title ), $permalink ),
+				),
+				array(
+					'label'   => esc_html_x( 'Telegram', 'share icon', 'hypermarket' ),
+					'network' => 'telegram',
+					'url'     => sprintf( 'https://www.telegram.me/share/url?text=%1$s&amp;url=%2$s', rawurlencode( $title ), $permalink ),
+				),
+				'whatsapp' => array(
+					'label'   => esc_html_x( 'WhatsApp', 'share icon', 'hypermarket' ),
+					'network' => 'whatsapp',
+					'url'     => sprintf( 'https://%1$s.whatsapp.com/send?text=%2$s&nbsp;%3$s', wp_is_mobile() ? 'api' : 'web', rawurlencode( $title ), $permalink ),
+				),
+				array(
+					'label'   => esc_html_x( 'Email', 'share icon', 'hypermarket' ),
+					'network' => 'email',
+					'url'     => sprintf( 'mailto:?subject=%1$s&amp;body=%2$s', rawurlencode( $title ), $permalink ),
+				),
 			),
 			$permalink,
 			$title
@@ -287,8 +314,8 @@ if ( ! function_exists( 'hypermarket_social_share_buttons' ) ) :
 
 		// Make sure we have at least one social share button to display.
 		if ( ! empty( $share_buttons ) && is_array( $share_buttons ) ) {
-			foreach ( $share_buttons as $network => $url ) {
-				$return .= sprintf( '<li class="%1$s__%2$s"><a href="%3$s" target="_blank" rel="noopener noreferrer" class="icon icon--%2$s"><span class="screen-reader-text">%2$s</span></a></li>', $classname, esc_attr( $network ), esc_url( $url ) ); 
+			foreach ( $share_buttons as $network ) {
+				$return .= sprintf( '<li class="%1$s__%2$s"><a href="%3$s" target="_blank" rel="noopener noreferrer" class="icon icon--%2$s" data-tippy-content="%4$s"><span class="screen-reader-text">%2$s</span></a></li>', $classname, esc_attr( $network['network'] ), esc_url( $network['url'] ), esc_html( $network['label'] ) ); 
 			}
 		}
 
@@ -329,45 +356,6 @@ if ( ! function_exists( 'hypermarket_header_styles' ) ) :
 		foreach ( $styles as $style => $value ) {
 			echo esc_attr( $style . ': ' . $value . '; ' );
 		} // End of the loop.
-	}
-endif;
-
-if ( ! function_exists( 'hypermarket_allowed_html' ) ) :
-	/**
-	 * An array of allowed HTML elements and attributes, or a context name such as 'post'.
-	 *
-	 * @since   2.0.0
-	 * @return  array
-	 */
-	function hypermarket_allowed_html() {
-		return (array) apply_filters(
-			'hypermarket_allowed_html_args',
-			array(
-				'div' => array(
-					'class' => array(),
-				),
-				'span' => array(
-					'class' => array(),
-				),
-				'ul' => array(
-					'class' => array(),
-				),
-				'li' => array(
-					'class' => array(),
-				),
-				'a' => array(
-					'href'  => array(),
-					'title' => array(),
-					'rel'   => array(),
-					'class' => array(),
-					'target' => array(),
-				),
-				'time' => array(
-					'datetime' => array(),
-					'class'    => array(),
-				),
-			) 
-		);
 	}
 endif;
 
