@@ -98,6 +98,22 @@ if ( ! function_exists( 'hypermarket_cart_link_fragment' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_cart_update_button' ) ) :
+	/**
+	 * Display `Update cart` button on the cart page.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_cart_update_button() {
+		?>
+		<button type="submit" class="button" name="hypermarket-update-cart" value="<?php esc_attr_e( 'Update cart', 'hypermarket' ); ?>">
+			<?php esc_html_e( 'Update cart', 'hypermarket' ); ?>
+		</button>
+		<?php
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_handheld_toolbar' ) ) :
 	/**
 	 * Display a menu intended for use on handheld devices
