@@ -14,18 +14,103 @@
 	}
 
 	&-review-order-table {
+		font-size: var(--general-small);
+
 		thead {
 			display: hidden;
 		}
 
+		tr {
+		    display: flex;
+    		justify-content: space-between;
+    		flex-wrap: wrap;
+    		margin-bottom: 15px;
+		}
+
 		td,
 		th {
-			padding: 0;
+			padding: 0 0 5px;
 			border-bottom: 0;
+		}
+
+		strong,
+		th {
+			font-weight: 500;
+		}
+
+		.woocommerce-shipping-methods {
+		    display: flex;
+    		flex-wrap: wrap;
+
+    		li {
+			    margin-right: 5px;
+    		}
+		}
+	}
+
+	.order-total {
+		th {
+		    margin-top: 5px;
 		}
 	}
 }
 
 #order_review_heading {
 	display: hidden;
+}
+
+.wc_payment_method {
+	ul&s {
+	    @extend %none-list-style;
+    	color: var(--general-text-alt);
+    	font-size: var(--general-small);
+	}
+
+	p {
+		line-height: var(--line-height-base);
+	}
+}
+
+.place-order {
+	margin-top: var(--line-height-computed);
+
+	.button {
+		width: 100%;
+	}
+}
+
+.woocommerce-form-coupon {
+	display: grid;
+	grid-template-columns: 2.5fr 1fr ?if media (--screen-md-min);
+	grid-template-columns: 1fr ?if media (--screen-md);
+	grid-column-gap: 30px;
+	grid-row-gap: 17px;
+
+	p:first-child {
+		padding-left: 0;
+		font-size: var(--general-small);
+		color: var(--general-text-alt);
+		text-transform: none;
+		grid-row: 1;
+		grid-column: 1/-1;
+	}
+
+	.form-row {
+		&-first {
+			width: auto;
+			flex-grow: 1;
+			margin-right: 0;
+		}
+
+		&-last {
+			width: auto;
+		    margin-left: 0;
+		}
+	}
+
+	.button {
+	    width: 100%;
+		margin: 0;
+		@extend %alt-button;
+	}
 }
