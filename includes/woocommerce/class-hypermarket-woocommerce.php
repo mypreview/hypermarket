@@ -188,6 +188,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 * @return  html
 		 */
 		public function remove_link( $link ) {
+			/* translators: 1: Tooltip attribute, 2: Closing anchor tag. */
 			$link = is_cart() ? str_replace( '">', sprintf( esc_html__( '%1$sRemove%2$s', 'hypermarket' ), '" data-tippy-content="', '">' ), $link ) : $link;
 			return $link;
 		}
