@@ -61,7 +61,20 @@ add_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 30 );
  * @see  hypermarket_breadcrumb()
  */
 add_action( 'hypermarket_single_post_top', 'hypermarket_breadcrumb', 20 );
+
+/**
+ * Pages
+ * 
+ * @see  hypermarket_breadcrumb()
+ */
 add_action( 'hypermarket_page_top', 'hypermarket_breadcrumb', 20 );
+
+/**
+ * Archive
+ * 
+ * @see  hypermarket_breadcrumb()
+ */
+add_action( 'hypermarket_archive_top', 'hypermarket_breadcrumb', 20 );
 
 /**
  * Products
