@@ -221,18 +221,33 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * @return  void
 		 */
 		public function register_post_meta() {
-			global $hypermarket;
-
 			register_post_meta(
-				'page',
-				sprintf( '_%s_hide_title', $hypermarket->slug ),
+				'',
+				'hypermarket_metas',
 				array(
-					'show_in_rest'      => true,
-					'single'            => true,
-					'type'              => 'boolean',
-					'sanitize_callback' => 'rest_sanitize_boolean',
-					'auth_callback'     => 'hypermarket_has_edit_permission',
-				) 
+					'single'        => true,
+					'type'          => 'object',
+					'show_in_rest'  => array(
+						'schema' => array(
+							'type'                 => 'object',
+							'additionalProperties' => false,
+							'properties'           => apply_filters(
+								'hypermarket_post_meta_args',
+								array(
+									'title' => array(
+										'type' => 'boolean',
+										'sanitize_callback' => 'rest_sanitize_boolean',
+									),
+									'featuredMedia' => array(
+										'type' => 'boolean',
+										'sanitize_callback' => 'rest_sanitize_boolean',
+									),
+								) 
+							),
+						),
+					),
+					'auth_callback' => 'hypermarket_has_edit_permission',
+				)
 			);
 		}
 
@@ -318,6 +333,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 */
 		public function enqueue() {
 			global $hypermarket;
+
 			$asset_name = 'public';
 			$asset      = hypermarket_get_file_assets( $asset_name );
 			$l10n       = apply_filters(
@@ -357,15 +373,20 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 */
 		public function enqueue_editor() {
 			global $hypermarket;
+
 			$asset_name = 'editor';
 			$asset      = hypermarket_get_file_assets( $asset_name );
 
+			// Fonts.
 			// phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 			wp_enqueue_style( sprintf( '%s-fonts', $hypermarket->slug ), $this->google_fonts(), array(), null );
+			// Styles.
 			wp_enqueue_style( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'] );
 			wp_style_add_data( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), 'rtl', 'replace' );
 			wp_add_inline_style( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), Hypermarket_Customize::get_css() );
 			wp_add_inline_style( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), hypermarket_generate_editor_css() );
+			// Scripts.
+			wp_enqueue_script( sprintf( '%s-%s-script', $hypermarket->slug, $asset_name ), get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
 		}
 
 		/**
