@@ -10,7 +10,7 @@
  * @link        https://developer.wordpress.org/themes/basics/template-hierarchy/
  * @link        https://www.upwork.com/fl/mahdiyazdani
  * @author      Mahdi Yazdani <mahdiyazdani@mail.com>
- * @since       1.0.0
+ * @since       2.0.0
  *
  * @package     hypermarket
  */
@@ -21,12 +21,24 @@ get_header();
 		<main id="main" class="site-main" role="main">
 		<?php
 		
+		/**
+		 * Functions hooked into `hypermarket_home_top` action
+		 *
+		 * @hooked  hypermarket_div                 	- 5
+		 * @hooked  hypermarket_posts_page_header       - 10
+		 * @hooked  hypermarket_breadcrumb          	- 20
+		 * @hooked  hypermarket_div_close           	- 25
+		 */
+		do_action( 'hypermarket_home_top' );
+		
 		if ( have_posts() ) :
 			get_template_part( 'loop' );
 		else :
 			get_template_part( 'template-parts/content', 'none' );
 		endif;
 		
+		do_action( 'hypermarket_home_bottom' );
+
 		?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
