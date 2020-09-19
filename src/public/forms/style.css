@@ -123,8 +123,8 @@ optgroup {
 	}
 }
 
-[disabled],
-.disabled {
+body [disabled],
+body .disabled {
 	opacity: 0.88;
 	cursor: not-allowed;
 }
