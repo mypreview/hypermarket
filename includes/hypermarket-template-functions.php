@@ -267,13 +267,12 @@ if ( ! function_exists( 'hypermarket_page_header' ) ) :
 	 * Display the page header.
 	 *
 	 * @since   2.0.0
+	 * @param   int $post_id    Queried post id.
 	 * @return  void
 	 */
-	function hypermarket_page_header() {
-		global $post;
-
+	function hypermarket_page_header( $post_id = null ) {
 		// Bail early if the page title has been removed from the view.
-		if ( ! ! hypermarket_get_post_meta( 'title', $post->ID ) ) {
+		if ( ! ! hypermarket_get_post_meta( 'title', $post_id ) ) {
 			return;
 		}
 
@@ -322,13 +321,12 @@ if ( ! function_exists( 'hypermarket_post_header' ) ) :
 	 * Display the post header with a link to the single post.
 	 *
 	 * @since   2.0.0
+	 * @param   int $post_id    Queried post id.
 	 * @return  void
 	 */
-	function hypermarket_post_header() {
-		global $post;
-
+	function hypermarket_post_header( $post_id = null ) {
 		// Bail early if the page title has been removed from the view.
-		if ( ! ! hypermarket_get_post_meta( 'title', $post->ID ) ) {
+		if ( ! ! hypermarket_get_post_meta( 'title', $post_id ) ) {
 			return;
 		}
 
@@ -586,11 +584,12 @@ if ( ! function_exists( 'hypermarket_post_thumbnail' ) ) :
 	 * Display post thumbnail.
 	 *
 	 * @since   2.0.0
+	 * @param   int $post_id    Queried post id.
 	 * @return  void
 	 */
-	function hypermarket_post_thumbnail() {
-		// Bail early if the post has no featured image attached.
-		if ( ! has_post_thumbnail() ) {
+	function hypermarket_post_thumbnail( $post_id = null ) {
+		// Bail early, if the featured image has been removed from the view or no image is attached yet.
+		if ( ! has_post_thumbnail() || ! ! hypermarket_get_post_meta( 'featured_media', $post_id ) ) {
 			return;
 		}
 
