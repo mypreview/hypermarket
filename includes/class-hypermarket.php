@@ -238,7 +238,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 										'type' => 'boolean',
 										'sanitize_callback' => 'rest_sanitize_boolean',
 									),
-									'featuredMedia' => array(
+									'featured_media' => array(
 										'type' => 'boolean',
 										'sanitize_callback' => 'rest_sanitize_boolean',
 									),

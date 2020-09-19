@@ -26,7 +26,7 @@ export default compose(
 			defaults: {
 				title: false,
 				breadcrumbs: false,
-				featuredMedia: false,
+				featured_media: false,
 			},
 		};
 
@@ -35,7 +35,7 @@ export default compose(
 			const { postType, getMeta, setMeta } = this.props;
 			const { hypermarket_metas: hmMetas } = getMeta;
 			const metas = isPlainObject( hmMetas ) ? hmMetas : defaults;
-			const { title, breadcrumbs, featuredMedia } = metas;
+			const { title, breadcrumbs, featured_media: featuredMedia } = metas;
 			const target = sprintf( '%1$s-%2$s-settings', PREFIX, postType );
 			// Makes the first letter of the post-type name uppercase.
 			const postTypeLbl = toUpper( postType.charAt( 0 ) ) + join( slice( postType, 1 ), '' );
@@ -87,7 +87,7 @@ export default compose(
 								onChange={ () =>
 									setMeta( 'hypermarket_metas', {
 										...metas,
-										featuredMedia: ! featuredMedia,
+										featured_media: ! featuredMedia,
 									} )
 								}
 							/>
