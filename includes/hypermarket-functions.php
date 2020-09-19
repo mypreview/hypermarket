@@ -170,6 +170,35 @@ if ( ! function_exists( 'hypermarket_get_background_color' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_get_post_meta' ) ) :
+	/**
+	 * Retrieves hypermarket post meta field for the given or queried post ID.
+	 *
+	 * @since    2.0.0
+	 * @param    string $param      Meta key to retrieve.
+	 * @param    int    $post_id    Queried post id.
+	 * @return   array|bool                  
+	 */
+	function hypermarket_get_post_meta( $param = null, $post_id = null ) {
+		// Retrieve ID of the current queried object.
+		$object_id = is_null( $post_id ) ? intval( $post_id ) : (int) get_queried_object_id();
+
+		if ( $object_id ) {
+			// Retrieves the SEO post meta field for the queried post ID.
+			$metas = get_post_meta( $object_id, 'hypermarket_metas', true );
+			if ( is_array( $metas ) ) {
+				if ( ! is_null( $param ) && isset( $metas[ $param ] ) ) {
+					return $metas[ $param ];
+				} else {
+					return $metas;
+				}           
+			}
+		}
+
+		return false;
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_do_shortcode' ) ) :
 	/**
 	 * Call a shortcode function by tag name.
