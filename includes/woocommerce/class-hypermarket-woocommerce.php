@@ -32,6 +32,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			add_action( 'hypermarket_after_setup_theme', array( $this, 'setup' ) );
 			add_action( 'hypermarket_enqueue_scripts', array( $this, 'enqueue' ) );
 			add_filter( 'hypermarket_body_classes', array( $this, 'body_classes' ) );
+			add_filter( 'hypermarket_post_meta_args', array( $this, 'register_post_meta' ) );
 			add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
 			add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'thumbnail_columns' ) );
@@ -117,11 +118,27 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		}
 
 		/**
+		 * Append additional metas to the `hypermarket_metas` meta-data.
+		 *
+		 * @since   2.0.0
+		 * @param   array $properties   Default meta properties.
+		 * @return  array       
+		 */
+		public function register_post_meta( $properties ) {
+			$properties['breadcrumbs'] = array(
+				'type'              => 'boolean',
+				'sanitize_callback' => 'rest_sanitize_boolean',
+			);
+			
+			return $properties;
+		} 
+
+		/**
 		 * Related Products Args
 		 *
 		 * @since   2.0.0
 		 * @param   array $args   Related products args.
-		 * @return  array       $args   Modified number of related products args
+		 * @return  array       
 		 */
 		public function related_products_args( $args ) {
 			$args = apply_filters(
