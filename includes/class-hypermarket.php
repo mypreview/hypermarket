@@ -32,6 +32,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			add_action( 'after_setup_theme', array( $this, 'setup' ) );
 			add_action( 'wp_head', array( $this, 'javascript_detection' ), 0 );
 			add_action( 'wp_head', array( $this, 'pingback_header' ) );
+			add_action( 'init', array( $this, 'register_post_meta' ) );
 			add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
 			add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_editor' ) );
@@ -214,6 +215,28 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		}
 
 		/**
+		 * Registers a meta key for posts.
+		 *
+		 * @since   2.0.0
+		 * @return  void
+		 */
+		public function register_post_meta() {
+			global $hypermarket;
+
+			register_post_meta(
+				'page',
+				sprintf( '_%s_hide_title', $hypermarket->slug ),
+				array(
+					'show_in_rest'      => true,
+					'single'            => true,
+					'type'              => 'boolean',
+					'sanitize_callback' => 'rest_sanitize_boolean',
+					'auth_callback'     => 'hypermarket_has_edit_permission',
+				) 
+			);
+		}
+
+		/**
 		 * Register widget areas.
 		 *
 		 * @since   2.0.0
@@ -221,6 +244,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 */
 		public function widgets_init() {
 			global $hypermarket;
+
 			$sidebar_args['sidebar'] = array(
 				'name'        => __( 'Sidebar', 'hypermarket' ),
 				'id'          => 'sidebar-1',
