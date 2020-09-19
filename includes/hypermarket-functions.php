@@ -181,7 +181,7 @@ if ( ! function_exists( 'hypermarket_get_post_meta' ) ) :
 	 */
 	function hypermarket_get_post_meta( $param = null, $post_id = null ) {
 		// Retrieve ID of the current queried object.
-		$object_id = is_null( $post_id ) ? intval( $post_id ) : (int) get_queried_object_id();
+		$object_id = ! is_null( $post_id ) ? intval( $post_id ) : (int) get_queried_object_id();
 
 		if ( $object_id ) {
 			// Retrieves the SEO post meta field for the queried post ID.
