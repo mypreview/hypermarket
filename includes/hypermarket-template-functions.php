@@ -630,11 +630,10 @@ if ( ! function_exists( 'hypermarket_div' ) ) :
 	 *
 	 * @since   2.0.0
 	 * @return  void
+	 * @phpcs:disable Squiz.PHP.EmbeddedPhp.ContentAfterEnd, Squiz.PHP.EmbeddedPhp.ContentBeforeOpen
 	 */
 	function hypermarket_div() {
-		?>
-		<div class="div">
-		<?php
+		?><div class="div"><?php
 	}
 endif;
 
@@ -644,11 +643,10 @@ if ( ! function_exists( 'hypermarket_div_close' ) ) :
 	 *
 	 * @since   2.0.0
 	 * @return  void
+	 * @phpcs:disable Squiz.PHP.EmbeddedPhp.ContentAfterEnd, Squiz.PHP.EmbeddedPhp.ContentBeforeOpen
 	 */
 	function hypermarket_div_close() {
-		?>
-		</div>
-		<?php
+		?></div><?php
 	}
 endif;
 
@@ -658,10 +656,9 @@ if ( ! function_exists( 'hypermarket_container' ) ) :
 	 *
 	 * @since   2.0.0
 	 * @return  void
+	 * @phpcs:disable Squiz.PHP.EmbeddedPhp.ContentAfterEnd, Squiz.PHP.EmbeddedPhp.ContentBeforeOpen
 	 */
 	function hypermarket_container() {
-		?>
-		<div class="col-full">
-		<?php
+		?><div class="col-full"><?php
 	}
 endif;
