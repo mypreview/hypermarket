@@ -32,11 +32,15 @@ if ( ! function_exists( 'hypermarket_breadcrumb' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_breadcrumb() {
+		global $post;
 		$breadcrumbs = apply_filters( 'hypermarket_has_breadcrumbs', true );
-
-		if ( $breadcrumbs ) {
-			woocommerce_breadcrumb();
+		
+		// Bail early if the breadcrumbs has been removed from the view.
+		if ( ! ! $breadcrumbs || ! ! hypermarket_get_post_meta( 'breadcrumbs', $post->ID ) ) {
+			return;
 		}
+
+		woocommerce_breadcrumb();
 	}
 endif;
 
