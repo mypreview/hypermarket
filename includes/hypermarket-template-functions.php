@@ -229,6 +229,30 @@ if ( ! function_exists( 'hypermarket_archive_header' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_posts_page_header' ) ) :
+	/**
+	 * Display the blog posts page header.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_posts_page_header() {
+		// Bail early if the blog posts page is not configured.
+		if ( ! ! ! hypermarket_has_blog_page() || ! ! ! hypermarket_is_blog_archive() ) {
+			return;
+		}
+
+		?>
+		<header class="entry-header">
+			<?php 
+				$posts_page = get_option( 'page_for_posts', '0' );
+				printf( '<h1 class="entry-title" itemprop="headline">%s</h1>', wp_kses_post( get_the_title( $posts_page ) ) );
+			?>
+		</header>
+		<?php
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_page_header' ) ) :
 	/**
 	 * Display the page header.
