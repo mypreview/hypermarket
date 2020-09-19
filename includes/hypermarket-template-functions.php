@@ -219,10 +219,14 @@ if ( ! function_exists( 'hypermarket_archive_header' ) ) :
 		?>
 		<header class="entry-header">
 			<?php 
-				// Display the archive title based on the queried object.
-				the_archive_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
-				// Display category, tag, term, or author description.
-				the_archive_description( '<div class="entry-description">', '</div>' );
+			do_action( 'hypermarket_archive_header_before' );
+			
+			// Display the archive title based on the queried object.
+			the_archive_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
+			// Display category, tag, term, or author description.
+			the_archive_description( '<div class="entry-description">', '</div>' );
+			
+			do_action( 'hypermarket_archive_header_after' );
 			?>
 		</header>
 		<?php
@@ -245,8 +249,13 @@ if ( ! function_exists( 'hypermarket_posts_page_header' ) ) :
 		?>
 		<header class="entry-header">
 			<?php 
-				$posts_page = get_option( 'page_for_posts', '0' );
-				printf( '<h1 class="entry-title" itemprop="headline">%s</h1>', wp_kses_post( get_the_title( $posts_page ) ) );
+			do_action( 'hypermarket_posts_page_header_before' );
+
+			$posts_page = get_option( 'page_for_posts', '0' );
+			// Retrieve posts page (blog) title.
+			printf( '<h1 class="entry-title" itemprop="headline">%s</h1>', wp_kses_post( get_the_title( $posts_page ) ) );
+			
+			do_action( 'hypermarket_posts_page_header_after' );
 			?>
 		</header>
 		<?php
@@ -261,9 +270,23 @@ if ( ! function_exists( 'hypermarket_page_header' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_page_header() {
+		global $post;
+
+		// Bail early if the page title has been removed from the view.
+		if ( ! ! hypermarket_get_post_meta( 'title', $post->ID ) ) {
+			return;
+		}
+
 		?>
 		<header class="entry-header">
-			<?php the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' ); ?>
+			<?php 
+			do_action( 'hypermarket_page_header_before' );
+
+			// Display or retrieve the current page title with given custom markup.
+			the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' ); 
+
+			do_action( 'hypermarket_page_header_after' );
+			?>
 		</header>
 		<?php
 	}
@@ -302,6 +325,13 @@ if ( ! function_exists( 'hypermarket_post_header' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_post_header() {
+		global $post;
+
+		// Bail early if the page title has been removed from the view.
+		if ( ! ! hypermarket_get_post_meta( 'title', $post->ID ) ) {
+			return;
+		}
+
 		?>
 		<header class="entry-header">
 			<?php
