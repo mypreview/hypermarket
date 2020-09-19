@@ -122,7 +122,6 @@
 	display: flex;
 
 	.submit {
-		width: auto;
 		margin: 0;
 	}
 }
