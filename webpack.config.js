@@ -25,7 +25,7 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 const config = {
 	entry: {
 		'legacy-editor': './src/legacy-editor/style.css',
-		editor: './src/editor/style.css',
+		editor: './src/editor',
 		customize: './src/customize',
 		woocommerce: './src/woocommerce',
 		public: './src/public',
