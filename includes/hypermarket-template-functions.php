@@ -388,7 +388,7 @@ if ( ! function_exists( 'hypermarket_post_meta' ) ) :
 
 		echo wp_kses(
 			sprintf( '<div class="%1$s"><div class="%1$s__col">%2$s %3$s</div><div class="%1$s__col">%4$s %5$s</div></div>', $classname, $author, $categories, $posted_on, $comments ),
-			wp_kses_allowed_html( 'post' )
+			hypermarket_allowed_html()
 		);
 	}
 endif;
@@ -478,7 +478,7 @@ if ( ! function_exists( 'hypermarket_post_footnote' ) ) :
 
 		echo wp_kses(
 			sprintf( '<div class="%1$s"><div class="%1$s__col">%2$s %3$s</div><div class="%1$s__col">%4$s %5$s</div></div>', $classname, $categories, $tags, $readmore, $share_buttons ),
-			wp_kses_allowed_html( 'post' )
+			hypermarket_allowed_html()
 		);
 	}
 endif;
