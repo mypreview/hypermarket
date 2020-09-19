@@ -22,7 +22,7 @@
 		 * @hooked hypermarket_breadcrumb             - 20
 		 * @hooked hypermarket_div_close              - 25
 		 */
-		do_action( 'hypermarket_page_top' );
+		do_action( 'hypermarket_page_top', get_the_ID() );
 
 		/**
 		 * Functions hooked into `hypermarket_page` add_action
@@ -30,7 +30,7 @@
 		 * @hooked hypermarket_post_thumbnail         - 10
 		 * @hooked hypermarket_page_content           - 20
 		 */
-		do_action( 'hypermarket_page' );
+		do_action( 'hypermarket_page', get_the_ID() );
 
 		/**
 		 * Functions hooked in to `hypermarket_page_bottom` action
@@ -39,6 +39,6 @@
 		 * @hooked hypermarket_page_nav               - 20
 		 * @hooked hypermarket_display_comments       - 30
 		 */
-		do_action( 'hypermarket_page_bottom' );
+		do_action( 'hypermarket_page_bottom', get_the_ID() );
 	?>
 </article><!-- #post-## -->

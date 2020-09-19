@@ -25,7 +25,7 @@
 		 * @hooked hypermarket_post_excerpt        - 40
 		 * @hooked hypermarket_post_footnote       - 50
 		 */
-		do_action( 'hypermarket_loop_post' );
+		do_action( 'hypermarket_loop_post', get_the_ID() );
 
 	?>
 </article><!-- #post-## -->
