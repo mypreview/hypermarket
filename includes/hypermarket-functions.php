@@ -359,6 +359,46 @@ if ( ! function_exists( 'hypermarket_header_styles' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_allowed_html' ) ) :
+	/**
+	 * An array of allowed HTML elements and attributes, or a context name such as 'post'.
+	 *
+	 * @since   2.0.0
+	 * @return  array
+	 */
+	function hypermarket_allowed_html() {
+		return (array) apply_filters(
+			'hypermarket_allowed_html_args',
+			array(
+				'div' => array(
+					'class' => array(),
+				),
+				'span' => array(
+					'class' => array(),
+				),
+				'ul' => array(
+					'class' => array(),
+				),
+				'li' => array(
+					'class' => array(),
+				),
+				'a' => array(
+					'href'               => array(),
+					'title'              => array(),
+					'rel'                => array(),
+					'class'              => array(),
+					'target'             => array(),
+					'data-tippy-content' => array(),
+				),
+				'time' => array(
+					'datetime' => array(),
+					'class'    => array(),
+				),
+			) 
+		);
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_generate_css' ) ) :
 	/**
 	 * Generate CSS.
