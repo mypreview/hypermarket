@@ -559,6 +559,18 @@ if ( ! function_exists( 'hypermarket_sanitize' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_has_edit_permission' ) ) :
+	/**
+	 * Returns whether the current user has the `edit_posts` capability.
+	 *
+	 * @since    2.0.0
+	 * @return   bool
+	 */
+	function hypermarket_has_edit_permission() {
+		return current_user_can( 'edit_posts' );
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_slugify' ) ) :
 	/**
 	 * Slugifies every string, even when it contains unicode!
