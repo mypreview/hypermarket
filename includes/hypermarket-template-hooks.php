@@ -102,3 +102,10 @@ add_action( 'hypermarket_page', 'hypermarket_page_content', 20 );
 add_action( 'hypermarket_page_bottom', 'hypermarket_edit_post_link' );
 add_action( 'hypermarket_page_bottom', 'hypermarket_paging_nav', 20 );
 add_action( 'hypermarket_page_bottom', 'hypermarket_display_comments', 30 );
+
+/**
+ * Archive
+ */
+add_action( 'hypermarket_archive_top', 'hypermarket_div', 5 );
+add_action( 'hypermarket_archive_top', 'hypermarket_archive_header' );
+add_action( 'hypermarket_archive_top', 'hypermarket_div_close', 25 );
