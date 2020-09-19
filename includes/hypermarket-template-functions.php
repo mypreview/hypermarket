@@ -208,9 +208,30 @@ if ( ! function_exists( 'hypermarket_skip_links' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_archive_header' ) ) :
+	/**
+	 * Display the archive header.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_archive_header() {
+		?>
+		<header class="entry-header">
+			<?php 
+				// Display the archive title based on the queried object.
+				the_archive_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
+				// Display category, tag, term, or author description.
+				the_archive_description( '<div class="entry-description">', '</div>' );
+			?>
+		</header>
+		<?php
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_page_header' ) ) :
 	/**
-	 * Display the page header
+	 * Display the page header.
 	 *
 	 * @since   2.0.0
 	 * @return  void
@@ -226,7 +247,7 @@ endif;
 
 if ( ! function_exists( 'hypermarket_page_content' ) ) :
 	/**
-	 * Display the post content
+	 * Display the post content.
 	 *
 	 * @since   2.0.0
 	 * @return  void
