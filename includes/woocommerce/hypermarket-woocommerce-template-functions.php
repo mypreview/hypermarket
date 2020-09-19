@@ -36,7 +36,7 @@ if ( ! function_exists( 'hypermarket_breadcrumb' ) ) :
 		$breadcrumbs = apply_filters( 'hypermarket_has_breadcrumbs', true );
 		
 		// Bail early if the breadcrumbs has been removed from the view.
-		if ( !!! $breadcrumbs || !! hypermarket_get_post_meta( 'breadcrumbs', $post->ID ) ) {
+		if ( ! ! ! $breadcrumbs || ! ! hypermarket_get_post_meta( 'breadcrumbs', $post->ID ) ) {
 			return;
 		}
 
