@@ -96,7 +96,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 *
 		 * @since   2.0.0
 		 * @param   array $classes    Css classes applied to the body tag.
-		 * @return  array       $classes    Modified to include 'woocommerce-active' class
+		 * @return  array
 		 */
 		public function body_classes( $classes ) {
 			$classes[] = 'woocommerce-active';
