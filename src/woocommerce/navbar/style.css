@@ -12,11 +12,7 @@
 		position: relative;
 
 		ul {
-			padding: 0;
-		}
-
-		li {
-			list-style: none;
+			@extend %none-list-style;
 		}
 
 		.widget {
@@ -27,7 +23,6 @@
 		}
 
 		> ul {
-			margin-bottom: 0;
 			> li {
 				&:last-child {
 					display: none;
@@ -45,6 +40,16 @@
 					display: block;
 					animation: slideUp 0.4s;
 				}
+			}
+		}
+
+		.woocommerce-mini-cart {
+			&__total {
+				margin-bottom: 0;
+			}
+
+			&__buttons {
+				display: hidden;
 			}
 		}
 	}
