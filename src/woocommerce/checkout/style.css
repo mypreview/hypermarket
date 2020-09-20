@@ -1,15 +1,18 @@
 .woocommerce-checkout {
 	form& {
 		display: flex;
+	    flex-wrap: wrap;
 
 		#customer_details {
 			width: 66% ?if media (--screen-sm-min);
+			width: 100% ?if media (--screen-sm);
 		}
 
 		#order_review {
 			width: 34% ?if media (--screen-sm-min);
 			padding-left: 10.8% ?if media (--screen-md-min);
 			padding-left: 30px ?if media (--screen-md) and (--screen-sm-min);
+			width: 100% ?if media (--screen-sm);
 		}
 	}
 
@@ -24,7 +27,13 @@
 			display: flex;
 			justify-content: space-between;
 			flex-wrap: wrap;
-			margin-bottom: 15px;
+			margin-bottom: 15px;			
+		}
+
+		.woocommerce-shipping-totals {
+			td {
+				width: 100%;
+			}
 		}
 
 		td,
@@ -37,38 +46,56 @@
 		th {
 			font-weight: 500;
 		}
-
-		.woocommerce-shipping-methods {
-			display: flex;
-			flex-wrap: wrap;
-
-			li {
-				margin-right: 5px;
-			}
-		}
 	}
 
 	.order-total {
 		th {
-			margin-top: 5px;
+			display: hidden;
 		}
+	}
+
+	.woocommerce-form-login  {
+		margin-bottom: 30px;
+
+		p:first-child {
+			font-size: var(--general-small);
+			color: var(--general-text-alt);
+		}
+
+		.clear + .form-row {
+			@extend %coupon-grid;
+			grid-template-columns: 1fr 2.5fr ?if media (--screen-md-min);
+			justify-items: end;
+		    margin-bottom: 7px;
+    		align-items: center;
+
+    		label {
+    			order: 2;
+    			margin-bottom: 0;
+    		}
+		}
+
+		&__submit {
+			width: 100%;
+    		margin: 0;
+		}
+
+		.lost_password {
+			font-size: var(--general-small);
+    		text-align: right;
+		    margin-bottom: 0;
+		}
+	}
+}
+
+.woocommerce-billing-fields {
+	> h3 {
+		display: hidden;
 	}
 }
 
 #order_review_heading {
 	display: hidden;
-}
-
-.wc_payment_method {
-	ul&s {
-		@extend %none-list-style;
-		color: var(--general-text-alt);
-		font-size: var(--general-small);
-	}
-
-	p {
-		line-height: var(--line-height-base);
-	}
 }
 
 .place-order {
@@ -77,25 +104,28 @@
 	.button {
 		width: 100%;
 	}
+
+	&__back-to-cart {
+		@extend %alt-button;
+	}
 }
 
 .woocommerce-form-coupon {
-	display: grid;
+	@extend %coupon-grid;
 	grid-template-columns: 2.5fr 1fr ?if media (--screen-md-min);
-	grid-template-columns: 1fr ?if media (--screen-md);
-	grid-column-gap: 30px;
-	grid-row-gap: 17px;
+	margin-bottom: 30px;
 
 	p:first-child {
-		padding-left: 0;
 		font-size: var(--general-small);
 		color: var(--general-text-alt);
-		text-transform: none;
 		grid-row: 1;
 		grid-column: 1/-1;
+	    margin-bottom: 7px;
 	}
 
 	.form-row {
+		margin-bottom: 0;
+
 		&-first {
 			width: auto;
 			flex-grow: 1;
