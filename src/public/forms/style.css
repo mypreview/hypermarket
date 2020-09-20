@@ -5,6 +5,7 @@ label {
 	margin-bottom: 7px;
 	padding-left: 18px;
 	text-transform: uppercase;
+	line-height: var(--line-height-base);
 
 	&[for] {
 		cursor: pointer;
@@ -105,6 +106,7 @@ optgroup {
 [type="radio"] {
 	position: absolute;
 	width: 15px;
+	min-width: 15px;
 	height: 15px;
 	vertical-align: middle;
 	margin: 5px 0 0 2px;
@@ -137,6 +139,7 @@ input {
 .select2 {
 	&-container {
 		display: block;
+		font-size: var(--general-small);
 
 		&--default {
 			^^&-selection {
@@ -148,13 +151,19 @@ input {
 					align-items: center;
 					padding-left: 8px;
 
-					.select2-selection__arrow {
-						display: hidden;
+					^^^^&-selection {
+						&__arrow {
+							display: hidden;
+						}
+
+						&__rendered {
+							color: var(--general-text);
+						}
 					}
 				}
 			}
 
-			.select2-results__option {
+			^^&-results__option {
 				&--highlighted {
 					&[aria-selected] {
 						color: var(--general-background);
@@ -166,6 +175,13 @@ input {
 					background-color: var(--general-tile);
 				}
 			}
+
+			^^&-search--dropdown {
+				^^^&-search__field {
+				    height: 38px;
+    				border: 2px solid var(--general-border);
+				}
+			}
 		}
 	}
 
@@ -173,13 +189,9 @@ input {
 		border-color: var(--general-border);
 		border-width: 2px;
 	}
+}
 
-	&-search {
-		&--dropdown {
-			.select2-container--default & ^&__field {
-				height: 38px;
-				border: 2px solid var(--general-border);
-			}
-		}
-	}
+fieldset {
+	border-color: var(--general-border);
+	border-radius: var(--border-radius-base);
 }
