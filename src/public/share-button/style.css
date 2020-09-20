@@ -1,16 +1,17 @@
 .entry-share {
 	display: flex;
+	flex-wrap: wrap;
 	
 	&__label {
 		color: var(--general-text-alt);
 		font-size: var(--general-small);
-		margin: 10px 5px 0 0;
+		margin: 10px 13px 0 0;
 	}
 
 	ul {
 		display: flex;
 		flex-wrap: wrap;
-		margin: 0;
+		margin: 0 -4px 0;
 		padding-left: 0;
 	}
 
@@ -20,7 +21,7 @@
 
 	a {
 		@extend %link-none;
-		margin: 0 0 8px 8px;
+		margin: 0 4px 8px;
 		width: 36px;
 		height: 36px;
 		display: inline-flex;
