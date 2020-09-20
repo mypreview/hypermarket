@@ -1,16 +1,14 @@
 .form-row {
-	&-last,
-	&-first {
-		width: calc(50% - 15px);
-		float: left;
-	}
+	@media (--screen-sm-min) {
+		&-last,
+		&-first {
+			width: calc(50% - 15px);
+			float: left;
+		}
 
-	&-last {
-		margin-left: 15px;
-	}
-
-	&-first {
-		margin-right: 15px;
+		&-first {
+			margin-right: 30px;
+		}
 	}
 
 	&-wide {
@@ -27,7 +25,7 @@
 
 			input {
 				left: 0;
-				margin-top: 0;
+				margin-top: 2px;
 			}
 		}
 	}
@@ -57,6 +55,7 @@
 			top: 11px;
 			line-height: 1;
 			font-size: var(--general-medium);
+			z-index: 1;
 		}
 	}
 }
@@ -90,4 +89,24 @@
 .woocommerce-password-strength {
 	font-size: var(--general-small);
 	margin-top: 5px;
+
+	&.short {
+		color: var(--alert-warning);
+	}
+
+	&.bad {
+		color: var(--alert-danger);
+	}
+
+	&.good {
+		color: var(--alert-info);
+	}
+
+	&.strong {
+		color: var(--alert-success);
+	}
+}
+
+.required {
+	color: var(--alert-danger);
 }
