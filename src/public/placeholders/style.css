@@ -21,10 +21,20 @@
 	padding-top: var(--table-cell-padding);
 }
 
+%coupon-grid {
+	display: grid;
+	grid-template-columns: 1fr ?if media (--screen-md);
+	grid-column-gap: 30px;
+	grid-row-gap: 17px;
+}
+
 %none-list-style {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+	padding-left: 0;
+	margin-bottom: 0;
+
+	li {
+		list-style: none;
+	}
 }
 
 %alignfull {
