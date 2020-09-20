@@ -8,5 +8,6 @@
 @import "./forms/style.css";
 @import "./products/style.css";
 @import "./cart/style.css";
+@import "./payment-methods/style.css";
 @import "./checkout/style.css";
 @import "./handheld/style.css";
