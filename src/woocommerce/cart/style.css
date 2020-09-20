@@ -8,6 +8,7 @@
 	}
 	&-form {
 		width: 66% ?if media (--screen-sm-min);
+		width: 100% ?if media (--screen-sm);
 		margin-bottom: 48px;
 
 		&__contents {
@@ -21,11 +22,8 @@
 			}
 
 			.coupon {
-				display: grid;
 				grid-template-columns: 2.5fr 1fr ?if media (--screen-md-min);
-				grid-template-columns: 1fr ?if media (--screen-md);
-				grid-column-gap: 30px;
-				grid-row-gap: 17px;
+				@extend %coupon-grid;
 
 				label {
 					padding-left: 0;
@@ -47,8 +45,10 @@
 				}
 			}
 
-			[type="submit"] {
-				display: hidden;
+			.actions {
+				> [type="submit"] {
+					display: hidden;
+				}
 			}
 		}
 
@@ -135,6 +135,7 @@
 .cart {
 	&-collaterals {
 		width: 34% ?if media (--screen-sm-min);
+		width: 100% ?if media (--screen-sm);
 		display: flex;
 		flex-direction: column;
 		padding-left: 10.8% ?if media (--screen-md-min);
