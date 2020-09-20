@@ -1,6 +1,6 @@
 .product {
 	&s {
-		padding-left: 0;
+		@extend %none-list-style;
 		display: grid;
 		grid-gap: 30px;
 
@@ -22,8 +22,6 @@
 	}
 
 	li& {
-		list-style: none;
-
 		a {
 			text-decoration: none;
 		}

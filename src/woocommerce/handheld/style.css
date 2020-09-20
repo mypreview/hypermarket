@@ -11,12 +11,7 @@
 	ul {
 		display: flex;
 		align-items: center;
-		padding-left: 0;
-		margin-bottom: 0;
-	}
-
-	li {
-		list-style: none;
+		@extend %none-list-style;
 	}
 
 	.columns-3 {
