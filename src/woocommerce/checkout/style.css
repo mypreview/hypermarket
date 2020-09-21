@@ -144,3 +144,15 @@
 		@extend %alt-button;
 	}
 }
+
+.woocommerce-privacy-policy-text {
+	font-size: var(--general-small);
+}
+
+.woocommerce-terms-and-conditions {
+	background-color: var(--general-tile);
+	font-size: var(--general-small);
+	padding: 10px;
+    overflow-x: hidden;
+    margin-bottom: 10px;
+}
