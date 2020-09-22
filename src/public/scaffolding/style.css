@@ -130,7 +130,7 @@ blockquote {
 
 address {
 	margin-bottom: var(--line-height-computed);
-	font-style: normal;
+	font-style: italic;
 	line-height: var(--line-height-base);
 }
 
