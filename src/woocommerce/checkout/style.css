@@ -19,6 +19,14 @@
 	&-review-order-table {
 		font-size: var(--general-small);
 
+		.woocommerce-shipping-totals {
+		    margin-bottom: 5px;
+			    
+			th {
+				display: hidden;
+			}
+		}
+
 		thead {
 			display: hidden;
 		}
@@ -54,7 +62,7 @@
 		}
 	}
 
-	.woocommerce-form-login  {
+	.woocommerce-form-login {
 		margin-bottom: 30px;
 
 		p:first-child {
@@ -64,26 +72,13 @@
 
 		.clear + .form-row {
 			@extend %coupon-grid;
-			grid-template-columns: 1fr 2.5fr ?if media (--screen-md-min);
-			justify-items: end;
-		    margin-bottom: 7px;
+		    margin-bottom: 0;
     		align-items: center;
-
-    		label {
-    			order: 2;
-    			margin-bottom: 0;
-    		}
 		}
 
 		&__submit {
 			width: 100%;
-    		margin: 0;
-		}
-
-		.lost_password {
-			font-size: var(--general-small);
-    		text-align: right;
-		    margin-bottom: 0;
+		    margin: 0 0 10px;
 		}
 	}
 }
@@ -107,12 +102,18 @@
 
 	&__back-to-cart {
 		@extend %alt-button;
+
+		&:before {
+		    content: "\e988";
+		    font-family: boxicons;
+			margin-right: 5px;
+			font-size: calc(var(--general-normal) * 1.125)
+		}
 	}
 }
 
 .woocommerce-form-coupon {
 	@extend %coupon-grid;
-	grid-template-columns: 2.5fr 1fr ?if media (--screen-md-min);
 	margin-bottom: 30px;
 
 	p:first-child {
