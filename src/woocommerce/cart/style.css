@@ -22,7 +22,6 @@
 			}
 
 			.coupon {
-				grid-template-columns: 2.5fr 1fr ?if media (--screen-md-min);
 				@extend %coupon-grid;
 
 				label {
@@ -166,23 +165,35 @@
 		color: var(--general-text-alt);
 		font-size: var(--general-small);
 
-		th {
-			display: hidden;
-		}
-
 		tbody {
 			display: grid;
 			grid-gap: 17px;
 		}
 
+		th{
+		    font-weight: 500;
+		}
+
+		th,
 		td {
 			border-bottom: 0;
 			padding: 0;
 		}
 
+		tr {
+			display: flex;
+			flex-direction: column;
+		}
+
 		.order-total {
 			order: -1;
 			color: var(--general-text);
+		}
+
+		@each $tr in cart-subtotal, shipping, order-total {
+			.$(tr) th {
+				display: hidden;
+			}
 		}
 	}
 
@@ -216,13 +227,18 @@
 	}
 }
 
-.shipping-calculator-button {
-	margin-bottom: 12px;
-	@extend %link-none;
-	@extend %meta-icon;
+.shipping-calculator {
+	&-button {
+		@extend %link-none;
+		@extend %meta-icon;
 
-	&::before {
-		content: "\ed4f";
+		&::before {
+			content: "\ed4f";
+		}
+	}
+
+	&-form {
+		margin-top: 12px;
 	}
 }
 
@@ -237,15 +253,15 @@
 }
 
 .wc-proceed-to-checkout {
-    margin-top: 10px;
+    margin-top: 22px;
     
 	.button {
 		width: 100%;
 	    margin-right: 0;
     	margin-bottom: 0;
 
-    	&:not([disabled]):first-child {
-    		@extend %disabled-button;
+    	&:not([disabled]):nth-last-child(2) {
+    		@extend %alt-button;
     	}
 	}
 }
