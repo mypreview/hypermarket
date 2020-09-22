@@ -10,4 +10,6 @@
 @import "./cart/style.css";
 @import "./payment-methods/style.css";
 @import "./checkout/style.css";
+@import "./order-received/style.css";
+@import "./my-account/style.css";
 @import "./handheld/style.css";
