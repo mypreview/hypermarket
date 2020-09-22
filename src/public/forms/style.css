@@ -6,6 +6,7 @@ label {
 	padding-left: 18px;
 	text-transform: uppercase;
 	line-height: var(--line-height-base);
+	font-weight: 400;
 
 	&[for] {
 		cursor: pointer;
@@ -39,14 +40,6 @@ label {
 			border-color: var(--general-primary);
 			outline: none;
 		}
-	}
-}
-
-input,
-textarea {
-	&::placeholder {
-		color: var(--general-text);
-		opacity: 1;
 	}
 }
 
