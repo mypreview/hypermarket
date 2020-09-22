@@ -12,7 +12,11 @@
 		position: relative;
 
 		ul {
-			@extend %none-list-style;
+			padding-left: 0;
+
+			li {
+				list-style: none;
+			}
 		}
 
 		.widget {
@@ -23,6 +27,8 @@
 		}
 
 		> ul {
+		    margin-bottom: 0;
+		    
 			> li {
 				&:last-child {
 					display: none;
