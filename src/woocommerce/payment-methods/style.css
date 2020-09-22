@@ -5,7 +5,18 @@
 		@extend %none-list-style;
 		color: var(--general-text-alt);
 		font-size: var(--general-small);
-	}
+
+		> li:only-child {
+			label {
+				padding-left: 0;
+    			margin-left: 0;
+			}
+
+			.payment_box {
+				padding-left: 0;
+			}
+		}
+	}	
 
 	p {
 		line-height: var(--line-height-base);
@@ -15,6 +26,10 @@
 
 	.payment_box {
 		padding: 0 0 20px 27px;
+	}
+
+	&:last-child .payment_box {
+		padding-bottom: 0;
 	}
 
 	> label {
