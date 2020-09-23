@@ -29,6 +29,14 @@
 			}
 		}
 	}
+
+	&-row {
+		span {
+			em {
+				font-size: calc(var(--general-normal) * .75);
+			}
+		}
+	}
 }
 
 .woocommerce-input-wrapper {
