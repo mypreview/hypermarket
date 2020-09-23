@@ -9,12 +9,17 @@
 		padding-bottom: 60px;
 	}
 
-	.entry-title {
+	.entry-header {
 		@extend %colfull;
-		margin-bottom: 18px;
+
+		.entry-title {
+			margin-bottom: 18px;
+		}
 
 		&:only-child {
-			margin-bottom: 0;
+			.entry-title{
+				margin-bottom: 0;
+			}
 		}
 	}
 
