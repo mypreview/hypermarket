@@ -1,18 +1,6 @@
 #customer_login {
-	&.col2-set {
-		display: grid;
-    	grid-template-columns: 1fr 1fr ?if media (--screen-sm-min);
-	    grid-column-gap: 30px;
-    	grid-row-gap: 48px;
-	}
-
 	.woocommerce-form {
 		max-width: 360px ?if media (--screen-sm-min);
-	}
-
-	h2 {
-		font-size: var(--general-large);
-		margin-bottom: 20px;
 	}
 
 	.woocommerce-form {
@@ -84,4 +72,132 @@
     	margin: 0;
 	    min-width: 40%;
     }
+}
+
+.woocommerce-account {
+	.col2-set {
+		display: grid;
+    	grid-template-columns: 1fr 1fr ?if media (--screen-sm-min);
+	    grid-column-gap: 30px;
+    	grid-row-gap: 48px;
+	}
+
+	.entry-content {
+		> .woocommerce {
+		    display: flex;
+		    flex-wrap: wrap;
+		}
+	}
+
+	h2 {
+		font-size: var(--general-large);
+		margin-bottom: 20px;
+	}
+
+	.order-again {
+		margin-top: 10px;
+	}
+}
+
+.woocommerce-MyAccount {
+	&-navigation {
+	    width: 32% ?if media (--screen-sm-min);
+	    width: 100% ?if media (--screen-sm);
+    	border-radius: var(--border-radius-small);
+    	overflow: hidden;
+    	font-size: var(--general-small);
+    	text-transform: uppercase;
+
+    	a {
+    		@extend %link-none;
+    		display: block;
+		    padding: 15px 20px;
+		    border-left: 2px solid transparent;
+
+    		:--active {
+    			color: var(--general-primary);
+    		}
+    	}
+
+    	.is-active {
+    		a {
+    			border-left-color: currentColor;
+    			color: var(--general-primary);
+    		}
+    	}
+
+    	ul {
+    		@extend %none-list-style;
+    	}
+
+    	li {
+    		background-color: var(--general-tile);
+
+    		&:nth-child(n+1) {
+    			margin-top: 2px;
+    		}
+    	}
+	}
+
+	&-content {
+	    width: 68% ?if media (--screen-sm-min);
+	    width: 100% ?if media (--screen-sm);
+    	padding-left: 30px ?if media (--screen-sm-min);
+    	padding-top: 30px ?if media (--screen-sm
+    		);
+    	font-size: var(--general-small);
+
+    	th {
+		    font-weight: 500;
+    	}
+
+    	td {
+		    vertical-align: middle;
+
+		    .button {
+			    margin: 4px 4px 4px 0;
+			    min-height: auto;
+			    padding: 3px 8px;
+			    text-transform: none;
+			}
+    	}
+	}
+}
+
+.woocommerce-orders-table {
+	&__cell-order {
+		&-number {
+			a {
+				@extend %link-none;
+				font-weight: 500;
+			}
+		}
+	}
+}
+
+.woocommerce-table {
+	&--order-downloads {
+		.download-product {
+			a {
+				@extend %link-none;
+				font-weight: 500;
+			}
+		}
+	}
+}
+
+.woocommerce-address-fields {
+	&__field-wrapper {
+		p {
+			&:last-child {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
+
+.edit-account {
+	.button {
+		margin-top: 20px;
+	}
 }
