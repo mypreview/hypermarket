@@ -188,3 +188,7 @@ fieldset {
 	border-color: var(--general-border);
 	border-radius: var(--border-radius-base);
 }
+
+legend {
+	margin-bottom: 10px;
+}
