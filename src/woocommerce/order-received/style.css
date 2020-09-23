@@ -65,9 +65,4 @@
 .woocommerce-customer-details,
 .woocommerce-order-details {
     margin-top: 48px;
-
-    > h2 {
-    	margin-bottom: 20px;
-		font-size: var(--general-large);
-    }
 }
