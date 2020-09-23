@@ -1,4 +1,9 @@
 .woocommerce-checkout {
+	> h2 {
+    	margin-bottom: 20px;
+		font-size: var(--general-large);
+    }
+    
 	form& {
 		display: flex;
 	    flex-wrap: wrap;
@@ -156,4 +161,10 @@
 	padding: 10px;
     overflow-x: hidden;
     margin-bottom: 10px;
+}
+
+.woocommerce-order-pay {
+	#payment {
+		margin-top: 48px;
+	}
 }
