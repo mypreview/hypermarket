@@ -1,5 +1,6 @@
-@import "../public/placeholders/style.css";
-@import "../public/variables/style.css";
+@import "./../placeholders/style.css";
+@import "./../variables/style.css";
+@import "./../mixins/style.css";
 @import "./navbar/style.css";
 @import "./breadcrumbs/style.css";
 @import "./notice/style.css";
@@ -7,6 +8,8 @@
 @import "./widgets/style.css";
 @import "./forms/style.css";
 @import "./tabs/style.css";
+@import "./star-rating/style.css";
+@import "./reviews/style.css";
 @import "./product/style.css";
 @import "./products/style.css";
 @import "./cart/style.css";
