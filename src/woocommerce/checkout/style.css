@@ -106,11 +106,10 @@
 	}
 
 	&__back-to-cart {
-		@extend %alt-button;
+		@mixin button-color;
 
 		&:before {
-		    content: "\e988";
-		    font-family: boxicons;
+		    @mixin icon "\e988";
 			margin-right: 5px;
 			font-size: calc(var(--general-normal) * 1.125)
 		}
@@ -147,7 +146,7 @@
 	.button {
 		width: 100%;
 		margin: 0;
-		@extend %alt-button;
+		@mixin button-color;
 	}
 }
 

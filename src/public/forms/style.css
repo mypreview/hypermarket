@@ -34,7 +34,7 @@ label {
 		background-color: var(--general-background);
 		appearance: none;
 		padding: 0 16px;
-		@extend %border-shift;
+		@mixin shift border;
 
 		&:focus {
 			border-color: var(--general-primary);
@@ -73,8 +73,7 @@ optgroup {
 	&::before {
 		position: absolute;
 		display: block;
-		font-family: boxicons;
-		content: "\ea0f";
+		@mixin icon "\ea0f";
 		color: #fff;
 		line-height: 1;
 		top: -2px;

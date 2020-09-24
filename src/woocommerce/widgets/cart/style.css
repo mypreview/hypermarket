@@ -42,8 +42,7 @@
 			font-size: 0;
 
 			&::before {
-				content: "\ec4e";
-				font-family: boxicons;
+				@mixin icon "\ec4e";
 				font-size: calc(var(--general-normal) * 1.125);
 				line-height: 1;
 				position: absolute;
@@ -95,7 +94,7 @@
 			padding: 0 15px;
 
 			&:not(.checkout) {
-				@extend %alt-button;
+				@mixin button-color;
 			}
 		}
 	}

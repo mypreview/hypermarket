@@ -68,7 +68,7 @@ p {
 a {
 	color: var(--general-primary);
 	text-decoration: underline;
-	@extend %color-shift;
+	@mixin shift color;
 
 	:--active {
 		color: var(--general-primary);

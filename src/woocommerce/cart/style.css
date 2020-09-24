@@ -40,7 +40,7 @@
 
 				.button {
 					margin: 0;
-					@extend %alt-button;
+					@mixin button-color;
 				}
 			}
 
@@ -110,9 +110,8 @@
 						}
 
 						&::before {
-							content: "\ec4e";
+							@mixin icon "\ec4e";
 							font-size: calc(var(--general-normal) * 1.25);
-							font-family: boxicons;
 						}
 					}
 				}
@@ -261,7 +260,7 @@
     	margin-bottom: 0;
 
     	&:not([disabled]):nth-last-child(2) {
-    		@extend %alt-button;
+    		@mixin button-color;
     	}
 	}
 }

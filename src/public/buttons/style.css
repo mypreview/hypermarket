@@ -43,7 +43,7 @@ button,
 	justify-content: center;
 	text-align: center;
 	cursor: pointer;
-	@extend %color-background-shift;
+	@extend %button-shift;
 
 	:--active {
 		background-color: var(--general-primary-alt);
@@ -51,6 +51,6 @@ button,
 	}
 
 	&[disabled] {
-		@extend %disabled-button;
+		@mixin button-color var(--general-text), var(--general-border), var(--general-border), var(--general-text), var(--general-tile);
 	}
 }

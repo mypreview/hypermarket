@@ -92,8 +92,7 @@ nav {
 		> a::after {
 			display: inline-block;
 			vertical-align: middle;
-			font-family: boxicons;
-			content: "\e9f9";
+			@mixin icon "\e9f9";
 			font-size: calc(var(--general-normal) * 0.75);
 			margin-left: 1px;
 			margin-top: -2px;

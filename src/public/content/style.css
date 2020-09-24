@@ -42,7 +42,6 @@
 	display: inline-flex;
 
 	&::before {
-		content: "\ed50";
-		font-family: boxicons;
+		@mixin icon "\ed50";
 	}
 }

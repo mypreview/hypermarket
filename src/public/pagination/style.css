@@ -12,7 +12,7 @@
 		span {
 			display: inline-block;
 			padding: 2px 10px 2px 0;
-			@extend %opacity-shift;
+			@mixin shift opacity;
 
 			&:hover {
 				opacity: 0.55;
@@ -36,7 +36,7 @@
 
 		a {
 			@extend %link-none;
-			@extend %opacity-shift;
+			@mixin shift opacity;
 
 			&:hover {
 				opacity: 0.55;

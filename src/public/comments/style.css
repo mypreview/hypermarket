@@ -101,8 +101,7 @@
 		display: inline-flex;
 
 		&::before {
-			content: "\ee50";
-			font-family: boxicons;
+			@mixin icon "\ee50";
 			padding-right: 3px;
 		}
 

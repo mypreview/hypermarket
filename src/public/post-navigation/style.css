@@ -21,8 +21,8 @@
 				justify-content: center;
 				text-transform: uppercase;
 				text-decoration: none;
-				@extend %alt-button;
-				@extend %color-background-shift;
+				@mixin button-color;
+				@extend %button-shift;
 			}
 		}
 
@@ -41,8 +41,7 @@
 			justify-content: flex-start;
 			a {
 				&::before {
-					content: "\ea1a";
-					font-family: boxicons;
+					@mixin icon "\ea1a";
 					margin: 0 4px 0 -3px;
 				}
 			}
@@ -53,8 +52,7 @@
 			justify-content: flex-end;
 			a {
 				&::after {
-					content: "\ea1d";
-					font-family: boxicons;
+					@mixin icon "\ea1d";
 					margin: 0 -3px 0 4px;
 				}
 			}
@@ -71,8 +69,7 @@
 			}
 			span {
 				&::before {
-					content: "\eb2a";
-					font-family: boxicons;
+					@mixin icon "\eb2a";
 				}
 			}
 		}

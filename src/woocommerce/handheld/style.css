@@ -42,8 +42,7 @@
 			}
 
 			&::before {
-				content: "\ebbc";
-				font-family: boxicons;
+				@mixin icon "\ebbc";
 				font-size: calc(var(--general-normal) * 1.375);
 				padding-top: 4px;
 			}
@@ -53,7 +52,7 @@
 			size: 100% 0;
 			position: absolute;
 			left: 0;
-			transition: bottom 0.2s ease;
+			@mixin shift bottom;
 			z-index: -2;
 			bottom: 0;
 			overflow: hidden;
@@ -61,7 +60,7 @@
 
 			form {
 				opacity: 0;
-				@extend %opacity-shift;
+				@mixin shift opacity;
 			}
 		}
 
