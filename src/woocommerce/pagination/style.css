@@ -1,0 +1,38 @@
+.woocommerce-pagination {
+	&--without-numbers {
+        display: flex;
+    	padding: 15px 0;
+    	border-bottom: 1px solid var(--general-border);
+
+		.woocommerce-button {
+			@extend %alt-button;
+			padding: 0 16px;
+			font-size: calc(var(--general-normal) * 0.75);
+			min-height: 36px;
+			margin: 0;
+    		max-width: calc(50% - 5px);
+
+			&--next {
+				margin-left: auto;
+
+				&::after {
+					content: "\ea1d";
+					font-family: boxicons;
+					margin: 0 -3px 0 4px;
+				}
+			}
+
+			&--previous {
+				margin-right: auto;
+
+				&::before {
+					content: "\ea1a";
+					font-family: boxicons;
+					margin: 0 4px 0 -3px;
+				}
+			}
+		}
+
+
+	}
+}
