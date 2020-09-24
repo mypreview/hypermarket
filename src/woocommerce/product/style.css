@@ -1,0 +1,22 @@
+.product {
+	.woocommerce-Tabs-panel {		
+		> h2 {
+			&:first-child {
+				display: hidden;
+			}
+		}
+	}
+}
+
+.woocommerce-product-attributes {
+	&-item {
+		p {
+			margin-bottom: 0;
+		}
+
+		td,
+		th {
+			border-bottom-width: 0;
+		}
+	}
+}
