@@ -1,35 +1,33 @@
 .post-navigation {
 	.nav {
 		&-links {
-			display: flex;
+			display: grid;
+    		grid-template-columns: 1fr 60px 1fr;
 			padding: 15px 0;
 			border-style: solid;
 			border-color: var(--general-border);
 			border-width: 1px 0;
 			margin-top: 22px;
 
+			> * {
+				display: flex;
+			    align-items: center;
+			}
+
 			a {
-				border-radius: var(--border-radius-small);
-				border: 2px solid var(--general-border);
+				border-radius: var(--border-radius-base);
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				text-transform: uppercase;
 				text-decoration: none;
-				color: var(--general-text);
+				@extend %alt-button;
 				@extend %color-background-shift;
-
-				&:hover {
-					background-color: var(--general-border);
-				}
 			}
 		}
 
 		@each $nav in previous, next {
 			&-$(nav) {
-				width: 136px;
-				display: flex;
-
 				a {
 					padding: 0 16px;
 					font-size: calc(var(--general-normal) * 0.75);
@@ -39,7 +37,7 @@
 		}
 
 		&-previous {
-			order: 1;
+			grid-area: 1/1;
 			justify-content: flex-start;
 			a {
 				&::before {
@@ -48,16 +46,10 @@
 					margin: 0 4px 0 -3px;
 				}
 			}
-
-			&:first-child {
-				& + .nav-blog {
-					padding-right: 136px;
-				}
-			}
 		}
 
 		&-next {
-			order: 3;
+			grid-area: 1/3;
 			justify-content: flex-end;
 			a {
 				&::after {
@@ -66,16 +58,10 @@
 					margin: 0 -3px 0 4px;
 				}
 			}
-
-			&:first-child {
-				& + .nav-blog {
-					padding-left: 136px;
-				}
-			}
 		}
 
 		&-blog {
-			order: 2;
+		    grid-area: 1/2;
 			margin: 0 auto;
 			a {
 				padding: 0 7px;
