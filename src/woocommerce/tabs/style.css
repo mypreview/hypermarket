@@ -1,0 +1,39 @@
+.wc-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: var(--general-small);
+    line-height: var(--line-height-base);
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--general-border);
+    @extend %none-list-style;
+
+    a {
+    	text-decoration: none;
+    	color: var(--general-text-alt);
+    	display: block;
+    	padding: 18px;
+	    margin-bottom: -2px;
+
+    	:--active {
+    		color: var(--general-text);
+    	}
+    }
+
+    .active {
+    	a {
+    		color: var(--general-text);
+    		border-bottom: 2px solid;
+    	}
+    }
+}
+
+.woocommerce-Tabs {
+	&-panel {
+		padding-top: 60px;
+
+		&--additional_information {
+			padding-top: 45px;
+		}
+	}
+}
