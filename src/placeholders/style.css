@@ -1,17 +1,5 @@
-%color-shift {
-	transition: color 0.3s;
-}
-
-%color-background-shift {
+%button-shift {
 	transition: color 0.3s ease-out, background-color 0.3s ease-out;
-}
-
-%opacity-shift {
-	transition: opacity 0.3s;
-}
-
-%border-shift {
-	transition: border 0.3s;
 }
 
 %caption {
@@ -111,16 +99,5 @@
 	:--active {
 		color: var(--general-text);
 		background-color: var(--general-tile);
-	}
-}
-
-%alt-button {
-	color: var(--general-text);
-	background-color: var(--general-background);
-	border: 2px solid var(--general-border);
-
-	:--active {
-		color: var(--general-text);
-		background-color: var(--general-border);
 	}
 }
