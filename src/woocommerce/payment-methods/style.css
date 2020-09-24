@@ -1,76 +1,79 @@
-.wc_payment_method {
-	margin-bottom: 4px;
-
+.payment_method {
 	ul&s {
 		@extend %none-list-style;
 		color: var(--general-text-alt);
 		font-size: var(--general-small);
 
-		> li:only-child {
-			label {
-				padding-left: 0;
-    			margin-left: 0;
+		> li {
+			margin-bottom: 4px;
+
+			&:only-child {
+				label {
+					padding-left: 0;
+	    			margin-left: 0;
+				}
+
+				.payment_box {
+					padding-left: 0;
+				}
+
+				> .input-radio:first-child {
+				    display: invisible;
+				}
 			}
 
-			.payment_box {
-				padding-left: 0;
+			&:last-child .payment_box {
+				padding-bottom: 0;
+			}
+
+			> label {
+		    	display: flex;
+				flex-wrap: wrap;
+				padding-top: 2.5px;
+		    }
+		}
+
+		p {
+			line-height: var(--line-height-base);
+			font-size: calc(var(--general-normal) * .75);
+			margin-bottom: 0;
+		}
+
+		.payment_box {
+			padding: 0 0 20px 27px;
+		}
+
+		fieldset {
+			margin-top: 5px;
+		    padding: 0;
+	    	border-width: 0;
+
+		    label {
+		    	display: hidden;
+		    }
+
+		    br {
+				content: '';
 			}
 		}
-	}	
 
-	p {
-		line-height: var(--line-height-base);
-		font-size: calc(var(--general-normal) * .75);
-		margin-bottom: 0;
-	}
+		.form-row {
+			&-last,
+			&-first {
+				width: calc(50% - 5px);
+			}
+			&-first {
+				margin-right: 10px;
+			}
+		}
 
-	.payment_box {
-		padding: 0 0 20px 27px;
-	}
-
-	&:last-child .payment_box {
-		padding-bottom: 0;
-	}
-
-	> label {
-    	display: flex;
-		flex-wrap: wrap;
-		padding-top: 2.5px;
-    }
-
-	&[class*="stripe"] {
-    	img[class*="stripe"] {
+		img[class*="stripe"] {
 	        width: auto;
     		height: 13px;
     	}
 	}
 
-	fieldset {
-		margin-top: 5px;
-	    padding: 0;
-    	border-width: 0;
 
-	    label {
-	    	display: hidden;
-	    }
-
-	    br {
-			content: '';
-		}
-	}
-
-	.form-row {
-		&-last,
-		&-first {
-			width: calc(50% - 5px);
-		}
-		&-first {
-			margin-right: 10px;
-		}
-	}
-}
-
-.payment_method {
 	&_paypal {
 		> label {
 			img {
@@ -86,15 +89,17 @@
 	}
 }
 
-.woocommerce-checkout {
+#main {
 	#payment {
 		ul.payment_methods {
 			li {
-				img[class*="stripe"]{
-					margin-top: 4px;
+				label {
+					img[class*="stripe"]{
+						margin-top: 4px;
 
-					&:first-of-type {
-						margin-left: auto;
+						&:first-of-type {
+							margin-left: auto;
+						}
 					}
 				}
 			}
@@ -122,5 +127,17 @@
 .woocommerce-SavedPaymentMethods-saveNew {
 	label {
 		display: flex !important;
+	}
+}
+
+.wc-saved-payment-methods {
+	padding-left: 0;
+}
+
+.wc-payment-form {
+	[role="alert"] {
+		ul {
+			margin-bottom: 0;
+		}
 	}
 }
