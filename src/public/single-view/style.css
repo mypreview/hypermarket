@@ -18,10 +18,10 @@
 			@extend %meta-divider;
 
 			time {
-				@extend %meta-icon;
+				@extend %meta-item;
 
 				&::before {
-					content: "\e9e5";
+					@mixin icon "\e9e5";
 				}
 			}
 		}
@@ -80,9 +80,9 @@
 
 	&-comments {
 		a {
-			@extend %meta-icon;
+			@extend %meta-item;
 			&::before {
-				content: "\ea43";
+				@mixin icon "\ea43";
 			}
 		}
 	}
