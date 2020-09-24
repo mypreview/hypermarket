@@ -82,10 +82,12 @@
     	grid-row-gap: 48px;
 	}
 
-	.entry-content {
-		> .woocommerce {
-		    display: flex;
-		    flex-wrap: wrap;
+	&.logged-in {
+		.entry-content {
+			> .woocommerce {
+			    display: flex;
+			    flex-wrap: wrap;
+			}
 		}
 	}
 
@@ -96,6 +98,46 @@
 
 	.order-again {
 		margin-top: 10px;
+	}
+
+	.shop_table {
+		&_responsive {
+			@media (--screen-md) {
+				thead {
+					display: none;
+				}
+
+				td {
+					display: block;
+    				border-bottom-width: 0;
+				    padding: 5px 0;
+
+				    &[data-title]:before {
+				    	content: attr(data-title)':';
+				    	display: block;
+				    	text-transform: uppercase;
+				    	font-size: calc(var(--general-normal) * 0.75);
+				    }
+
+				    &.download-file,
+				    &.woocommerce-orders-table__cell-order-actions {
+						&:before {
+							display: none;
+						}
+					}
+				}
+
+				tr {
+					padding: 20px 0;
+    				display: block;
+				    border-bottom: 1px solid var(--general-border);
+				}
+			}
+		}
+
+		+ .button {
+    		margin: 20px 0;
+		}
 	}
 }
 
@@ -143,8 +185,7 @@
 	    width: 68% ?if media (--screen-sm-min);
 	    width: 100% ?if media (--screen-sm);
     	padding-left: 30px ?if media (--screen-sm-min);
-    	padding-top: 30px ?if media (--screen-sm
-    		);
+    	padding-top: 48px ?if media (--screen-sm);
     	font-size: var(--general-small);
 
     	th {
@@ -199,5 +240,11 @@
 .edit-account {
 	.button {
 		margin-top: 20px;
+	}
+}
+
+.payment-method {
+	&-actions {
+		text-align: right;
 	}
 }
