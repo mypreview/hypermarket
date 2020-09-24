@@ -53,6 +53,13 @@
 	padding: 0 15px;
 }
 
+%colmd {
+	max-width: 660px;
+	width: 100%;
+    margin-left: auto;
+	margin-right: auto;
+}
+
 %meta-divider {
 	&::after {
 		content: "";
