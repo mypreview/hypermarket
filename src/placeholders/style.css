@@ -60,11 +60,10 @@
 	}
 }
 
-%meta-icon {
+%meta-item {
 	display: flex;
 
 	&::before {
-		font-family: boxicons;
 		margin-right: 3px;
 	}
 }
