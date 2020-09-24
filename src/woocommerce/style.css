@@ -6,10 +6,14 @@
 @import "./quantity/style.css";
 @import "./widgets/style.css";
 @import "./forms/style.css";
+@import "./tabs/style.css";
+@import "./product/style.css";
 @import "./products/style.css";
 @import "./cart/style.css";
 @import "./payment-methods/style.css";
 @import "./checkout/style.css";
 @import "./order-received/style.css";
 @import "./my-account/style.css";
+@import "./track-order/style.css";
+@import "./pagination/style.css";
 @import "./handheld/style.css";
