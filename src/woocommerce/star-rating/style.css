@@ -1,0 +1,29 @@
+.star-rating {
+    height: 16px;
+    line-height: 1;
+    letter-spacing: 4.5px;
+    width: 102.5px;
+    font-size: 16px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    color: var(--alert-warning);
+
+	> span {
+		overflow: hidden;
+	    padding-top: 16px;
+    	position: relative;
+
+		&:before {
+			@mixin icon "\ee67\ee67\ee67\ee67\ee67";
+			top: 0;
+			left: 0;
+			position: absolute;
+		}
+	}
+
+	&:before {
+		@mixin icon "\ebea\ebea\ebea\ebea\ebea";
+		position: absolute;
+	}
+}
