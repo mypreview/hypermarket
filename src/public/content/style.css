@@ -1,31 +1,37 @@
 .page-view,
 .single-view {
-	> .div {
+	.entry-thumbnail {
+		img {
+			margin: 0 auto 48px;
+		}
+	}
+}
+
+@each $content in .page-view, .single-view, .site-main {
+	$(content) > .div:first-child {
 		@extend %alignfull;
 		background-color: var(--general-tile);
 		text-align: center;
 		margin-bottom: 60px;
 		padding-top: 60px;
 		padding-bottom: 60px;
-	}
 
-	.entry-header {
-		@extend %colfull;
+		.entry-header {
+			@extend %colfull;
 
-		.entry-title {
-			margin-bottom: 18px;
-		}
-
-		&:only-child {
-			.entry-title{
+			.entry-title {
 				margin-bottom: 0;
 			}
-		}
-	}
 
-	.entry-thumbnail {
-		img {
-			margin: 0 auto 48px;
+			&:nth-last-child(2) {
+				margin-bottom: 18px;
+			}
+		}
+
+		.entry-description {
+			font-size: var(--general-small);
+			color: var(--general-text-alt);
+    		@extend %colmd;
 		}
 	}
 }
