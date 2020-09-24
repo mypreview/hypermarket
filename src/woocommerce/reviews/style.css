@@ -1,0 +1,22 @@
+.woocommerce-Reviews {
+	&-title {
+		display: hidden;
+	}
+
+	.comment {
+		&list {
+			@extend %none-list-style;
+		}
+
+		&_container {
+			display: grid;
+    		grid-template-columns: 80px 1fr;
+		    grid-gap: 18px;
+		    font-size: var(--general-small);
+		}
+	}
+
+	.avatar {
+		border-radius: 50px;
+	}
+}
