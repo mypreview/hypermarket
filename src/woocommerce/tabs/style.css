@@ -1,6 +1,9 @@
 .wc-tabs {
     display: flex;
-    flex-wrap: wrap;
+    white-space: nowrap;
+    min-width: min-content;
+    overflow-x: auto;
+    overflow-y: hidden;
     justify-content: center;
     font-size: var(--general-small);
     line-height: var(--line-height-base);
@@ -30,10 +33,10 @@
 
 .woocommerce-Tabs {
 	&-panel {
-		padding-top: 60px;
+		padding-top: 36px;
 
-		&--additional_information {
-			padding-top: 45px;
+		&--description {
+			padding-top: 55px;
 		}
 	}
 }
