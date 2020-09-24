@@ -1,0 +1,17 @@
+.woocommerce-form {
+	&-track-order {
+		p:first-child {
+			font-size: var(--general-small);
+			color: var(--general-text-alt);
+		}
+
+		.clear + .form-row {
+			@extend %coupon-grid;
+
+			.button {
+				margin: 0;
+    			grid-area: 1/2 ?if media (--screen-md-min);
+			}
+		}
+	}
+}
