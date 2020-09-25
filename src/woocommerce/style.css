@@ -11,6 +11,7 @@
 @import "./star-rating/style.css";
 @import "./reviews/style.css";
 @import "./product/style.css";
+@import "./product/gallery/style.css";
 @import "./products/style.css";
 @import "./cart/style.css";
 @import "./payment-methods/style.css";
