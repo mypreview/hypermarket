@@ -193,6 +193,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		public function flexslider_args( $args ) {
 			$args['smoothHeight'] = false;
 			$args['useCSS']       = is_rtl();
+			$args['animation'] = 'fade';
 
 			return apply_filters( 'hypermarket_product_flexslider_args', $args );
 		}
