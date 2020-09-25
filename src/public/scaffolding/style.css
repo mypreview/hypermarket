@@ -116,8 +116,7 @@ blockquote {
 
 		&::before {
 			content: "";
-			width: 20px;
-			height: 1px;
+			size: 20px 1px;
 			background-color: var(--general-text-alt);
 			margin-right: 9px;
 		}

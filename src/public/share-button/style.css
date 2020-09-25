@@ -22,8 +22,7 @@
 	a {
 		@extend %link-none;
 		margin: 0 4px 8px;
-		width: 36px;
-		height: 36px;
+		size: 36px;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;

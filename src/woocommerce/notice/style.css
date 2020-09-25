@@ -28,10 +28,9 @@
 
 			&::after {
 				content: "";
-				height: 100%;
+				size: 4px 100%;
 				left: 0;
 				position: absolute;
-				width: 4px;
 				background: var(--general-text);
 				opacity: 0.4;
 				top: 0;

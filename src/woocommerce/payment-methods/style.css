@@ -68,8 +68,7 @@
 		}
 
 		img[class*="stripe"] {
-	        width: auto;
-    		height: 13px;
+	        size: auto 13px;
     	}
 	}
 
@@ -77,8 +76,7 @@
 	&_paypal {
 		> label {
 			img {
-		        width: auto;
-    			height: 34px;
+		        size: auto 34px;
 		        order: 3;
 			}
 

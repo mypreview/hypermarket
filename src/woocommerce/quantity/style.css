@@ -31,11 +31,10 @@
 		text-align: center;
 		border-radius: 0;
 		border-width: 2px 0;
-		height: 36px;
 		appearance: textfield;
 		padding: 0;
 		justify-content: center;
-		width: 32px;
+		size: 32px 36px;
 		font-size: var(--general-normal);
 
 		&::-webkit-outer-spin-button,

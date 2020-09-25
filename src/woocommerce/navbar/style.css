@@ -100,8 +100,7 @@
 
 	&__count {
 		display: block;
-		width: 16px;
-		height: 16px;
+		size: 16px;
 		margin-top: 2px;
 		line-height: 16px;
 		font-size: calc(var(--general-normal) * 0.75);

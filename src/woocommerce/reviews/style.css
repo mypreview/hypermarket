@@ -79,8 +79,7 @@
 
 		&:before {
 			content: "";
-		    width: 20px;
-    		height: 1px;
+		    size: 20px 1px;
 		    margin-right: 5px;
 		    background-color: var(--general-text-alt);
 		    display: inline-block;
@@ -94,8 +93,7 @@
 
 	&__verified {
 	    font-size: 22px;
-		width: 22px;
-	    height: 22px;
+		size: 22px;
 	    overflow: hidden;
 	    padding-top: 22px;
 	    position: absolute;
