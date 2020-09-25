@@ -6,8 +6,18 @@
     font-size: var(--general-small);
     line-height: var(--line-height-base);
     text-transform: uppercase;
-    border-bottom: 2px solid var(--general-border);
     @extend %none-list-style;
+    padding-bottom: 10px;
+    margin-bottom: 26px;
+    position: relative;
+
+    &:after {
+        content: '';
+        size: 100% 2px;
+        background-color: var(--general-border);
+        position: absolute;
+        bottom: 10px;
+    }
 
     li {
         &:first-child {
@@ -24,7 +34,8 @@
     	color: var(--general-text-alt);
     	display: block;
     	padding: 18px;
-	    margin-bottom: -2px;
+        z-index: 1;
+        position: relative;
 
     	:--active {
     		color: var(--general-text);
@@ -41,10 +52,8 @@
 
 .woocommerce-Tabs {
 	&-panel {
-		padding-top: 36px;
-
 		&--description {
-			padding-top: 55px;
+			padding-top: 19px;
 		}
 	}
 }
