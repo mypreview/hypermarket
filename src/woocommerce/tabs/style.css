@@ -1,15 +1,23 @@
 .wc-tabs {
     display: flex;
     white-space: nowrap;
-    min-width: min-content;
     overflow-x: auto;
     overflow-y: hidden;
-    justify-content: center;
     font-size: var(--general-small);
     line-height: var(--line-height-base);
     text-transform: uppercase;
     border-bottom: 2px solid var(--general-border);
     @extend %none-list-style;
+
+    li {
+        &:first-child {
+            margin-left: auto;
+        }
+
+        &:last-child {
+            margin-right: auto;
+        }
+    }
 
     a {
     	text-decoration: none;
