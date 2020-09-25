@@ -4,13 +4,13 @@
 	button {
 		margin: 0;
 		padding: 0 9px;
-		background-color: var(--general-background);
+		background-color: transparent;
 		color: var(--general-text);
 		border: 2px solid var(--general-border);
 		min-height: 36px;
 
 		:--active {
-			background-color: var(--general-background);
+			background-color: transparent;
 			color: var(--general-text);
 		}
 	}
@@ -34,8 +34,9 @@
 		appearance: textfield;
 		padding: 0;
 		justify-content: center;
-		size: 32px 36px;
+		size: 32px auto;
 		font-size: var(--general-normal);
+		background-color: transparent;
 
 		&::-webkit-outer-spin-button,
 		&::-webkit-inner-spin-button {
