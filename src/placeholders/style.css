@@ -84,10 +84,10 @@
 
 %select-icon {
 	background-repeat: no-repeat;
-	background-position: calc(100% - 15.5px) 19px, calc(100% - 11px) 19px, 100% 0;
+	background-position: calc(100% - 15.5px) 50%, calc(100% - 11px) 50%, 100% 0;
 	background-size: 4.5px 4.5px, 4.5px 4.5px, 3em 3em;
 	background-image: linear-gradient(45deg, transparent 50%, var(--general-text) 50%), linear-gradient(135deg, var(--general-text) 50%, transparent 50%), linear-gradient(to right, transparent, transparent);
-	padding-right: 24px;
+	padding-right: 30px;
 }
 
 %disabled-button {
