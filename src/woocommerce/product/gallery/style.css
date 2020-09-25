@@ -1,0 +1,47 @@
+.woocommerce-product-gallery {
+	@extend %alignfull;
+	background-color: var(--general-tile);
+    display: flex;
+
+	> *:nth-child(2) {
+		@extend %colmd;
+	}
+
+	&__trigger {
+		@extend %link-none;
+	    size: 70px;
+	    overflow: hidden;
+	    position: absolute;
+	    left: calc(50% - 35px);
+	    z-index: 1;
+	    top: calc(50% - 35px);
+
+		&:before {
+			@mixin icon "\eeb4";
+			font-size: 20px;
+    		line-height: 1;
+		}
+	}
+
+	&__image {
+		a {
+		    display: flex;
+	    	justify-content: center;
+		}
+	}
+
+	.flex-control-thumbs {
+		@extend %none-list-style;
+	    width: 80px;
+	    display: flex;
+	    flex-direction: column;
+	    position: absolute;
+	    left: calc(50% + 355px);
+	    height: 100%;
+	    justify-content: center;
+
+    	li {
+		    padding: 16px 0;
+    	}
+	}
+}
