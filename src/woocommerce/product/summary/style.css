@@ -1,0 +1,92 @@
+.product {
+	.entry-summary {
+		@extend %alignfull;
+		background-color: var(--general-tile);
+		padding: 48px 15px 72px;
+		text-align: center;
+		margin-bottom: 48px;
+		font-size: var(--general-small);
+		color: var(--general-text-alt);
+
+		> * {
+			@extend %colmd;
+		}
+
+		.product_title {
+			font-size: calc(var(--general-normal) * 1.875);
+		    margin-bottom: 12px;
+		}
+
+		.single_add_to_cart_button {
+		    min-height: 36px;
+    		font-size: calc(var(--general-normal) * 0.75);
+    		padding: 0 17px;
+    		margin: 8px;
+		}
+
+		.variations_button,
+		.cart {
+			display: flex;
+    		flex-wrap: wrap;
+    		justify-content: center;
+
+		}
+
+		.quantity {
+			margin: 8px;
+		}
+
+		.price {
+			font-size: calc(var(--general-normal) * 1.875);
+    		font-weight: 300;
+    		color: var(--general-text);
+    		width: 100%;
+		}
+
+		.variations {
+			td,
+			th {
+				padding: 0;
+				border-bottom-width: 0;
+			    display: block;
+			}
+
+			tr {
+				margin: 8px;
+				position: relative;
+			}
+
+			tbody {
+				display: flex;
+    			justify-content: center;
+			}
+
+			select {
+				height: 36px;
+			}
+		}
+
+		.reset_variations {
+			position: absolute;
+			left: calc(100% + 10px);
+    		bottom: 0;
+    		overflow: hidden;
+    		size: 36px;
+    		@extend %link-none;
+			border: 2px solid var(--general-border);
+			border-radius: var(--border-radius-small);
+
+			&:before {
+				@mixin icon "\ec4e";
+				font-size: calc(var(--general-normal) * 1.25);
+				display: block;
+				line-height: 1;
+				padding: 6px;
+			}
+
+			:--active {
+				color: var(--alert-danger);
+			}
+		}
+	}
+}
