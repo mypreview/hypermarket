@@ -33,7 +33,6 @@ label {
 		border-radius: var(--border-radius-base);
 		background-color: var(--general-background);
 		appearance: none;
-		padding: 0 16px;
 		@mixin shift border;
 
 		&:focus {
@@ -47,14 +46,17 @@ textarea {
 	height: auto;
 	padding: 13px 16px;
 	resize: vertical;
+	padding: 0 16px;
 }
 
-select,
 input {
 	height: 48px;
+	padding: 0 16px;
 }
 
 select {
+	height: 48px;
+	padding-left: 16px;
 	@extend %select-icon;
 	cursor: pointer;
 
