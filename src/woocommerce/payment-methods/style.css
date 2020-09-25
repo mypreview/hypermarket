@@ -105,6 +105,10 @@
 	}
 }
 
+#wc-stripe-payment-request-button-separator {
+	margin: auto 8px;
+}
+
 .wc-stripe-sepa-mandate {
 	margin-bottom: 10px !important;
 }
