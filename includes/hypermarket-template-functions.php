@@ -121,6 +121,18 @@ if ( ! function_exists( 'hypermarket_get_sidebar' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_get_footer_bar' ) ) :
+	/**
+	 * Display the "Footer-bar" widget region.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_get_footer_bar() {
+		get_sidebar( 'footer-bar' );
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_site_branding' ) ) :
 	/**
 	 * Site branding wrapper and display
