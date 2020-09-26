@@ -40,6 +40,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			add_filter( 'woocommerce_single_product_carousel_options', array( $this, 'flexslider_args' ) );
 			add_filter( 'woocommerce_cart_item_remove_link', array( $this, 'remove_link' ) );
 			add_filter( 'woocommerce_order_button_text', array( $this, 'order_button_text' ) );
+			add_filter( 'woocommerce_product_reviews_tab_title', array( $this, 'reviews_tab_title' ) );
 		}
 
 		/**
@@ -57,14 +58,13 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 				apply_filters(
 					'hypermarket_woocommerce_args',
 					array(
-						'single_image_width'    => 416,
-						'thumbnail_image_width' => 324,
+						'single_image_width'    => 660,
+						'thumbnail_image_width' => 364,
 						'product_grid'          => array(
 							'default_columns' => 3,
 							'default_rows'    => 4,
-							'min_columns'     => 1,
-							'max_columns'     => 6,
-							'min_rows'        => 1,
+							'min_columns'     => 2,
+							'max_columns'     => 4,
 						),
 					)
 				)
@@ -222,6 +222,20 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		public function order_button_text( $text ) {
 			$text = esc_html_x( 'Checkout', 'place order button', 'hypermarket' );
 			return apply_filters( 'hypermarket_order_button_text', $text );
+		}
+
+		/**
+		 * Adds a span around review counts in single product tab.
+		 *
+		 * @since   2.0.0
+		 * @param   html $title      HTML markup of the review tab title.
+		 * @return  html
+		 */
+		public function reviews_tab_title( $title ) {
+			$title = str_replace( '(', '<sup class="count">', $title );
+			$title = str_replace( ')', '</sup>', $title );
+
+			return $title;
 		}
 
 	}
