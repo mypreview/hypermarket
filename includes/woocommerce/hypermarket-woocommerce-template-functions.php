@@ -418,15 +418,14 @@ if ( ! function_exists( 'hypermarket_myaccount_user_info' ) ) :
 
 		?>
 		<div class="<?php echo esc_attr( $classname ); ?>">
-			<div class="<?php echo esc_attr( $classname ); ?>__cover"></div>
 			<div class="<?php echo esc_attr( $classname ); ?>__meta">
 				<div class="<?php echo esc_attr( $classname ); ?>__avatar">
 					<?php echo get_avatar( $user_id, 105 ); ?>
 				</div>
 				<div class="<?php echo esc_attr( $classname ); ?>__data">
-					<h5>
+					<p>
 						<?php hypermarket_customer_fullname( $user_id ); ?>
-					</h5>
+					</p>
 					<span>
 						<?php 
 							/* translators: %s: Date. */
