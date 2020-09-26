@@ -377,7 +377,7 @@ if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
 						</span>
 						<?php echo wp_kses_post( wc_get_rating_html( $product->get_average_rating() ) ); ?>
 					</div>
-					<a href="<?php echo esc_url( $product->add_to_cart_url() ); ?>" class="<?php echo esc_attr( $classname ); ?>__content-button button alt">
+					<a href="<?php echo esc_url( $product->add_to_cart_url() ); ?>" class="<?php echo esc_attr( $classname ); ?>__content-button <?php echo esc_attr( $product->get_type() ); ?> button alt">
 						<?php echo esc_attr( $product->add_to_cart_text() ); ?>
 					</a>
 				</div>
