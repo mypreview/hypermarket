@@ -21,6 +21,7 @@
 		 * @hooked hypermarket_page_header            - 10
 		 * @hooked hypermarket_breadcrumb             - 20
 		 * @hooked hypermarket_div_close              - 25
+		 * @hooked hypermarket_shop_messages          - 30
 		 */
 		do_action( 'hypermarket_page_top', get_the_ID() );
 
