@@ -296,7 +296,7 @@ if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
 
 		$previous_product = hypermarket_get_previous_product( $in_same_term, $excluded_terms, $taxonomy );
 		$next_product     = hypermarket_get_next_product( $in_same_term, $excluded_terms, $taxonomy );
-		$classname = 'hypermarket-product-pagination';
+		$classname        = 'hypermarket-product-pagination';
 
 		if ( ! $previous_product && ! $next_product ) {
 			return;
