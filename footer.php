@@ -23,7 +23,7 @@
 				/**
 				 * Functions hooked in to `hypermarket_before_footer` action
 				 *
-				 * @hooked hypermarket_footer_bar_widget_region      - 10
+				 * @hooked hypermarket_get_footer_bar      - 10
 				 */
 				do_action( 'hypermarket_before_footer' ); 
 			?>

@@ -26,9 +26,11 @@ add_action( 'hypermarket_header', 'hypermarket_handheld_menu', 50 );
 /**
  * Footer
  *
+ * @see  hypermarket_get_footer_bar()
  * @see  hypermarket_footer_widgets()
  * @see  hypermarket_credit()
  */
+add_action( 'hypermarket_before_footer', 'hypermarket_get_footer_bar' );
 add_action( 'hypermarket_footer', 'hypermarket_footer_widgets' );
 add_action( 'hypermarket_footer', 'hypermarket_credit', 20 );
 
