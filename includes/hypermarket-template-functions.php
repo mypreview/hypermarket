@@ -485,14 +485,12 @@ if ( ! function_exists( 'hypermarket_post_footnote' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_post_footnote() {
-		global $post;
-		
 		$categories    = '';
 		$share_buttons = '';
 		$readmore      = '';
-		$classname     = 'entry-footnote'; // Component classname.
-		$post_id       = (int) $post->ID; // Retrieve the ID of the current item.
-		$title         = get_the_title( $post_id ); // Retrieve post title.
+		$classname     = 'entry-footnote'; 
+		$post_id       = get_queried_object_id();
+		$title         = get_the_title( $post_id );
 		$tags          = hypermarket_post_tags();
 
 		if ( hypermarket_is_blog_archive() ) {
