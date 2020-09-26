@@ -388,6 +388,35 @@ if ( ! function_exists( 'hypermarket_header_styles' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_user_registered_date' ) ) :
+	/**
+	 * Display user’s registered date.
+	 *
+	 * @since   2.0.0
+	 * @param   integer $user_id        Optional. The current user’s ID.
+	 * @param   bool    $human_time     Optional. Print-out a human readable format.
+	 * @param   bool    $echo           Optional. Echo the string or return it.
+	 * @return  string
+	 */
+	function hypermarket_user_registered_date( $user_id = null, $human_time = false, $echo = true ) {
+		$user_id   = is_null( $user_id ) ? get_current_user_id() : $user_id;
+		$user_data = get_userdata( $user_id );
+		$return    = $user_data->user_registered;
+
+		// Return date in a human readable format such as "1 hour", "5 mins", "2 days".
+		if ( $human_time ) {
+			$return = human_time_diff( strtotime( $return ) );
+		}
+
+		if ( $echo ) {
+			//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo $return; 
+		}
+
+		return $return;
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_allowed_html' ) ) :
 	/**
 	 * An array of allowed HTML elements and attributes, or a context name such as 'post'.
