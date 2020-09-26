@@ -260,10 +260,17 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		public function widgets_init() {
 			global $hypermarket;
 
+			// Sidebar.
 			$sidebar_args['sidebar'] = array(
-				'name'        => __( 'Sidebar', 'hypermarket' ),
 				'id'          => 'sidebar-1',
-				'description' => '',
+				'name'        => __( 'Sidebar', 'hypermarket' ),
+				'description' => __( 'Widgets added to this region will appear in the main sidebar area.', 'hypermarket' ),
+			);
+			// Footer-bar.
+			$sidebar_args['footer-bar'] = array(
+				'id'          => 'footer-bar',
+				'name'        => __( 'Footer Bar', 'hypermarket' ),
+				'description' => __( 'A full-width widgetized area which will display any widget added to this region above the footer widget area.', 'hypermarket' ),
 			);
 
 			$rows    = intval( apply_filters( 'hypermarket_footer_widget_rows', 1 ) );
