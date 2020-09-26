@@ -218,3 +218,27 @@ if ( ! function_exists( 'hypermarket_promoted_products' ) ) :
 		}
 	}
 endif;
+
+if ( ! function_exists( 'hypermarket_customer_fullname' ) ) :
+	/**
+	 * Display customer’s full-name.
+	 *
+	 * @since   2.0.0
+	 * @param   integer $user_id    Optional. The current user’s ID.
+	 * @param   bool    $echo       Optional. Echo the string or return it.
+	 * @return  string
+	 */
+	function hypermarket_customer_fullname( $user_id = null, $echo = true ) {
+		$user_id    = is_null( $user_id ) ? get_current_user_id() : $user_id;
+		$first_name = get_user_meta( $user_id, 'billing_first_name', true );
+		$last_name  = get_user_meta( $user_id, 'billing_last_name', true );
+		$return     = sprintf( '%s %s', esc_html( $first_name ), esc_html( $last_name ) );
+
+		if ( $echo ) {
+			//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo $return; 
+		}
+
+		return $return;
+	}
+endif;
