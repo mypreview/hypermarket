@@ -283,7 +283,7 @@ endif;
 
 if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
 	/**
-	 * Single product pagination
+	 * Single product pagination.
 	 *
 	 * @since   2.0.0
 	 * @return  void
@@ -333,7 +333,7 @@ endif;
 
 if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
 	/**
-	 * Sticky add to cart bar
+	 * Sticky add-to-cart bar.
 	 *
 	 * @since   2.0.0
 	 * @return  void
@@ -341,6 +341,7 @@ if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
 	function hypermarket_sticky_single_add_to_cart() {
 		global $product;
 
+		// Bail early, when NOT viewing a single product.
 		if ( ! is_product() ) {
 			return;
 		}
@@ -357,29 +358,67 @@ if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
 			return;
 		}
 
+		$classname = 'hypermarket-sticky-add-to-cart';
+
 		?>
-		<section class="hypermarket-sticky-add-to-cart">
+		<section class="<?php echo esc_attr( $classname ); ?>">
 			<div class="col-full">
-				<div class="hypermarket-sticky-add-to-cart__content">
+				<div class="<?php echo esc_attr( $classname ); ?>__content">
 					<?php echo wp_kses_post( woocommerce_get_product_thumbnail() ); ?>
-					<div class="hypermarket-sticky-add-to-cart__content-product-info">
-						<span class="hypermarket-sticky-add-to-cart__content-title">
+					<div class="<?php echo esc_attr( $classname ); ?>__content-product-info">
+						<span class="<?php echo esc_attr( $classname ); ?>__content-title">
 							<?php esc_attr_e( 'You&#8217;re viewing:', 'hypermarket' ); ?>
 							<strong>
 								<?php the_title(); ?>
 							</strong>
 						</span>
-						<span class="hypermarket-sticky-add-to-cart__content-price">
+						<span class="<?php echo esc_attr( $classname ); ?>__content-price">
 							<?php echo wp_kses_post( $product->get_price_html() ); ?>
 						</span>
 						<?php echo wp_kses_post( wc_get_rating_html( $product->get_average_rating() ) ); ?>
 					</div>
-					<a href="<?php echo esc_url( $product->add_to_cart_url() ); ?>" class="hypermarket-sticky-add-to-cart__content-button button alt">
+					<a href="<?php echo esc_url( $product->add_to_cart_url() ); ?>" class="<?php echo esc_attr( $classname ); ?>__content-button button alt">
 						<?php echo esc_attr( $product->add_to_cart_text() ); ?>
 					</a>
 				</div>
 			</div>
-		</section><!-- .hypermarket-sticky-add-to-cart -->
+		</section><!-- .<?php echo esc_attr( $classname ); ?> -->
+		<?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_myaccount_user_info' ) ) :
+	/**
+	 * Display a user info block above the my-account page menu.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 * @phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+	 */
+	function hypermarket_myaccount_user_info() {
+		$user_id   = get_current_user_id();
+		$classname = 'hypermarket-myaccount-info';
+
+		?>
+		<div class="<?php echo esc_attr( $classname ); ?>">
+			<div class="<?php echo esc_attr( $classname ); ?>__cover"></div>
+			<div class="<?php echo esc_attr( $classname ); ?>__meta">
+				<div class="<?php echo esc_attr( $classname ); ?>__avatar">
+					<?php echo get_avatar( $user_id, 105 ); ?>
+				</div>
+				<div class="<?php echo esc_attr( $classname ); ?>__data">
+					<h5>
+						<?php hypermarket_customer_fullname( $user_id ); ?>
+					</h5>
+					<span>
+						<?php 
+							/* translators: %s: Date. */
+							printf( esc_html__( 'Joined %s ago', 'hypermarket' ), hypermarket_user_registered_date( $user_id, true, false ) ); 
+						?>
+					</span>
+				</div>
+			</div>
+		</div>
 		<?php
 	}
 endif;
