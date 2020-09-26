@@ -31,7 +31,7 @@
 		.entry-description {
 			font-size: var(--general-small);
 			color: var(--general-text-alt);
-    		@extend %colmd;
+			@extend %colmd;
 		}
 	}
 }

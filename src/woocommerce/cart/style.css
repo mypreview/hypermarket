@@ -169,8 +169,8 @@
 			grid-gap: 17px;
 		}
 
-		th{
-		    font-weight: 500;
+		th {
+			font-weight: 500;
 		}
 
 		th,
@@ -252,15 +252,15 @@
 }
 
 .wc-proceed-to-checkout {
-    margin-top: 22px;
-    
+	margin-top: 22px;
+
 	.button {
 		width: 100%;
-	    margin-right: 0;
-    	margin-bottom: 0;
+		margin-right: 0;
+		margin-bottom: 0;
 
-    	&:not([disabled]):nth-last-child(2) {
-    		@mixin button-color;
-    	}
+		&:not([disabled]):nth-last-child(2) {
+			@mixin button-color;
+		}
 	}
 }

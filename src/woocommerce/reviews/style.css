@@ -10,46 +10,46 @@
 
 		&_container {
 			display: grid;
-    		grid-template-columns: 80px 1fr;
-		    grid-gap: 18px;
-		    position: relative;
+			grid-template-columns: 80px 1fr;
+			grid-gap: 18px;
+			position: relative;
 		}
 
 		&-text {
-		    display: grid;
-    		grid-template-columns: 1fr 103px ?if media (--screen-xs-min);
-    		grid-gap: 10px;
+			display: grid;
+			grid-template-columns: 1fr 103px ?if media (--screen-xs-min);
+			grid-gap: 10px;
 
-    		.meta {
-			    grid-area: 1/1 ?if media (--screen-xs-min);
-		        display: flex;
-    			flex-wrap: wrap;
-    			align-items: center;
-    			margin-bottom: 0;
+			.meta {
+				grid-area: 1/1 ?if media (--screen-xs-min);
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				margin-bottom: 0;
 
-    			> * {
-    				margin-right: 5px;
-    			}
-    		}
+				> * {
+					margin-right: 5px;
+				}
+			}
 
-    		.star-rating {
-    			@media (--screen-xs-min) {
-    				grid-area: 1/2;
-			    	margin-top: 8px;
-    			}
-    		}
+			.star-rating {
+				@media (--screen-xs-min) {
+					grid-area: 1/2;
+					margin-top: 8px;
+				}
+			}
 
-    		.description {
-    			@media (--screen-xs-min) {
-	    			grid-row: 2;
-	    			grid-column: 1/-1;
-	    		}
-    			font-size: var(--general-small);
+			.description {
+				@media (--screen-xs-min) {
+					grid-row: 2;
+					grid-column: 1/-1;
+				}
+				font-size: var(--general-small);
 
-    			> *:last-child {
-    				margin-bottom: 0;
-    			}
-    		}
+				> *:last-child {
+					margin-bottom: 0;
+				}
+			}
 		}
 	}
 
@@ -77,36 +77,36 @@
 		font-size: var(--general-small);
 		color: var(--general-text-alt);
 
-		&:before {
+		&::before {
 			content: "";
-		    size: 20px 1px;
-		    margin-right: 5px;
-		    background-color: var(--general-text-alt);
-		    display: inline-block;
-		    vertical-align: middle;
+			size: 20px 1px;
+			margin-right: 5px;
+			background-color: var(--general-text-alt);
+			display: inline-block;
+			vertical-align: middle;
 		}
 	}
 
 	&__dash {
-	    display: none;
+		display: none;
 	}
 
 	&__verified {
-	    font-size: 22px;
+		font-size: 22px;
 		size: 22px;
-	    overflow: hidden;
-	    padding-top: 22px;
-	    position: absolute;
-	    color: var(--alert-success);
-        left: 62px;
-    	top: 35px;
+		overflow: hidden;
+		padding-top: 22px;
+		position: absolute;
+		color: var(--alert-success);
+		left: 62px;
+		top: 35px;
 
-		&:before {
-		    @mixin icon "\ec70";
-		    font-style: normal;
-		    position: absolute;
-		    top: 0;
-		    line-height: 1;
+		&::before {
+			@mixin icon "\ec70";
+			font-style: normal;
+			position: absolute;
+			top: 0;
+			line-height: 1;
 		}
 
 		.children & {
@@ -117,13 +117,13 @@
 
 .comment-form {
 	&-rating {
-	    body:not(.logged-in) & {
-	    	order: 8;
-	    }
+		body:not(.logged-in) & {
+			order: 8;
+		}
 
-	    &:first-child {
-	    	padding-top: 16px;
-	    }
+		&:first-child {
+			padding-top: 16px;
+		}
 
 		.stars {
 			display: hidden;

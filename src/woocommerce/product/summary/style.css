@@ -14,21 +14,21 @@
 
 		.product_title {
 			font-size: calc(var(--general-normal) * 1.875);
-		    margin-bottom: 12px;
+			margin-bottom: 12px;
 		}
 
 		.single_add_to_cart_button {
-		    min-height: 36px;
-    		font-size: calc(var(--general-normal) * 0.75);
-    		padding: 0 17px;
-    		margin: 8px;
+			min-height: 36px;
+			font-size: calc(var(--general-normal) * 0.75);
+			padding: 0 17px;
+			margin: 8px;
 		}
 
 		.variations_button,
 		.cart {
 			display: flex;
-    		flex-wrap: wrap;
-    		justify-content: center;
+			flex-wrap: wrap;
+			justify-content: center;
 
 		}
 
@@ -38,9 +38,9 @@
 
 		.price {
 			font-size: calc(var(--general-normal) * 1.875);
-    		font-weight: 300;
-    		color: var(--general-text);
-    		width: 100%;
+			font-weight: 300;
+			color: var(--general-text);
+			width: 100%;
 		}
 
 		.variations {
@@ -48,7 +48,7 @@
 			th {
 				padding: 0;
 				border-bottom-width: 0;
-			    display: block;
+				display: block;
 			}
 
 			tr {
@@ -58,7 +58,7 @@
 
 			tbody {
 				display: flex;
-    			justify-content: center;
+				justify-content: center;
 			}
 
 			select {
@@ -69,14 +69,14 @@
 		.reset_variations {
 			position: absolute;
 			left: calc(100% + 10px);
-    		bottom: 0;
-    		overflow: hidden;
-    		size: 36px;
-    		@extend %link-none;
+			bottom: 0;
+			overflow: hidden;
+			size: 36px;
+			@extend %link-none;
 			border: 2px solid var(--general-border);
 			border-radius: var(--border-radius-small);
 
-			&:before {
+			&::before {
 				@mixin icon "\ec4e";
 				font-size: calc(var(--general-normal) * 1.25);
 				display: block;

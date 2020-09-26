@@ -33,7 +33,7 @@
 	&-row {
 		span {
 			em {
-				font-size: calc(var(--general-normal) * .75);
+				font-size: calc(var(--general-normal) * 0.75);
 			}
 		}
 	}

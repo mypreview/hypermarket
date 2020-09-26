@@ -1,53 +1,53 @@
 .wc-tabs {
-    display: flex;
-    white-space: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    font-size: var(--general-small);
-    line-height: var(--line-height-base);
-    text-transform: uppercase;
-    @extend %none-list-style;
-    padding-bottom: 10px;
-    margin-bottom: 26px;
-    position: relative;
+	display: flex;
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+	font-size: var(--general-small);
+	line-height: var(--line-height-base);
+	text-transform: uppercase;
+	@extend %none-list-style;
+	padding-bottom: 10px;
+	margin-bottom: 26px;
+	position: relative;
 
-    &:after {
-        content: '';
-        size: 100% 2px;
-        background-color: var(--general-border);
-        position: absolute;
-        bottom: 10px;
-    }
+	&::after {
+		content: "";
+		size: 100% 2px;
+		background-color: var(--general-border);
+		position: absolute;
+		bottom: 10px;
+	}
 
-    li {
-        &:first-child {
-            margin-left: auto;
-        }
+	li {
+		&:first-child {
+			margin-left: auto;
+		}
 
-        &:last-child {
-            margin-right: auto;
-        }
-    }
+		&:last-child {
+			margin-right: auto;
+		}
+	}
 
-    a {
-    	text-decoration: none;
-    	color: var(--general-text-alt);
-    	display: block;
-    	padding: 18px;
-        z-index: 1;
-        position: relative;
+	a {
+		text-decoration: none;
+		color: var(--general-text-alt);
+		display: block;
+		padding: 18px;
+		z-index: 1;
+		position: relative;
 
-    	:--active {
-    		color: var(--general-text);
-    	}
-    }
+		:--active {
+			color: var(--general-text);
+		}
+	}
 
-    .active {
-    	a {
-    		color: var(--general-text);
-    		border-bottom: 2px solid;
-    	}
-    }
+	.active {
+		a {
+			color: var(--general-text);
+			border-bottom: 2px solid;
+		}
+	}
 }
 
 .woocommerce-Tabs {

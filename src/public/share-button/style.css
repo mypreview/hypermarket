@@ -1,7 +1,7 @@
 .entry-share {
 	display: flex;
 	flex-wrap: wrap;
-	
+
 	&__label {
 		color: var(--general-text-alt);
 		font-size: var(--general-small);

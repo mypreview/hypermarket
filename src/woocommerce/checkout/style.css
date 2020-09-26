@@ -1,12 +1,12 @@
 .woocommerce-checkout {
 	> h2 {
-    	margin-bottom: 20px;
+		margin-bottom: 20px;
 		font-size: var(--general-large);
-    }
-    
+	}
+
 	form& {
 		display: flex;
-	    flex-wrap: wrap;
+		flex-wrap: wrap;
 
 		#customer_details {
 			width: 66% ?if media (--screen-sm-min);
@@ -25,8 +25,8 @@
 		font-size: var(--general-small);
 
 		.woocommerce-shipping-totals {
-		    margin-bottom: 5px;
-			    
+			margin-bottom: 5px;
+
 			th {
 				display: hidden;
 			}
@@ -40,7 +40,7 @@
 			display: flex;
 			justify-content: space-between;
 			flex-wrap: wrap;
-			margin-bottom: 15px;			
+			margin-bottom: 15px;
 		}
 
 		.woocommerce-shipping-totals {
@@ -77,13 +77,13 @@
 
 		.clear + .form-row {
 			@extend %coupon-grid;
-		    margin-bottom: 0;
-    		align-items: center;
+			margin-bottom: 0;
+			align-items: center;
 		}
 
 		&__submit {
 			width: 100%;
-		    margin: 0 0 10px;
+			margin: 0 0 10px;
 		}
 	}
 }
@@ -108,10 +108,10 @@
 	&__back-to-cart {
 		@mixin button-color;
 
-		&:before {
-		    @mixin icon "\e988";
+		&::before {
+			@mixin icon "\e988";
 			margin-right: 5px;
-			font-size: calc(var(--general-normal) * 1.125)
+			font-size: calc(var(--general-normal) * 1.125);
 		}
 	}
 }
@@ -125,7 +125,7 @@
 		color: var(--general-text-alt);
 		grid-row: 1;
 		grid-column: 1/-1;
-	    margin-bottom: 7px;
+		margin-bottom: 7px;
 	}
 
 	.form-row {
@@ -158,8 +158,8 @@
 	background-color: var(--general-tile);
 	font-size: var(--general-small);
 	padding: 10px;
-    overflow-x: hidden;
-    margin-bottom: 10px;
+	overflow-x: hidden;
+	margin-bottom: 10px;
 }
 
 .woocommerce-order-pay {

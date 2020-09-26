@@ -10,7 +10,7 @@
 			&:only-child {
 				label {
 					padding-left: 0;
-	    			margin-left: 0;
+					margin-left: 0;
 				}
 
 				.payment_box {
@@ -18,7 +18,7 @@
 				}
 
 				> .input-radio:first-child {
-				    display: invisible;
+					display: invisible;
 				}
 			}
 
@@ -27,15 +27,15 @@
 			}
 
 			> label {
-		    	display: flex;
+				display: flex;
 				flex-wrap: wrap;
 				padding-top: 2.5px;
-		    }
+			}
 		}
 
 		p {
 			line-height: var(--line-height-base);
-			font-size: calc(var(--general-normal) * .75);
+			font-size: calc(var(--general-normal) * 0.75);
 			margin-bottom: 0;
 		}
 
@@ -45,15 +45,15 @@
 
 		fieldset {
 			margin-top: 5px;
-		    padding: 0;
-	    	border-width: 0;
+			padding: 0;
+			border-width: 0;
 
-		    label {
-		    	display: hidden;
-		    }
+			label {
+				display: hidden;
+			}
 
-		    br {
-				content: '';
+			br {
+				content: "";
 			}
 		}
 
@@ -68,16 +68,16 @@
 		}
 
 		img[class*="stripe"] {
-	        size: auto 13px;
-    	}
+			size: auto 13px;
+		}
 	}
 
 
 	&_paypal {
 		> label {
 			img {
-		        size: auto 34px;
-		        order: 3;
+				size: auto 34px;
+				order: 3;
 			}
 
 			a {
@@ -92,7 +92,7 @@
 		ul.payment_methods {
 			li {
 				label {
-					img[class*="stripe"]{
+					img[class*="stripe"] {
 						margin-top: 4px;
 
 						&:first-of-type {
@@ -118,12 +118,12 @@
 	border: 2px solid var(--general-border);
 	height: 38px;
 	border-radius: var(--border-radius-small);
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 
-    > * {
-    	width: 100%;
-    }
+	> * {
+		width: 100%;
+	}
 }
 
 .woocommerce-SavedPaymentMethods-saveNew {

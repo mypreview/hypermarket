@@ -1,5 +1,5 @@
 .product {
-	.woocommerce-Tabs-panel {		
+	.woocommerce-Tabs-panel {
 		> h2 {
 			&:first-child {
 				display: hidden;

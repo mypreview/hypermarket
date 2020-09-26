@@ -1,13 +1,13 @@
 .woocommerce-product-gallery {
 	@extend %alignfull;
 	background-color: var(--general-tile);
-    display: flex;
-    flex-direction: column ?if media (--screen-md);
-    padding: 72px 15px 12px;
+	display: flex;
+	flex-direction: column ?if media (--screen-md);
+	padding: 72px 15px 12px;
 
 	> *:nth-child(2) {
 		@extend %colmd;
-	    padding-bottom: 12px;
+		padding-bottom: 12px;
 	}
 
 	&__wrapper {
@@ -20,63 +20,63 @@
 
 	&__image {
 		a {
-		    display: flex;
-	    	justify-content: center;
-	    	cursor: url(../img/zoom-in.svg) 0 0,pointer;
+			display: flex;
+			justify-content: center;
+			cursor: url(../img/zoom-in.svg) 0 0, pointer;
 		}
 	}
 
 	.flex-control-thumbs {
 		@extend %none-list-style;
 		display: flex;
-    	
-    	@media (--screen-md-min) {
+
+		@media (--screen-md-min) {
 			position: absolute;
-	    	left: calc(50% + 355px);
-		    height: calc(100% - 72px);
-	    	top: 72px;
-	    	flex-direction: column;
-	    	overflow-y: auto;
-    		overflow-x: hidden;
-    	}
+			left: calc(50% + 355px);
+			height: calc(100% - 72px);
+			top: 72px;
+			flex-direction: column;
+			overflow-y: auto;
+			overflow-x: hidden;
+		}
 
-    	@media (--screen-md) {
-    		overflow-y: hidden;
-    		overflow-x: auto;
-    		margin: 36px auto 0;
-    	}
+		@media (--screen-md) {
+			overflow-y: hidden;
+			overflow-x: auto;
+			margin: 36px auto 0;
+		}
 
-    	li {
-    		@media (--screen-md-min) {
-			    &:nth-child(n+1) {
-			    	margin-top: 32px;
-			    }
+		li {
+			@media (--screen-md-min) {
+				&:nth-child(n+1) {
+					margin-top: 32px;
+				}
 
-			    &:first-child {
-			    	margin-top: auto;
-			    }
+				&:first-child {
+					margin-top: auto;
+				}
 
-			    &:last-child {
-			    	margin-bottom: auto;
-			    }
+				&:last-child {
+					margin-bottom: auto;
+				}
 			}
 
 			@media (--screen-md-min) {
 				&:nth-child(n+1) {
-			    	margin-left: 32px;
-			    }
+					margin-left: 32px;
+				}
 			}
-    	}
+		}
 
-	    img {
-	    	opacity: 0.35;
-	    	@mixin shift opacity;
-	    	cursor: pointer;
-	    	width: 80px;
+		img {
+			opacity: 0.35;
+			@mixin shift opacity;
+			cursor: pointer;
+			width: 80px;
 
-	    	&.flex-active {
-	    		opacity: 1;
-	    	}
-	    }
+			&.flex-active {
+				opacity: 1;
+			}
+		}
 	}
 }

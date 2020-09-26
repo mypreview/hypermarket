@@ -1,14 +1,14 @@
 @define-mixin icon $name {
-    content: $(name);
-    font-family: boxicons;
+	content: $(name);
+	font-family: boxicons;
 }
 
 @define-mixin shift $transition, $delay: 0.3s {
-    transition: $(transition) $(delay);
+	transition: $(transition) $(delay);
 }
 
 @define-mixin button-color $color: var(--general-text), $background: var(--general-background), $border: var(--general-border), $active-color: var(--general-text), $active-background: var(--general-border) {
-    color: $(color);
+	color: $(color);
 	background-color: $(background);
 	border: 2px solid $(border);
 

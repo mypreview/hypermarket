@@ -1,8 +1,8 @@
 .woocommerce-pagination {
 	&--without-numbers {
-        display: flex;
-    	padding: 15px 0;
-    	border-bottom: 1px solid var(--general-border);
+		display: flex;
+		padding: 15px 0;
+		border-bottom: 1px solid var(--general-border);
 
 		.woocommerce-button {
 			@mixin button-color;
@@ -10,7 +10,7 @@
 			font-size: calc(var(--general-normal) * 0.75);
 			min-height: 36px;
 			margin: 0;
-    		max-width: calc(50% - 5px);
+			max-width: calc(50% - 5px);
 
 			&--next {
 				margin-left: auto;

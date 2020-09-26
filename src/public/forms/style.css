@@ -172,8 +172,8 @@ input {
 
 			^^&-search--dropdown {
 				^^^&-search__field {
-				    height: 38px;
-    				border: 2px solid var(--general-border);
+					height: 38px;
+					border: 2px solid var(--general-border);
 				}
 			}
 		}

@@ -2,7 +2,7 @@
 	.nav {
 		&-links {
 			display: grid;
-    		grid-template-columns: 1fr 60px 1fr;
+			grid-template-columns: 1fr 60px 1fr;
 			padding: 15px 0;
 			border-style: solid;
 			border-color: var(--general-border);
@@ -11,7 +11,7 @@
 
 			> * {
 				display: flex;
-			    align-items: center;
+				align-items: center;
 			}
 
 			a {
@@ -59,7 +59,7 @@
 		}
 
 		&-blog {
-		    grid-area: 1/2;
+			grid-area: 1/2;
 			margin: 0 auto;
 			a {
 				padding: 0 7px;

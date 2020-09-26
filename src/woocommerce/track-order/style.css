@@ -10,7 +10,7 @@
 
 			.button {
 				margin: 0;
-    			grid-area: 1/2 ?if media (--screen-md-min);
+				grid-area: 1/2 ?if media (--screen-md-min);
 			}
 		}
 	}
