@@ -1,0 +1,16 @@
+.woocommerce-table {
+	&--order-downloads {
+		.download-product {
+			a {
+				@extend %link-none;
+				font-weight: 500;
+			}
+		}
+
+		.download-file {
+			&::before {
+				display: none;
+			}
+		}
+	}
+}

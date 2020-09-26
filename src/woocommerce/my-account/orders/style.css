@@ -1,0 +1,22 @@
+.woocommerce-account {
+	.order-again {
+		margin-top: 10px;
+	}
+}
+
+.woocommerce-orders-table {
+	&__cell-order {
+		&-actions {
+			&::before {
+				display: none ?if media (--screen-md);
+			}
+		}
+
+		&-number {
+			a {
+				@extend %link-none;
+				font-weight: 500;
+			}
+		}
+	}
+}

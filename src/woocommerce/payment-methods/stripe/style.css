@@ -1,0 +1,46 @@
+ul.payment_methods {
+	img[class*="stripe"] {
+		size: auto 13px;
+	}
+}
+
+#wc-stripe-payment-request-button-separator {
+	margin: auto 8px;
+}
+
+.wc-stripe {
+	&-sepa-mandate {
+		margin-bottom: 10px !important;
+	}
+
+	&-elements-field,
+	&-iban-element-field {
+		border: 2px solid var(--general-border);
+		height: 38px;
+		border-radius: var(--border-radius-small);
+		display: flex;
+		align-items: center;
+
+		> * {
+			width: 100%;
+		}
+	}
+}
+
+#main {
+	#payment {
+		ul.payment_methods {
+			li {
+				label {
+					img[class*="stripe"] {
+						margin-top: 4px;
+
+						&:first-of-type {
+							margin-left: auto;
+						}
+					}
+				}
+			}
+		}
+	}
+}

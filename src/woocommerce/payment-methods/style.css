@@ -66,63 +66,6 @@
 				margin-right: 10px;
 			}
 		}
-
-		img[class*="stripe"] {
-			size: auto 13px;
-		}
-	}
-
-
-	&_paypal {
-		> label {
-			img {
-				size: auto 34px;
-				order: 3;
-			}
-
-			a {
-				margin: 0 auto 0 5px;
-			}
-		}
-	}
-}
-
-#main {
-	#payment {
-		ul.payment_methods {
-			li {
-				label {
-					img[class*="stripe"] {
-						margin-top: 4px;
-
-						&:first-of-type {
-							margin-left: auto;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-#wc-stripe-payment-request-button-separator {
-	margin: auto 8px;
-}
-
-.wc-stripe-sepa-mandate {
-	margin-bottom: 10px !important;
-}
-
-.wc-stripe-elements-field,
-.wc-stripe-iban-element-field {
-	border: 2px solid var(--general-border);
-	height: 38px;
-	border-radius: var(--border-radius-small);
-	display: flex;
-	align-items: center;
-
-	> * {
-		width: 100%;
 	}
 }
 
@@ -141,5 +84,11 @@
 		ul {
 			margin-bottom: 0;
 		}
+	}
+}
+
+.payment-method {
+	&-actions {
+		text-align: right;
 	}
 }

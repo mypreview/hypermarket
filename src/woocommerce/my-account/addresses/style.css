@@ -1,0 +1,9 @@
+.woocommerce-address-fields {
+	&__field-wrapper {
+		p {
+			&:last-child {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
