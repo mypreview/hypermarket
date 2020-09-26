@@ -94,9 +94,11 @@
 		"boxicons": "^2.0.5",
 		"es6-object-assign": "^1.1.0",
 		"jquery.numeric": "^1.0.0",
+		"jump.js": "^1.0.2",
 		"node-waves": "^0.7.6",
 		"slicknav": "^1.0.8",
-		"tippy.js": "^6.2.6"
+		"tippy.js": "^6.2.6",
+		"waypoints": "^4.0.1"
 	},
 	"browserslist": [
 		"extends @wordpress/browserslist-config"
