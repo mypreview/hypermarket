@@ -26,17 +26,18 @@ add_action( 'hypermarket_header', 'hypermarket_div_close', 45 );
 /**
  * Footer
  *
+ * @see  hypermarket_sticky_single_add_to_cart()
  * @see  hypermarket_handheld_toolbar()
  */
+add_action( 'hypermarket_after_footer', 'hypermarket_sticky_single_add_to_cart' );
 add_action( 'hypermarket_after_footer', 'hypermarket_handheld_toolbar', PHP_INT_MAX );
 
 /**
  * Content
  *
- * @see  hypermarket_breadcrumb()
  * @see  hypermarket_shop_messages()
  */
-add_action( 'hypermarket_content_top', 'hypermarket_shop_messages' );
+add_action( 'hypermarket_page_top', 'hypermarket_shop_messages', 30 );
 
 /**
  * Layout
@@ -64,6 +65,17 @@ add_action( 'hypermarket_single_post_top', 'hypermarket_breadcrumb', 20 );
 add_action( 'hypermarket_page_top', 'hypermarket_breadcrumb', 20 );
 add_action( 'hypermarket_home_top', 'hypermarket_breadcrumb', 20 );
 add_action( 'hypermarket_archive_top', 'hypermarket_breadcrumb', 20 );
+
+/**
+ * My-account
+ * 
+ * @see  hypermarket_div()
+ * @see  hypermarket_myaccount_user_info()
+ * @see  hypermarket_div_close()
+ */
+add_action( 'woocommerce_before_account_navigation', 'hypermarket_div' );
+add_action( 'woocommerce_before_account_navigation', 'hypermarket_myaccount_user_info', 20 );
+add_action( 'woocommerce_after_account_navigation', 'hypermarket_div_close' );
 
 /**
  * Products
