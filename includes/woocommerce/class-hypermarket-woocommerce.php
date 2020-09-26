@@ -33,14 +33,15 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			add_action( 'hypermarket_enqueue_scripts', array( $this, 'enqueue' ) );
 			add_filter( 'hypermarket_body_classes', array( $this, 'body_classes' ) );
 			add_filter( 'hypermarket_post_meta_args', array( $this, 'register_post_meta' ) );
-			add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
 			add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'thumbnail_columns' ) );
 			add_filter( 'woocommerce_breadcrumb_defaults', array( $this, 'change_breadcrumb_delimiter' ) );
 			add_filter( 'woocommerce_single_product_carousel_options', array( $this, 'flexslider_args' ) );
 			add_filter( 'woocommerce_cart_item_remove_link', array( $this, 'remove_link' ) );
 			add_filter( 'woocommerce_order_button_text', array( $this, 'order_button_text' ) );
+			add_filter( 'woocommerce_review_gravatar_size', array( $this, 'review_gravatar_size' ) );
 			add_filter( 'woocommerce_product_reviews_tab_title', array( $this, 'reviews_tab_title' ) );
+			add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 		}
 
 		/**
@@ -159,13 +160,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 * @return  integer
 		 */
 		public function thumbnail_columns() {
-			$columns = 4;
-
-			if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-				$columns = 5;
-			}
-
-			return intval( apply_filters( 'hypermarket_product_thumbnail_columns', $columns ) );
+			return apply_filters( 'hypermarket_product_thumbnail_columns', 1 );
 		}
 
 		/**
@@ -192,8 +187,8 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 */
 		public function flexslider_args( $args ) {
 			$args['smoothHeight'] = false;
-			$args['useCSS']       = is_rtl();
 			$args['animation']    = 'fade';
+			$args['useCSS']       = is_rtl();
 
 			return apply_filters( 'hypermarket_product_flexslider_args', $args );
 		}
@@ -216,12 +211,20 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 * Overwrite `Place Order` button text on checkout page.
 		 * 
 		 * @since   2.0.0
-		 * @param   string $text    Default button text.
 		 * @return  string
 		 */
-		public function order_button_text( $text ) {
-			$text = esc_html_x( 'Checkout', 'place order button', 'hypermarket' );
-			return apply_filters( 'hypermarket_order_button_text', $text );
+		public function order_button_text() {
+			return apply_filters( 'hypermarket_order_button_text', esc_html_x( 'Checkout', 'place order button', 'hypermarket' ) );
+		}
+
+		/**
+		 * Overwrite default user gravatar size.
+		 * 
+		 * @since   2.0.0
+		 * @return  integer
+		 */
+		public function review_gravatar_size() {
+			return apply_filters( 'hypermarket_review_gravatar_size', 80 ); 
 		}
 
 		/**
