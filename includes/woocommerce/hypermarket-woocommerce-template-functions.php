@@ -331,6 +331,23 @@ if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_single_product_share' ) ) :
+	/**
+	 * Single product share buttons.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_single_product_share() {
+		// Retrieve the ID of the current item.
+		$post_id   = get_queried_object_id();
+		$title     = get_the_title( $post_id );
+		$permalink = get_the_permalink( $post_id );
+
+		hypermarket_social_share_buttons( $permalink, $title, true );
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
 	/**
 	 * Sticky add-to-cart bar.
