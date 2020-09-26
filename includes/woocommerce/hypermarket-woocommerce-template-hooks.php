@@ -101,6 +101,7 @@ add_action( 'woocommerce_after_quantity_input_field', 'hypermarket_quantity_plus
  *
  * @see  hypermarket_edit_post_link()
  * @see  hypermarket_single_product_share()
+ * @see  hypermarket_single_product_pagination()
  * @see  hypermarket_div()
  * @see  hypermarket_div_close()
  */
@@ -111,6 +112,7 @@ add_action( 'woocommerce_single_product_summary', 'hypermarket_edit_post_link', 
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 7 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 8 );
 add_action( 'woocommerce_single_product_summary', 'hypermarket_single_product_share', 50 );
+add_action( 'woocommerce_single_product_summary', 'hypermarket_single_product_pagination', 99 );
 add_action( 'woocommerce_before_single_product_summary', 'hypermarket_div', 0 );
 add_action( 'woocommerce_before_single_product_summary', 'woocommerce_output_all_notices', 5 );
 add_action( 'woocommerce_after_single_product_summary', 'hypermarket_div_close', 5 );
