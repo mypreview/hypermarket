@@ -296,20 +296,21 @@ if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
 
 		$previous_product = hypermarket_get_previous_product( $in_same_term, $excluded_terms, $taxonomy );
 		$next_product     = hypermarket_get_next_product( $in_same_term, $excluded_terms, $taxonomy );
+		$classname = 'hypermarket-product-pagination';
 
 		if ( ! $previous_product && ! $next_product ) {
 			return;
 		}
 
 		?>
-		<nav class="hypermarket-product-pagination" aria-label="<?php esc_attr_e( 'More products', 'hypermarket' ); ?>">
+		<nav class="<?php echo esc_attr( $classname ); ?>" aria-label="<?php esc_attr_e( 'More products', 'hypermarket' ); ?>">
 		<?php 
 		if ( $previous_product ) : 
 			?>
 			<a href="<?php echo esc_url( $previous_product->get_permalink() ); ?>" rel="prev">
 			<?php echo wp_kses_post( $previous_product->get_image() ); ?>
-				<span class="hypermarket-product-pagination__title">
-					<?php echo wp_kses_post( $previous_product->get_name() ); ?>
+				<span class="<?php echo esc_attr( $classname ); ?>__title">
+					<?php esc_html_e( 'Prev', 'hypermarket' ); ?>
 				</span>
 			</a>
 			<?php 
@@ -319,14 +320,14 @@ if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
 			?>
 			<a href="<?php echo esc_url( $next_product->get_permalink() ); ?>" rel="next">
 				<?php echo wp_kses_post( $next_product->get_image() ); ?>
-				<span class="hypermarket-product-pagination__title">
-					<?php echo wp_kses_post( $next_product->get_name() ); ?>
+				<span class="<?php echo esc_attr( $classname ); ?>__title">
+					<?php esc_html_e( 'Next', 'hypermarket' ); ?>
 				</span>
 			</a>
 			<?php 
 		endif; 
 		?>
-		</nav><!-- .hypermarket-product-pagination -->
+		</nav>
 		<?php
 	}
 endif;
@@ -376,7 +377,6 @@ if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
 		}
 
 		$classname = 'hypermarket-sticky-add-to-cart';
-
 		?>
 		<section class="<?php echo esc_attr( $classname ); ?>">
 			<div class="col-full">
@@ -399,7 +399,7 @@ if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
 					</a>
 				</div>
 			</div>
-		</section><!-- .<?php echo esc_attr( $classname ); ?> -->
+		</section>
 		<?php
 	}
 endif;
