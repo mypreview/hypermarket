@@ -11,20 +11,20 @@
 	    display: flex;
     	background-color: var(--general-background);
 	    margin-top: 120px;
-        padding: 0 18px 30px;
+        padding: 15px 18px 30px;
     }
 
     &__avatar {
     	img {
 		    border: 5px solid var(--general-background);
     		border-radius: var(--border-radius-base);
-		    margin-top: -30px;
+		    margin: -45px 14px 0 0;
     	}
     }
 
     &__data {
     	p {
-    		font-size: calc(var(--general-normal) * 1.125);
+    		font-size: calc(var(--general-normal) * 1.0625);
 		    margin-bottom: 0;
     	}
 
