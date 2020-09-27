@@ -2,7 +2,7 @@
 	color: var(--general-text);
 
 	> * {
-	    display: inline-block;
+		display: inline-block;
 		margin: 8px;
 	}
 

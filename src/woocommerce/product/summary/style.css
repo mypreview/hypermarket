@@ -35,13 +35,13 @@
 			font-weight: 300;
 			color: var(--general-text);
 			width: 100%;
-		    margin-bottom: 20px;
+			margin-bottom: 20px;
 		}
 	}
 }
 
 .woocommerce-product-details__short-description {
 	p {
-	    margin-bottom: 16px;
+		margin-bottom: 16px;
 	}
 }

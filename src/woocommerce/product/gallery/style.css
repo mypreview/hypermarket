@@ -1,5 +1,5 @@
 .woocommerce-product-gallery {
-    position: relative;
+	position: relative;
 	display: flex;
 	flex-direction: column ?if media (--screen-md);
 	padding: 24px 0;
@@ -9,14 +9,14 @@
 	}
 
 	&__trigger {
-	    position: absolute;
-	    size: 100%;
-	    z-index: 4;
-	    cursor: url(../img/zoom-in.svg) 0 0, pointer;
+		position: absolute;
+		size: 100%;
+		z-index: 4;
+		cursor: url(../img/zoom-in.svg) 0 0, pointer;
 
-	    > img.emoji {
-	    	display: none !important;
-	    }
+		> img.emoji {
+			display: none !important;
+		}
 	}
 
 	.flex-control-thumbs {
@@ -28,7 +28,7 @@
 		flex-direction: wrap ?if media (--screen-md);
 
 		li {
-		    width: 80px;
+			width: 80px;
 
 			&:nth-child(n+1) {
 				margin-top: 32px ?if media (--screen-md-min);
