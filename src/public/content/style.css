@@ -40,6 +40,7 @@
 	font-size: var(--general-small);
 	text-decoration: none;
 	display: inline-flex;
+	margin-top: 14px;
 
 	&::before {
 		@mixin icon "\ed50";
