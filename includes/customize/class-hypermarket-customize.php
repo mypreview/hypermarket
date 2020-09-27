@@ -170,7 +170,7 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 										'var'     => sprintf( '%s-alert-warning', $hypermarket->slug ),
 										'id'      => sprintf( '%s_alert_warning_color', $setting_prefix ),
 										'label'   => esc_html__( 'Warning', 'hypermarket' ),
-										'default' => '#ffce2b',
+										'default' => '#f8c313',
 									),
 									array(
 										'var'     => sprintf( '%s-alert-danger', $hypermarket->slug ),
