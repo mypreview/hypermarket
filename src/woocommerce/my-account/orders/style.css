@@ -18,5 +18,17 @@
 				font-weight: 500;
 			}
 		}
+
+		&-status {
+			color: var(--alert-warning);
+		}
+	}
+
+	@each $status, $color in (completed, cancelled, refunded, failed), (--alert-success, --alert-danger, --alert-danger, --alert-danger) {
+		&__row--status-$(status) {
+			^&__cell-order-status {
+				color: var($(color));
+			}
+		}
 	}
 }
