@@ -1,0 +1,19 @@
+.product {
+	.entry-share {
+		justify-content: center;
+		
+		&__label {
+			color: var(--general-text);
+		}
+
+		ul {
+			color: var(--general-text);
+		}
+
+		a {
+			margin: 9px 9px 0;
+			font-size: calc(var(--general-normal) * 1.125);
+			size: 18px;
+		}
+	}
+}
