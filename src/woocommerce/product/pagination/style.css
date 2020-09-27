@@ -1,0 +1,40 @@
+.hypermarket-product-pagination {
+	display: none ?if media (--screen-md);
+
+	@media (--screen-md-min) {
+		a {
+			@extend %link-none;
+			text-transform: uppercase;
+		    position: absolute;
+		    top: 18%;
+
+			:--active {
+				color: var(--general-text);
+
+				img {
+					opacity: 1;
+		    		transform: scale(1);
+				}
+			}
+			
+		}
+
+		&__prev {
+			left: 30px;
+		    text-align: left;
+		}
+
+		&__next {
+			right: 30px;
+		    text-align: right;
+		}
+
+		img {
+			width: 80px;
+			opacity: 0;
+		    transform: scale(0.85);
+	        margin-bottom: 9px;
+		    transition: opacity 0.3s, transform 0.3s;
+		}
+	}
+}
