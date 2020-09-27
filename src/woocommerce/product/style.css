@@ -1,4 +1,15 @@
 .product {
+	div& > .div {
+		background-color: var(--general-tile);
+		@extend %alignfull;
+		padding: 72px 15px 72px;
+		margin-bottom: 48px;
+
+		> * {
+			@extend %colmd;
+		}
+	}	
+
 	.woocommerce-Tabs-panel {
 		> h2 {
 			&:first-child {
