@@ -494,14 +494,14 @@ if ( ! function_exists( 'hypermarket_post_footnote' ) ) :
 	 * Display meta-data placed at the bottom of a post content.
 	 *
 	 * @since   2.0.0
+	 * @param   int $post_id    Queried post id.
 	 * @return  void
 	 */
-	function hypermarket_post_footnote() {
+	function hypermarket_post_footnote( $post_id = null ) {
 		$categories    = '';
 		$share_buttons = '';
 		$readmore      = '';
 		$classname     = 'entry-footnote'; 
-		$post_id       = get_queried_object_id();
 		$title         = get_the_title( $post_id );
 		$tags          = hypermarket_post_tags();
 
