@@ -28,5 +28,6 @@
 		justify-content: center;
 		background-color: var(--general-tile);
 		border-radius: var(--border-radius-small);
+		line-height: 1;
 	}
 }
