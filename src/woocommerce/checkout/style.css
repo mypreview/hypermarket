@@ -21,69 +21,9 @@
 		}
 	}
 
-	&-review-order-table {
-		font-size: var(--general-small);
-
-		.woocommerce-shipping-totals {
-			margin-bottom: 5px;
-
-			th {
-				display: hidden;
-			}
-		}
-
-		thead {
-			display: hidden;
-		}
-
-		tr {
-			display: flex;
-			justify-content: space-between;
-			flex-wrap: wrap;
-			margin-bottom: 15px;
-		}
-
-		.woocommerce-shipping-totals {
-			td {
-				width: 100%;
-			}
-		}
-
-		td,
-		th {
-			padding: 0 0 5px;
-			border-bottom: 0;
-		}
-
-		strong,
-		th {
-			font-weight: 500;
-		}
-	}
-
 	.order-total {
 		th {
 			display: hidden;
-		}
-	}
-
-	.woocommerce-form-login {
-		margin-bottom: 30px;
-
-		p:first-child {
-			font-size: var(--general-small);
-			color: var(--general-text-alt);
-		}
-
-		.clear + .form-row {
-			@extend %coupon-grid;
-			margin-bottom: 0;
-			align-items: center;
-		}
-
-		&__submit {
-			width: 100%;
-			margin: 0 0 10px;
 		}
 	}
 }
@@ -91,79 +31,5 @@
 .woocommerce-billing-fields {
 	> h3 {
 		display: hidden;
-	}
-}
-
-#order_review_heading {
-	display: hidden;
-}
-
-.place-order {
-	margin-top: var(--line-height-computed);
-
-	.button {
-		width: 100%;
-	}
-
-	&__back-to-cart {
-		@mixin button-color;
-
-		&::before {
-			@mixin icon "\e988";
-			margin-right: 5px;
-			font-size: calc(var(--general-normal) * 1.125);
-		}
-	}
-}
-
-.woocommerce-form-coupon {
-	@extend %coupon-grid;
-	margin-bottom: 30px;
-
-	p:first-child {
-		font-size: var(--general-small);
-		color: var(--general-text-alt);
-		grid-row: 1;
-		grid-column: 1/-1;
-		margin-bottom: 7px;
-	}
-
-	.form-row {
-		margin-bottom: 0;
-
-		&-first {
-			width: auto;
-			flex-grow: 1;
-			margin-right: 0;
-		}
-
-		&-last {
-			width: auto;
-			margin-left: 0;
-		}
-	}
-
-	.button {
-		width: 100%;
-		margin: 0;
-		@mixin button-color;
-	}
-}
-
-.woocommerce-privacy-policy-text {
-	font-size: var(--general-small);
-}
-
-.woocommerce-terms-and-conditions {
-	background-color: var(--general-tile);
-	font-size: var(--general-small);
-	padding: 10px;
-	overflow-x: hidden;
-	margin-bottom: 10px;
-}
-
-.woocommerce-order-pay {
-	#payment {
-		margin-top: 48px;
 	}
 }

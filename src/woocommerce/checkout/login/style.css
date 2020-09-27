@@ -1,0 +1,21 @@
+.woocommerce-checkout {
+	.woocommerce-form-login {
+		margin-bottom: 30px;
+
+		p:first-child {
+			font-size: var(--general-small);
+			color: var(--general-text-alt);
+		}
+
+		.clear + .form-row {
+			@extend %coupon-grid;
+			margin-bottom: 0;
+			align-items: center;
+		}
+
+		&__submit {
+			width: 100%;
+			margin: 0 0 10px;
+		}
+	}
+}

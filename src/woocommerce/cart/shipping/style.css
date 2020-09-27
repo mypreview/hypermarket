@@ -1,0 +1,43 @@
+.woocommerce-shipping {
+	&-methods {
+		padding-left: 0;
+		margin-bottom: 12px;
+
+		li {
+			list-style: none;
+		}
+
+		[type="hidden"] {
+			+ label {
+				padding-left: 0;
+			}
+		}
+	}
+
+	&-destination {
+		margin-bottom: 10px;
+
+		strong {
+			font-weight: 500;
+		}
+	}
+}
+
+.shipping-calculator {
+	&-button {
+		@extend %link-none;
+		@extend %meta-item;
+
+		&::before {
+			@mixin icon "\ed4f";
+		}
+	}
+
+	&-form {
+		margin-top: 12px;
+
+		.button {
+			margin: 0;
+		}
+	}
+}

@@ -1,0 +1,17 @@
+.place-order {
+	margin-top: var(--line-height-computed);
+
+	.button {
+		width: 100%;
+	}
+
+	&__back-to-cart {
+		@mixin button-color;
+
+		&::before {
+			@mixin icon "\e988";
+			margin-right: 5px;
+			font-size: calc(var(--general-normal) * 1.125);
+		}
+	}
+}

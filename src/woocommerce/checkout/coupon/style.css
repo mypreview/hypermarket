@@ -1,0 +1,33 @@
+.woocommerce-form-coupon {
+	@extend %coupon-grid;
+	margin-bottom: 30px;
+
+	p:first-child {
+		font-size: var(--general-small);
+		color: var(--general-text-alt);
+		grid-row: 1;
+		grid-column: 1/-1;
+		margin-bottom: 7px;
+	}
+
+	.form-row {
+		margin-bottom: 0;
+
+		&-first {
+			width: auto;
+			flex-grow: 1;
+			margin-right: 0;
+		}
+
+		&-last {
+			width: auto;
+			margin-left: 0;
+		}
+	}
+
+	.button {
+		width: 100%;
+		margin: 0;
+		@mixin button-color;
+	}
+}

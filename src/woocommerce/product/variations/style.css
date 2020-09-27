@@ -1,0 +1,54 @@
+.entry-summary {
+	.variations {
+		td,
+		th {
+			padding: 0;
+			border-bottom-width: 0;
+			display: block;
+		}
+
+		tr {
+			margin: 8px;
+			position: relative;
+		}
+
+		tbody {
+			display: flex;
+		    flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		select {
+			height: 36px;
+		}
+
+		&_button {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+
+	.reset_variations {
+		position: absolute;
+		left: calc(100% + 10px);
+		bottom: 0;
+		overflow: hidden;
+		size: 36px;
+		@extend %link-none;
+		border: 2px solid var(--general-border);
+		border-radius: var(--border-radius-small);
+
+		&::before {
+			@mixin icon "\ec4e";
+			font-size: calc(var(--general-normal) * 1.25);
+			display: block;
+			line-height: 1;
+			padding: 6px;
+		}
+
+		:--active {
+			color: var(--alert-danger);
+		}
+	}
+}
