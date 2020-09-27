@@ -1,0 +1,21 @@
+.product_meta {
+	color: var(--general-text);
+
+	> * {
+	    display: inline-block;
+		margin: 8px;
+	}
+
+	.sku {
+		color: var(--general-text-alt);
+	}
+
+	a {
+		text-decoration: none;
+		color: var(--general-text-alt);
+
+		:--active {
+			color: inherit;
+		}
+	}
+}
