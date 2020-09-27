@@ -307,10 +307,10 @@ if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
 		<?php 
 		if ( $previous_product ) : 
 			?>
-			<a href="<?php echo esc_url( $previous_product->get_permalink() ); ?>" rel="prev">
+			<a href="<?php echo esc_url( $previous_product->get_permalink() ); ?>" rel="prev" class="<?php echo esc_attr( $classname ); ?>__prev">
 			<?php echo wp_kses_post( $previous_product->get_image() ); ?>
-				<span class="<?php echo esc_attr( $classname ); ?>__title">
-					<?php esc_html_e( 'Prev', 'hypermarket' ); ?>
+				<span>
+					<?php esc_html_e( '— Prev', 'hypermarket' ); ?>
 				</span>
 			</a>
 			<?php 
@@ -318,10 +318,10 @@ if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
 
 		if ( $next_product ) : 
 			?>
-			<a href="<?php echo esc_url( $next_product->get_permalink() ); ?>" rel="next">
+			<a href="<?php echo esc_url( $next_product->get_permalink() ); ?>" rel="next" class="<?php echo esc_attr( $classname ); ?>__next">
 				<?php echo wp_kses_post( $next_product->get_image() ); ?>
-				<span class="<?php echo esc_attr( $classname ); ?>__title">
-					<?php esc_html_e( 'Next', 'hypermarket' ); ?>
+				<span>
+					<?php esc_html_e( 'Next —', 'hypermarket' ); ?>
 				</span>
 			</a>
 			<?php 
