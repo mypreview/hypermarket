@@ -218,24 +218,6 @@ if ( ! function_exists( 'hypermarket_upsell_display' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_product_loop_sold_out_flash' ) ) :
-	/**
-	 * Get the `Sold out` flash for the loop.
-	 *
-	 * @since   2.0.0
-	 * @return  void
-	 */
-	function hypermarket_product_loop_sold_out_flash() {
-		global $product;
-
-		if ( ! $product->is_in_stock() ) {
-			?>
-			<span class="soldout"><?php esc_html_e( 'Out of Stock', 'hypermarket' ); ?></span>
-			<?php
-		}
-	}
-endif;
-
 if ( ! function_exists( 'hypermarket_quantity_minus_btn' ) ) :
 	/**
 	 * Quantity minus (decrement) button.
