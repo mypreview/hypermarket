@@ -8,6 +8,7 @@
 @import "./widgets/style.css";
 @import "./forms/style.css";
 @import "./tabs/style.css";
+@import "./toast/style.css";
 @import "./star-rating/style.css";
 @import "./reviews/style.css";
 @import "./product/style.css";
