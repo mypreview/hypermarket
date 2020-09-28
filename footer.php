@@ -45,7 +45,7 @@
 				 * Functions hooked in to `hypermarket_after_footer` action
 				 *
 				 * @hooked hypermarket_sticky_single_add_to_cart      - 10
-				 * @hooked hypermarket_handheld_toolbar               - PHP_INT_MAX
+				 * @hooked hypermarket_handheld_toolbar               - 99
 				 */
 				do_action( 'hypermarket_after_footer' ); 
 			?>
