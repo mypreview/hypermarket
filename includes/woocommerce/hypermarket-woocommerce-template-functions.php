@@ -364,21 +364,29 @@ if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
 			<div class="col-full">
 				<div class="<?php echo esc_attr( $classname ); ?>__content">
 					<?php echo wp_kses_post( woocommerce_get_product_thumbnail() ); ?>
-					<div class="<?php echo esc_attr( $classname ); ?>__content-product-info">
-						<span class="<?php echo esc_attr( $classname ); ?>__content-title">
+					<div class="<?php echo esc_attr( $classname ); ?>__meta">
+						<span class="<?php echo esc_attr( $classname ); ?>__title">
 							<?php esc_attr_e( 'You&#8217;re viewing:', 'hypermarket' ); ?>
 							<strong>
 								<?php the_title(); ?>
 							</strong>
 						</span>
-						<span class="<?php echo esc_attr( $classname ); ?>__content-price">
+						<span class="<?php echo esc_attr( $classname ); ?>__price">
 							<?php echo wp_kses_post( $product->get_price_html() ); ?>
 						</span>
 						<?php echo wp_kses_post( wc_get_rating_html( $product->get_average_rating() ) ); ?>
 					</div>
-					<a href="<?php echo esc_url( $product->add_to_cart_url() ); ?>" class="<?php echo esc_attr( $classname ); ?>__content-button <?php echo esc_attr( $product->get_type() ); ?> button alt">
-						<?php echo esc_attr( $product->add_to_cart_text() ); ?>
-					</a>
+					<?php 
+					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo hypermarket_do_shortcode(
+						'add_to_cart',
+						array(
+							'id'         => $product->get_id(),
+							'show_price' => false,
+							'style'      => '',
+						) 
+					); 
+					?>
 				</div>
 			</div>
 		</section>
