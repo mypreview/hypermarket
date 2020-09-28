@@ -56,5 +56,5 @@ export const toast = {
 	// Toast background color in CSS variable.
 	_color( color ) {
 		return `var(--hypermarket-alert-${ color })`;
-	},
+	}
 };
