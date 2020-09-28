@@ -34,7 +34,9 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			add_action( 'hypermarket_enqueue_scripts', array( $this, 'enqueue' ) );
 			add_filter( 'hypermarket_body_classes', array( $this, 'body_classes' ) );
 			add_filter( 'hypermarket_post_meta_args', array( $this, 'register_post_meta' ) );
+			add_filter( 'woocommerce_upsell_display_args', array( $this, 'upsell_products_args' ) );
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
+			add_filter( 'woocommerce_cross_sells_columns', array( $this, 'cross_sell_products_cols' ) );
 			add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'thumbnail_columns' ) );
 			add_filter( 'woocommerce_breadcrumb_defaults', array( $this, 'change_breadcrumb_delimiter' ) );
 			add_filter( 'woocommerce_single_product_carousel_options', array( $this, 'flexslider_args' ) );
@@ -150,19 +152,56 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		} 
 
 		/**
-		 * Related Products Args
+		 * Upsell products args.
+		 *
+		 * @since   2.0.0
+		 * @param   array $args   Upsell products args.
+		 * @return  array       
+		 */
+		public function upsell_products_args( $args ) {
+			$has_sidebar = is_active_sidebar( 'sidebar-1' );
+			$args        = apply_filters(
+				'hypermarket_upsell_products_args',
+				array(
+					'posts_per_page' => $has_sidebar ? 3 : 4,
+					'columns'        => $has_sidebar ? 3 : 4,
+				)
+			);
+
+			return $args;
+		}
+
+		/**
+		 * Related products args.
 		 *
 		 * @since   2.0.0
 		 * @param   array $args   Related products args.
 		 * @return  array       
 		 */
 		public function related_products_args( $args ) {
-			$args = apply_filters(
+			$has_sidebar = is_active_sidebar( 'sidebar-1' );
+			$args        = apply_filters(
 				'hypermarket_related_products_args',
 				array(
-					'posts_per_page' => 3,
-					'columns'        => 3,
+					'posts_per_page' => $has_sidebar ? 3 : 4,
+					'columns'        => $has_sidebar ? 3 : 4,
 				)
+			);
+
+			return $args;
+		}
+
+		/**
+		 * Cross-sell products columns.
+		 *
+		 * @since   2.0.0
+		 * @param   integer $cols   Cross sell products columns.
+		 * @return  integer       
+		 */
+		public function cross_sell_products_cols( $cols ) {
+			$args = apply_filters(
+				'hypermarket_cross_sell_products_cols',
+				1
 			);
 
 			return $args;
