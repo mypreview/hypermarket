@@ -85,8 +85,8 @@ if ( ! function_exists( 'hypermarket_credit' ) ) :
 		}
 
 		if ( apply_filters( 'hypermarket_privacy_policy_link', true ) && function_exists( 'the_privacy_policy_link' ) ) {
-			$separator    = '<span role="separator" aria-hidden="true"></span>';
-			$return = get_the_privacy_policy_link( '', ( ! empty( $return ) ? $separator : '' ) ) . $return;
+			$separator = '<span role="separator" aria-hidden="true"></span>';
+			$return    = get_the_privacy_policy_link( '', ( ! empty( $return ) ? $separator : '' ) ) . $return;
 		}
 		
 		$return = apply_filters( 'hypermarket_credit_links_output', $return );
