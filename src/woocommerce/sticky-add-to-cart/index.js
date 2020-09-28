@@ -16,11 +16,11 @@ export const stickyAddToCart = {
 	// Execute callback after the DOM is loaded.
 	ready() {
 		stickyAddToCart.cache();
-		stickyAddToCart.toggleVisibility();
-		stickyAddToCart.onClickVariable();
+		stickyAddToCart.onScroll();
+		stickyAddToCart.onClick();
 	},
 	// Reveal the add-to-cart bar as user scrolls down the page.
-	toggleVisibility() {
+	onScroll() {
 		if ( ! stickyAddToCart._isEnabled() ) return;
 
 		/* eslint-disable-next-line no-undef */
@@ -37,10 +37,10 @@ export const stickyAddToCart = {
 		} );
 	},
 	// Scroll to the product `div` on variable add-to-cart button clicked.
-	onClickVariable() {
+	onClick() {
 		if ( ! stickyAddToCart._isEnabled() ) return;
 
-		stickyAddToCart.els.$element.find( '.button.variable' ).on( 'click', ( event ) => {
+		stickyAddToCart.els.$element.find( '.button:not(.ajax_add_to_cart)' ).on( 'click', ( event ) => {
 			// Default action of the event should not be triggered.
 			event.preventDefault();
 			jump( 'div.product', {
