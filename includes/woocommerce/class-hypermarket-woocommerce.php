@@ -30,6 +30,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'hypermarket_after_setup_theme', array( $this, 'setup' ) );
+			add_filter( 'hypermarket_l10n_args', array( $this, 'l10_args' ) );
 			add_action( 'hypermarket_enqueue_scripts', array( $this, 'enqueue' ) );
 			add_filter( 'hypermarket_body_classes', array( $this, 'body_classes' ) );
 			add_filter( 'hypermarket_post_meta_args', array( $this, 'register_post_meta' ) );
@@ -74,6 +75,20 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			add_theme_support( 'wc-product-gallery-zoom' );
 			add_theme_support( 'wc-product-gallery-lightbox' );
 			add_theme_support( 'wc-product-gallery-slider' );
+		}
+
+		/**
+		 * Adds a few extra localized data to the public-facing JavaScript params.
+		 *
+		 * @since    1.0.0
+		 * @param    array $args   Localized script params.
+		 * @return   array
+		 */
+		public function l10_args( $args ) {
+			$args['i18n_added_to_cart']     = _x( 'Added to your cart.', 'toast message', 'hypermarket' );
+			$args['i18n_removed_from_cart'] = _x( 'Removed from your cart.', 'toast message', 'hypermarket' );
+
+			return $args;
 		}
 
 		/**
