@@ -77,30 +77,30 @@ if ( ! function_exists( 'hypermarket_credit' ) ) :
 	 */
 	function hypermarket_credit() {
 		global $hypermarket;
-		$links_output = '';
+		$return = '';
 
 		if ( apply_filters( 'hypermarket_credit_link', true ) ) {
 			//phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
-			$links_output .= sprintf( '<a href="%s" target="_blank" title="%s" rel="author">%s</a>.', esc_url( $hypermarket->theme_uri ), esc_attr__( 'Proudly powered by WordPress', 'hypermarket' ), sprintf( esc_html__( 'Built with %s &amp; WooCommerce', 'hypermarket' ), $hypermarket->name ) );
+			$return .= sprintf( '<a href="%s" target="_blank" title="%s" rel="author">%s</a>.', esc_url( $hypermarket->theme_uri ), esc_attr__( 'Proudly powered by WordPress', 'hypermarket' ), sprintf( esc_html__( 'Built with %s', 'hypermarket' ), $hypermarket->name ) );
 		}
 
 		if ( apply_filters( 'hypermarket_privacy_policy_link', true ) && function_exists( 'the_privacy_policy_link' ) ) {
 			$separator    = '<span role="separator" aria-hidden="true"></span>';
-			$links_output = get_the_privacy_policy_link( '', ( ! empty( $links_output ) ? $separator : '' ) ) . $links_output;
+			$return = get_the_privacy_policy_link( '', ( ! empty( $return ) ? $separator : '' ) ) . $return;
 		}
 		
-		$links_output = apply_filters( 'hypermarket_credit_links_output', $links_output );
+		$return = apply_filters( 'hypermarket_credit_links_output', $return );
 		
 		?>
 		<div class="site-info">
 		<?php 
 			echo esc_html( apply_filters( 'hypermarket_copyright_text', $content = sprintf( '&copy; %s %s', get_bloginfo( 'name' ), date( 'Y' ) ) ) );
 
-		if ( ! empty( $links_output ) ) :
+		if ( ! empty( $return ) ) :
 			?>
 				<br />
 				<?php
-				echo wp_kses_post( $links_output ); 
+				echo wp_kses_post( $return ); 
 			endif; 
 		?>
 		</div><!-- .site-info -->
