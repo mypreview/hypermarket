@@ -132,7 +132,6 @@ if ( ! class_exists( 'Hypermarket_WooCommerce_Adjacent_Products' ) ) :
 		 *
 		 * @since   2.0.0
 		 * @return  WP_POST|false      Post object if successful. False if no valid post is found.
-		 * @phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
 		 */
 		private function _get_adjacent() {
 			global $post;
@@ -153,7 +152,6 @@ if ( ! class_exists( 'Hypermarket_WooCommerce_Adjacent_Products' ) ) :
 		 *
 		 * @since   2.0.0
 		 * @return  WC_Product|false      Post object if successful. False if no valid post is found.
-		 * @phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
 		 */
 		private function _query_wc() {
 			global $post;
