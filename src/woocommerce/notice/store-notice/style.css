@@ -1,0 +1,26 @@
+.woocommerce-store-notice {
+    margin: 0;
+    position: sticky null null 0 null;
+    background-color: var(--alert-info);
+    color: var(--general-background);
+   	padding: 14px 20px 14px 44px;
+
+    &:before {
+    	@mixin icon "\eda7";
+    	position: absolute 8px null null 14px;
+		font-size: var(--general-medium);
+    }
+
+    &__dismiss-link {
+		float: right;
+		font-size: var(--general-small);
+		padding: 1px 0 1px 15px;
+		border-left: 1px solid;
+        margin-left: 4px;
+		@mixin link;
+
+		@media (--screen-sm) {
+			padding: 3px 0 3px 8px;
+		}
+    }
+}
