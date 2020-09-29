@@ -10,23 +10,23 @@
 
 	&__trigger {
 		size: 34px;
-	    position: absolute 34px 10px null null;
-	    box: horizontal center middle;
-	    font-size: 20px;
-	    border-radius: var(--border-radius-small);
-	    z-index: 1;
-	    background-color: var(--general-background);
-	    @mixin link;
-	    opacity: .6;
-	    @mixin shift opacity;
+		position: absolute 34px 10px null null;
+		box: horizontal center middle;
+		font-size: 20px;
+		border-radius: var(--border-radius-small);
+		z-index: 1;
+		background-color: var(--general-background);
+		@mixin link;
+		opacity: 0.6;
+		@mixin shift opacity;
 
-	    :--active {
-	    	opacity: 1;
-	    }
+		:--active {
+			opacity: 1;
+		}
 
-	    &:before {
-	    	@mixin icon "\ec51";
-	    }
+		&::before {
+			@mixin icon "\ec51";
+		}
 
 		> img {
 			display: none !important;
