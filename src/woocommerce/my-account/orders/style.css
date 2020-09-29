@@ -14,7 +14,7 @@
 
 		&-number {
 			a {
-				@extend %link-none;
+				@mixin link;
 				font-weight: 500;
 			}
 		}

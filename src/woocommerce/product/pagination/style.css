@@ -3,13 +3,11 @@
 
 	@media (--screen-md-min) {
 		a {
-			@extend %link-none;
+			@mixin link var(--general-text);
 			text-transform: uppercase;
 			position: absolute 18% null null null;
 
 			:--active {
-				color: var(--general-text);
-
 				img {
 					opacity: 1;
 					transform: scale(1);

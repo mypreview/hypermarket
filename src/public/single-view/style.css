@@ -44,11 +44,7 @@
 			}
 
 			a {
-				@extend %link-none;
-
-				:--active {
-					color: var(--general-text);
-				}
+				@mixin link var(--general-text);
 			}
 		}
 
@@ -87,11 +83,7 @@
 		color: var(--general-text-alt);
 
 		a {
-			@extend %link-none;
-
-			:--active {
-				color: var(--general-text);
-			}
+			@mixin link var(--general-text);
 
 			&::before {
 				content: "#";

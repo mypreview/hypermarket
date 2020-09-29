@@ -25,7 +25,7 @@
 
 .shipping-calculator {
 	&-button {
-		@extend %link-none;
+		@mixin link;
 		@extend %meta-item;
 
 		&::before {

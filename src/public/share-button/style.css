@@ -18,7 +18,7 @@
 	}
 
 	a {
-		@extend %link-none;
+		@mixin link;
 		margin: 0 4px 8px;
 		size: 36px;
 		display: inline-flex;

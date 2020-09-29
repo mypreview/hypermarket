@@ -33,14 +33,10 @@
 		text-transform: uppercase;
 
 		a {
-			@extend %link-none;
+			@mixin link var(--general-primary);
 			display: block;
 			padding: 14px 20px;
 			border-left: 2px solid transparent;
-
-			:--active {
-				color: var(--general-primary);
-			}
 		}
 
 		.is-active {

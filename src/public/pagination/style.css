@@ -19,7 +19,7 @@
 		}
 
 		a {
-			@extend %link-none;
+			@mixin link;
 		}
 	}
 
@@ -34,15 +34,11 @@
 		margin: 4px 0 0 30px;
 
 		a {
-			@extend %link-none;
+			@mixin link var(--general-text);
 			@mixin shift opacity;
 
 			&:hover {
 				opacity: 0.55;
-			}
-
-			:--active {
-				color: var(--general-text);
 			}
 		}
 

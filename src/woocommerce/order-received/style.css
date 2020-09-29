@@ -49,11 +49,7 @@
 
 	&__product-name {
 		a {
-			@extend %link-none;
-
-			:--active {
-				color: var(--general-text-alt);
-			}
+			@mixin link var(--general-text-alt);
 		}
 	}
 }

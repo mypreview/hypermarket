@@ -2,7 +2,7 @@
 	&--order-downloads {
 		.download-product {
 			a {
-				@extend %link-none;
+				@mixin link;
 				font-weight: 500;
 			}
 		}

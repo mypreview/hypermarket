@@ -66,7 +66,7 @@
 				grid-row: 2 ?if media (--screen-xs);
 
 				a {
-					@extend %link-none;
+					@mixin link;
 					font-size: calc(var(--general-normal) * 1.375);
 				}
 			}
@@ -89,17 +89,13 @@
 				font-size: 0;
 
 				.remove {
-					@extend %link-none;
+					@mixin link var(--alert-danger);
 					border: 2px solid var(--general-border);
 					display: flex;
 					align-items: center;
 					justify-content: center;
 					border-radius: var(--border-radius-small);
 					size: 36px;
-
-					:--active {
-						color: var(--alert-danger);
-					}
 
 					&::before {
 						@mixin icon "\ec4e";
