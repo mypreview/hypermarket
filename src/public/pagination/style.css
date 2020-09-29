@@ -1,8 +1,7 @@
 .pagination {
 	font-size: var(--general-small);
 	padding-top: 12px;
-	display: flex;
-	align-items: flex-start;
+	box: horizontal top;
 
 	li {
 		display: inline-block;

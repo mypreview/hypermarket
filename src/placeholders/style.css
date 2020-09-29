@@ -28,8 +28,7 @@
 
 %alignfull {
 	width: 100vw;
-	position: relative;
-	left: 50%;
+	position: relative null null null 50%;
 	margin-left: -50vw;
 }
 
@@ -52,8 +51,7 @@
 	&::after {
 		content: "";
 		display: inline-block;
-		width: 1px;
-		height: 11px;
+		size: 1px 11px;
 		margin: 0 10px;
 		background-color: var(--general-text-alt);
 		opacity: 0.5;

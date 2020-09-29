@@ -1,9 +1,7 @@
 .site-header {
 	.div {
 		padding: 10px 0;
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
+		box: horizontal center right;
 		margin-left: 20px;
 		width: 200px;
 	}
@@ -32,9 +30,7 @@
 			> li {
 				&:last-child {
 					display: none;
-					position: absolute;
-					right: 0;
-					top: calc(100% + 12px);
+					position: absolute calc(100% + 12px) 0 null null;
 					margin: -14px 0 0;
 					text-align: left;
 					cursor: default;

@@ -13,8 +13,7 @@
 		}
 
 		&ed-on {
-			display: flex;
-			align-items: center;
+			box: horizontal middle;
 			@extend %meta-divider;
 
 			time {
@@ -35,15 +34,13 @@
 .post {
 	.entry {
 		&-meta {
-			display: flex;
-			flex-wrap: wrap;
+			box: wrap;
 			font-size: var(--general-small);
 			color: var(--general-text-alt);
 			padding-bottom: 18px;
 
 			&__col {
-				display: flex;
-				flex-wrap: wrap;
+				box: wrap;
 			}
 
 			a {
@@ -56,9 +53,7 @@
 		}
 
 		&-footnote {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
+			box: wrap space-between;
 		}
 	}
 

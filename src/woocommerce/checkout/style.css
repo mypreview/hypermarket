@@ -5,8 +5,7 @@
 	}
 
 	form& {
-		display: flex;
-		flex-wrap: wrap;
+		box: wrap;
 
 		#customer_details {
 			width: 66% ?if media (--screen-sm-min);

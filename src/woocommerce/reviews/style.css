@@ -22,9 +22,7 @@
 
 			.meta {
 				grid-area: 1/1 ?if media (--screen-xs-min);
-				display: flex;
-				flex-wrap: wrap;
-				align-items: center;
+				box: wrap middle;
 				margin-bottom: 0;
 
 				> * {
@@ -96,16 +94,13 @@
 		size: 22px;
 		overflow: hidden;
 		padding-top: 22px;
-		position: absolute;
+		position: absolute 35px null null 62px;
 		color: var(--alert-success);
-		left: 62px;
-		top: 35px;
 
 		&::before {
 			@mixin icon "\ec70";
 			font-style: normal;
-			position: absolute;
-			top: 0;
+			position: absolute 0 null null null;
 			line-height: 1;
 		}
 

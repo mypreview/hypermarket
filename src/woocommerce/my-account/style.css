@@ -9,8 +9,7 @@
 	&.logged-in {
 		.entry-content {
 			> .woocommerce {
-				display: flex;
-				flex-wrap: wrap;
+				box: wrap;
 
 				.div {
 					width: 32% ?if media (--screen-sm-min);

@@ -10,15 +10,12 @@
 			margin-top: 22px;
 
 			> * {
-				display: flex;
-				align-items: center;
+				box: horizontal center;
 			}
 
 			a {
 				border-radius: var(--border-radius-base);
-				display: flex;
-				align-items: center;
-				justify-content: center;
+				box: center middle;
 				text-transform: uppercase;
 				text-decoration: none;
 				@mixin button-color;

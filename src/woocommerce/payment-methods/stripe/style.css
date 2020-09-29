@@ -18,8 +18,7 @@ ul.payment_methods {
 		border: 2px solid var(--general-border);
 		height: 38px;
 		border-radius: var(--border-radius-small);
-		display: flex;
-		align-items: center;
+		box: horizontal middle;
 
 		> * {
 			width: 100%;

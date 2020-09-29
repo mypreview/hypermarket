@@ -1,6 +1,5 @@
 .entry-share {
-	display: flex;
-	flex-wrap: wrap;
+	box: wrap;
 
 	&__label {
 		color: var(--general-text-alt);
@@ -9,8 +8,7 @@
 	}
 
 	ul {
-		display: flex;
-		flex-wrap: wrap;
+		box: wrap;
 		margin: 0 -4px 0;
 		padding-left: 0;
 	}

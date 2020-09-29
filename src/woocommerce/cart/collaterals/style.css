@@ -2,8 +2,7 @@
 	&-collaterals {
 		width: 34% ?if media (--screen-sm-min);
 		width: 100% ?if media (--screen-sm);
-		display: flex;
-		flex-direction: column;
+		box: vertical;
 		padding-left: 10.8% ?if media (--screen-md-min);
 		padding-left: 30px ?if media (--screen-md) and (--screen-sm-min);
 
@@ -48,8 +47,7 @@
 		}
 
 		tr {
-			display: flex;
-			flex-direction: column;
+			box: vertical;
 		}
 
 		.order-total {

@@ -22,8 +22,7 @@ body {
  * Sections
  */
 .site {
-	display: flex;
-	flex-direction: column;
+	box: vertical;
 	min-height: 100vh;
 }
 
@@ -107,8 +106,7 @@ blockquote {
 	border-left: 5px solid var(--general-border);
 
 	cite {
-		display: flex;
-		align-items: center;
+		box: horizontal middle;
 		font-size: var(--general-small);
 		color: var(--general-text-alt);
 		margin-top: 10px;

@@ -15,9 +15,7 @@
 
 		&::before {
 			@mixin icon "\ee67\ee67\ee67\ee67\ee67";
-			top: 0;
-			left: 0;
-			position: absolute;
+			position: absolute 0;
 		}
 	}
 

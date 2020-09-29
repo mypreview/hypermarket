@@ -58,9 +58,7 @@
 
 		.woocommerce-input-wrapper::before {
 			font-family: boxicons;
-			position: absolute;
-			right: 10px;
-			top: 11px;
+			position: absolute 11px 10px null null;
 			line-height: 1;
 			font-size: var(--general-medium);
 			z-index: 1;

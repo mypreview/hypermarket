@@ -7,9 +7,7 @@
 	li {
 		padding: 15px;
 		border-bottom: 1px solid var(--general-border);
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
+		box: wrap space-between;
 		font-size: var(--general-small);
 		list-style: none;
 
@@ -23,10 +21,8 @@
 	&::after,
 	&::before {
 		content: "";
-		left: 0;
-		right: 0;
 		height: 19px;
-		position: absolute;
+		position: absolute null 0 null 0;
 		background: linear-gradient(45deg, var(--general-tile) 7px, transparent 0) 0 5px, linear-gradient(-45deg, var(--general-tile) 7px, transparent 0) 0 5px;
 		background-repeat: repeat-x;
 		background-size: 14px 14px;

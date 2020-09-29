@@ -4,10 +4,7 @@
 
 		&-login {
 			.form-row:not(.woocommerce-form-row) {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: space-between;
-				align-items: center;
+				box: wrap space-between middle;
 				margin-bottom: 0;
 
 				label {

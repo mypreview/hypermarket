@@ -1,5 +1,7 @@
 .entry-summary {
 	.variations {
+		margin-bottom: 18px;
+		
 		td,
 		th {
 			padding: 0;
@@ -13,9 +15,7 @@
 		}
 
 		tbody {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
+			box: wrap center;
 		}
 
 		select {
@@ -23,16 +23,12 @@
 		}
 
 		&_button {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
+			box: wrap center;
 		}
 	}
 
 	.reset_variations {
-		position: absolute;
-		left: calc(100% + 10px);
-		bottom: 0;
+		position: absolute null null 0 calc(100% + 10px);
 		overflow: hidden;
 		size: 36px;
 		@extend %link-none;

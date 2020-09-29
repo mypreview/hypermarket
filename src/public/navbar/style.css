@@ -5,8 +5,7 @@
 	width: 100%;
 	min-height: var(--navbar-min-height);
 	background-color: var(--general-background);
-	display: flex;
-	align-items: flex-start;
+	box: horizontal top;
 	padding: 0 30px;
 
 	a {
@@ -105,18 +104,14 @@ nav {
 
 	> div {
 		> ul {
-			display: flex;
-			justify-content: center;
-			flex-wrap: wrap;
+			box: wrap middle;
 		}
 	}
 
 	.sub-menu {
 		display: none;
-		position: absolute;
+		position: absolute calc(100% + 9px) null null 0;
 		width: 240px;
-		left: 0;
-		top: calc(100% + 9px);
 		margin-top: -14px;
 		padding: 20px;
 		text-align: left;

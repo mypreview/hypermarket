@@ -72,13 +72,11 @@ optgroup {
 [type="checkbox"] {
 	border-radius: 1px;
 	&::before {
-		position: absolute;
+		position: absolute -2px null null -2px;
 		display: block;
 		@mixin icon "\ea0f";
 		color: #fff;
 		line-height: 1;
-		top: -2px;
-		left: -2px;
 	}
 
 	&:checked {
@@ -98,9 +96,8 @@ optgroup {
 [type="checkbox"],
 [type="radio"] {
 	position: absolute;
-	width: 15px;
+	size: 15px;
 	min-width: 15px;
-	height: 15px;
 	vertical-align: middle;
 	margin: 5px 0 0 2px;
 	border: 2px solid var(--general-border);
@@ -140,8 +137,7 @@ input {
 					@extend %select-icon;
 					border: 2px solid var(--general-border);
 					height: 48px;
-					display: flex;
-					align-items: center;
+					box: horizontal middle;
 					padding-left: 8px;
 
 					^^^^&-selection {

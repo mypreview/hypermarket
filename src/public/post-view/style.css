@@ -13,8 +13,7 @@
 		float: left ?if media (--screen-sm-min);
 		padding-right: 11% ?if media (--screen-md-min);
 		padding-right: 30px ?if media (--screen-md);
-		display: flex;
-		flex-direction: column;
+		box: vertical;
 	}
 
 	> *:not(.div) {
@@ -59,8 +58,7 @@
 				color: var(--general-text-alt);
 
 				&:first-child {
-					display: flex;
-					flex-wrap: wrap;
+					box: wrap;
 
 					a {
 						@extend %link-none;

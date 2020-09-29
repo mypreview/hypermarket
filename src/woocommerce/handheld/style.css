@@ -1,6 +1,5 @@
 .site-handheld-toolbar {
-	position: sticky;
-	bottom: 0;
+	position: sticky null null 0 null;
 	background-color: var(--general-tile);
 	display: none ?if media (--screen-sm-min);
 
@@ -9,16 +8,14 @@
 	}
 
 	ul {
-		display: flex;
-		align-items: center;
+		box: horizontal middle;
 		@extend %none-list-style;
 	}
 
 	.columns-3 {
 		li {
 			width: 33.333%;
-			display: flex;
-			justify-content: center;
+			box: horizontal center;
 		}
 	}
 
@@ -34,8 +31,7 @@
 		a {
 			font-size: 0;
 			color: var(--general-text);
-			display: flex;
-			justify-content: center;
+			box: horizontal center;
 
 			:--active {
 				color: var(--general-text-alt);
@@ -50,11 +46,9 @@
 
 		.widget {
 			size: 100% 0;
-			position: absolute;
-			left: 0;
+			position: absolute null null 0 0;
 			@mixin shift bottom;
 			z-index: -2;
-			bottom: 0;
 			overflow: hidden;
 			background-color: var(--general-tile);
 

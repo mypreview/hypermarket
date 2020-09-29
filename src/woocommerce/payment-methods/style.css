@@ -27,8 +27,7 @@
 			}
 
 			> label {
-				display: flex;
-				flex-wrap: wrap;
+				box: wrap;
 				padding-top: 2.5px;
 			}
 		}

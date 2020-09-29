@@ -5,8 +5,7 @@
 		a {
 			@extend %link-none;
 			text-transform: uppercase;
-			position: absolute;
-			top: 18%;
+			position: absolute 18% null null null;
 
 			:--active {
 				color: var(--general-text);

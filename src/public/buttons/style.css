@@ -2,8 +2,7 @@
 	max-width: 100%;
 
 	&s {
-		display: flex;
-		flex-wrap: wrap;
+		box: wrap;
 
 		&.aligncenter {
 			justify-content: center;
