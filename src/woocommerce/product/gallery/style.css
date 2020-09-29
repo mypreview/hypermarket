@@ -9,12 +9,26 @@
 	}
 
 	&__trigger {
-		position: absolute;
-		size: 100%;
-		z-index: 4;
-		cursor: url(../img/zoom-in.svg) 0 0, pointer;
+		size: 34px;
+	    position: absolute 34px 10px null null;
+	    box: horizontal center middle;
+	    font-size: 20px;
+	    border-radius: var(--border-radius-small);
+	    z-index: 1;
+	    background-color: var(--general-background);
+	    @mixin link;
+	    opacity: .6;
+	    @mixin shift opacity;
 
-		> img.emoji {
+	    :--active {
+	    	opacity: 1;
+	    }
+
+	    &:before {
+	    	@mixin icon "\ec51";
+	    }
+
+		> img {
 			display: none !important;
 		}
 	}
