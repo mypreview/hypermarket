@@ -22,7 +22,7 @@
 
 			.meta {
 				grid-area: 1/1 ?if media (--screen-xs-min);
-				box: wrap middle;
+				box: horizontal wrap middle;
 				margin-bottom: 0;
 
 				> * {

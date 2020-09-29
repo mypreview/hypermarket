@@ -104,7 +104,7 @@ nav {
 
 	> div {
 		> ul {
-			box: wrap middle;
+			box: horizontal wrap center;
 		}
 	}
 

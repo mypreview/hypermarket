@@ -15,7 +15,7 @@
 
 			a {
 				border-radius: var(--border-radius-base);
-				box: center middle;
+				box: horizontal center middle;
 				text-transform: uppercase;
 				text-decoration: none;
 				@mixin button-color;
