@@ -556,22 +556,32 @@ if ( ! function_exists( 'hypermarket_sanitize_method' ) ) :
 	/**
 	 * Returns the proper method name based on given input/value type to sanitize.
 	 *
-	 * @param  string $group   The group id or input type.
-	 * @return mixed
+	 * @since    2.0.0
+	 * @param    string $type   Optional. Type of the control.
+	 * @return   mixed
 	 */
-	function hypermarket_sanitize_method( $group ) {
+	function hypermarket_sanitize_method( $type = '' ) {
 		$return = '';
 
-		switch ( $group ) {
+		switch ( $type ) {
 			case 'color':
 			case 'hex':
 				// Sanitizes a hex color.
 				$return = 'sanitize_hex_color';
 				break;
+			case 'text':
+				// Sanitizes a string from user input.
+				$return = 'sanitize_text_field';
+				break;
 			case 'font':
 			case 'number':
+			case 'range':
 				// Convert a value to non-negative integer.
 				$return = 'absint';
+				break;
+			case 'checkbox':
+				// Checkbox sanitization callback.
+				$return = 'hypermarket_sanitize_checkbox';
 				break;
 			default:
 				// Escaping for HTML blocks.
@@ -587,8 +597,9 @@ if ( ! function_exists( 'hypermarket_sanitize_array' ) ) :
 	/**
 	 * Recursive sanitation for an array input.
 	 *
-	 * @param  array $input    The value to sanitize.
-	 * @return string|array
+	 * @since    2.0.0
+	 * @param    array $input    The value to sanitize.
+	 * @return   string|array
 	 */
 	function hypermarket_sanitize_array( $input ) {
 		foreach ( $input as $key => $value ) {
@@ -603,16 +614,31 @@ if ( ! function_exists( 'hypermarket_sanitize_array' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_sanitize_checkbox' ) ) :
+	/**
+	 * Checkbox sanitization callback.
+	 *
+	 * @since    2.0.0
+	 * @param    bool $input    Whether the checkbox is checked.
+	 * @return   bool
+	 * @phpcs:disable PHPCompatibility.Operators.NewOperators.t_coalesceFound
+	 */
+	function hypermarket_sanitize_checkbox( $input ) {
+		return ( isset( $input ) && true === $input ) ?? true;
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_sanitize' ) ) :
 	/**
 	 * Sanitize the given input/value.
 	 *
-	 * @param  int|string $input              The value to sanitize.
-	 * @param  string     $group    Optional. The group id of the control or input type.
-	 * @return mixed
+	 * @since    2.0.0
+	 * @param    int|string $input              The value to sanitize.
+	 * @param    string     $type     Optional. Type of the control.
+	 * @return   mixed
 	 */
-	function hypermarket_sanitize( $input, $group = '' ) {
-		$method = (string) hypermarket_sanitize_method( $group );
+	function hypermarket_sanitize( $input, $type = '' ) {
+		$method = (string) hypermarket_sanitize_method( $type );
 		return call_user_func( $method, $input );
 	}
 endif;
