@@ -3,6 +3,15 @@
 	font-family: boxicons;
 }
 
+@define-mixin link $hover: inherit, $color: inherit {
+	color: $(color);
+	text-decoration: none;
+
+	:--active {
+		color: $(hover);
+	}
+}
+
 @define-mixin shift $transition, $delay: 0.3s {
 	transition: $(transition) $(delay);
 }
