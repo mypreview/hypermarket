@@ -18,8 +18,7 @@
 		padding: 0 0 15px 80px;
 		border-bottom: 1px solid var(--general-border);
 		min-height: 80px;
-		display: flex;
-		flex-direction: column;
+		box: vertical;
 
 		&:nth-child(n+2) {
 			margin-top: 15px;
@@ -45,7 +44,7 @@
 				@mixin icon "\ec4e";
 				font-size: calc(var(--general-normal) * 1.125);
 				line-height: 1;
-				position: absolute;
+				position: absolute 0 -3px null null;
 				right: -3px;
 				top: 0;
 			}
@@ -61,15 +60,14 @@
 	}
 
 	.attachment-woocommerce_thumbnail {
-		position: absolute;
+		position: absolute 0 null null 0;
 		max-width: 65px;
 		left: 0;
 		top: 0;
 	}
 
 	&__total {
-		display: flex;
-		justify-content: space-between;
+		box: horizontal space-between;
 
 		strong {
 			color: var(--general-text-alt);
