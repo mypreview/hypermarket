@@ -271,6 +271,14 @@ if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_single_product_pagination() {
+		// Retrieves theme modification value for the current theme (parent or child).
+		$is_activated = get_theme_mod( sprintf( '%s_wc_single_product_pagination', Hypermarket_Customize::$setting_prefix ), false );
+
+		// Bail early, in case the module is not being activated.
+		if ( ! $is_activated ) {
+			return;
+		}
+
 		// Show only products in the same category?
 		$in_same_term   = apply_filters( 'hypermarket_single_product_pagination_same_category', true );
 		$excluded_terms = apply_filters( 'hypermarket_single_product_pagination_excluded_terms', '' );
@@ -292,7 +300,10 @@ if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
 			<a href="<?php echo esc_url( $previous_product->get_permalink() ); ?>" rel="prev" class="<?php echo esc_attr( $classname ); ?>__prev">
 			<?php echo wp_kses_post( $previous_product->get_image() ); ?>
 				<span>
-					<?php esc_html_e( '— Prev', 'hypermarket' ); ?>
+					<?php 
+					/* translators: %s: Medium dash. */
+					printf( esc_html__( '%s Prev', 'hypermarket' ), '&mdash;' ); 
+					?>
 				</span>
 			</a>
 			<?php 
@@ -303,7 +314,10 @@ if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
 			<a href="<?php echo esc_url( $next_product->get_permalink() ); ?>" rel="next" class="<?php echo esc_attr( $classname ); ?>__next">
 				<?php echo wp_kses_post( $next_product->get_image() ); ?>
 				<span>
-					<?php esc_html_e( 'Next —', 'hypermarket' ); ?>
+					<?php 
+					/* translators: %s: Medium dash. */
+					printf( esc_html__( 'Next %s', 'hypermarket' ), '&mdash;' ); 
+					?>
 				</span>
 			</a>
 			<?php 
@@ -346,19 +360,20 @@ if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
 			return;
 		}
 
-		$show = false;
+		// Retrieves theme modification value for the current theme (parent or child).
+		$is_activated = get_theme_mod( sprintf( '%s_wc_sticky_single_add_to_cart', Hypermarket_Customize::$setting_prefix ), false );
 
-		if ( $product->is_purchasable() && $product->is_in_stock() ) {
-			$show = true;
-		} elseif ( $product->is_type( 'external' ) ) {
-			$show = true;
-		}
-
-		if ( ! $show ) {
+		// Bail early in case:
+		// 1- The module is not being activated.
+		// 2- The product is not purchasable.
+		// 3- The product is out of stock.
+		if ( ! $is_activated || ! $product->is_purchasable() || ! $product->is_in_stock() ) {
 			return;
 		}
 
-		$classname = 'hypermarket-sticky-add-to-cart';
+		$classname          = 'hypermarket-sticky-add-to-cart';
+		$availability       = $product->get_availability();
+		$stock_availability = ( is_array( $availability ) && isset( $availability['availability'] ) ) ? $availability['availability'] : '';
 		?>
 		<section class="<?php echo esc_attr( $classname ); ?>">
 			<div class="col-full">
@@ -374,7 +389,14 @@ if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
 						<span class="<?php echo esc_attr( $classname ); ?>__price">
 							<?php echo wp_kses_post( $product->get_price_html() ); ?>
 						</span>
-						<?php echo wp_kses_post( wc_get_rating_html( $product->get_average_rating() ) ); ?>
+						<?php if ( ! empty( $stock_availability ) ) : ?>
+						<span class="<?php echo esc_attr( $classname ); ?>__stock">
+							<?php echo wp_kses_post( $stock_availability ); ?>
+						</span>
+							<?php
+						endif;
+						echo wp_kses_post( wc_get_rating_html( $product->get_average_rating() ) ); 
+						?>
 					</div>
 					<?php 
 					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
