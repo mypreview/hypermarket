@@ -20,6 +20,7 @@ module.exports = ( { env } ) => ( {
 		'postcss-start-to-end': {},
 		'postcss-calc': {},
 		'postcss-size': {},
+		'postcss-flexbox': {},
 		'postcss-position': {},
 		'postcss-hidden': {},
 		'postcss-short-border-radius': {},
