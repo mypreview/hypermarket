@@ -4,6 +4,7 @@
 @import "./navbar/style.css";
 @import "./breadcrumbs/style.css";
 @import "./notice/style.css";
+@import "./notice/store-notice/style.css";
 @import "./quantity/style.css";
 @import "./widgets/style.css";
 @import "./forms/style.css";
@@ -14,6 +15,7 @@
 @import "./product/style.css";
 @import "./product/gallery/style.css";
 @import "./product/share-button/style.css";
+@import "./product/sticky-add-to-cart/style.css";
 @import "./product/summary/style.css";
 @import "./product/pagination/style.css";
 @import "./product/rating/style.css";
