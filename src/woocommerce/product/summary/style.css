@@ -19,10 +19,7 @@
 		}
 
 		.cart {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: flex-end;
+			box: wrap center bottom;
 			margin-bottom: 24px;
 		}
 
@@ -36,6 +33,11 @@
 			color: var(--general-text);
 			width: 100%;
 			margin-bottom: 20px;
+		}
+
+		> .div {
+			box: wrap center;
+		    margin-bottom: 18px;
 		}
 	}
 }
