@@ -242,3 +242,24 @@ if ( ! function_exists( 'hypermarket_customer_fullname' ) ) :
 		return $return;
 	}
 endif;
+
+if ( ! function_exists( 'hypermarket_get_gallery_image_ids' ) ) :
+	/**
+	 * Get product gallery image ids.
+	 *
+	 * @param   object $product    Current product object.
+	 * @return  array
+	 */
+	function hypermarket_get_gallery_image_ids( $product ) {
+		// Bail out if the current parameter is NOT a product.
+		if ( ! is_a( $product, 'WC_Product' ) ) {
+			return;
+		}
+
+		if ( is_callable( 'WC_Product::get_gallery_image_ids' ) ) {
+			return $product->get_gallery_image_ids();
+		} else {
+			return $product->get_gallery_attachment_ids();
+		}
+	}
+endif;
