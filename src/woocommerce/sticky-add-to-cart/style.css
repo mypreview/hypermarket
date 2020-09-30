@@ -5,7 +5,7 @@
 	opacity: 0;
 	animation: slideUp 0.4s;
 	z-index: 30;
-    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
 	display: none ?if media (--screen-sm);
 
 	.admin-bar & {
@@ -34,17 +34,17 @@
 	&__meta {
 		box: wrap;
 		font-size: var(--general-small);
-	    flex-grow: 1;
-	    color: var(--general-text-alt);
-        padding: 0 18px;
+		flex-grow: 1;
+		color: var(--general-text-alt);
+		padding: 0 18px;
 
-        > span {
-        	margin-bottom: 3px;
-        }
+		> span {
+			margin-bottom: 3px;
+		}
 	}
 
 	&__title {
-	    width: 100%;
+		width: 100%;
 
 		strong {
 			font-weight: 500;
@@ -64,6 +64,6 @@
 	}
 
 	.star-rating {
-	    margin: 2px 10px;
+		margin: 2px 10px;
 	}
 }
