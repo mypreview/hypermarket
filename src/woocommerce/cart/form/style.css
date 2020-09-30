@@ -31,7 +31,6 @@
 			}
 
 			.button {
-				margin: 0;
 				@mixin button-color;
 			}
 		}

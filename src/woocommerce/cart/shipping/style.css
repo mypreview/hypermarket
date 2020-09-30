@@ -35,9 +35,5 @@
 
 	&-form {
 		margin-top: 12px;
-
-		.button {
-			margin: 0;
-		}
 	}
 }

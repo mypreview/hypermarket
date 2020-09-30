@@ -9,7 +9,6 @@
 			padding: 0 16px;
 			font-size: calc(var(--general-normal) * 0.75);
 			min-height: 36px;
-			margin: 0;
 			max-width: calc(50% - 5px);
 
 			&--next {
