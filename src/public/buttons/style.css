@@ -31,10 +31,9 @@ button,
 	background-color: var(--general-primary);
 	border-width: 0;
 	border-radius: var(--border-radius-base);
-	padding: 0 22px;
+	padding: 10px 22px;
 	text-transform: uppercase;
 	text-decoration: none;
-	margin: 10px 8px 10px 0;
 	touch-action: manipulation;
 	appearance: none;
 	display: inline-flex;
