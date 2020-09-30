@@ -1,0 +1,11 @@
+.onsale {
+	color: var(--alert-danger);
+	background-color: var(--general-background);
+}
+
+.price {
+	del {
+		font-size: 87.5%;
+		opacity: .7;
+	}
+}
