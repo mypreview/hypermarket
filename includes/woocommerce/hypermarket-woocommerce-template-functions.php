@@ -372,8 +372,6 @@ if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
 		}
 
 		$classname          = 'hypermarket-sticky-add-to-cart';
-		$availability       = $product->get_availability();
-		$stock_availability = ( is_array( $availability ) && isset( $availability['availability'] ) ) ? $availability['availability'] : '';
 		?>
 		<section class="<?php echo esc_attr( $classname ); ?>">
 			<div class="col-full">
@@ -389,14 +387,7 @@ if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
 						<span class="<?php echo esc_attr( $classname ); ?>__price">
 							<?php echo wp_kses_post( $product->get_price_html() ); ?>
 						</span>
-						<?php if ( ! empty( $stock_availability ) ) : ?>
-						<span class="<?php echo esc_attr( $classname ); ?>__stock">
-							<?php echo wp_kses_post( $stock_availability ); ?>
-						</span>
-							<?php
-						endif;
-						echo wp_kses_post( wc_get_rating_html( $product->get_average_rating() ) ); 
-						?>
+						<?php echo wp_kses_post( wc_get_rating_html( $product->get_average_rating() ) ); ?>
 					</div>
 					<?php 
 					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
