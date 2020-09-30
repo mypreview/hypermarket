@@ -76,18 +76,21 @@ add_action( 'woocommerce_before_account_navigation', 'hypermarket_myaccount_user
 add_action( 'woocommerce_after_account_navigation', 'hypermarket_div_close' );
 
 /**
- * Shop (Archive)
+ * Layout
  *
- * @see  hypermarket_edit_post_link()
  * @see  hypermarket_quantity_minus_btn()
  * @see  hypermarket_quantity_plus_btn()
- * @see  hypermarket_div()
- * @see  hypermarket_div_close()
  */
-add_action( 'woocommerce_after_shop_loop_item', 'hypermarket_div', 7 );
-add_action( 'woocommerce_after_shop_loop_item', 'hypermarket_div_close', 11 );
 add_action( 'woocommerce_before_quantity_input_field', 'hypermarket_quantity_minus_btn' );
 add_action( 'woocommerce_after_quantity_input_field', 'hypermarket_quantity_plus_btn' );
+
+/**
+ * Shop (Archive)
+ */
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
+add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 15 );
+add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 5 );
+add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 15 );
 
 /**
  * Single product
