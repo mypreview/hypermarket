@@ -293,11 +293,11 @@ if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
 		}
 
 		?>
-		<nav class="<?php echo esc_attr( $classname ); ?>" aria-label="<?php esc_attr_e( 'More products', 'hypermarket' ); ?>">
+		<nav class="<?php echo sanitize_html_class( $classname ); ?>" aria-label="<?php esc_attr_e( 'More products', 'hypermarket' ); ?>">
 		<?php 
 		if ( $previous_product ) : 
 			?>
-			<a href="<?php echo esc_url( $previous_product->get_permalink() ); ?>" rel="prev" class="<?php echo esc_attr( $classname ); ?>__prev">
+			<a href="<?php echo esc_url( $previous_product->get_permalink() ); ?>" rel="prev" class="<?php echo sanitize_html_class( $classname ); ?>__prev">
 			<?php echo wp_kses_post( $previous_product->get_image() ); ?>
 				<span>
 					<?php 
@@ -311,7 +311,7 @@ if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
 
 		if ( $next_product ) : 
 			?>
-			<a href="<?php echo esc_url( $next_product->get_permalink() ); ?>" rel="next" class="<?php echo esc_attr( $classname ); ?>__next">
+			<a href="<?php echo esc_url( $next_product->get_permalink() ); ?>" rel="next" class="<?php echo sanitize_html_class( $classname ); ?>__next">
 				<?php echo wp_kses_post( $next_product->get_image() ); ?>
 				<span>
 					<?php 
@@ -373,18 +373,18 @@ if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
 
 		$classname          = 'hypermarket-sticky-add-to-cart';
 		?>
-		<section class="<?php echo esc_attr( $classname ); ?>">
+		<section class="<?php echo sanitize_html_class( $classname ); ?>">
 			<div class="col-full">
-				<div class="<?php echo esc_attr( $classname ); ?>__content">
+				<div class="<?php echo sanitize_html_class( $classname ); ?>__content">
 					<?php echo wp_kses_post( woocommerce_get_product_thumbnail() ); ?>
-					<div class="<?php echo esc_attr( $classname ); ?>__meta">
-						<span class="<?php echo esc_attr( $classname ); ?>__title">
+					<div class="<?php echo sanitize_html_class( $classname ); ?>__meta">
+						<span class="<?php echo sanitize_html_class( $classname ); ?>__title">
 							<?php esc_attr_e( 'You&#8217;re viewing:', 'hypermarket' ); ?>
 							<strong>
 								<?php the_title(); ?>
 							</strong>
 						</span>
-						<span class="<?php echo esc_attr( $classname ); ?>__price">
+						<span class="<?php echo sanitize_html_class( $classname ); ?>__price">
 							<?php echo wp_kses_post( $product->get_price_html() ); ?>
 						</span>
 						<?php echo wp_kses_post( wc_get_rating_html( $product->get_average_rating() ) ); ?>
@@ -420,12 +420,12 @@ if ( ! function_exists( 'hypermarket_myaccount_user_info' ) ) :
 		$classname = 'hypermarket-myaccount-info';
 
 		?>
-		<div class="<?php echo esc_attr( $classname ); ?>">
-			<div class="<?php echo esc_attr( $classname ); ?>__meta">
-				<div class="<?php echo esc_attr( $classname ); ?>__avatar">
+		<div class="<?php echo sanitize_html_class( $classname ); ?>">
+			<div class="<?php echo sanitize_html_class( $classname ); ?>__meta">
+				<div class="<?php echo sanitize_html_class( $classname ); ?>__avatar">
 					<?php echo get_avatar( $user_id, 105 ); ?>
 				</div>
-				<div class="<?php echo esc_attr( $classname ); ?>__data">
+				<div class="<?php echo sanitize_html_class( $classname ); ?>__data">
 					<p>
 						<?php hypermarket_customer_fullname( $user_id ); ?>
 					</p>
