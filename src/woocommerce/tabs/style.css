@@ -15,7 +15,7 @@
 		content: "";
 		size: 100% 2px;
 		background-color: var(--general-border);
-		position: absolute null null 0 null;
+		position: absolute null null 10px null;
 	}
 
 	li {
