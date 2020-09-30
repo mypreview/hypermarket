@@ -23,6 +23,8 @@
 	}
 
 	&__data {
+		box-item: flex-1;
+		
 		p {
 			font-size: calc(var(--general-normal) * 1.0625);
 			margin-bottom: 0;
