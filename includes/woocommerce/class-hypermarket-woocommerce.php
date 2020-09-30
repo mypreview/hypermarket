@@ -62,8 +62,8 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 				apply_filters(
 					'hypermarket_woocommerce_args',
 					array(
-						'single_image_width'    => 660,
-						'thumbnail_image_width' => 364,
+						'single_image_width'    => apply_filters( 'hypermarket_woocommerce_single_image_width', 660 ),
+						'thumbnail_image_width' => apply_filters( 'hypermarket_woocommerce_thumbnail_image_width', 364 ),
 						'product_grid'          => array(
 							'default_columns' => 3,
 							'default_rows'    => 4,
