@@ -371,7 +371,7 @@ if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
 			return;
 		}
 
-		$classname          = 'hypermarket-sticky-add-to-cart';
+		$classname = 'hypermarket-sticky-add-to-cart';
 		?>
 		<section class="<?php echo sanitize_html_class( $classname ); ?>">
 			<div class="col-full">
@@ -439,5 +439,38 @@ if ( ! function_exists( 'hypermarket_myaccount_user_info' ) ) :
 			</div>
 		</div>
 		<?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_product_image_flipper' ) ) :
+	/**
+	 * Retrieve and append first gallery image of the product to the loop.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_product_image_flipper() {
+		global $product, $woocommerce;
+		$attachment_ids = hypermarket_get_gallery_image_ids( $product );
+
+		// Make sure that the featured image is already exists.
+		if ( $attachment_ids ) {
+			$attachment_ids        = array_values( $attachment_ids );
+			$flip_image_id         = $attachment_ids['0'];
+			$flip_image_alt        = get_post_meta( $flip_image_id, '_wp_attachment_image_alt', true );
+			$thumbnail_image_width = apply_filters( 'hypermarket_woocommerce_thumbnail_image_width', 364 );
+			$flip_image_srcset     = wp_get_attachment_image_srcset( $flip_image_id, 'woocommerce_thumbnail' );
+
+			echo wp_get_attachment_image(
+				$flip_image_id,
+				'woocommerce_thumbnail',
+				false,
+				array(
+					'alt'    => esc_attr( $flip_image_alt ),
+					'srcset' => esc_attr( $flip_image_srcset ),
+					'sizes'  => sprintf( esc_attr( '(max-width: %1$spx) 100vw, %2$spx' ), intval( $thumbnail_image_width ), intval( $thumbnail_image_width ) ),
+				)
+			);
+		}
 	}
 endif;
