@@ -112,6 +112,8 @@ add_action( 'woocommerce_single_product_summary', 'hypermarket_single_product_sh
 add_action( 'woocommerce_single_product_summary', 'hypermarket_single_product_pagination', 99 );
 add_action( 'woocommerce_before_single_product_summary', 'hypermarket_div', 0 );
 add_action( 'woocommerce_before_single_product_summary', 'woocommerce_output_all_notices', 5 );
+add_action( 'woocommerce_before_single_product_summary', 'hypermarket_div', 7 );
+add_action( 'woocommerce_before_single_product_summary', 'hypermarket_div_close', 25 );
 add_action( 'woocommerce_after_single_product_summary', 'hypermarket_div_close', 5 );
 
 /**
