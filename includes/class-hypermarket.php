@@ -474,7 +474,14 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 
 			// Add class if sidebar is used.
 			if ( is_active_sidebar( 'sidebar-1' ) && ! is_404() && ! hypermarket_is_fluid_template() ) {
-				$classes[] = 'has-sidebar';
+				$sidebar_classname = 'has-sidebar';
+				$classes[]         = $sidebar_classname;
+				$is_sidebar_before = get_theme_mod( sprintf( '%s_general_sidebar_before', Hypermarket_Customize::$setting_prefix ), false );
+
+				// Bail early, in case the module is not being activated.
+				if ( ! ! $is_sidebar_before ) {
+					$classes[] = sprintf( '%s--before', $sidebar_classname );
+				}
 			}
 
 			// Add class when using featured image.
