@@ -270,6 +270,12 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 								'controls'       => array(
 									array(
 										'type'           => 'checkbox',
+										'id'             => sprintf( '%s_wc_catalog_new_flash', self::$setting_prefix ),
+										'label'          => esc_html__( 'Display "New" flash', 'hypermarket' ),
+										'description'    => esc_html__( 'The flash (badge) will be shown on products that were published in the last 30 days.', 'hypermarket' ),
+									),
+									array(
+										'type'           => 'checkbox',
 										'id'             => sprintf( '%s_wc_catalog_categories', self::$setting_prefix ),
 										'label'          => esc_html__( 'Display categories', 'hypermarket' ),
 										'description'    => esc_html__( 'Append the product categories to the loop items.', 'hypermarket' ),
