@@ -252,25 +252,32 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 						'description' => __( 'This section gives you creative control of style and layout options for your theme.', 'hypermarket' ),
 						'settings'    => array(
 							array(
-								'id'             => sprintf( '%s_wc_layout', self::$setting_prefix ),
-								'title'          => esc_html__( 'WooCommerce', 'hypermarket' ),
+								'id'             => sprintf( '%s_wc_catalog', self::$setting_prefix ),
+								'title'          => esc_html__( 'Product Catalog', 'hypermarket' ),
 								'theme_supports' => 'woocommerce',
 								'controls'       => array(
 									array(
 										'type'           => 'checkbox',
-										'id'             => sprintf( '%s_wc_product_image_flipper', self::$setting_prefix ),
+										'id'             => sprintf( '%s_wc_catalog_image_flipper', self::$setting_prefix ),
 										'label'          => esc_html__( 'Product image flipper', 'hypermarket' ),
 										'description'    => esc_html__( 'Add a secondary product thumbnail that is revealed when you hover over the main product image.', 'hypermarket' ),
 									),
+								),
+							),
+							array(
+								'id'             => sprintf( '%s_wc_details', self::$setting_prefix ),
+								'title'          => esc_html__( 'Product Details', 'hypermarket' ),
+								'theme_supports' => 'woocommerce',
+								'controls'       => array(
 									array(
 										'type'           => 'checkbox',
-										'id'             => sprintf( '%s_wc_single_product_pagination', self::$setting_prefix ),
+										'id'             => sprintf( '%s_wc_details_pagination', self::$setting_prefix ),
 										'label'          => esc_html__( 'Product pagination', 'hypermarket' ),
 										'description'    => esc_html__( 'Previous and next product navigation buttons from same collection on product page.', 'hypermarket' ),
 									),
 									array(
 										'type'           => 'checkbox',
-										'id'             => sprintf( '%s_wc_sticky_single_add_to_cart', self::$setting_prefix ),
+										'id'             => sprintf( '%s_wc_details_sticky_add_to_cart', self::$setting_prefix ),
 										'label'          => esc_html__( 'Sticky add to cart', 'hypermarket' ),
 										'description'    => esc_html__( 'A content bar at the top of the browser window which includes the product name, price, rating, stock status and the add to cart button.', 'hypermarket' ),
 									),
