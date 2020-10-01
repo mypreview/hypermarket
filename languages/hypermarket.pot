@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-10-01T13:42:24+00:00\n"
+"POT-Creation-Date: 2020-10-01T18:36:42+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: hypermarket\n"
@@ -109,20 +109,20 @@ msgstr ""
 msgid "Widgets added here will appear in column %1$d of footer row %2$d."
 msgstr ""
 
-#: includes/class-hypermarket.php:525
+#: includes/class-hypermarket.php:532
 msgid "Prev"
 msgstr ""
 
-#: includes/class-hypermarket.php:526
+#: includes/class-hypermarket.php:533
 msgid "Next"
 msgstr ""
 
 #. translators: 1: Open nav tag, 2: Close nav tag.
-#: includes/class-hypermarket.php:545
+#: includes/class-hypermarket.php:552
 msgid "%1$sPost Navigation%2$s"
 msgstr ""
 
-#: includes/class-hypermarket.php:550
+#: includes/class-hypermarket.php:557
 msgid "All entries"
 msgstr ""
 
@@ -136,6 +136,7 @@ msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:110
 #: includes/customize/class-hypermarket-customize.php:204
+#: includes/customize/class-hypermarket-customize.php:256
 msgid "General"
 msgstr ""
 
@@ -221,31 +222,51 @@ msgstr ""
 msgid "This section gives you creative control of style and layout options for your theme."
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:256
-msgid "WooCommerce"
+#: includes/customize/class-hypermarket-customize.php:261
+msgid "Sidebar before content"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:262
-msgid "Product image flipper"
-msgstr ""
-
-#: includes/customize/class-hypermarket-customize.php:263
-msgid "Add a secondary product thumbnail that is revealed when you hover over the main product image."
+msgid "Enabling this option will place the sidebar to appear before the main content."
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:268
-msgid "Product pagination"
-msgstr ""
-
-#: includes/customize/class-hypermarket-customize.php:269
-msgid "Previous and next product navigation buttons from same collection on product page."
+msgid "Product Catalog"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:274
-msgid "Sticky add to cart"
+msgid "Display categories"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:275
+msgid "Append the product categories to the loop items."
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:280
+msgid "Product image flipper"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:281
+msgid "Add a secondary product thumbnail that is revealed when you hover over the main product image."
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:287
+msgid "Product Details"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:293
+msgid "Product pagination"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:294
+msgid "Previous and next product navigation buttons from same collection on product page."
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:299
+msgid "Sticky add to cart"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:300
 msgid "A content bar at the top of the browser window which includes the product name, price, rating, stock status and the add to cart button."
 msgstr ""
 
