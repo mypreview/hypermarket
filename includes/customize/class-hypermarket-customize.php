@@ -252,6 +252,18 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 						'description' => __( 'This section gives you creative control of style and layout options for your theme.', 'hypermarket' ),
 						'settings'    => array(
 							array(
+								'id'             => sprintf( '%s_general_layout', self::$setting_prefix ),
+								'title'          => esc_html__( 'General', 'hypermarket' ),
+								'controls'       => array(
+									array(
+										'type'           => 'checkbox',
+										'id'             => sprintf( '%s_general_sidebar_before', self::$setting_prefix ),
+										'label'          => esc_html__( 'Sidebar before content', 'hypermarket' ),
+										'description'    => esc_html__( 'Enabling this option will place the sidebar to appear before the main content.', 'hypermarket' ),
+									),
+								),
+							),
+							array(
 								'id'             => sprintf( '%s_wc_catalog', self::$setting_prefix ),
 								'title'          => esc_html__( 'Product Catalog', 'hypermarket' ),
 								'theme_supports' => 'woocommerce',
