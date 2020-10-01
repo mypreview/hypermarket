@@ -258,6 +258,12 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 								'controls'       => array(
 									array(
 										'type'           => 'checkbox',
+										'id'             => sprintf( '%s_wc_product_image_flipper', self::$setting_prefix ),
+										'label'          => esc_html__( 'Product image flipper', 'hypermarket' ),
+										'description'    => esc_html__( 'Add a secondary product thumbnail that is revealed when you hover over the main product image.', 'hypermarket' ),
+									),
+									array(
+										'type'           => 'checkbox',
 										'id'             => sprintf( '%s_wc_single_product_pagination', self::$setting_prefix ),
 										'label'          => esc_html__( 'Product pagination', 'hypermarket' ),
 										'description'    => esc_html__( 'Previous and next product navigation buttons from same collection on product page.', 'hypermarket' ),
@@ -384,7 +390,7 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 					if ( isset( $section['id'] ) ) {
 						$section_id             = (string) $section['id'];
 						$section_title          = (string) $section['title'];
-						$section_theme_supports = isset( $control['theme_supports'] ) ? (string) $control['theme_supports'] : '';
+						$section_theme_supports = isset( $section['theme_supports'] ) ? (string) $section['theme_supports'] : '';
 						$section_controls       = (array) $section['controls'];
 
 						// Registers a new customize section.
