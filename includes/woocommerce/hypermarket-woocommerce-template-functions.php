@@ -450,27 +450,32 @@ if ( ! function_exists( 'hypermarket_product_image_flipper' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_product_image_flipper() {
-		global $product, $woocommerce;
+		global $product;
+
+		// Retrieves theme modification value for the current theme (parent or child).
+		$is_activated   = get_theme_mod( sprintf( '%s_wc_product_image_flipper', Hypermarket_Customize::$setting_prefix ), false );
 		$attachment_ids = hypermarket_get_gallery_image_ids( $product );
 
-		// Make sure that the featured image is already exists.
-		if ( $attachment_ids ) {
-			$attachment_ids        = array_values( $attachment_ids );
-			$flip_image_id         = $attachment_ids['0'];
-			$flip_image_alt        = get_post_meta( $flip_image_id, '_wp_attachment_image_alt', true );
-			$thumbnail_image_width = apply_filters( 'hypermarket_woocommerce_thumbnail_image_width', 364 );
-			$flip_image_srcset     = wp_get_attachment_image_srcset( $flip_image_id, 'woocommerce_thumbnail' );
-
-			echo wp_get_attachment_image(
-				$flip_image_id,
-				'woocommerce_thumbnail',
-				false,
-				array(
-					'alt'    => esc_attr( $flip_image_alt ),
-					'srcset' => esc_attr( $flip_image_srcset ),
-					'sizes'  => sprintf( esc_attr( '(max-width: %1$spx) 100vw, %2$spx' ), intval( $thumbnail_image_width ), intval( $thumbnail_image_width ) ),
-				)
-			);
+		// Bail early, in case the module is not being activated or there is no attachment id found.
+		if ( ! $is_activated || ! $attachment_ids ) {
+			return;
 		}
+
+		$attachment_ids        = array_values( $attachment_ids );
+		$flip_image_id         = $attachment_ids['0'];
+		$flip_image_alt        = get_post_meta( $flip_image_id, '_wp_attachment_image_alt', true );
+		$thumbnail_image_width = apply_filters( 'hypermarket_woocommerce_thumbnail_image_width', 364 );
+		$flip_image_srcset     = wp_get_attachment_image_srcset( $flip_image_id, 'woocommerce_thumbnail' );
+
+		echo wp_get_attachment_image(
+			$flip_image_id,
+			'woocommerce_thumbnail',
+			false,
+			array(
+				'alt'    => esc_attr( $flip_image_alt ),
+				'srcset' => esc_attr( $flip_image_srcset ),
+				'sizes'  => sprintf( esc_attr( '(max-width: %1$spx) 100vw, %2$spx' ), intval( $thumbnail_image_width ), intval( $thumbnail_image_width ) ),
+			)
+		);
 	}
 endif;
