@@ -272,7 +272,7 @@ if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
 	 */
 	function hypermarket_single_product_pagination() {
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_activated = get_theme_mod( sprintf( '%s_wc_single_product_pagination', Hypermarket_Customize::$setting_prefix ), false );
+		$is_activated = get_theme_mod( sprintf( '%s_wc_details_pagination', Hypermarket_Customize::$setting_prefix ), false );
 
 		// Bail early, in case the module is not being activated.
 		if ( ! $is_activated ) {
@@ -345,14 +345,14 @@ if ( ! function_exists( 'hypermarket_single_product_share' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
+if ( ! function_exists( 'hypermarket_single_sticky_add_to_cart' ) ) :
 	/**
 	 * Sticky add-to-cart bar.
 	 *
 	 * @since   2.0.0
 	 * @return  void
 	 */
-	function hypermarket_sticky_single_add_to_cart() {
+	function hypermarket_single_sticky_add_to_cart() {
 		global $product;
 
 		// Bail early, when NOT viewing a single product.
@@ -361,7 +361,7 @@ if ( ! function_exists( 'hypermarket_sticky_single_add_to_cart' ) ) :
 		}
 
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_activated = get_theme_mod( sprintf( '%s_wc_sticky_single_add_to_cart', Hypermarket_Customize::$setting_prefix ), false );
+		$is_activated = get_theme_mod( sprintf( '%s_wc_details_sticky_add_to_cart', Hypermarket_Customize::$setting_prefix ), false );
 
 		// Bail early in case:
 		// 1- The module is not being activated.
@@ -453,7 +453,7 @@ if ( ! function_exists( 'hypermarket_product_image_flipper' ) ) :
 		global $product;
 
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_activated   = get_theme_mod( sprintf( '%s_wc_product_image_flipper', Hypermarket_Customize::$setting_prefix ), false );
+		$is_activated   = get_theme_mod( sprintf( '%s_wc_catalog_image_flipper', Hypermarket_Customize::$setting_prefix ), false );
 		$attachment_ids = hypermarket_get_gallery_image_ids( $product );
 
 		// Bail early, in case the module is not being activated or there is no attachment id found.

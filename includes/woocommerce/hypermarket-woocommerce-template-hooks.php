@@ -26,10 +26,10 @@ add_action( 'hypermarket_header', 'hypermarket_div_close', 45 );
 /**
  * Footer
  *
- * @see  hypermarket_sticky_single_add_to_cart()
+ * @see  hypermarket_single_sticky_add_to_cart()
  * @see  hypermarket_handheld_toolbar()
  */
-add_action( 'hypermarket_after_footer', 'hypermarket_sticky_single_add_to_cart' );
+add_action( 'hypermarket_after_footer', 'hypermarket_single_sticky_add_to_cart' );
 add_action( 'hypermarket_after_footer', 'hypermarket_handheld_toolbar', 99 );
 
 /**
