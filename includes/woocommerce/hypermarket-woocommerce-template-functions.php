@@ -442,6 +442,29 @@ if ( ! function_exists( 'hypermarket_myaccount_user_info' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_product_categories' ) ) :
+	/**
+	 * Append the product categories to archive products loop.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_product_categories() {
+		// Retrieves theme modification value for the current theme (parent or child).
+		$is_activated = get_theme_mod( sprintf( '%s_wc_catalog_categories', Hypermarket_Customize::$setting_prefix ), false );
+
+		// Bail early, in case the module is not being activated.
+		if ( ! $is_activated ) {
+			return;
+		}
+
+		// Retrieve the ID of the current item.
+		$post_id        = get_queried_object_id();
+		$terms_as_links = get_the_term_list( $post_id, 'product_cat', '<small>', ', ', '</small>' );
+		printf( '<p class="woocommerce-loop-product__categories">%s</p>', wp_kses_post( $terms_as_links ) );
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_product_image_flipper' ) ) :
 	/**
 	 * Retrieve and append first gallery image of the product to the loop.
