@@ -1,0 +1,9 @@
+<wpml-config>
+    <admin-texts>
+        <key name="theme_mods_hypermarket">
+            <key name="hypermarket_customize_wc_catalog_image_flipper" />
+            <key name="hypermarket_customize_wc_details_pagination" />
+            <key name="hypermarket_customize_wc_details_sticky_add_to_cart" />
+        </key>
+    </admin-texts>
+</wpml-config>
