@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-10-01T18:36:42+00:00\n"
+"POT-Creation-Date: 2020-10-02T00:17:48+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: hypermarket\n"
@@ -235,38 +235,54 @@ msgid "Product Catalog"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:274
-msgid "Display categories"
+msgid "Display \"New\" flash"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:275
-msgid "Append the product categories to the loop items."
+msgid "The flash (badge) will be shown on products that were published in the last 30 days."
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:280
-msgid "Product image flipper"
+msgid "Display stock status"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:281
-msgid "Add a secondary product thumbnail that is revealed when you hover over the main product image."
+msgid "Append the product stock status to the loop items."
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:286
+msgid "Display categories"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:287
-msgid "Product Details"
+msgid "Append the product categories to the loop items."
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:292
+msgid "Product image flipper"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:293
-msgid "Product pagination"
-msgstr ""
-
-#: includes/customize/class-hypermarket-customize.php:294
-msgid "Previous and next product navigation buttons from same collection on product page."
+msgid "Add a secondary product thumbnail that is revealed when you hover over the main product image."
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:299
+msgid "Product Details"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:305
+msgid "Product pagination"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:306
+msgid "Previous and next product navigation buttons from same collection on product page."
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:311
 msgid "Sticky add to cart"
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:300
+#: includes/customize/class-hypermarket-customize.php:312
 msgid "A content bar at the top of the browser window which includes the product name, price, rating, stock status and the add to cart button."
 msgstr ""
 
@@ -813,22 +829,22 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: includes/woocommerce/class-hypermarket-woocommerce.php:90
+#: includes/woocommerce/class-hypermarket-woocommerce.php:91
 msgctxt "toast message"
 msgid "Added to your cart."
 msgstr ""
 
-#: includes/woocommerce/class-hypermarket-woocommerce.php:91
+#: includes/woocommerce/class-hypermarket-woocommerce.php:92
 msgctxt "toast message"
 msgid "Removed from your cart."
 msgstr ""
 
 #. translators: 1: Tooltip attribute, 2: Closing anchor tag.
-#: includes/woocommerce/class-hypermarket-woocommerce.php:260
+#: includes/woocommerce/class-hypermarket-woocommerce.php:278
 msgid "%1$sRemove%2$s"
 msgstr ""
 
-#: includes/woocommerce/class-hypermarket-woocommerce.php:271
+#: includes/woocommerce/class-hypermarket-woocommerce.php:289
 msgctxt "place order button"
 msgid "Checkout"
 msgstr ""
@@ -910,6 +926,12 @@ msgstr ""
 #. translators: %s: Date.
 #: includes/woocommerce/hypermarket-woocommerce-template-functions.php:435
 msgid "Joined %s ago"
+msgstr ""
+
+#. translators: 1: Open span tag, 2: Close span tag.
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:472
+msgctxt "new flash"
+msgid "%1$sNew%2$s"
 msgstr ""
 
 #. Template Name of the theme

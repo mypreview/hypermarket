@@ -442,6 +442,44 @@ if ( ! function_exists( 'hypermarket_myaccount_user_info' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_product_new_flash' ) ) :
+	/**
+	 * Display the "new" flash (badge).
+	 *
+	 * @since   2.0.0
+	 * @param   bool $ignore_sale    Optional. Whether to bypass the on_sale status.
+	 * @param   bool $echo           Optional. Echo the string or return it.
+	 * @return  void|html
+	 */
+	function hypermarket_product_new_flash( $ignore_sale = false, $echo = true ) {
+		global $product;
+
+		// Retrieves theme modification value for the current theme (parent or child).
+		$is_activated = get_theme_mod( sprintf( '%s_wc_catalog_new_flash', Hypermarket_Customize::$setting_prefix ), false );
+
+		if ( ( $product->is_on_sale() && ! $ignore_sale ) || ! $is_activated ) {
+			return;
+		}
+
+		$return            = '';
+		$written_date      = get_the_time( 'Y-m-d', $product->get_id() );
+		$written_timestamp = strtotime( $written_date );
+		$newness           = apply_filters( 'hypermarket_wc_catalog_new_flash_days', 30 );
+
+		// If the product was published within the newness time frame display the new flash (badge).
+		if ( $newness > 0 && ( time() - ( 60 * 60 * 24 * $newness ) ) < $written_timestamp ) {
+			/* translators: 1: Open span tag, 2: Close span tag. */
+			$return = sprintf( esc_html_x( '%1$sNew%2$s', 'new flash', 'hypermarket' ), '<span class="onnew">', '</span>' );
+		}
+
+		if ( ! $echo ) {
+			return $return;
+		}
+
+		echo $return; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_product_categories' ) ) :
 	/**
 	 * Append the product categories to archive products loop.
@@ -461,7 +499,36 @@ if ( ! function_exists( 'hypermarket_product_categories' ) ) :
 		// Retrieve the ID of the current item.
 		$post_id        = get_queried_object_id();
 		$terms_as_links = get_the_term_list( $post_id, 'product_cat', '<small>', ', ', '</small>' );
-		printf( '<p class="woocommerce-loop-product__categories">%s</p>', wp_kses_post( $terms_as_links ) );
+		printf( '<p class="product-categories">%s</p>', wp_kses_post( $terms_as_links ) );
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_product_stock_status' ) ) :
+	/**
+	 * Display the product stock.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_product_stock_status() {
+		global $product;
+
+		// Retrieves theme modification value for the current theme (parent or child).
+		$is_activated = get_theme_mod( sprintf( '%s_wc_catalog_stock', Hypermarket_Customize::$setting_prefix ), false );
+
+		// Bail early, in case the module is not being activated.
+		if ( ! $is_activated ) {
+			return;
+		}
+		
+		// Returns the availability of the product.
+		$availability = $product->get_availability();
+		$text         = isset( $availability['availability'] ) ? $availability['availability'] : '';
+		$classname    = isset( $availability['class'] ) ? $availability['class'] : '';
+
+		if ( ! empty( $text ) && ! empty( $classname ) ) {
+			printf( '<p class="stock %s"><small>%s</small></p>', sanitize_html_class( $classname ), esc_html( $text ) );
+		}
 	}
 endif;
 

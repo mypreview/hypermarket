@@ -34,6 +34,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			add_action( 'hypermarket_enqueue_scripts', array( $this, 'enqueue' ) );
 			add_filter( 'hypermarket_body_classes', array( $this, 'body_classes' ) );
 			add_filter( 'hypermarket_post_meta_args', array( $this, 'register_post_meta' ) );
+			add_filter( 'woocommerce_sale_flash', array( $this, 'sale_flash' ) );
 			add_filter( 'woocommerce_upsell_display_args', array( $this, 'upsell_products_args' ) );
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
 			add_filter( 'woocommerce_cross_sells_columns', array( $this, 'cross_sell_products_cols' ) );
@@ -150,6 +151,23 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			
 			return $properties;
 		} 
+
+		/**
+		 * Overwrite product `Sale` flash markup/output.
+		 *
+		 * @since   2.0.0
+		 * @param   html $return   Default html markup.
+		 * @return  html       
+		 */
+		public function sale_flash( $return ) {
+			$is_new = hypermarket_product_new_flash( true, false );
+
+			if ( ! empty( $is_new ) ) {
+				$return = $is_new;
+			}
+
+			return $return;
+		}
 
 		/**
 		 * Upsell products args.
