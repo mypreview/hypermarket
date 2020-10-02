@@ -1,0 +1,10 @@
+.site-myaccount {
+	font-size: 0;
+	padding: 13px 20px 5px;
+
+
+	&::before {
+		content: "\ee8e";
+		right: 0;
+	}
+}
