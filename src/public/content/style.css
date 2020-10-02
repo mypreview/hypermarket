@@ -8,7 +8,7 @@
 }
 
 @each $content in .page-view, .single-view, .site-main {
-	$(content) > .div:first-child {
+	$(content) > .div:not(:empty):first-child {
 		@extend %alignfull;
 		background-color: var(--general-tile);
 		text-align: center;
