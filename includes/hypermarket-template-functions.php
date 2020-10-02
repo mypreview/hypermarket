@@ -660,6 +660,32 @@ if ( ! function_exists( 'hypermarket_div_close' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_jscroll' ) ) :
+	/**
+	 * Ajax scroll wrapper.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 * @phpcs:disable Squiz.PHP.EmbeddedPhp.ContentAfterEnd, Squiz.PHP.EmbeddedPhp.ContentBeforeOpen
+	 */
+	function hypermarket_jscroll() {
+		?><div class="jscroll-div"><?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_jscroll_close' ) ) :
+	/**
+	 * Close Ajax scroll wrapper.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 * @phpcs:disable Squiz.PHP.EmbeddedPhp.ContentAfterEnd, Squiz.PHP.EmbeddedPhp.ContentBeforeOpen
+	 */
+	function hypermarket_jscroll_close() {
+		?></div><?php
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_container' ) ) :
 	/**
 	 * The container.
