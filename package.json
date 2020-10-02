@@ -95,6 +95,7 @@
 		"boxicons": "^2.0.5",
 		"es6-object-assign": "^1.1.0",
 		"jquery.numeric": "^1.0.0",
+		"jscroll": "^2.4.1",
 		"jump.js": "^1.0.2",
 		"node-waves": "^0.7.6",
 		"notyf": "^3.9.0",
