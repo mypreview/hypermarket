@@ -669,6 +669,11 @@ if ( ! function_exists( 'hypermarket_jscroll' ) ) :
 	 * @phpcs:disable Squiz.PHP.EmbeddedPhp.ContentAfterEnd, Squiz.PHP.EmbeddedPhp.ContentBeforeOpen
 	 */
 	function hypermarket_jscroll() {
+		// Bail early, in case the AJAX pagination module is not being activated.
+		if ( ! hypermarket_jscroll_activated() ) {
+			return;
+		}
+
 		?><div class="jscroll-div"><?php
 	}
 endif;
@@ -682,6 +687,11 @@ if ( ! function_exists( 'hypermarket_jscroll_close' ) ) :
 	 * @phpcs:disable Squiz.PHP.EmbeddedPhp.ContentAfterEnd, Squiz.PHP.EmbeddedPhp.ContentBeforeOpen
 	 */
 	function hypermarket_jscroll_close() {
+		// Bail early, in case the AJAX pagination module is not being activated.
+		if ( ! hypermarket_jscroll_activated() ) {
+			return;
+		}
+
 		?></div><?php
 	}
 endif;
