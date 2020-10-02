@@ -4,7 +4,7 @@
  * External dependencies
  */
 import $ from 'jquery';
-import slicknav from 'slicknav/dist/jquery.slicknav.min.js'; // eslint-disable-line no-unused-vars
+import slicknav from 'slicknav/dist/jquery.slicknav.min.js'; /* eslint-disable-line no-unused-vars */
 
 export const navbar = {
 	cache() {
