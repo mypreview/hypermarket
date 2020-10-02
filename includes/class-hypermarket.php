@@ -43,6 +43,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			add_filter( 'excerpt_more', array( $this, 'custom_excerpt_more' ) );
 			add_filter( 'wp_list_categories', array( $this, 'cat_count_span' ) );
 			add_filter( 'get_archives_link', array( $this, 'archive_count_span' ) );
+			add_filter( 'hypermarket_paging_next_text', array( $this, 'jscroll_loadmore' ), 11 );
 		}
 
 		/**
@@ -522,15 +523,20 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * into `navigation_markup_template` filter hook.
 		 *
 		 * @since   2.0.0
-		 * @param   array $args       Available arguments.
+		 * @param   html $template   The default template.
 		 * @return  html
 		 */
-		public function navigation_markup_template( $args ) {
+		public function navigation_markup_template( $template ) {
+			// Bail early, in case the AJAX pagination module is activated.
+			if ( ! ! hypermarket_jscroll_activated() ) {
+				return $template;
+			}
+
 			$return               = '';
 			$needle               = '%%';
 			$current_page         = sprintf( '<span aria-current="page" class="page-numbers current">%s</span>', $needle );
-			$previous_posts_label = esc_html__( 'Prev', 'hypermarket' );
-			$next_posts_label     = esc_html__( 'Next', 'hypermarket' );
+			$previous_posts_label = esc_html_x( 'Prev', 'Previous post', 'hypermarket' );
+			$next_posts_label     = esc_html_x( 'Next', 'Next post', 'hypermarket' );
 			$previous_posts_link  = get_previous_posts_link();
 			$next_posts_link      = get_next_posts_link();
 
@@ -607,6 +613,24 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			$links = str_replace( ')', ')</span></a>', $links );
 
 			return $links;
+		}
+
+		/**
+		 * Overwrites the default next page label/HTML markup.
+		 *
+		 * @since   2.0.0
+		 * @param   html $template   The default output.
+		 * @return  html
+		 */
+		public function jscroll_loadmore( $template ) {
+			// Bail early, in case the AJAX pagination module is not being activated.
+			if ( ! hypermarket_jscroll_activated() ) {
+				return $template;
+			}
+
+			/* translators: 1: Open span tag, 2: Close span tag. */
+			$template = apply_filters( 'hypermarket_paging_loadmore_text', sprintf( esc_html_x( '%1$sLoad More%2$s', 'Next post', 'hypermarket' ), '<span class="jscroll-div__loadmore">', '</span>' ) );
+			return $template;
 		}
 
 		/**
