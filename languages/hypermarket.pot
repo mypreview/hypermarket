@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-10-02T00:17:48+00:00\n"
+"POT-Creation-Date: 2020-10-02T19:29:30+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: hypermarket\n"
@@ -230,59 +230,67 @@ msgstr ""
 msgid "Enabling this option will place the sidebar to appear before the main content."
 msgstr ""
 
+#: includes/customize/class-hypermarket-customize.php:267
+msgid "AJAX pagination"
+msgstr ""
+
 #: includes/customize/class-hypermarket-customize.php:268
-msgid "Product Catalog"
+msgid "Render the next page once clicked on the \"Load More\" button, saving users from a full page load or refresh."
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:274
-msgid "Display \"New\" flash"
-msgstr ""
-
-#: includes/customize/class-hypermarket-customize.php:275
-msgid "The flash (badge) will be shown on products that were published in the last 30 days."
+msgid "Product Catalog"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:280
-msgid "Display stock status"
+msgid "Display \"New\" flash"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:281
-msgid "Append the product stock status to the loop items."
+msgid "The flash (badge) will be shown on products that were published in the last 30 days."
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:286
-msgid "Display categories"
+msgid "Display stock status"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:287
-msgid "Append the product categories to the loop items."
+msgid "Append the product stock status to the loop items."
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:292
-msgid "Product image flipper"
+msgid "Display categories"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:293
-msgid "Add a secondary product thumbnail that is revealed when you hover over the main product image."
+msgid "Append the product categories to the loop items."
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:298
+msgid "Product image flipper"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:299
-msgid "Product Details"
+msgid "Add a secondary product thumbnail that is revealed when you hover over the main product image."
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:305
-msgid "Product pagination"
-msgstr ""
-
-#: includes/customize/class-hypermarket-customize.php:306
-msgid "Previous and next product navigation buttons from same collection on product page."
+msgid "Product Details"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:311
-msgid "Sticky add to cart"
+msgid "Product pagination"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:312
+msgid "Previous and next product navigation buttons from same collection on product page."
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:317
+msgid "Sticky add to cart"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:318
 msgid "A content bar at the top of the browser window which includes the product name, price, rating, stock status and the add to cart button."
 msgstr ""
 
@@ -304,36 +312,36 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Post type.
-#: includes/hypermarket-functions.php:304
+#: includes/hypermarket-functions.php:318
 msgid "Share %s:"
 msgstr ""
 
-#: includes/hypermarket-functions.php:310
+#: includes/hypermarket-functions.php:324
 msgctxt "share icon"
 msgid "Facebook"
 msgstr ""
 
-#: includes/hypermarket-functions.php:315
+#: includes/hypermarket-functions.php:329
 msgctxt "share icon"
 msgid "LinkedIn"
 msgstr ""
 
-#: includes/hypermarket-functions.php:320
+#: includes/hypermarket-functions.php:334
 msgctxt "share icon"
 msgid "Twitter"
 msgstr ""
 
-#: includes/hypermarket-functions.php:325
+#: includes/hypermarket-functions.php:339
 msgctxt "share icon"
 msgid "Telegram"
 msgstr ""
 
-#: includes/hypermarket-functions.php:330
+#: includes/hypermarket-functions.php:344
 msgctxt "share icon"
 msgid "WhatsApp"
 msgstr ""
 
-#: includes/hypermarket-functions.php:335
+#: includes/hypermarket-functions.php:349
 msgctxt "share icon"
 msgid "Email"
 msgstr ""
