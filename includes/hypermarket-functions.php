@@ -286,6 +286,20 @@ if ( ! function_exists( 'hypermarket_post_tags' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_jscroll_activated' ) ) :
+	/**
+	 * Determine whether the AJAX pagination module is activated.
+	 *
+	 * @since   2.0.0
+	 * @return  bool        
+	 */
+	function hypermarket_jscroll_activated() {
+		// Retrieves theme modification value for the current theme (parent or child).
+		$is_activated = get_theme_mod( sprintf( '%s_general_ajax_pagination', Hypermarket_Customize::$setting_prefix ), false );
+		return $is_activated;
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_social_share_buttons' ) ) :
 	/**
 	 * Available list of networks for displaying social sharing buttons.
