@@ -23,6 +23,7 @@ get_header();
 		 * @hooked  hypermarket_archive_header      - 10
 		 * @hooked  hypermarket_breadcrumb          - 20
 		 * @hooked  hypermarket_div_close           - 25
+		 * @hooked  hypermarket_jscroll             - 30
 		 */
 		do_action( 'hypermarket_archive_top' );
 
@@ -32,6 +33,11 @@ get_header();
 			get_template_part( 'template-parts/content', 'none' );
 		endif;
 		
+		/**
+		 * Functions hooked into `hypermarket_archive_bottom` action
+		 *
+		 * @hooked  hypermarket_jscroll_close       - 5
+		 */
 		do_action( 'hypermarket_archive_bottom' );
 
 		?>

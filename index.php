@@ -24,10 +24,11 @@ get_header();
 		/**
 		 * Functions hooked into `hypermarket_home_top` action
 		 *
-		 * @hooked  hypermarket_div                 	- 5
-		 * @hooked  hypermarket_posts_page_header       - 10
-		 * @hooked  hypermarket_breadcrumb          	- 20
-		 * @hooked  hypermarket_div_close           	- 25
+		 * @hooked  hypermarket_div                    - 5
+		 * @hooked  hypermarket_posts_page_header      - 10
+		 * @hooked  hypermarket_breadcrumb             - 20
+		 * @hooked  hypermarket_div_close              - 25
+		 * @hooked  hypermarket_jscroll           	   - 30
 		 */
 		do_action( 'hypermarket_home_top' );
 		
@@ -37,6 +38,11 @@ get_header();
 			get_template_part( 'template-parts/content', 'none' );
 		endif;
 		
+		/**
+		 * Functions hooked into `hypermarket_home_bottom` action
+		 *
+		 * @hooked  hypermarket_jscroll_close          - 5
+		 */
 		do_action( 'hypermarket_home_bottom' );
 
 		?>

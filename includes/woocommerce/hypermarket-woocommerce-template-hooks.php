@@ -84,8 +84,12 @@ add_action( 'woocommerce_after_account_navigation', 'hypermarket_div_close' );
  *
  * @see  hypermarket_product_new_flash()
  * @see  hypermarket_product_image_flipper()
+ * @see  hypermarket_jscroll()
+ * @see  hypermarket_jscroll_close()
  */
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
+add_action( 'woocommerce_before_shop_loop', 'hypermarket_jscroll', 40 );
+add_action( 'woocommerce_after_shop_loop', 'hypermarket_jscroll_close', 40 );
 add_action( 'woocommerce_before_shop_loop_item_title', 'hypermarket_product_new_flash', 9 );
 add_action( 'woocommerce_before_shop_loop_item_title', 'hypermarket_product_image_flipper', 20 );
 add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 25 );
