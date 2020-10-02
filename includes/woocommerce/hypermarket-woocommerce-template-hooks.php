@@ -92,6 +92,7 @@ add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loo
 add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 5 );
 add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 15 );
 add_action( 'woocommerce_after_shop_loop_item_title', 'hypermarket_product_categories', 20 );
+add_action( 'woocommerce_after_shop_loop_item_title', 'hypermarket_product_stock_status', 30 );
 
 /**
  * Single product
