@@ -261,6 +261,12 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 										'label'          => esc_html__( 'Sidebar before content', 'hypermarket' ),
 										'description'    => esc_html__( 'Enabling this option will place the sidebar to appear before the main content.', 'hypermarket' ),
 									),
+									array(
+										'type'           => 'checkbox',
+										'id'             => sprintf( '%s_general_ajax_pagination', self::$setting_prefix ),
+										'label'          => esc_html__( 'AJAX pagination', 'hypermarket' ),
+										'description'    => esc_html__( 'Render the next page once clicked on the "Load More" button, saving users from a full page load or refresh.', 'hypermarket' ),
+									),
 								),
 							),
 							array(
