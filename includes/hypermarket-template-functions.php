@@ -561,9 +561,9 @@ if ( ! function_exists( 'hypermarket_paging_nav' ) ) :
 		$args = array(
 			'type'      => 'list',
 			/* translators: 1: Open span tag, 2: Close span tag. */
-			'next_text' => sprintf( _x( '%1$sNext%2$s', 'Next post', 'hypermarket' ), '<span class="screen-reader-text">', '</span>' ),
+			'next_text' => apply_filters( 'hypermarket_paging_next_text', sprintf( esc_html_x( '%1$sNext%2$s', 'Next post', 'hypermarket' ), '<span class="screen-reader-text">', '</span>' ) ),
 			/* translators: 1: Open span tag, 2: Close span tag. */
-			'prev_text' => sprintf( _x( '%1$sPrevious%2$s', 'Previous post', 'hypermarket' ), '<span class="screen-reader-text">', '</span>' ),
+			'prev_text' => apply_filters( 'hypermarket_paging_prev_text', sprintf( esc_html_x( '%1$sPrev%2$s', 'Previous post', 'hypermarket' ), '<span class="screen-reader-text">', '</span>' ) ),
 		);
 
 		the_posts_pagination( $args );
@@ -674,7 +674,7 @@ if ( ! function_exists( 'hypermarket_jscroll' ) ) :
 			return;
 		}
 
-		?><div class="jscroll-div"><?php
+		?><div class="jscroll-div"><div class="jscroll-div__inner"><?php
 	}
 endif;
 
@@ -692,7 +692,7 @@ if ( ! function_exists( 'hypermarket_jscroll_close' ) ) :
 			return;
 		}
 
-		?></div><?php
+		?></div></div><?php
 	}
 endif;
 
