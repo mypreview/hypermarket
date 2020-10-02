@@ -41,6 +41,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'thumbnail_columns' ) );
 			add_filter( 'woocommerce_breadcrumb_defaults', array( $this, 'change_breadcrumb_delimiter' ) );
 			add_filter( 'woocommerce_single_product_carousel_options', array( $this, 'flexslider_args' ) );
+			add_filter( 'woocommerce_pagination_args', array( $this, 'pagination_args' ) );
 			add_filter( 'woocommerce_cart_item_remove_link', array( $this, 'remove_link' ) );
 			add_filter( 'woocommerce_order_button_text', array( $this, 'order_button_text' ) );
 			add_filter( 'woocommerce_review_gravatar_size', array( $this, 'review_gravatar_size' ) );
@@ -263,6 +264,25 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			$args['useCSS']       = is_rtl();
 
 			return apply_filters( 'hypermarket_product_flexslider_args', $args );
+		}
+
+		/**
+		 * Modifies pagination for shop archive pages.
+		 *
+		 * @since   2.0.0
+		 * @param   array $args   The current pagination arguments.
+		 * @return  array
+		 */
+		public function pagination_args( $args ) {
+			$args['end_size'] = 1;
+			$args['mid_size'] = 2;
+			$args['show_all'] = false;
+			/* translators: 1: Open span tag, 2: Close span tag. */
+			$args['next_text'] = apply_filters( 'hypermarket_paging_next_text', sprintf( esc_html_x( '%1$sNext%2$s', 'Next post', 'hypermarket' ), '<span>', '</span>' ) );
+			/* translators: 1: Open span tag, 2: Close span tag. */
+			$args['prev_text'] = apply_filters( 'hypermarket_paging_prev_text', sprintf( esc_html_x( '%1$sPrev%2$s', 'Previous post', 'hypermarket' ), '<span>', '</span>' ) );
+
+			return apply_filters( 'hypermarket_product_pagination_args', $args );
 		}
 
 		/**
