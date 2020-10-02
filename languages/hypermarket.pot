@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-10-02T19:29:30+00:00\n"
+"POT-Creation-Date: 2020-10-02T23:25:37+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: hypermarket\n"
@@ -63,67 +63,75 @@ msgstr[1] ""
 msgid "Comments are closed."
 msgstr ""
 
-#: includes/class-hypermarket.php:177
+#: includes/class-hypermarket.php:178
 #: includes/customize/class-hypermarket-customize.php:134
 #: includes/customize/class-hypermarket-customize.php:140
 msgid "Primary"
 msgstr ""
 
-#: includes/class-hypermarket.php:178
+#: includes/class-hypermarket.php:179
 msgid "Handheld"
 msgstr ""
 
-#: includes/class-hypermarket.php:266
+#: includes/class-hypermarket.php:267
 msgid "Sidebar"
 msgstr ""
 
-#: includes/class-hypermarket.php:267
+#: includes/class-hypermarket.php:268
 msgid "Widgets added to this region will appear in the main sidebar area."
 msgstr ""
 
-#: includes/class-hypermarket.php:272
+#: includes/class-hypermarket.php:273
 msgid "Footer Bar"
 msgstr ""
 
-#: includes/class-hypermarket.php:273
+#: includes/class-hypermarket.php:274
 msgid "A full-width widgetized area which will display any widget added to this region above the footer widget area."
 msgstr ""
 
 #. translators: 1: column number
-#: includes/class-hypermarket.php:286
+#: includes/class-hypermarket.php:287
 msgid "Footer Column %1$d"
 msgstr ""
 
 #. translators: 1: column number
-#: includes/class-hypermarket.php:289
+#: includes/class-hypermarket.php:290
 msgid "Widgets added here will appear in column %1$d of the footer."
 msgstr ""
 
 #. translators: 1: row number, 2: column number
-#: includes/class-hypermarket.php:292
+#: includes/class-hypermarket.php:293
 msgid "Footer Row %1$d - Column %2$d"
 msgstr ""
 
 #. translators: 1: column number, 2: row number
-#: includes/class-hypermarket.php:295
+#: includes/class-hypermarket.php:296
 msgid "Widgets added here will appear in column %1$d of footer row %2$d."
 msgstr ""
 
-#: includes/class-hypermarket.php:532
+#: includes/class-hypermarket.php:538
+msgctxt "Previous post"
 msgid "Prev"
 msgstr ""
 
-#: includes/class-hypermarket.php:533
+#: includes/class-hypermarket.php:539
+msgctxt "Next post"
 msgid "Next"
 msgstr ""
 
 #. translators: 1: Open nav tag, 2: Close nav tag.
-#: includes/class-hypermarket.php:552
+#: includes/class-hypermarket.php:558
 msgid "%1$sPost Navigation%2$s"
 msgstr ""
 
-#: includes/class-hypermarket.php:557
+#: includes/class-hypermarket.php:563
 msgid "All entries"
+msgstr ""
+
+#. translators: 1: Open span tag, 2: Close span tag.
+#: includes/class-hypermarket.php:632
+msgctxt "Next post"
+msgid "%1$sLoad More%2$s"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:105
@@ -415,18 +423,15 @@ msgstr ""
 #. translators: 1: Open span tag, 2: Close span tag.
 #: includes/hypermarket-template-functions.php:564
 #: includes/hypermarket-template-functions.php:583
+#: includes/woocommerce/class-hypermarket-woocommerce.php:281
 msgctxt "Next post"
 msgid "%1$sNext%2$s"
 msgstr ""
 
 #. translators: 1: Open span tag, 2: Close span tag.
 #: includes/hypermarket-template-functions.php:566
-msgctxt "Previous post"
-msgid "%1$sPrevious%2$s"
-msgstr ""
-
-#. translators: 1: Open span tag, 2: Close span tag.
 #: includes/hypermarket-template-functions.php:585
+#: includes/woocommerce/class-hypermarket-woocommerce.php:283
 msgctxt "Previous post"
 msgid "%1$sPrev%2$s"
 msgstr ""
@@ -837,22 +842,22 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: includes/woocommerce/class-hypermarket-woocommerce.php:91
+#: includes/woocommerce/class-hypermarket-woocommerce.php:92
 msgctxt "toast message"
 msgid "Added to your cart."
 msgstr ""
 
-#: includes/woocommerce/class-hypermarket-woocommerce.php:92
+#: includes/woocommerce/class-hypermarket-woocommerce.php:93
 msgctxt "toast message"
 msgid "Removed from your cart."
 msgstr ""
 
 #. translators: 1: Tooltip attribute, 2: Closing anchor tag.
-#: includes/woocommerce/class-hypermarket-woocommerce.php:278
+#: includes/woocommerce/class-hypermarket-woocommerce.php:298
 msgid "%1$sRemove%2$s"
 msgstr ""
 
-#: includes/woocommerce/class-hypermarket-woocommerce.php:289
+#: includes/woocommerce/class-hypermarket-woocommerce.php:309
 msgctxt "place order button"
 msgid "Checkout"
 msgstr ""
