@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-10-01T23:46:41+00:00\n"
+"POT-Creation-Date: 2020-10-02T00:17:48+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: hypermarket\n"
@@ -243,38 +243,46 @@ msgid "The flash (badge) will be shown on products that were published in the la
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:280
-msgid "Display categories"
+msgid "Display stock status"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:281
-msgid "Append the product categories to the loop items."
+msgid "Append the product stock status to the loop items."
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:286
-msgid "Product image flipper"
+msgid "Display categories"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:287
-msgid "Add a secondary product thumbnail that is revealed when you hover over the main product image."
+msgid "Append the product categories to the loop items."
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:292
+msgid "Product image flipper"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:293
-msgid "Product Details"
+msgid "Add a secondary product thumbnail that is revealed when you hover over the main product image."
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:299
-msgid "Product pagination"
-msgstr ""
-
-#: includes/customize/class-hypermarket-customize.php:300
-msgid "Previous and next product navigation buttons from same collection on product page."
+msgid "Product Details"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:305
-msgid "Sticky add to cart"
+msgid "Product pagination"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:306
+msgid "Previous and next product navigation buttons from same collection on product page."
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:311
+msgid "Sticky add to cart"
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:312
 msgid "A content bar at the top of the browser window which includes the product name, price, rating, stock status and the add to cart button."
 msgstr ""
 
