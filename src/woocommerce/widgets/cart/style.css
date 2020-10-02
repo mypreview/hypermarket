@@ -3,9 +3,6 @@
 }
 
 .woocommerce-mini-cart {
-	max-height: 283px;
-	overflow-y: auto;
-	overflow-x: hidden;
 	margin-bottom: 15px;
 
 	&__empty-message {
