@@ -276,6 +276,12 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 									),
 									array(
 										'type'           => 'checkbox',
+										'id'             => sprintf( '%s_wc_catalog_stock', self::$setting_prefix ),
+										'label'          => esc_html__( 'Display stock status', 'hypermarket' ),
+										'description'    => esc_html__( 'Append the product stock status to the loop items.', 'hypermarket' ),
+									),
+									array(
+										'type'           => 'checkbox',
 										'id'             => sprintf( '%s_wc_catalog_categories', self::$setting_prefix ),
 										'label'          => esc_html__( 'Display categories', 'hypermarket' ),
 										'description'    => esc_html__( 'Append the product categories to the loop items.', 'hypermarket' ),
