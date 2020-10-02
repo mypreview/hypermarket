@@ -14,17 +14,17 @@ export const tooltip = {
 	// Execute callback after the DOM is loaded.
 	ready() {
 		tooltip.cache();
-		tooltip.initTooltip();
+		tooltip.init();
 		tooltip.ajaxTrigger();
 	},
 	// Initialize tooltip.
-	initTooltip() {
+	init() {
 		tippy( tooltip.vars.selector, {
 			arrow: true,
 		} );
 	},
 	// Re-initialize tooltip on Ajax event(s) being triggered.
 	ajaxTrigger() {
-		tooltip.els.$document.on( 'updated_cart_totals', tooltip.initTooltip );
+		tooltip.els.$document.on( 'updated_cart_totals', tooltip.init );
 	},
 };
