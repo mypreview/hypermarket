@@ -8,6 +8,7 @@ import './style.css';
  */
 import { buttons } from './buttons';
 import { navbar } from './navbar';
+import { jScroll } from './jscroll';
 import { skipLinkFocus } from './skip-link-focus';
 import { tooltip } from './tooltip';
 
@@ -18,7 +19,7 @@ import forEach from 'lodash/forEach';
 import domReady from '@wordpress/dom-ready';
 
 domReady( () => {
-	forEach( [ buttons, navbar, skipLinkFocus, tooltip ], ( component ) => {
+	forEach( [ buttons, navbar, jScroll, skipLinkFocus, tooltip ], ( component ) => {
 		component.ready();
 	} );
 } );
