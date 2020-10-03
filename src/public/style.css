@@ -11,6 +11,7 @@
 @import "./navbar/style.css";
 @import "./tables/style.css";
 @import "./pagination/style.css";
+@import "./pagination/jscroll/style.css";
 @import "./content/style.css";
 @import "./single-view/style.css";
 @import "./post-view/style.css";

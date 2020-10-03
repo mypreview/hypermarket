@@ -25,7 +25,7 @@ export const jScroll = {
 
 		jScroll.vars.$selector.jscroll( {
 			autoTrigger: false,
-			loadingHtml: `<div class="${ jScroll.vars.selector }__loading">LOADING</div>`,
+			loadingHtml: `<div class="${ jScroll.vars.selector }__loading"></div>`,
 			nextSelector: jScroll.vars.next,
 			contentSelector: jScroll.vars.inner,
 		} );

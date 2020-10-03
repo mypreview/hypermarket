@@ -1,0 +1,7 @@
+.jscroll-div {
+	&__loading {
+		&::before {
+			content: 'LOADING';
+		}
+	}
+}

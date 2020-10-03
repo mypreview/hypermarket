@@ -8,7 +8,7 @@ import './style.css';
  */
 import { buttons } from './buttons';
 import { navbar } from './navbar';
-import { jScroll } from './jscroll';
+import { jScroll } from './pagination/jscroll';
 import { skipLinkFocus } from './skip-link-focus';
 import { tooltip } from './tooltip';
 
