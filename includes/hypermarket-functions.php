@@ -226,7 +226,7 @@ if ( ! function_exists( 'hypermarket_post_categories' ) ) :
 	 *
 	 * @since   2.0.0
 	 * @param   bool $echo      Echo the output.
-	 * @return  string        
+	 * @return  html        
 	 */
 	function hypermarket_post_categories( $echo = false ) {
 		// Categories.
@@ -261,7 +261,7 @@ if ( ! function_exists( 'hypermarket_post_tags' ) ) :
 	 *
 	 * @since   2.0.0
 	 * @param   bool $echo      Echo the output.
-	 * @return  string        
+	 * @return  html        
 	 */
 	function hypermarket_post_tags( $echo = false ) {
 		// Tags.
@@ -275,6 +275,56 @@ if ( ! function_exists( 'hypermarket_post_tags' ) ) :
 				/* translators: 1: Open span tag, 2: Close span tag. */
 				sprintf( _n( '%1$sTag:%2$s', '%1$sTags:%2$s', count( get_the_tags() ), 'hypermarket' ), '<span class="screen-reader-text">', sprintf( '</span>%s', $tag_list ) )
 			);
+		}
+
+		if ( $echo ) {
+			//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo $return; 
+		}
+
+		return $return;
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_navigation_pager' ) ) :
+	/**
+	 * Retrieves the next and previous posts page links.
+	 *
+	 * @since   2.0.0
+	 * @param   bool $echo      Echo the output.
+	 * @return  void|html        
+	 */
+	function hypermarket_navigation_pager( $echo = false ) {
+		// Bail early, in case the AJAX pagination module is activated.
+		if ( ! ! hypermarket_jscroll_activated() ) {
+			return;
+		}
+
+		$return               = '';
+		$needle               = '%%';
+		$current_page         = sprintf( '<span aria-current="page" class="page-numbers current">%s</span>', $needle );
+		$previous_posts_label = esc_html_x( 'Prev', 'Previous post', 'hypermarket' );
+		$next_posts_label     = esc_html_x( 'Next', 'Next post', 'hypermarket' );
+		$previous_posts_link  = get_previous_posts_link();
+		$next_posts_link      = get_next_posts_link();
+
+		// Whether the previous posts page link exists.
+		if ( ! empty( $previous_posts_link ) ) {
+			$return .= get_previous_posts_link( $previous_posts_label );
+		} else {
+			$return .= str_replace( $needle, $previous_posts_label, $current_page );
+		}
+
+		// Whether the next posts page link exists.
+		if ( ! empty( $next_posts_link ) ) {
+			$return .= get_next_posts_link( $next_posts_label );
+		} else {
+			$return .= str_replace( $needle, $next_posts_label, $current_page );
+		}
+
+		// Whether the the previous or next posts page links are empty.
+		if ( ! empty( $previous_posts_link ) || ! empty( $next_posts_link ) ) {
+			$return = sprintf( '<div class="navigation__pager">%s</div>', $return );
 		}
 
 		if ( $echo ) {
