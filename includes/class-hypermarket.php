@@ -532,28 +532,6 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 				return $template;
 			}
 
-			$return               = '';
-			$needle               = '%%';
-			$current_page         = sprintf( '<span aria-current="page" class="page-numbers current">%s</span>', $needle );
-			$previous_posts_label = esc_html_x( 'Prev', 'Previous post', 'hypermarket' );
-			$next_posts_label     = esc_html_x( 'Next', 'Next post', 'hypermarket' );
-			$previous_posts_link  = get_previous_posts_link();
-			$next_posts_link      = get_next_posts_link();
-
-			// Whether the previous posts page link exists.
-			if ( ! empty( $previous_posts_link ) ) {
-				$return .= get_previous_posts_link( $previous_posts_label );
-			} else {
-				$return .= str_replace( $needle, $previous_posts_label, $current_page );
-			}
-
-			// Whether the next posts page link exists.
-			if ( ! empty( $next_posts_link ) ) {
-				$return .= get_next_posts_link( $next_posts_label );
-			} else {
-				$return .= str_replace( $needle, $next_posts_label, $current_page );
-			}
-
 			/* translators: 1: Open nav tag, 2: Close nav tag. */
 			$template  = sprintf( esc_html__( '%1$sPost Navigation%2$s', 'hypermarket' ), '<nav id="post-navigation" class="navigation %1$s" role="navigation" aria-label="', '">' );
 			$template .= '<h2 class="screen-reader-text">%2$s</h2>';
@@ -563,10 +541,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 				$template .= sprintf( '<div class="nav-blog"><a href="%s" rel="blog"><span aria-label="%s"></span></a></div>', esc_url( hypermarket_blog_page_url() ), esc_attr__( 'All entries', 'hypermarket' ) );
 			}
 			$template .= '</div>';
-			// Whether the the previous or next posts page links are empty.
-			if ( ! empty( $previous_posts_link ) || ! empty( $next_posts_link ) ) {
-				$template .= sprintf( '<div class="navigation__pager">%s</div>', $return );
-			}
+			$template .= hypermarket_navigation_pager();
 			$template .= '</nav>';
 
 			return apply_filters( 'hypermarket_navigation_markup_template', $template );
