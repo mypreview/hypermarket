@@ -274,13 +274,10 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 * @return  array
 		 */
 		public function pagination_args( $args ) {
-			$args['end_size'] = 1;
-			$args['mid_size'] = 2;
-			$args['show_all'] = false;
 			/* translators: 1: Open span tag, 2: Close span tag. */
-			$args['next_text'] = apply_filters( 'hypermarket_paging_next_text', sprintf( esc_html_x( '%1$sNext%2$s', 'Next post', 'hypermarket' ), '<span>', '</span>' ) );
+			$args['next_text'] = apply_filters( 'hypermarket_paging_next_text', sprintf( esc_html_x( '%1$sNext%2$s', 'Next post', 'hypermarket' ), '<span class="screen-reader-text">', '</span>' ) );
 			/* translators: 1: Open span tag, 2: Close span tag. */
-			$args['prev_text'] = apply_filters( 'hypermarket_paging_prev_text', sprintf( esc_html_x( '%1$sPrev%2$s', 'Previous post', 'hypermarket' ), '<span>', '</span>' ) );
+			$args['prev_text'] = apply_filters( 'hypermarket_paging_prev_text', sprintf( esc_html_x( '%1$sPrev%2$s', 'Previous post', 'hypermarket' ), '<span class="screen-reader-text">', '</span>' ) );
 
 			return apply_filters( 'hypermarket_product_pagination_args', $args );
 		}
