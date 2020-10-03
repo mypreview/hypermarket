@@ -46,15 +46,20 @@ add_action( 'hypermarket_page_top', 'hypermarket_shop_messages', 30 );
  * @see  hypermarket_after_content()
  * @see  hypermarket_quantity_minus_btn()
  * @see  hypermarket_quantity_plus_btn()
+ * @see  hypermarket_woocommerce_pagination()
+ * @see  hypermarket_jscroll()
+ * @see  hypermarket_jscroll_close()
  */
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper' );
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end' );
 remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar' );
 remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination' );
+add_action( 'woocommerce_before_shop_loop', 'hypermarket_jscroll', 40 );
+add_action( 'woocommerce_after_shop_loop', 'hypermarket_jscroll_close', 40 );
 add_action( 'woocommerce_before_main_content', 'hypermarket_before_content' );
 add_action( 'woocommerce_after_main_content', 'hypermarket_after_content' );
-add_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 30 );
+add_action( 'woocommerce_after_shop_loop', 'hypermarket_woocommerce_pagination', 30 );
 add_action( 'woocommerce_before_quantity_input_field', 'hypermarket_quantity_minus_btn' );
 add_action( 'woocommerce_after_quantity_input_field', 'hypermarket_quantity_plus_btn' );
 
@@ -84,12 +89,8 @@ add_action( 'woocommerce_after_account_navigation', 'hypermarket_div_close' );
  *
  * @see  hypermarket_product_new_flash()
  * @see  hypermarket_product_image_flipper()
- * @see  hypermarket_jscroll()
- * @see  hypermarket_jscroll_close()
  */
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
-add_action( 'woocommerce_before_shop_loop', 'hypermarket_jscroll', 40 );
-add_action( 'woocommerce_after_shop_loop', 'hypermarket_jscroll_close', 40 );
 add_action( 'woocommerce_before_shop_loop_item_title', 'hypermarket_product_new_flash', 9 );
 add_action( 'woocommerce_before_shop_loop_item_title', 'hypermarket_product_image_flipper', 20 );
 add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 25 );
