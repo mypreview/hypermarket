@@ -257,9 +257,19 @@ if ( ! function_exists( 'hypermarket_woocommerce_pagination' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_woocommerce_pagination() {
-		if ( woocommerce_products_will_display() ) {
-			woocommerce_pagination();
-		}
+		if ( woocommerce_products_will_display() ) :
+			?>
+			<div id="post-navigation" class="navigation pagination" role="navigation" aria-label="<?php esc_html_e( 'Post Navigation', 'hypermarket' ); ?>">
+				<h2 class="screen-reader-text">
+					<?php esc_html_e( 'Posts Navigation', 'hypermarket' ); ?>
+				</h2>
+				<div class="nav-links">
+					<?php woocommerce_pagination(); ?>
+				</div>
+				<?php hypermarket_navigation_pager( true ); ?>
+			</div>
+			<?php
+		endif;
 	}
 endif;
 
