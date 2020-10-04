@@ -452,6 +452,42 @@ if ( ! function_exists( 'hypermarket_myaccount_user_info' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_product_featured_flash' ) ) :
+	/**
+	 * Display the "featured" flash (badge).
+	 *
+	 * @since   2.0.0
+	 * @param   bool $ignore_sale    Optional. Whether to bypass the on_sale status.
+	 * @param   bool $echo           Optional. Echo the string or return it.
+	 * @return  void|html
+	 */
+	function hypermarket_product_featured_flash( $ignore_sale = false, $echo = true ) {
+		global $product;
+
+		// Retrieves theme modification value for the current theme (parent or child).
+		$is_activated = get_theme_mod( sprintf( '%s_wc_catalog_featured_flash', Hypermarket_Customize::$setting_prefix ), false );
+
+		if ( ( $product->is_on_sale() && ! $ignore_sale ) || ! $is_activated || ! $product->is_featured() ) {
+			return;
+		}
+
+		$return = null;
+		$is_new = hypermarket_is_product_new( $product );
+
+		// If the product was published within the newness time frame then ignore the `Featured` flash for the time-being.
+		if ( ! $is_new ) {
+			/* translators: 1: Open span tag, 2: Close span tag. */
+			$return = sprintf( esc_html_x( '%1$sFeatured%2$s', 'featured flash', 'hypermarket' ), '<span class="onfeatured">', '</span>' );
+		}
+
+		if ( ! $echo ) {
+			return $return;
+		}
+
+		echo $return; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_product_new_flash' ) ) :
 	/**
 	 * Display the "new" flash (badge).
@@ -459,7 +495,7 @@ if ( ! function_exists( 'hypermarket_product_new_flash' ) ) :
 	 * @since   2.0.0
 	 * @param   bool $ignore_sale    Optional. Whether to bypass the on_sale status.
 	 * @param   bool $echo           Optional. Echo the string or return it.
-	 * @return  void|html
+	 * @return  void|null|html
 	 */
 	function hypermarket_product_new_flash( $ignore_sale = false, $echo = true ) {
 		global $product;
@@ -471,13 +507,11 @@ if ( ! function_exists( 'hypermarket_product_new_flash' ) ) :
 			return;
 		}
 
-		$return            = '';
-		$written_date      = get_the_time( 'Y-m-d', $product->get_id() );
-		$written_timestamp = strtotime( $written_date );
-		$newness           = apply_filters( 'hypermarket_wc_catalog_new_flash_days', 30 );
+		$return = null;
+		$is_new = hypermarket_is_product_new( $product );
 
 		// If the product was published within the newness time frame display the new flash (badge).
-		if ( $newness > 0 && ( time() - ( 60 * 60 * 24 * $newness ) ) < $written_timestamp ) {
+		if ( ! ! $is_new ) {
 			/* translators: 1: Open span tag, 2: Close span tag. */
 			$return = sprintf( esc_html_x( '%1$sNew%2$s', 'new flash', 'hypermarket' ), '<span class="onnew">', '</span>' );
 		}
