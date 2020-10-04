@@ -93,3 +93,11 @@
 		background-color: var(--general-tile);
 	}
 }
+
+%small-button {
+	.button {
+		min-height: 36px;
+		font-size: calc(var(--general-normal) * 0.75);
+		padding: 8px 17px;
+	}
+}
