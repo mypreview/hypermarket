@@ -247,7 +247,7 @@ if ( ! function_exists( 'hypermarket_get_gallery_image_ids' ) ) :
 	/**
 	 * Get product gallery image ids.
 	 *
-	 * @param   object $product    Current product object.
+	 * @param   WC_Product $product    Current product object.
 	 * @return  array
 	 */
 	function hypermarket_get_gallery_image_ids( $product ) {
@@ -261,5 +261,30 @@ if ( ! function_exists( 'hypermarket_get_gallery_image_ids' ) ) :
 		} else {
 			return $product->get_gallery_attachment_ids();
 		}
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_is_product_new' ) ) :
+	/**
+	 * Determine whether the product is recently published.
+	 *
+	 * @param   WC_Product $product    Current product object.
+	 * @return  bool
+	 */
+	function hypermarket_is_product_new( $product ) {
+		// Bail out if the current parameter is NOT a product.
+		if ( ! is_a( $product, 'WC_Product' ) ) {
+			return false;
+		}
+		
+		$newness           = apply_filters( 'hypermarket_wc_catalog_new_flash_days', 30 );
+		$written_date      = get_the_time( 'Y-m-d', $product->get_id() );
+		$written_timestamp = strtotime( $written_date );
+
+		if ( $newness > 0 && ( time() - ( 60 * 60 * 24 * $newness ) ) < $written_timestamp ) {
+			return true;
+		}
+
+		return false;
 	}
 endif;
