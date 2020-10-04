@@ -2,11 +2,15 @@
 	div& > .div {
 		background-color: var(--general-tile);
 		@extend %alignfull;
-		padding: 72px 15px 72px;
+		padding: 96px 15px 72px;
 		margin-bottom: 48px;
 
 		> * {
 			@extend %colmd;
+
+			> .div {
+				position: relative;
+			}
 		}
 	}
 
@@ -29,5 +33,12 @@
 		th {
 			border-bottom-width: 0;
 		}
+	}
+}
+
+.price {
+	del {
+		font-size: 87.5%;
+		opacity: 0.7;
 	}
 }
