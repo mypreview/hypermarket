@@ -162,9 +162,17 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 */
 		public function sale_flash( $return ) {
 			$is_new = hypermarket_product_new_flash( true, false );
-
+			
+			// Whether the product was published within the newness time frame.
 			if ( ! empty( $is_new ) ) {
-				$return = $is_new;
+				return $is_new;
+			}
+
+			$is_featured = hypermarket_product_featured_flash( true, false );
+			
+			// Whether the product was marked as a `Featured` product.
+			if ( ! empty( $is_featured ) ) {
+				return $is_featured;
 			}
 
 			return $return;
