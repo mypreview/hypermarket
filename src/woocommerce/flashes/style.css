@@ -1,0 +1,19 @@
+@each $flash in sale, new {
+	.on$(flash) {
+		background-color: var(--general-background);
+		font-size: calc(var(--general-normal) * .75);
+		padding: 1px 14px;
+		display: inline-block;
+		border-radius: 24px;
+		position: absolute 20px null null 20px;
+		z-index: 1;
+	}
+}
+
+.onsale {
+	color: var(--alert-danger);
+}
+
+.onnew {
+	color: var(--alert-success);
+}
