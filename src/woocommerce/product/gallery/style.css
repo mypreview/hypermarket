@@ -33,6 +33,16 @@
 		}
 	}
 
+	&--disable-zoom {
+		^&__wrapper {
+			pointer-events: none;
+		}
+
+		^&__trigger {
+			display: hidden;
+		}
+	}
+
 	.flex-control-thumbs {
 		@extend %none-list-style;
 		display: flex;
