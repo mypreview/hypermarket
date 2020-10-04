@@ -313,6 +313,12 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 								'controls'       => array(
 									array(
 										'type'           => 'checkbox',
+										'id'             => sprintf( '%s_wc_details_disable_zoom', self::$setting_prefix ),
+										'label'          => esc_html__( 'Thumbnail zoom', 'hypermarket' ),
+										'description'    => esc_html__( 'Disable zooming effect that triggers by hovering over the product feature image.', 'hypermarket' ),
+									),
+									array(
+										'type'           => 'checkbox',
 										'id'             => sprintf( '%s_wc_details_pagination', self::$setting_prefix ),
 										'label'          => esc_html__( 'Product pagination', 'hypermarket' ),
 										'description'    => esc_html__( 'Previous and next product navigation buttons from same collection on product page.', 'hypermarket' ),
@@ -322,12 +328,6 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 										'id'             => sprintf( '%s_wc_details_sticky_add_to_cart', self::$setting_prefix ),
 										'label'          => esc_html__( 'Sticky add to cart', 'hypermarket' ),
 										'description'    => esc_html__( 'A content bar at the top of the browser window which includes the product name, price, rating, stock status and the add to cart button.', 'hypermarket' ),
-									),
-									array(
-										'type'           => 'checkbox',
-										'id'             => sprintf( '%s_wc_details_disable_zoom', self::$setting_prefix ),
-										'label'          => esc_html__( 'Thumbnail zoom', 'hypermarket' ),
-										'description'    => esc_html__( 'Disable zooming effect that triggers by hovering over the product feature image.', 'hypermarket' ),
 									),
 								),
 							),
