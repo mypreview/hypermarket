@@ -286,7 +286,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			// Retrieves theme modification value for the current theme (parent or child).
 			$is_activated = get_theme_mod( sprintf( '%s_wc_details_disable_zoom', Hypermarket_Customize::$setting_prefix ), false );
 
-			if ( !! $is_activated ) {
+			if ( ! ! $is_activated ) {
 				$classes[] = 'woocommerce-product-gallery--disable-zoom';
 			}
 
