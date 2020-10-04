@@ -1,0 +1,20 @@
+li.product {
+	img {
+		@mixin shift opacity, 0.5s;
+
+		+ img {
+			opacity: 0;
+		    position: absolute 0 0 null 0;
+		}
+	}
+
+	&:hover {
+		img {
+			opacity: 0;
+
+			&:last-child {
+				opacity: 0.5;
+			}
+		}
+	}
+}
