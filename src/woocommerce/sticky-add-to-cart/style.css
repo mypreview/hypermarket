@@ -57,12 +57,6 @@
 		font-size: calc(var(--general-normal) * 0.75);
 	}
 
-	.button {
-		padding: 0 17px;
-		min-height: 36px;
-		font-size: calc(var(--general-normal) * 0.75);
-	}
-
 	.star-rating {
 		margin: 2px 10px;
 	}

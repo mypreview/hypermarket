@@ -11,10 +11,7 @@
 			margin-bottom: 9px;
 		}
 
-		.single_add_to_cart_button {
-			min-height: 36px;
-			font-size: calc(var(--general-normal) * 0.75);
-			padding: 8px 17px;
+		.button {
 			margin: 8px;
 		}
 

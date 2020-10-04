@@ -1,0 +1,13 @@
+.product {
+	.cart {
+		@extend %small-button;
+	}
+
+	li& {
+		@extend %small-button;
+	}
+}
+
+.add_to_cart_inline {
+	@extend %small-button;
+}
