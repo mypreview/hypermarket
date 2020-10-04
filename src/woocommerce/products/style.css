@@ -20,17 +20,4 @@
 			grid-template-columns: repeat(6, 1fr);
 		}
 	}
-
-	li& {
-		a {
-			text-decoration: none;
-		}
-	}
-}
-
-.woocommerce-loop-product {
-	&__title {
-		font-size: var(--general-normal);
-		font-weight: 400;
-	}
 }
