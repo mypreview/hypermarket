@@ -41,6 +41,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'thumbnail_columns' ) );
 			add_filter( 'woocommerce_breadcrumb_defaults', array( $this, 'change_breadcrumb_delimiter' ) );
 			add_filter( 'woocommerce_single_product_carousel_options', array( $this, 'flexslider_args' ) );
+			add_filter( 'woocommerce_single_product_image_gallery_classes', array( $this, 'image_gallery_classes' ) );
 			add_filter( 'woocommerce_pagination_args', array( $this, 'pagination_args' ) );
 			add_filter( 'woocommerce_cart_item_remove_link', array( $this, 'remove_link' ) );
 			add_filter( 'woocommerce_order_button_text', array( $this, 'order_button_text' ) );
@@ -272,6 +273,24 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			$args['useCSS']       = is_rtl();
 
 			return apply_filters( 'hypermarket_product_flexslider_args', $args );
+		}
+
+		/**
+		 * Modifies product gallery CSS class names.
+		 *
+		 * @since   2.0.0
+		 * @param   array $classes    The current CSS class names.
+		 * @return  array
+		 */
+		public function image_gallery_classes( $classes ) {
+			// Retrieves theme modification value for the current theme (parent or child).
+			$is_activated = get_theme_mod( sprintf( '%s_wc_details_disable_zoom', Hypermarket_Customize::$setting_prefix ), false );
+
+			if ( !! $is_activated ) {
+				$classes[] = 'woocommerce-product-gallery--disable-zoom';
+			}
+
+			return $classes;
 		}
 
 		/**
