@@ -329,18 +329,6 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 										'label'          => esc_html__( 'Thumbnail zoom', 'hypermarket' ),
 										'description'    => esc_html__( 'Disable zooming effect that triggers by hovering over the product feature image.', 'hypermarket' ),
 									),
-									array(
-										'type'           => 'checkbox',
-										'id'             => sprintf( '%s_wc_details_upsell_products', self::$setting_prefix ),
-										'label'          => esc_html__( 'Upsell products', 'hypermarket' ),
-										'description'    => esc_html__( 'Remove the upsell products section from the view.', 'hypermarket' ),
-									),
-									array(
-										'type'           => 'checkbox',
-										'id'             => sprintf( '%s_wc_details_related_products', self::$setting_prefix ),
-										'label'          => esc_html__( 'Related products', 'hypermarket' ),
-										'description'    => esc_html__( 'Remove the related products section from the view.', 'hypermarket' ),
-									),
 								),
 							),
 						),
