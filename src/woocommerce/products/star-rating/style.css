@@ -1,8 +1,8 @@
 li.product {
 	.star-rating {
 		position: absolute 22px 20px null null;
-        size: 65px 12px;
-    	font-size: 12px;
-    	letter-spacing: 1px;
+		size: 65px 12px;
+		font-size: 12px;
+		letter-spacing: 1px;
 	}
 }

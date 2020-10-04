@@ -10,11 +10,11 @@
 
 	&__trigger {
 		size: 34px;
-		position: absolute 34px 10px null null;
+		position: absolute 20px 20px null null;
 		box: horizontal center middle;
 		font-size: 20px;
 		border-radius: var(--border-radius-small);
-		z-index: 1;
+		z-index: 3;
 		background-color: var(--general-background);
 		@mixin link;
 		opacity: 0.6;

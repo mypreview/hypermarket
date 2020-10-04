@@ -7,10 +7,7 @@
 
 		> * {
 			@extend %colmd;
-
-			> .div {
-				position: relative;
-			}
+			position: relative;
 		}
 	}
 

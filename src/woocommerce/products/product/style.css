@@ -1,8 +1,8 @@
 li.product {
 	position: relative;
-   	display: grid;
-    grid-template-columns: repeat(2, 50%);
-	
+	display: grid;
+	grid-template-columns: repeat(2, 50%);
+
 	a {
 		text-decoration: none;
 	}
@@ -40,8 +40,8 @@ li.product {
 
 	&:hover {
 		img {
-	    	opacity: .5;
-	    }
+			opacity: 0.5;
+		}
 	}
 }
 
@@ -57,10 +57,10 @@ li.product {
 		@mixin link;
 
 		&:first-child {
-		    grid-column: 1/-1;
-    		grid-row: 1;
-    		position: relative;
-    		margin-bottom: 25px;
+			grid-column: 1/-1;
+			grid-row: 1;
+			position: relative;
+			margin-bottom: 25px;
 		}
 	}
 }
