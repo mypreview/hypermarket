@@ -72,6 +72,7 @@ add_action( 'hypermarket_single_post_top', 'hypermarket_breadcrumb', 20 );
 add_action( 'hypermarket_page_top', 'hypermarket_breadcrumb', 20 );
 add_action( 'hypermarket_home_top', 'hypermarket_breadcrumb', 20 );
 add_action( 'hypermarket_archive_top', 'hypermarket_breadcrumb', 20 );
+add_action( 'woocommerce_archive_description', 'hypermarket_breadcrumb', 20 );
 
 /**
  * My-account
