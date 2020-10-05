@@ -65,10 +65,11 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		 * @since   2.0.0
 		 * @param   WP_Customize_Manager $wp_customize   Theme Customizer object.
 		 * @return  void
+		 * @phpcs:disable WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		 */
 		public function customize_register( $wp_customize ) {
 			// Import Customizer custom control(s).
-			// phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			require get_parent_theme_file_path( '/includes/customize/class-hypermarket-customize-more-control.php' );
 			require get_parent_theme_file_path( '/includes/customize/class-hypermarket-customize-range-control.php' );
 			// Registers Customizer color controls.
 			$this->_register_controls( $wp_customize, 'color', 'WP_Customize_Color_Control' );
