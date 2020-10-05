@@ -134,3 +134,10 @@ add_action( 'hypermarket_archive_top', 'hypermarket_archive_header' );
 add_action( 'hypermarket_archive_top', 'hypermarket_div_close', 25 );
 add_action( 'hypermarket_home_top', 'hypermarket_jscroll', 30 );
 add_action( 'hypermarket_home_bottom', 'hypermarket_jscroll_close', 5 );
+
+/**
+ * Customize
+ *
+ * @see  hypermarket_customize_more_section()
+ */
+add_action( 'hypermarket_customize_register_controls', 'hypermarket_customize_more_section' );
