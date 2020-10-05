@@ -634,6 +634,47 @@ if ( ! function_exists( 'hypermarket_post_thumbnail' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_customize_more_section' ) ) :
+	/**
+	 * Customizer specific upsell section to provide further info.
+	 *
+	 * @since   2.0.0
+	 * @param   WP_Customize_Manager $hm_customize    Theme Customizer object.
+	 * @return  void
+	 */
+	function hypermarket_customize_more_section( $hm_customize ) {
+		if ( ! ! apply_filters( 'hypermarket_customizer_more', true ) ) {
+			$setting_key = sprintf( '%s_more', Hypermarket_Customize::$setting_prefix );
+			$hm_customize->add_section(
+				$setting_key,
+				array(
+					/* translators: %s: Emoji. */
+					'title'    => sprintf( esc_html__( 'More %s', 'hypermarket' ), '⚡' ),
+					'priority' => 9999,
+				)
+			);
+			$hm_customize->add_setting(
+				$setting_key,
+				array(
+					'default'           => null,
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+			$hm_customize->add_control(
+				new Hypermarket_Customize_More_Control(
+					$hm_customize,
+					$setting_key,
+					array(
+						'label'    => __( 'Looking for more options?', 'hypermarket' ),
+						'section'  => $setting_key,
+						'settings' => $setting_key,
+					)
+				)
+			);
+		}
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_div' ) ) :
 	/**
 	 * Open div.
