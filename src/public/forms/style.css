@@ -75,7 +75,7 @@ optgroup {
 		position: absolute -2px null null -2px;
 		display: block;
 		@mixin icon "\ea0f";
-		color: #fff;
+		color: var(--general-background);
 		line-height: 1;
 	}
 
