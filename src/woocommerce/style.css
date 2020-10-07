@@ -26,10 +26,15 @@
 @import "./product/stock/style.css";
 @import "./product/variations/style.css";
 @import "./products/style.css";
+@import "./products/actions/style.css";
+@import "./products/filter/style.css";
 @import "./products/product/style.css";
 @import "./products/star-rating/style.css";
-@import "./products/image-flipper/style.css";
+@import "./products/image/style.css";
+@import "./products/image/flipper/style.css";
 @import "./products/pagination/style.css";
+@import "./products/header/style.css";
+@import "./category/style.css";
 @import "./sticky-add-to-cart/style.css";
 @import "./cart/style.css";
 @import "./cart/collaterals/style.css";
