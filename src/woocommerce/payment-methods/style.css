@@ -91,3 +91,9 @@
 		text-align: right;
 	}
 }
+
+.woocommerce-Payment {
+	.button {
+		margin-top: 11px;
+	}
+}
