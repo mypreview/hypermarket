@@ -1,19 +1,26 @@
 .woocommerce {
 	@each $filter in result-count, ordering {
 		&-$(filter) {
-			width: calc(50% - 3px);
-			display: inline-flex;
 			font-size: var(--general-small);
-			margin-bottom: 36px;
+			@media (--screen-xs-min) {
+				width: calc(50% - 3px);
+				display: inline-flex;
+				margin-bottom: 36px;
+			}
 		}
 	}
 
 	&-ordering {
-		justify-content: flex-end;
+		justify-content: flex-end ?if media (--screen-xs-min);
+		margin-bottom: 36px ?if media (--screen-xs);
 
 		select {
 			width: auto;
     		min-width: 50%;
 		}
+	}
+
+	&-result-count {
+		margin-bottom: 15px ?if media (--screen-xs);
 	}
 }
