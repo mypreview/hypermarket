@@ -1,0 +1,18 @@
+li.product {
+	> .div {
+	    grid-column: 1/-1;
+	    grid-row: 1;
+    	box: horizontal right bottom;
+    	margin: 46px 22px;
+    	visibility: hidden;
+    	opacity: 0;
+    	@mixin shift opacity, 0.35s;
+	}
+
+	&:hover {
+		> .div {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
