@@ -1,0 +1,29 @@
+li.type-product {
+	img {
+		@mixin shift opacity, 0.5s;
+		display: block;
+		margin: 0 auto;
+	}
+
+	&:hover {
+		img {
+			opacity: 0;
+
+			&:last-child {
+				opacity: 0.5;
+			}
+		}
+	}
+}
+
+.woocommerce-loop-product {
+	.product &__link {
+		&:first-child {
+			grid-column: 1/-1;
+			grid-row: 1;
+			position: relative;
+			margin-bottom: 24px;
+			background-color: var(--general-tile);
+		}
+	}
+}

@@ -2,6 +2,7 @@ li.product {
 	position: relative;
 	display: grid;
 	grid-template-columns: repeat(2, 50%);
+	line-height: var(--headings-line-height);
 
 	a {
 		text-decoration: none;
@@ -23,24 +24,12 @@ li.product {
 
 	p {
 		margin-bottom: 0;
-		line-height: 1;
 	}
 
 	.product-categories {
 		grid-row: 3;
 		a {
 			@mixin link var(--general-text), var(--general-text-alt);
-		}
-	}
-
-	img {
-		display: block;
-		margin: 0 auto;
-	}
-
-	&:hover {
-		img {
-			opacity: 0.5;
 		}
 	}
 }
@@ -55,12 +44,5 @@ li.product {
 
 	.product &__link {
 		@mixin link;
-
-		&:first-child {
-			grid-column: 1/-1;
-			grid-row: 1;
-			position: relative;
-			margin-bottom: 25px;
-		}
 	}
 }

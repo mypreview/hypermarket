@@ -1,0 +1,8 @@
+li.product {
+	img {
+		+ img {
+			opacity: 0;
+			position: absolute 0 0 null 0;
+		}
+	}
+}
