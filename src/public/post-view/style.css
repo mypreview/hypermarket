@@ -1,7 +1,18 @@
 .post-view {
-	border-bottom: 1px solid #ededed;
+	border-bottom: 1px solid var(--general-border);
 	padding-bottom: 24px;
 	@extend %clear;
+
+	&:last-of-type {
+		border-bottom-width: 0;
+	}
+
+	.jscroll-added & {
+		&:first-of-type {
+			border-top: 1px solid var(--general-border);
+			padding-top: 48px;
+		}
+	}
 
 	& + & {
 		padding-top: 24px;
