@@ -2,6 +2,7 @@ li.product {
 	position: relative;
 	display: grid;
 	grid-template-columns: repeat(2, 50%);
+    align-content: baseline;
 	line-height: var(--headings-line-height);
 
 	a {
