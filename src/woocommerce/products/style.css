@@ -2,7 +2,8 @@
 	&s {
 		@extend %none-list-style;
 		display: grid;
-		grid-gap: 30px;
+	    column-gap: 30px;
+    	row-gap: 36px;
 
 		&.columns-2 {
 			grid-template-columns: repeat(2, 1fr);
