@@ -1,0 +1,16 @@
+.woocommerce-products-header {
+	@extend %alignfull;
+	background-color: var(--general-tile);
+	text-align: center;
+	margin-bottom: 60px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+
+	> * {
+		@extend %colfull;
+	}
+
+	&__title {
+		margin-bottom: 18px;
+	}
+}
