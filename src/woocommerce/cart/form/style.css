@@ -90,9 +90,7 @@
 				.remove {
 					@mixin link var(--alert-danger);
 					border: 2px solid var(--general-border);
-					display: flex;
-					align-items: center;
-					justify-content: center;
+					box: center middle;
 					border-radius: var(--border-radius-small);
 					size: 36px;
 
