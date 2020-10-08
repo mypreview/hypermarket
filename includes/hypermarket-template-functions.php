@@ -116,8 +116,7 @@ if ( ! function_exists( 'hypermarket_get_sidebar' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_get_sidebar() {
-		$region = hypermarket_is_blog_archive() ? 'blog' : null;
-		get_sidebar( $region );
+		get_sidebar( 'sidebar-1' );
 	}
 endif;
 
