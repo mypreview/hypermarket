@@ -1,69 +1,70 @@
-.payment_method {
-	ul&s {
-		@extend %none-list-style;
-		color: var(--general-text-alt);
-		font-size: var(--general-small);
+@import "./stripe/style.css";
+@import "./paypal/style.css";
 
-		> li {
-			margin-bottom: 4px;
+ul.payment_methods {
+	@extend %none-list-style;
+	color: var(--general-text-alt);
+	font-size: var(--general-small);
 
-			&:only-child {
-				label {
-					padding-left: 0;
-					margin-left: 0;
-				}
+	> li {
+		margin-bottom: 4px;
 
-				.payment_box {
-					padding-left: 0;
-				}
-
-				> .input-radio:first-child {
-					display: invisible;
-				}
-			}
-
-			&:last-child .payment_box {
-				padding-bottom: 0;
-			}
-
-			> label {
-				box: wrap;
-				padding-top: 2.5px;
-			}
-		}
-
-		p {
-			line-height: var(--line-height-base);
-			font-size: calc(var(--general-normal) * 0.75);
-			margin-bottom: 0;
-		}
-
-		.payment_box {
-			padding: 0 0 20px 27px;
-		}
-
-		fieldset {
-			margin-top: 5px;
-			padding: 0;
-			border-width: 0;
-
+		&:only-child {
 			label {
-				display: hidden;
+				padding-left: 0;
+				margin-left: 0;
 			}
 
-			br {
-				content: "";
+			.payment_box {
+				padding-left: 0;
+			}
+
+			> .input-radio:first-child {
+				display: invisible;
 			}
 		}
 
-		.form-row {
-			&-last,
-			&-first {
-				width: calc(50% - 5px);
-			}
-			&-first {
-				margin-right: 10px;
-			}
+		&:last-child .payment_box {
+			padding-bottom: 0;
+		}
+
+		> label {
+			box: wrap;
+			padding-top: 2.5px;
+		}
+	}
+
+	p {
+		line-height: var(--line-height-base);
+		font-size: calc(var(--general-normal) * 0.75);
+		margin-bottom: 0;
+	}
+
+	.payment_box {
+		padding: 0 0 20px 27px;
+	}
+
+	fieldset {
+		margin-top: 5px;
+		padding: 0;
+		border-width: 0;
+
+		label {
+			display: hidden;
+		}
+
+		br {
+			content: "";
+		}
+	}
+
+	.form-row {
+		&-last,
+		&-first {
+			width: calc(50% - 5px);
+		}
+		&-first {
+			margin-right: 10px;
 		}
 	}
 }
