@@ -28,4 +28,4 @@
 		do_action( 'hypermarket_loop_post', get_the_ID() );
 
 	?>
-</article><!-- #post-## -->
+</article><!-- #post-<?php the_ID(); ?> -->
