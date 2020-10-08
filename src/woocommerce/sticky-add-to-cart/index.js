@@ -10,7 +10,6 @@ export const stickyAddToCart = {
 		stickyAddToCart.els = {};
 		stickyAddToCart.vars = {};
 		stickyAddToCart.vars.showClassName = 'show';
-		stickyAddToCart.vars.hideClassName = 'hide';
 		stickyAddToCart.els.$element = $( '.hypermarket-sticky-add-to-cart' );
 	},
 	// Execute callback after the DOM is loaded.
