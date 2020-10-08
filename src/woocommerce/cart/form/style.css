@@ -16,6 +16,10 @@
 		.coupon {
 			@extend %coupon-grid;
 
+			.has-sidebar & {
+				grid-column-gap: 20px;
+			}
+
 			label {
 				padding-left: 0;
 				font-size: var(--general-small);
@@ -32,6 +36,7 @@
 
 			.button {
 				@mixin button-color;
+			    padding: 10px;
 			}
 		}
 
