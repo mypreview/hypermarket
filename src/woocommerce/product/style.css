@@ -1,3 +1,15 @@
+@import "./add-to-cart/style.css";
+@import "./gallery/style.css";
+@import "./share-button/style.css";
+@import "./summary/style.css";
+@import "./pagination/style.css";
+@import "./star-rating/style.css";
+@import "./meta/style.css";
+@import "./stock/style.css";
+@import "./variations/style.css";
+@import "./tabs/style.css";
+@import "./products/style.css";
+
 .product {
 	div& > .div {
 		background-color: var(--general-tile);
@@ -12,33 +24,5 @@
 		> .div {
 			position: relative;
 		}
-	}
-
-	.woocommerce-Tabs-panel {
-		> h2 {
-			&:first-child {
-				display: hidden;
-			}
-		}
-	}
-}
-
-.woocommerce-product-attributes {
-	&-item {
-		p {
-			margin-bottom: 0;
-		}
-
-		td,
-		th {
-			border-bottom-width: 0;
-		}
-	}
-}
-
-.price {
-	del {
-		font-size: 87.5%;
-		opacity: 0.7;
 	}
 }

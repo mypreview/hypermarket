@@ -1,0 +1,51 @@
+.pagination {
+	font-size: var(--general-small);
+	padding-top: 30px;
+	border-top: 1px solid var(--general-border);
+	box: horizontal top;
+
+	li {
+		display: inline-block;
+		color: var(--general-text);
+
+		> * {
+			display: inline-block;
+			padding: 2px 10px 2px 0;
+			@mixin shift opacity;
+
+			&:hover {
+				opacity: 0.55;
+			}
+		}
+
+		a {
+			@mixin link;
+		}
+	}
+
+	.current {
+		opacity: 0.55;
+	}
+}
+
+.navigation {
+	&__pager {
+		display: flex;
+		margin: 4px 0 0 30px;
+
+		a {
+			@mixin link var(--general-text);
+			@mixin shift opacity;
+
+			&:hover {
+				opacity: 0.55;
+			}
+		}
+
+		> * {
+			&:nth-last-child(2) {
+				@extend %meta-divider;
+			}
+		}
+	}
+}

@@ -1,30 +1,9 @@
-.product {
-	&s {
-		@extend %none-list-style;
-		display: grid;
-	    column-gap: 30px;
-    	row-gap: 36px;
-
-		&.columns-2 {
-			grid-template-columns: repeat(2, 1fr) ?if media (--screen-xs-min);
-		}
-		&.columns-3 {
-			grid-template-columns: repeat(3, 1fr) ?if media (--screen-md-min);
-			grid-template-columns: repeat(2, 1fr) ?if media (--screen-md) and (--screen-xs-min);
-		}
-		&.columns-4 {
-			grid-template-columns: repeat(4, 1fr) ?if media (--screen-md-min);
-			grid-template-columns: repeat(2, 1fr) ?if media (--screen-md) and (--screen-xs-min);
-		}
-		&.columns-5 {
-			grid-template-columns: repeat(5, 1fr) ?if media (--screen-lg-min);
-			grid-template-columns: repeat(3, 1fr) ?if media (--screen-lg) and (--screen-md-min);
-			grid-template-columns: repeat(2, 1fr) ?if media (--screen-md) and (--screen-xs-min);
-		}
-		&.columns-6 {
-			grid-template-columns: repeat(6, 1fr) ?if media (--screen-lg-min);
-			grid-template-columns: repeat(3, 1fr) ?if media (--screen-lg) and (--screen-md-min);
-			grid-template-columns: repeat(2, 1fr) ?if media (--screen-md) and (--screen-xs-min);
-		}
-	}
-}
+@import "./columns/style.css";
+@import "./actions/style.css";
+@import "./filter/style.css";
+@import "./product/style.css";
+@import "./star-rating/style.css";
+@import "./image/style.css";
+@import "./image/flipper/style.css";
+@import "./pagination/style.css";
+@import "./header/style.css";
