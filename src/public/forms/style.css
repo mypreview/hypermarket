@@ -129,6 +129,7 @@ input {
 
 .select2 {
 	&-container {
+		min-height: 48px;
 		display: block;
 		font-size: var(--general-small);
 
