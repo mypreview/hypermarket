@@ -24,6 +24,10 @@
 		 */
 		do_action( 'hypermarket_single_post_top', get_the_ID() );
 
+	?>
+	<div class="entry-wrapper">
+	<?php
+
 		/**
 		 * Functions hooked into `hypermarket_single_post` add_action
 		 *
@@ -42,6 +46,17 @@
 		 * @hooked hypermarket_display_comments       - 40
 		 */
 		do_action( 'hypermarket_single_post_bottom', get_the_ID() );
+
+	?>
+	</div>
+	<?php
+
+	/**
+	 * Functions hooked into `hypermarket_sidebar` action
+	 *
+	 * @hooked  hypermarket_get_sidebar              - 10
+	 */
+	do_action( 'hypermarket_sidebar' );
 
 	?>
 </article><!-- #post-## -->
