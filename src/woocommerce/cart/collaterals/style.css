@@ -72,7 +72,7 @@
 
 	.button {
 		width: 100%;
-	    margin: 5px 0;
+		margin: 5px 0;
 
 		&:not([disabled]):nth-last-child(2) {
 			@mixin button-color;

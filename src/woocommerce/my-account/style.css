@@ -15,7 +15,7 @@
 		grid-column-gap: 30px;
 		grid-row-gap: 48px;
 	}
-	
+
 	h2 {
 		font-size: var(--general-large);
 		margin-bottom: 20px;

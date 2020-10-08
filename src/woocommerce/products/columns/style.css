@@ -1,7 +1,7 @@
 ul.products {
 	@extend %none-list-style;
 	display: grid;
-    column-gap: 30px;
+	column-gap: 30px;
 	row-gap: 36px;
 
 	&.columns-2 {

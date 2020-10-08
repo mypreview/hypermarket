@@ -1,9 +1,9 @@
 .products {
 	+ .pagination {
-	    margin-top: 68px;
+		margin-top: 68px;
 
-	    .jscroll-div & {
-	    	margin-top: 36px;
-	    }
+		.jscroll-div & {
+			margin-top: 36px;
+		}
 	}
 }
