@@ -1,0 +1,19 @@
+.blog-archive {
+	&.has-sidebar {
+		.site-main {
+			display: grid;
+		    grid-template-columns: 75% 25%;
+
+		    > .div {
+	    	    grid-row: 1;
+	    		grid-column: 1/-1;
+		    }
+		}
+
+		&--before {
+			.site-main {
+				grid-template-columns: 25% 75%;
+			}
+		}
+	}
+}

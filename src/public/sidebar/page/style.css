@@ -1,0 +1,25 @@
+.single,
+.page {
+	&.has-sidebar {
+		.site-main {
+			> article {
+				display: grid;
+		    	grid-template-columns: 75% 25%;
+
+		    	> .woocommerce,
+		    	> .div {
+		    	    grid-row: 1;
+		    		grid-column: 1/-1;
+			    }
+			}
+		}
+
+		&--before {
+			.site-main {
+				> article {
+					grid-template-columns: 25% 75%;
+				}
+			}
+		}
+	}
+}
