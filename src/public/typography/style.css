@@ -53,6 +53,12 @@ p {
 	margin-top: 0;
 }
 
+[class*="bx"] {
+	&::before {
+		font-family: boxicons;
+	}
+}
+
 .has-small-font-size {
 	font-size: var(--general-small);
 }
