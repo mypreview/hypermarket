@@ -10,7 +10,7 @@
  * @package     hypermarket
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) || apply_filters( 'hypermarket_disable_sidebar', false ) ) {
+if ( ! hypermarket_has_sidebar() ) {
 	return;
 }
 
