@@ -32,7 +32,8 @@
 		appearance: textfield;
 		padding: 0;
 		justify-content: center;
-		size: 32px auto;
+		width: 32px;
+		min-height: 36px;
 		font-size: var(--general-normal);
 		background-color: transparent;
 
