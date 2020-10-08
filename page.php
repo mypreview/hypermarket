@@ -40,11 +40,4 @@ get_header();
 	</div><!-- #primary -->
 <?php
 
-/**
- * Functions hooked into `hypermarket_sidebar` action
- *
- * @hooked  hypermarket_get_sidebar         - 10
- */
-do_action( 'hypermarket_sidebar' );
-
 get_footer();
