@@ -6,11 +6,6 @@
 		padding-left: 10.8% ?if media (--screen-md-min);
 		padding-left: 30px ?if media (--screen-md) and (--screen-sm-min);
 
-		h2 {
-			margin-bottom: 20px;
-			font-size: calc(var(--general-normal) * 1.625);
-		}
-
 		> * {
 			margin-bottom: 48px;
 		}
@@ -30,6 +25,11 @@
 		order: -1;
 		color: var(--general-text-alt);
 		font-size: var(--general-small);
+
+		h2 {
+			margin-bottom: 20px;
+			font-size: calc(var(--general-normal) * 1.625);
+		}
 
 		tbody {
 			display: grid;
