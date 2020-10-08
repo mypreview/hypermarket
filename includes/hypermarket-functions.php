@@ -105,6 +105,7 @@ if ( ! function_exists( 'hypermarket_has_blog_page' ) ) :
 	 */
 	function hypermarket_has_blog_page() {
 		$has_blog_page = (bool) get_option( 'page_for_posts', true );
+		
 		// phpcs:ignore PHPCompatibility.Operators.NewOperators.t_coalesceFound
 		return $has_blog_page ?? true;
 	}
@@ -121,9 +122,25 @@ if ( ! function_exists( 'hypermarket_blog_page_url' ) ) :
 		if ( hypermarket_has_blog_page() ) {
 			$page_id = get_option( 'page_for_posts', 0 );
 			return get_the_permalink( $page_id );
-		} else {
-			return home_url();
+		} 
+
+		return home_url();
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_has_sidebar' ) ) :
+	/**
+	 * Query if the site-wide sidebar area is being activated.
+	 *
+	 * @since    2.0.0
+	 * @return   bool
+	 */
+	function hypermarket_has_sidebar() {
+		if ( is_active_sidebar( 'sidebar-1' ) && ! is_404() && ! apply_filters( 'hypermarket_disable_sidebar', false ) && ! hypermarket_is_fluid_template() ) {
+			return true;
 		}
+
+		return false;
 	}
 endif;
 
