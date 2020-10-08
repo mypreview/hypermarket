@@ -188,12 +188,11 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 * @return  array       
 		 */
 		public function upsell_products_args( $args ) {
-			$has_sidebar = is_active_sidebar( 'sidebar-1' );
+			$has_sidebar = hypermarket_has_sidebar();
 			$args        = apply_filters(
 				'hypermarket_upsell_products_args',
 				array(
-					'posts_per_page' => $has_sidebar ? 3 : 4,
-					'columns'        => $has_sidebar ? 3 : 4,
+					'columns'  => $has_sidebar ? 3 : 4,
 				)
 			);
 
@@ -208,11 +207,11 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 * @return  array       
 		 */
 		public function related_products_args( $args ) {
-			$has_sidebar = is_active_sidebar( 'sidebar-1' );
+			$has_sidebar = hypermarket_has_sidebar();
 			$args        = apply_filters(
 				'hypermarket_related_products_args',
 				array(
-					'posts_per_page' => $has_sidebar ? 3 : 4,
+					'posts_per_page' => 6,
 					'columns'        => $has_sidebar ? 3 : 4,
 				)
 			);
@@ -228,9 +227,10 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 * @return  integer       
 		 */
 		public function cross_sell_products_cols( $cols ) {
-			$args = apply_filters(
+			$has_sidebar = hypermarket_has_sidebar();
+			$args        = apply_filters(
 				'hypermarket_cross_sell_products_cols',
-				1
+				$has_sidebar ? 3 : 4,
 			);
 
 			return $args;
