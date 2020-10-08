@@ -1,10 +1,10 @@
 .cart {
 	&-collaterals {
 		width: 34% ?if media (--screen-sm-min);
+		max-width: 260px ?if media (--screen-md-min);
+		padding-left: 30px ?if media (--screen-sm-min);
 		width: 100% ?if media (--screen-sm);
 		box: vertical;
-		padding-left: 10.8% ?if media (--screen-md-min);
-		padding-left: 30px ?if media (--screen-md) and (--screen-sm-min);
 
 		> * {
 			margin-bottom: 48px;

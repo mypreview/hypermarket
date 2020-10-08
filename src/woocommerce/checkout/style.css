@@ -10,7 +10,7 @@
 	}
 
 	form& {
-		box: wrap;
+		box: wrap space-between;
 
 		#customer_details {
 			width: 66% ?if media (--screen-sm-min);
@@ -19,8 +19,8 @@
 
 		#order_review {
 			width: 34% ?if media (--screen-sm-min);
-			padding-left: 10.8% ?if media (--screen-md-min);
-			padding-left: 30px ?if media (--screen-md) and (--screen-sm-min);
+			max-width: 260px ?if media (--screen-md-min);
+			padding-left: 30px ?if media (--screen-sm-min);
 			width: 100% ?if media (--screen-sm);
 		}
 	}
