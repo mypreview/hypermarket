@@ -11,13 +11,11 @@
 @import "./navbar/style.css";
 @import "./tables/style.css";
 @import "./pagination/style.css";
-@import "./pagination/jscroll/style.css";
 @import "./content/style.css";
 @import "./single-view/style.css";
 @import "./post-view/style.css";
 @import "./post-navigation/style.css";
 @import "./comments/style.css";
 @import "./share-button/style.css";
-@import "./icons/style.css";
 @import "./tooltip/style.css";
 @import "./keyframes/style.css";
