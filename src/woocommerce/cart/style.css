@@ -1,3 +1,7 @@
+@import "./collaterals/style.css";
+@import "./form/style.css";
+@import "./shipping/style.css";
+
 .woocommerce-cart {
 	.entry-content {
 		> .woocommerce {

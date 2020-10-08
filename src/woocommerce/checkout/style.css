@@ -1,3 +1,8 @@
+@import "./coupon/style.css";
+@import "./login/style.css";
+@import "./place-order/style.css";
+@import "./review-order/style.css";
+
 .woocommerce-checkout {
 	> h2 {
 		margin-bottom: 20px;
