@@ -47,6 +47,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			add_filter( 'woocommerce_order_button_text', array( $this, 'order_button_text' ) );
 			add_filter( 'woocommerce_review_gravatar_size', array( $this, 'review_gravatar_size' ) );
 			add_filter( 'woocommerce_product_reviews_tab_title', array( $this, 'reviews_tab_title' ) );
+			add_filter( 'woocommerce_subcategory_count_html', array( $this, 'subcategory_count_html' ) );
 			add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 		}
 
@@ -355,6 +356,19 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			$title = str_replace( ')', '</sup>', $title );
 
 			return $title;
+		}
+
+		/**
+		 * Removes parentheses from the subcategory count.
+		 *
+		 * @since   2.0.0
+		 * @param   html $html      HTML markup of the subcategory count.
+		 * @return  html
+		 */
+		public function subcategory_count_html( $html ) {
+			$html = str_replace( array( '(', ')' ), '', $html );
+
+			return $html;
 		}
 
 	}
