@@ -48,7 +48,7 @@ ul.payment_methods {
 			@each $item in token, new {
 				li.woocommerce-SavedPaymentMethods-$(item) {
 					label {
-				        display: inline-block;
+						display: inline-block;
 					}
 				}
 			}

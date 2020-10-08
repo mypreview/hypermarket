@@ -4,13 +4,13 @@
 		.site-main {
 			> article {
 				display: grid;
-		    	grid-template-columns: 75% 25%;
+				grid-template-columns: 75% 25%;
 
-		    	> .woocommerce,
-		    	> .div {
-		    	    grid-row: 1;
-		    		grid-column: 1/-1;
-			    }
+				> .woocommerce,
+				> .div {
+					grid-row: 1;
+					grid-column: 1/-1;
+				}
 			}
 		}
 

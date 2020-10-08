@@ -2,12 +2,12 @@
 	&.has-sidebar {
 		.site-main {
 			display: grid;
-		    grid-template-columns: 75% 25%;
+			grid-template-columns: 75% 25%;
 
-		    > .div {
-	    	    grid-row: 1;
-	    		grid-column: 1/-1;
-		    }
+			> .div {
+				grid-row: 1;
+				grid-column: 1/-1;
+			}
 		}
 
 		&--before {

@@ -7,12 +7,12 @@
 	&--before {
 		.widget-area {
 			margin: 0 15px 0 0;
-	        grid-area: 2/1;
+			grid-area: 2/1;
 		}
 
 		.entry-wrapper {
 			margin: 0 0 0 15px;
-	        grid-area: 2/2;
+			grid-area: 2/2;
 		}
 	}
 }
