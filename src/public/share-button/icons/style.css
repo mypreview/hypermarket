@@ -1,0 +1,43 @@
+.entry-share {
+	.bxl {
+		&-facebook {
+			:--active {
+				color: #3b5998;
+			}
+		}
+
+		&-linkedin {
+			:--active {
+				color: #0e76a8;
+			}
+		}
+
+		&-twitter {
+			:--active {
+				color: #00acee;
+			}
+		}
+
+		&-telegram {
+			:--active {
+				color: #08c;
+			}
+		}
+
+		&-whatsapp {
+			:--active {
+				color: #25d366;
+			}
+		}
+
+		&-email {
+			&::before {
+				content: "\ea8e";
+			}
+
+			:--active {
+				color: #3f549b;
+			}
+		}
+	}
+}
