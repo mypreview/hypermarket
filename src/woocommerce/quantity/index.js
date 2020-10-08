@@ -37,14 +37,14 @@ export const quantity = {
 				step = 1;
 
 			// Add to the existing value.
-			if ( $this.hasClass( 'icon--plus' ) ) {
+			if ( $this.hasClass( 'qty-plus' ) ) {
 				if ( max && gte( value, max ) ) {
 					$input.val( max );
 				} else {
 					$input.val( ( value + parseFloat( step ) ).toFixed( quantity._getDecimals( step ) ) );
 				}
 				// Subtract from the existing value.
-			} else if ( $this.hasClass( 'icon--minus' ) ) {
+			} else if ( $this.hasClass( 'qty-minus' ) ) {
 				if ( min && lte( value, min ) ) {
 					$input.val( min );
 				} else if ( gt( value, 0 ) ) {
