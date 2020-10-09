@@ -115,7 +115,8 @@ add_action( 'woocommerce_after_shop_loop_item', 'hypermarket_div_close', 20 );
  * @see  hypermarket_single_product_share()
  * @see  hypermarket_single_product_pagination()
  * @see  hypermarket_div()
- * @see  hypermarket_div_close()
+ * @see  hypermarket_products_flkty_div()
+ * @see  hypermarket_products_flkty_div_close()
  */
 remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices' );
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price' );
@@ -136,6 +137,10 @@ add_action( 'woocommerce_before_single_product_summary', 'hypermarket_product_ne
 add_action( 'woocommerce_before_single_product_summary', 'hypermarket_product_featured_flash' );
 add_action( 'woocommerce_before_single_product_summary', 'hypermarket_div_close', 25 );
 add_action( 'woocommerce_after_single_product_summary', 'hypermarket_div_close', 5 );
+add_action( 'woocommerce_after_single_product_summary', 'hypermarket_products_flkty_div', 12 );
+add_action( 'woocommerce_after_single_product_summary', 'hypermarket_products_flkty_div_close', 18 );
+add_action( 'woocommerce_after_single_product_summary', 'hypermarket_products_flkty_div', 18 );
+add_action( 'woocommerce_after_single_product_summary', 'hypermarket_products_flkty_div_close', 25 );
 
 /**
  * Cart
@@ -143,11 +148,17 @@ add_action( 'woocommerce_after_single_product_summary', 'hypermarket_div_close',
  * @see  hypermarket_cart_link_fragment()
  * @see  hypermarket_cart_update_button()
  * @see  hypermarket_button_proceed_to_checkout()
+ * @see  hypermarket_products_flkty_div()
+ * @see  hypermarket_products_flkty_div_close()
  */
+remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
 remove_action( 'woocommerce_proceed_to_checkout', 'woocommerce_button_proceed_to_checkout', 20 );
 add_filter( 'woocommerce_add_to_cart_fragments', 'hypermarket_cart_link_fragment' );
 add_action( 'woocommerce_proceed_to_checkout', 'hypermarket_cart_update_button' );
 add_action( 'woocommerce_proceed_to_checkout', 'hypermarket_button_proceed_to_checkout', 20 );
+add_action( 'woocommerce_after_cart', 'hypermarket_products_flkty_div', 5 );
+add_action( 'woocommerce_after_cart', 'woocommerce_cross_sell_display' );
+add_action( 'woocommerce_after_cart', 'hypermarket_products_flkty_div_close', 15 );
 
 /**
  * Checkout
