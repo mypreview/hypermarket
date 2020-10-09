@@ -143,6 +143,7 @@ const config = {
 		} ),
 		new LicenseCheckerWebpackPlugin( {
 			outputFilename: 'credits.txt',
+			ignore: [ 'flickity' ],
 		} ),
 		new WebpackNotifierPlugin( {
 			title: package,
