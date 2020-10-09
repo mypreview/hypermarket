@@ -94,6 +94,7 @@
 	"dependencies": {
 		"boxicons": "^2.0.5",
 		"es6-object-assign": "^1.1.0",
+		"flickity": "^2.2.1",
 		"jquery.numeric": "^1.0.0",
 		"jscroll": "^2.4.1",
 		"jump.js": "^1.0.2",
