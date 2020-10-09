@@ -696,7 +696,7 @@ if ( ! function_exists( 'hypermarket_div_close' ) ) :
 	 * @phpcs:disable Squiz.PHP.EmbeddedPhp.ContentAfterEnd, Squiz.PHP.EmbeddedPhp.ContentBeforeOpen
 	 */
 	function hypermarket_div_close() {
-		?></div><?php
+		?></div><!-- .div --><?php
 	}
 endif;
 
@@ -732,7 +732,47 @@ if ( ! function_exists( 'hypermarket_jscroll_close' ) ) :
 			return;
 		}
 
-		?></div></div><?php
+		?></div></div><!-- .jscroll-div --><?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_flkty' ) ) :
+	/**
+	 * Flickity carousel wrapper.
+	 *
+	 * @since   2.0.0
+	 * @param   array $args       Value to merge with $defaults.
+	 * @return  void
+	 * @phpcs:disable Squiz.PHP.EmbeddedPhp.ContentAfterEnd, Squiz.PHP.EmbeddedPhp.ContentBeforeOpen
+	 */
+	function hypermarket_flkty( $args = array() ) {
+		$defaults = apply_filters(
+			'hypermarket_flickity_data_args',
+			array(
+				'cellSelector' => 'li',
+				'pageDots'        => true,
+				'autoPlay'        => false,
+				'wrapAround'      => true,
+				'adaptiveHeight'  => false,
+				'prevNextButtons' => false,
+			) 
+		);
+		// Merge user defined arguments into defaults array.
+		$args = wp_parse_args( $args, $defaults );
+		?><div class="flkty-div" data-flickity='<?php echo wp_json_encode( $args ); ?>'><?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_flkty_close' ) ) :
+	/**
+	 * Close Flickity carousel wrapper.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 * @phpcs:disable Squiz.PHP.EmbeddedPhp.ContentAfterEnd, Squiz.PHP.EmbeddedPhp.ContentBeforeOpen
+	 */
+	function hypermarket_flkty_close() {
+		?></div><!-- .flkty-div --><?php
 	}
 endif;
 
