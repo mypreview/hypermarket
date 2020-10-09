@@ -613,3 +613,37 @@ if ( ! function_exists( 'hypermarket_product_image_flipper' ) ) :
 		);
 	}
 endif;
+
+if ( ! function_exists( 'hypermarket_products_flkty_div' ) ) :
+	/**
+	 * Outputs Flickity carousel wrapper.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_products_flkty_div() {
+		// Bail early, in case the products flickity module is not being activated.
+		if ( ! hypermarket_products_flkty_activated() ) {
+			return;
+		}
+
+		hypermarket_flickity();
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_products_flkty_div_close' ) ) :
+	/**
+	 * Outputs Flickity carousel wrapper close tag.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_products_flkty_div_close() {
+		// Bail early, in case the products flickity module is not being activated.
+		if ( ! hypermarket_products_flkty_activated() ) {
+			return;
+		}
+
+		hypermarket_flkty_close();
+	}
+endif;
