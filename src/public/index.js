@@ -4,6 +4,11 @@
 import './style.css';
 
 /**
+ * Vendor (third-party) dependencies
+ */
+import './../vendor';
+
+/**
  * Custom scripts.
  */
 import { buttons } from './buttons';
