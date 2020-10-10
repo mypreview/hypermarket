@@ -1,0 +1,29 @@
+form[role="search"] {
+	position: relative;
+
+	&:after {
+	    @mixin icon "\ebbe";
+	    font-size: calc(var(--general-normal) * 1.25);
+	    position: absolute null 12px 13px null;
+    	line-height: 1;
+    	pointer-events: none;
+	}
+
+	label {
+	    padding-left: 0;
+	}
+
+	[type="search"] {
+		padding-right: 40px;
+	}
+
+	[type="submit"] {
+		position: absolute null 0 0 null;
+		display: block;
+		size: 40px 48px;
+		padding: 48px 0 0;
+    	min-height: auto;
+		overflow: hidden;
+	    background: transparent;
+	}
+}
