@@ -105,23 +105,23 @@ blockquote {
 	color: var(--general-quote);
 	border-left: 5px solid var(--general-border);
 
-	cite {
-		box: horizontal middle;
-		font-size: var(--general-small);
-		color: var(--general-text-alt);
-		margin-top: 10px;
-		font-style: normal;
-
-		&::before {
-			content: "";
-			size: 20px 1px;
-			background-color: var(--general-text-alt);
-			margin-right: 9px;
-		}
-	}
-
 	p {
 		margin-bottom: 0;
+	}
+}
+
+cite {
+	box: horizontal middle;
+	font-size: var(--general-small);
+	color: var(--general-text-alt);
+	margin-top: 10px;
+	font-style: normal;
+
+	&::before {
+		content: "";
+		size: 20px 1px;
+		background-color: var(--general-text-alt);
+		margin-right: 9px;
 	}
 }
 
