@@ -268,6 +268,13 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 										'label'          => esc_html__( 'AJAX pagination', 'hypermarket' ),
 										'description'    => esc_html__( 'Render the next page once clicked on the "Load More" button, saving users from a full page load or refresh.', 'hypermarket' ),
 									),
+									array(
+										'type'           => 'checkbox',
+										'theme_supports' => 'woocommerce',
+										'id'             => sprintf( '%s_general_products_flkty', self::$setting_prefix ),
+										'label'          => esc_html__( 'Products carousel', 'hypermarket' ),
+										'description'    => esc_html__( 'This option replaces the default grid layout in "Related", "Upsell", and "Cross-sell" sections with a carousel slider.', 'hypermarket' ),
+									),
 								),
 							),
 							array(
@@ -465,12 +472,13 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 							foreach ( $section_controls as $control ) {
 								// Determine if the control id is declared and is different than null.
 								if ( isset( $control['id'] ) ) {
-									$control_id            = (string) $control['id'];
-									$control_type          = isset( $control['type'] ) ? (string) $control['type'] : (string) $group_type;
-									$control_label         = isset( $control['label'] ) ? (string) $control['label'] : '';
-									$control_description   = isset( $control['description'] ) ? (string) $control['description'] : '';
-									$control_default_value = isset( $control['default'] ) ? (string) $control['default'] : '';
-									$control_attrs         = isset( $control['attrs'] ) ? (array) $control['attrs'] : array();
+									$control_id             = (string) $control['id'];
+									$control_type           = isset( $control['type'] ) ? (string) $control['type'] : (string) $group_type;
+									$control_label          = isset( $control['label'] ) ? (string) $control['label'] : '';
+									$control_description    = isset( $control['description'] ) ? (string) $control['description'] : '';
+									$control_default_value  = isset( $control['default'] ) ? (string) $control['default'] : '';
+									$control_attrs          = isset( $control['attrs'] ) ? (array) $control['attrs'] : array();
+									$control_theme_supports = isset( $control['theme_supports'] ) ? (string) $control['theme_supports'] : '';
 
 									// Registers a new customize setting.
 									$hm_customize->add_setting(
@@ -482,6 +490,7 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 											// phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores, WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 											'default'    => apply_filters( sprintf( '%s_default', hypermarket_sanitize( $control_id ) ), hypermarket_sanitize( $control_default_value, $control_type ) ),
 											'sanitize_callback' => hypermarket_sanitize_method( $control_type ),
+											'theme_supports' => esc_html( $control_theme_supports ),
 										) 
 									);
 									
