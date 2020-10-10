@@ -1,0 +1,6 @@
+.widget {
+	.calendar_wrap {
+	    overflow-x: auto;
+	    overflow-y: hidden;
+	}
+}
