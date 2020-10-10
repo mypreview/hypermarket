@@ -1,9 +1,0 @@
-.widget_archive {
-	ul {
-		@extend %none-list-style;
-	}
-
-	a {
-		@mixin link var(--general-text) var(--general-text-alt);
-	}
-}
