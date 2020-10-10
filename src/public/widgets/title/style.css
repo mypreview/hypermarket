@@ -1,5 +1,6 @@
 .widget-title {
 	font-size: var(--general-small);
+	line-height: 1.3;
 	text-transform: uppercase;
 	margin-bottom: var(--line-height-computed);
 	display: block;
