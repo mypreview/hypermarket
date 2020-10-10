@@ -17,6 +17,7 @@
 @import "./post-navigation/style.css";
 @import "./comments/style.css";
 @import "./share-button/style.css";
+@import "./gallery/style.css";
 @import "./sidebar/style.css";
 @import "./widgets/style.css";
 @import "./tooltip/style.css";
