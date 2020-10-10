@@ -1,0 +1,54 @@
+.select2 {
+	&-container {
+		min-height: 48px;
+		display: block;
+		font-size: var(--general-small);
+
+		&--default {
+			^^&-selection {
+				&--single {
+					@extend %select-icon;
+					border: 2px solid var(--general-border);
+					height: 48px;
+					box: horizontal middle;
+					padding-left: 8px;
+
+					^^^^&-selection {
+						&__arrow {
+							display: hidden;
+						}
+
+						&__rendered {
+							color: var(--general-text);
+						}
+					}
+				}
+			}
+
+			^^&-results__option {
+				&--highlighted {
+					&[aria-selected] {
+						color: var(--general-background);
+						background-color: var(--general-primary);
+					}
+				}
+
+				&[data-selected="true"][aria-selected="false"] {
+					background-color: var(--general-tile);
+				}
+			}
+
+			^^&-search--dropdown {
+				^^^&-search__field {
+					height: 38px;
+					border: 2px solid var(--general-border);
+				}
+			}
+		}
+	}
+
+	&-dropdown {
+		border-color: var(--general-border);
+		border-width: 2px;
+	}
+}
