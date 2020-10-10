@@ -2,6 +2,7 @@
 @import "./page/style.css";
 @import "./single-view/style.css";
 @import "./post-view/style.css";
+@import "./widget-area/style.css";
 
 .has-sidebar {
 	&--before {
