@@ -69,22 +69,5 @@
 				}
 			}
 		}
-
-		form {
-			display: flex;
-		}
-
-		.search-field {
-			width: auto;
-			flex-grow: 1;
-			border-right-radius: 0;
-			border-right-width: 0;
-
-		}
-
-		[type="submit"] {
-			margin: 0;
-			border-left-radius: 0;
-		}
 	}
 }
