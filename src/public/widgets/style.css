@@ -1,2 +1,7 @@
-@import "./archive/style.css";
 @import "./title/style.css";
+@import "./list/style.css";
+@import "./tagcloud/style.css";
+@import "./recent-posts/style.css";
+@import "./table/style.css";
+@import "./calendar/style.css";
+@import "./rss/style.css";
