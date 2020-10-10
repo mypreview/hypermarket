@@ -749,7 +749,7 @@ if ( ! function_exists( 'hypermarket_flkty' ) ) :
 		$defaults = apply_filters(
 			'hypermarket_flickity_data_args',
 			array(
-				'cellSelector' => 'li',
+				'cellSelector'    => 'li',
 				'pageDots'        => true,
 				'autoPlay'        => false,
 				'wrapAround'      => true,
