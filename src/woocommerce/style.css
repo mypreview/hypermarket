@@ -1,5 +1,6 @@
 @import "./../placeholders/style.css";
-@import "./../variables/style.css";
+@import "./../variables/media/style.css";
+@import "./../variables/selector/style.css";
 @import "./../mixins/style.css";
 @import "./navbar/style.css";
 @import "./breadcrumbs/style.css";
