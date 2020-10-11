@@ -19,11 +19,11 @@
 			li {
 				padding-left: 14px;
 
-				&:before {
-					content: '';
+				&::before {
+					content: "";
 					position: absolute 14px null null 0;
-				    size: 8px 1px;
-				    background-color: var(--general-border);
+					size: 8px 1px;
+					background-color: var(--general-border);
 				}
 			}
 		}

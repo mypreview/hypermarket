@@ -4,7 +4,7 @@
 
 .woocommerce-mini-cart {
 	margin-bottom: 15px;
-    padding-left: 0;
+	padding-left: 0;
 
 	&__empty-message {
 		margin-bottom: 0;
