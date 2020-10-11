@@ -37,20 +37,23 @@ if ( ! class_exists( 'Hypermarket_Customize_Range_Control' ) ) :
 				<?php echo wp_kses_post( $this->description ); ?>
 			</span>
 			<div class="customize-control-range">
-				<span>
-					<input 
-						type="range" 
-						class="customize-control-range__field"
-						value="<?php echo absint( $this->value() ); ?>" 
-						<?php 
-						$this->input_attrs();
-						$this->link(); 
-						?>
-					/>
+				<input 
+					type="range" 
+					class="customize-control-range__field"
+					value="<?php echo absint( $this->value() ); ?>" 
+					<?php 
+					$this->input_attrs();
+					$this->link(); 
+					?>
+				/>
+				<div class="customize-control-range__action">
 					<span class="customize-control-range__value">
 						<?php echo absint( $this->value() ); ?>
 					</span>
-				</span>
+					<a href="#" class="customize-control-range__reset" aria-label="<?php esc_attr_e( 'Restore to default', 'hypermarket' ); ?>">
+						<span class="dashicons dashicons-image-rotate"></span>
+					</a>
+				</div>
 			</div>
 			<?php
 		}
