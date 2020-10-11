@@ -477,7 +477,7 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 									$control_label          = isset( $control['label'] ) ? (string) $control['label'] : '';
 									$control_description    = isset( $control['description'] ) ? (string) $control['description'] : '';
 									$control_default_value  = isset( $control['default'] ) ? (string) $control['default'] : '';
-									$control_attrs          = isset( $control['attrs'] ) ? (array) $control['attrs'] : array();
+									$control_attrs          = isset( $control['attrs'] ) ? (array) array_merge( $control['attrs'], array( 'data-default' => $control_default_value ) ) : array();
 									$control_theme_supports = isset( $control['theme_supports'] ) ? (string) $control['theme_supports'] : '';
 
 									// Registers a new customize setting.
