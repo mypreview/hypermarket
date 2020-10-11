@@ -7,7 +7,6 @@
 	border-radius: 24px;
 	padding: 2.6px 12px;
 	margin: 0 7px 8px 0;
-	font-size: var(--general-small) !important;
 	transition: color 0.3s, border-color 0.3s;
 
 	&:hover {
