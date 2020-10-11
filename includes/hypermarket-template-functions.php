@@ -633,6 +633,33 @@ if ( ! function_exists( 'hypermarket_post_thumbnail' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_tag_cloud_args' ) ) :
+	/**
+	 * Modifies tag cloud widget arguments to display all tags in the same font size
+	 * and use list format for better accessibility.
+	 *
+	 * @since   2.0.0
+	 * @param   array $defaults    Default arguments for tag cloud widget.
+	 * @return  array
+	 */
+	function hypermarket_tag_cloud_args( $defaults ) {
+		$args = apply_filters(
+			'hypermarket_tag_cloud_display_args',
+			array(
+				'format'   => 'list',
+				'unit'     => 'px',
+				'default'  => '14',
+				'smallest' => '14',
+				'largest'  => '14',
+			) 
+		);
+
+		// Merge theme specific arguments into defaults array.
+		$defaults = wp_parse_args( $defaults, $args );
+		return $defaults;
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_customize_more_section' ) ) :
 	/**
 	 * Customizer specific upsell section to provide further info.
