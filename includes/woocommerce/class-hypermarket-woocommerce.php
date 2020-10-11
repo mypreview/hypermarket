@@ -31,7 +31,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		public function __construct() {
 			add_action( 'hypermarket_after_setup_theme', array( $this, 'setup' ) );
 			add_filter( 'hypermarket_l10n_args', array( $this, 'l10_args' ) );
-			add_action( 'hypermarket_enqueue_scripts', array( $this, 'enqueue' ) );
+			add_action( 'hypermarket_enqueue_public', array( $this, 'enqueue' ) );
 			add_filter( 'hypermarket_body_classes', array( $this, 'body_classes' ) );
 			add_filter( 'hypermarket_post_meta_args', array( $this, 'register_post_meta' ) );
 			add_filter( 'woocommerce_sale_flash', array( $this, 'sale_flash' ) );
@@ -105,13 +105,19 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 */
 		public function enqueue() {
 			global $hypermarket;
-			$asset_name = 'woocommerce';
-			$asset      = hypermarket_get_file_assets( $asset_name );
+			$asset_name    = 'woocommerce';
+			$asset         = hypermarket_get_file_assets( $asset_name );
+			$style_handle  = hypermarket_get_asset_handle( $asset_name, 'style' );
+			$script_handle = hypermarket_get_asset_handle( $asset_name, 'script' );
+
 			// Styles.
-			wp_enqueue_style( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
-			wp_style_add_data( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), 'rtl', 'replace' );
+			wp_enqueue_style( $style_handle, get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
+			wp_style_add_data( $style_handle, 'rtl', 'replace' );
 			// Scripts.
-			wp_enqueue_script( sprintf( '%s-%s-script', $hypermarket->slug, $asset_name ), get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
+			wp_enqueue_script( $script_handle, get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
+
+			// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound, WordPress.NamingConventions.ValidHookName.UseUnderscores
+			do_action( sprintf( 'hypermarket_enqueue_%s', $asset_name ), $style_handle, $script_handle, $asset_name );
 		}
 
 		/**
@@ -230,7 +236,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			$has_sidebar = hypermarket_has_sidebar();
 			$args        = apply_filters(
 				'hypermarket_cross_sell_products_cols',
-				$has_sidebar ? 3 : 4,
+				$has_sidebar ? 3 : 4
 			);
 
 			return $args;
