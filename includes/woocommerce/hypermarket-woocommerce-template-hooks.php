@@ -166,3 +166,10 @@ add_action( 'woocommerce_after_cart', 'hypermarket_products_flkty_div_close', 15
  * @see  hypermarket_button_back_to_cart()
  */
 add_action( 'woocommerce_review_order_before_submit', 'hypermarket_button_back_to_cart' );
+
+/**
+ * Widgets
+ *
+ * @see hypermarket_tag_cloud_args()
+ */
+add_filter( 'woocommerce_product_tag_cloud_widget_args', 'hypermarket_tag_cloud_args' );
