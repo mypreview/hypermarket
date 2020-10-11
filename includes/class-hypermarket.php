@@ -36,7 +36,9 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
 			add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_editor' ) );
-			add_action( 'wp_enqueue_scripts', array( $this, 'child_scripts' ), 35 );
+			add_action( 'hypermarket_enqueue_public', array( $this, 'add_inline_styles' ) );
+			add_action( 'hypermarket_enqueue_editor', array( $this, 'add_inline_styles' ) );
+			add_action( 'hypermarket_enqueue_public', array( $this, 'child_scripts' ), 35 );
 			add_action( 'wp_resource_hints', array( $this, 'preconnect_gstatic' ), 10, 2 );
 			add_filter( 'body_class', array( $this, 'body_classes' ) );
 			add_filter( 'navigation_markup_template', array( $this, 'navigation_markup_template' ) );
@@ -340,11 +342,12 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * @return  void
 		 */
 		public function enqueue() {
-			global $hypermarket;
-
-			$asset_name = 'public';
-			$asset      = hypermarket_get_file_assets( $asset_name );
-			$l10n       = apply_filters(
+			$asset_name    = 'public';
+			$asset         = hypermarket_get_file_assets( $asset_name );
+			$font_handle   = hypermarket_get_asset_handle( $asset_name, 'font' );
+			$style_handle  = hypermarket_get_asset_handle( $asset_name, 'style' );
+			$script_handle = hypermarket_get_asset_handle( $asset_name, 'script' );
+			$l10n          = apply_filters(
 				'hypermarket_l10n_args',
 				array(
 					'isRTL'    => is_rtl(),
@@ -356,21 +359,20 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			wp_dequeue_style( 'wp-block-library' );
 			// Fonts.
 			// phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
-			wp_enqueue_style( sprintf( '%s-fonts', $hypermarket->slug ), $this->google_fonts(), array(), null );
+			wp_enqueue_style( $font_handle, $this->google_fonts(), array(), null );
 			// Styles.
-			wp_enqueue_style( sprintf( '%s-style', $hypermarket->slug ), get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
-			wp_style_add_data( sprintf( '%s-style', $hypermarket->slug ), 'rtl', 'replace' );
-			wp_add_inline_style( sprintf( '%s-style', $hypermarket->slug ), Hypermarket_Customize::get_css() );
-			wp_add_inline_style( sprintf( '%s-style', $hypermarket->slug ), hypermarket_generate_editor_css() );
+			wp_enqueue_style( $style_handle, get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
+			wp_style_add_data( $style_handle, 'rtl', 'replace' );
 			// Scripts.
-			wp_enqueue_script( sprintf( '%s-script', $hypermarket->slug ), get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
-			wp_localize_script( sprintf( '%s-script', $hypermarket->slug ), 'hypermarket', $l10n );
+			wp_enqueue_script( $script_handle, get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
+			wp_localize_script( $script_handle, 'hypermarket', $l10n );
 
 			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 				wp_enqueue_script( 'comment-reply' );
 			}
 
-			do_action( 'hypermarket_enqueue_scripts' );
+			// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound, WordPress.NamingConventions.ValidHookName.UseUnderscores
+			do_action( sprintf( 'hypermarket_enqueue_%s', $asset_name ), $style_handle, $script_handle, $asset_name );
 		}
 
 		/**
@@ -380,21 +382,35 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * @return  void
 		 */
 		public function enqueue_editor() {
-			global $hypermarket;
-
-			$asset_name = 'editor';
-			$asset      = hypermarket_get_file_assets( $asset_name );
+			$asset_name    = 'editor';
+			$asset         = hypermarket_get_file_assets( $asset_name );
+			$font_handle   = hypermarket_get_asset_handle( $asset_name, 'font' );
+			$style_handle  = hypermarket_get_asset_handle( $asset_name, 'style' );
+			$script_handle = hypermarket_get_asset_handle( $asset_name, 'script' );
 
 			// Fonts.
 			// phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
-			wp_enqueue_style( sprintf( '%s-fonts', $hypermarket->slug ), $this->google_fonts(), array(), null );
+			wp_enqueue_style( $font_handle, $this->google_fonts(), array(), null );
 			// Styles.
-			wp_enqueue_style( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'] );
-			wp_style_add_data( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), 'rtl', 'replace' );
-			wp_add_inline_style( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), Hypermarket_Customize::get_css() );
-			wp_add_inline_style( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), hypermarket_generate_editor_css() );
+			wp_enqueue_style( $style_handle, get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'] );
+			wp_style_add_data( $style_handle, 'rtl', 'replace' );
 			// Scripts.
-			wp_enqueue_script( sprintf( '%s-%s-script', $hypermarket->slug, $asset_name ), get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
+			wp_enqueue_script( $script_handle, get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
+		
+			// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound, WordPress.NamingConventions.ValidHookName.UseUnderscores
+			do_action( sprintf( 'hypermarket_enqueue_%s', $asset_name ), $style_handle, $script_handle, $asset_name );
+		}
+
+		/**
+		 * Print extra inline-CSS styles to the registered stylesheet.
+		 *
+		 * @since   2.0.0
+		 * @param   string $style_handle   Name of the stylesheet to add the extra styles to.
+		 * @return  void
+		 */
+		public function add_inline_styles( $style_handle ) {
+			wp_add_inline_style( $style_handle, Hypermarket_Customize::get_css() );
+			wp_add_inline_style( $style_handle, hypermarket_generate_editor_css() );
 		}
 
 		/**
