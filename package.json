@@ -52,7 +52,6 @@
 		"postcss-calc": "^7.0.2",
 		"postcss-cli": "^7.1.2",
 		"postcss-combine-media-query": "^1.0.1",
-		"postcss-css-variables": "^0.17.0",
 		"postcss-custom-media": "^7.0.8",
 		"postcss-custom-selectors": "^5.1.2",
 		"postcss-each": "^0.10.0",

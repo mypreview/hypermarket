@@ -10,9 +10,6 @@ module.exports = ( { env } ) => ( {
 		'postcss-variables-prefixer': {
 			prefix: 'hypermarket-',
 		},
-		'postcss-css-variables': {
-			preserve: true,
-		},
 		'postcss-extend': {},
 		'postcss-if-media': {},
 		'postcss-custom-media': {},
