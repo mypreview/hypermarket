@@ -36,6 +36,23 @@ if ( ! function_exists( 'hypermarket_get_file_assets' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_get_asset_handle' ) ) :
+	/**
+	 * Reterive handle of the stylesheet or script to enqueue.
+	 *
+	 * @since    2.0.0
+	 * @param    string $asset_name    Name of the asset.
+	 * @param    string $type          Type of the asset, ex. style, script, font, etc.
+	 * @return   string
+	 */
+	function hypermarket_get_asset_handle( $asset_name = 'public', $type = 'style' ) {
+		global $hypermarket;
+
+		$handle = sprintf( '%s-%s-%s', $hypermarket->slug, $asset_name, $type );
+		return $handle;
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_is_fluid_template' ) ) :
 	/**
 	 * Checks if the current page is the fluid template.
@@ -811,7 +828,7 @@ if ( ! function_exists( 'hypermarket_generate_editor_features' ) ) :
 			}
 		}
 
-		return (array) $return;
+		return $return;
 	}
 endif;
 
