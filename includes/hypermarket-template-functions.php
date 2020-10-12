@@ -809,9 +809,18 @@ if ( ! function_exists( 'hypermarket_container' ) ) :
 	 *
 	 * @since   2.0.0
 	 * @return  void
-	 * @phpcs:disable Squiz.PHP.EmbeddedPhp.ContentAfterEnd, Squiz.PHP.EmbeddedPhp.ContentBeforeOpen
 	 */
 	function hypermarket_container() {
-		?><div class="col-full"><?php
+		// Retrieves theme modification value for the current theme (parent or child).
+		$is_stretched = get_theme_mod( sprintf( '%s_general_stretched_width', Hypermarket_Customize::$setting_prefix ), false );
+		$classname    = 'col-full';
+		$classnames   = array( $classname );
+		
+		if ( $is_stretched ) {
+			$classnames[] = sprintf( '%s--stretched', $classname );
+		}
+
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		printf( '<div class="%s">', call_user_func( hypermarket_sanitize_method( 'classes' ), $classnames, 'string' ) );
 	}
 endif;
