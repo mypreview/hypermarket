@@ -49,17 +49,21 @@ add_action( 'hypermarket_page_top', 'hypermarket_shop_messages', 30 );
  * @see  hypermarket_woocommerce_pagination()
  * @see  hypermarket_jscroll()
  * @see  hypermarket_jscroll_close()
+ * @see  hypermarket_wrapper()
+ * @see  hypermarket_div_close()
  */
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper' );
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end' );
 remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar' );
 remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination' );
+add_action( 'woocommerce_before_shop_loop', 'hypermarket_wrapper', 5 );
 add_action( 'woocommerce_before_shop_loop', 'hypermarket_jscroll', 40 );
-add_action( 'woocommerce_after_shop_loop', 'hypermarket_jscroll_close', 40 );
 add_action( 'woocommerce_before_main_content', 'hypermarket_before_content' );
 add_action( 'woocommerce_after_main_content', 'hypermarket_after_content' );
 add_action( 'woocommerce_after_shop_loop', 'hypermarket_woocommerce_pagination', 30 );
+add_action( 'woocommerce_after_shop_loop', 'hypermarket_jscroll_close', 40 );
+add_action( 'woocommerce_after_shop_loop', 'hypermarket_div_close', 45 );
 add_action( 'woocommerce_before_quantity_input_field', 'hypermarket_quantity_minus_btn' );
 add_action( 'woocommerce_after_quantity_input_field', 'hypermarket_quantity_plus_btn' );
 
