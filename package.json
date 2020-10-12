@@ -78,7 +78,6 @@
 		"postcss-variables-prefixer": "0.0.0-beta.0",
 		"prettier": "npm:wp-prettier@2.0.5",
 		"progress-bar-webpack-plugin": "^2.1.0",
-		"style-loader": "2.0.0",
 		"stylelint": "13.7.2",
 		"stylelint-config-wordpress": "17.0.0",
 		"terser-webpack-plugin": "^4.2.3",
