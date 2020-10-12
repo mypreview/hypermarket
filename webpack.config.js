@@ -74,17 +74,14 @@ const config = {
 			{
 				test: /\.css$/,
 				use: [
-					'style-loader',
-					MiniCssExtractPlugin.loader,
 					{
-						loader: 'css-loader',
+						loader: MiniCssExtractPlugin.loader,
 						options: {
 							importLoaders: 1,
 						},
 					},
-					{
-						loader: 'postcss-loader',
-					},
+					'css-loader',
+					'postcss-loader',
 				],
 			},
 			{
