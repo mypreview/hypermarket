@@ -1,4 +1,11 @@
+/**
+ * Stylesheet dependencies.
+ */
 import './style.css';
+
+/**
+ * Custom scripts.
+ */
 import { range } from './range';
 
 /**
