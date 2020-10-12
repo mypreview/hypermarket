@@ -48,7 +48,7 @@
 		do_action( 'hypermarket_single_post_bottom', get_the_ID() );
 
 	?>
-	</div>
+	</div><!-- .entry-wrapper -->
 	<?php
 
 	/**
@@ -59,4 +59,4 @@
 	do_action( 'hypermarket_sidebar' );
 
 	?>
-</article><!-- #post-## -->
+</article><!-- #post-<?php the_ID(); ?> -->
