@@ -1,6 +1,7 @@
 <?php
 /**
  * The sidebar containing the main widget area.
+ * Displays a button to open the collapsible sidebar on mobile devices.
  *
  * @link        https://developer.wordpress.org/themes/basics/template-files/#template-partials
  * @link        https://www.upwork.com/fl/mahdiyazdani
@@ -14,6 +15,19 @@ if ( ! hypermarket_has_sidebar() ) {
 	return;
 }
 
-?><aside id="secondary" class="widget-area" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+?>
+<a href="#" class="widget-area-toggle bx-filter">
+	<span class="screen-reader-text">
+		<?php esc_html_e( 'Toggle sidebar', 'hypermarket' ); ?>
+	</span>
+</a><!-- .widget-area-toggle -->
+<aside id="secondary" class="widget-area" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+	<a href="#" class="widget-area__close bx-x">
+		<span class="screen-reader-text">
+			<?php esc_html_e( 'Close sidebar', 'hypermarket' ); ?>
+		</span>
+	</a>
+	<div class="widget-area__content">
+		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	</div>
 </aside><!-- #secondary -->
