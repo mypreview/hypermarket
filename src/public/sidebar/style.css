@@ -3,25 +3,28 @@
 @import "./single-view/style.css";
 @import "./post-view/style.css";
 @import "./widget-area/style.css";
+@import "./toggle/style.css";
 
-.has-sidebar {
-	&--before {
-		.widget-area {
-			margin: 0 15px 0 0;
-			grid-area: 2/1;
-		}
+@media (--screen-md-min) {
+	.has-sidebar {
+		&--before {
+			.widget-area {
+				margin: 0 15px 0 0;
+				grid-area: 2/1;
+			}
 
-		.entry-wrapper {
-			margin: 0 0 0 15px;
-			grid-area: 2/2;
+			.entry-wrapper {
+				margin: 0 0 0 15px;
+				grid-area: 2/2;
+			}
 		}
 	}
-}
 
-.entry-wrapper {
-	margin-right: 15px;
-}
+	.entry-wrapper {
+		margin-right: 15px;
+	}
 
-.widget-area {
-	margin-left: 15px;
+	.widget-area {
+		margin-left: 15px;
+	}
 }
