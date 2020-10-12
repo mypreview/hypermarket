@@ -1,5 +1,5 @@
 .select2 {
-	&-container {
+	&&-container {
 		min-height: 48px;
 		display: block;
 		font-size: var(--general-small);
@@ -20,6 +20,10 @@
 
 						&__rendered {
 							color: var(--general-text);
+						}
+
+						&__clear {
+							margin: 1px 3px 0;
 						}
 					}
 				}
