@@ -4,7 +4,7 @@
 		.site-main {
 			> article {
 				display: grid;
-				grid-template-columns: 75% 25%;
+				grid-template-columns: 75% 25% ?if media (--screen-md-min);
 
 				> .woocommerce,
 				> .div {
@@ -17,7 +17,7 @@
 		&--before {
 			.site-main {
 				> article {
-					grid-template-columns: 25% 75%;
+					grid-template-columns: 25% 75% ?if media (--screen-md-min);
 				}
 			}
 		}
