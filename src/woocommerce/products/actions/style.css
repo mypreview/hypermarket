@@ -6,6 +6,7 @@ li.product {
 		margin: 46px 22px;
 		visibility: hidden;
 		opacity: 0;
+		pointer-events: none;
 		@mixin shift opacity, 0.35s;
 	}
 
@@ -14,5 +15,9 @@ li.product {
 			opacity: 1;
 			visibility: visible;
 		}
+	}
+
+	.button {
+	    pointer-events: auto;
 	}
 }
