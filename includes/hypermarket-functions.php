@@ -190,20 +190,6 @@ if ( ! function_exists( 'hypermarket_site_title_or_logo' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_get_background_color' ) ) :
-	/**
-	 * Get the content background color.
-	 *
-	 * @since    2.0.0
-	 * @return   array                  
-	 */
-	function hypermarket_get_background_color() {
-		$bg_color = str_replace( '#', '', get_theme_mod( 'background_color' ) );
-
-		return sprintf( '#%s', sanitize_hex_color_no_hash( $bg_color ) );
-	}
-endif;
-
 if ( ! function_exists( 'hypermarket_get_post_meta' ) ) :
 	/**
 	 * Retrieves hypermarket post meta field for the given or queried post ID.
@@ -667,6 +653,9 @@ if ( ! function_exists( 'hypermarket_sanitize_method' ) ) :
 				// Sanitizes a hex color.
 				$return = 'sanitize_hex_color';
 				break;
+			case 'nohex':
+				$return = 'sanitize_hex_color_no_hash';
+				break;
 			case 'text':
 				// Sanitizes a string from user input.
 				$return = 'sanitize_text_field';
@@ -680,6 +669,18 @@ if ( ! function_exists( 'hypermarket_sanitize_method' ) ) :
 			case 'checkbox':
 				// Checkbox sanitization callback.
 				$return = 'hypermarket_sanitize_checkbox';
+				break;
+			case 'class':
+				$return = 'sanitize_html_class';
+				break;
+			case 'classes':
+				// CSS class names sanitization callback.
+				$return = 'hypermarket_sanitize_html_classes';
+				break;
+			case 'bool':
+			case 'boolean':
+				// A boolean-like value into the proper boolean value.
+				$return = 'rest_sanitize_boolean';
 				break;
 			default:
 				// Escaping for HTML blocks.
@@ -709,6 +710,31 @@ if ( ! function_exists( 'hypermarket_sanitize_array' ) ) :
 		}
 
 		return $input;
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_sanitize_html_classes' ) ) :
+	/**
+	 * Sanitize multiple HTML classes in one pass.
+	 *
+	 * @since    2.0.0
+	 * @param    array  $classes           Classes to be sanitized.
+	 * @param    string $return_format     The return format, 'input', 'string', or 'array'.
+	 * @return   array|string
+	 */
+	function hypermarket_sanitize_html_classes( $classes, $return_format = 'input' ) {
+		if ( 'input' === $return_format ) {
+			$return_format = is_array( $classes ) ? 'array' : 'string';
+		}
+
+		$classes           = is_array( $classes ) ? $classes : explode( ' ', $classes );
+		$sanitized_classes = array_map( 'sanitize_html_class', $classes );
+
+		if ( 'array' === $return_format ) {
+			return $sanitized_classes;
+		} else {
+			return implode( ' ', $sanitized_classes );
+		}
 	}
 endif;
 
