@@ -258,6 +258,12 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 								'controls'       => array(
 									array(
 										'type'           => 'checkbox',
+										'id'             => sprintf( '%s_general_stretched_width', self::$setting_prefix ),
+										'label'          => esc_html__( 'Stretched width', 'hypermarket' ),
+										'description'    => esc_html__( 'The container element will have a percentage width and can, therefore, adjust according to resolution.', 'hypermarket' ),
+									),
+									array(
+										'type'           => 'checkbox',
 										'id'             => sprintf( '%s_general_sidebar_before', self::$setting_prefix ),
 										'label'          => esc_html__( 'Sidebar before content', 'hypermarket' ),
 										'description'    => esc_html__( 'Enabling this option will place the sidebar to appear before the main content.', 'hypermarket' ),
