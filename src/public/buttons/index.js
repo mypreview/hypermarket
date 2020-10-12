@@ -10,7 +10,7 @@ export const buttons = {
 		buttons.els = {};
 		buttons.vars = {};
 		buttons.els.$document = $( document );
-		buttons.vars.classNames = [ '.button', '.wp-block-button__link' ];
+		buttons.vars.classNames = [ '.button', '.submit', '.wp-block-button__link' ];
 		buttons.vars.wavesEffects = [ 'waves-light' ];
 	},
 	// Execute callback after the DOM is loaded.
