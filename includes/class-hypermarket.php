@@ -239,11 +239,11 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 								array(
 									'title' => array(
 										'type' => 'boolean',
-										'sanitize_callback' => 'rest_sanitize_boolean',
+										'sanitize_callback' => hypermarket_sanitize_method( 'boolean' ),
 									),
 									'featured_media' => array(
 										'type' => 'boolean',
-										'sanitize_callback' => 'rest_sanitize_boolean',
+										'sanitize_callback' => hypermarket_sanitize_method( 'boolean' ),
 									),
 								) 
 							),

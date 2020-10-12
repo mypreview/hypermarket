@@ -155,7 +155,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		public function register_post_meta( $properties ) {
 			$properties['breadcrumbs'] = array(
 				'type'              => 'boolean',
-				'sanitize_callback' => 'rest_sanitize_boolean',
+				'sanitize_callback' => hypermarket_sanitize_method( 'boolean' ),
 			);
 			
 			return $properties;
