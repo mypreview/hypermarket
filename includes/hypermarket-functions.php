@@ -391,33 +391,33 @@ if ( ! function_exists( 'hypermarket_social_share_buttons' ) ) :
 			'hypermarket_social_share_buttons',
 			array(
 				array(
-					'label'   => esc_html_x( 'Facebook', 'share icon', 'hypermarket' ),
 					'network' => 'facebook',
+					'label'   => esc_html_x( 'Facebook', 'share icon', 'hypermarket' ),
 					'url'     => sprintf( 'https://www.facebook.com/sharer/sharer.php?u=%1$s&amp;t=%2$s', $permalink, rawurlencode( $title ) ),
 				),
 				array(
-					'label'   => esc_html_x( 'LinkedIn', 'share icon', 'hypermarket' ),
 					'network' => 'linkedin',
+					'label'   => esc_html_x( 'LinkedIn', 'share icon', 'hypermarket' ),
 					'url'     => sprintf( 'https://www.linkedin.com/shareArticle?mini=true&amp;url=%1$s&title=%2$s', $permalink, rawurlencode( $title ) ),
 				),
 				array(
-					'label'   => esc_html_x( 'Twitter', 'share icon', 'hypermarket' ),
 					'network' => 'twitter',
+					'label'   => esc_html_x( 'Twitter', 'share icon', 'hypermarket' ),
 					'url'     => sprintf( 'https://www.twitter.com/share?text=%1$s&amp;url=%2$s', rawurlencode( $title ), $permalink ),
 				),
 				array(
-					'label'   => esc_html_x( 'Telegram', 'share icon', 'hypermarket' ),
 					'network' => 'telegram',
+					'label'   => esc_html_x( 'Telegram', 'share icon', 'hypermarket' ),
 					'url'     => sprintf( 'https://www.telegram.me/share/url?text=%1$s&amp;url=%2$s', rawurlencode( $title ), $permalink ),
 				),
 				'whatsapp' => array(
-					'label'   => esc_html_x( 'WhatsApp', 'share icon', 'hypermarket' ),
 					'network' => 'whatsapp',
+					'label'   => esc_html_x( 'WhatsApp', 'share icon', 'hypermarket' ),
 					'url'     => sprintf( 'https://%1$s.whatsapp.com/send?text=%2$s&nbsp;%3$s', wp_is_mobile() ? 'api' : 'web', rawurlencode( $title ), $permalink ),
 				),
 				array(
-					'label'   => esc_html_x( 'Email', 'share icon', 'hypermarket' ),
 					'network' => 'email',
+					'label'   => esc_html_x( 'Email', 'share icon', 'hypermarket' ),
 					'url'     => sprintf( 'mailto:?subject=%1$s&amp;body=%2$s', rawurlencode( $title ), $permalink ),
 				),
 			),
@@ -427,8 +427,8 @@ if ( ! function_exists( 'hypermarket_social_share_buttons' ) ) :
 
 		// Make sure we have at least one social share button to display.
 		if ( ! empty( $share_buttons ) && is_array( $share_buttons ) ) {
-			foreach ( $share_buttons as $network ) {
-				$return .= sprintf( '<li class="%1$s__%2$s"><a href="%3$s" target="_blank" rel="noopener noreferrer" class="bxl-%2$s" data-tippy-content="%4$s"><span class="screen-reader-text">%2$s</span></a></li>', $classname, esc_attr( $network['network'] ), esc_url( $network['url'] ), esc_html( $network['label'] ) ); 
+			foreach ( $share_buttons as $share_button ) {
+				$return .= sprintf( '<li class="%1$s__%2$s"><a href="%3$s" target="_blank" rel="noopener noreferrer" class="bxl-%2$s" data-tippy-content="%4$s"><span class="screen-reader-text">%2$s</span></a></li>', $classname, esc_attr( $share_button['network'] ), esc_url( $share_button['url'] ), esc_html( $share_button['label'] ) ); 
 			}
 		}
 
