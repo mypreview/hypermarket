@@ -8,6 +8,7 @@
  */
 const path = require( 'path' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
+const OptimizeCSSAssetsPlugin = require( 'optimize-css-assets-webpack-plugin' );
 const { CleanWebpackPlugin } = require( 'clean-webpack-plugin' );
 const { BundleAnalyzerPlugin } = require( 'webpack-bundle-analyzer' );
 const ProgressBarPlugin = require( 'progress-bar-webpack-plugin' );
@@ -116,6 +117,11 @@ const config = {
 		minimizer: [
 			new TerserPlugin( {
 				extractComments: false,
+			} ),
+			new OptimizeCSSAssetsPlugin( {
+				cssProcessorPluginOptions: {
+					preset: [ 'default', { discardComments: { removeAll: true } } ],
+				},
 			} ),
 		],
 	},
