@@ -622,7 +622,7 @@ if ( ! function_exists( 'hypermarket_products_flkty_div' ) ) :
 			return;
 		}
 
-		hypermarket_flickity();
+		hypermarket_flkty();
 	}
 endif;
 
