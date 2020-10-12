@@ -14,6 +14,7 @@ import './../vendor';
 import { buttons } from './buttons';
 import { navbar } from './navbar';
 import { jScroll } from './pagination/jscroll';
+import { sidebar } from './sidebar';
 import { skipLinkFocus } from './skip-link-focus';
 import { tooltip } from './tooltip';
 
@@ -24,7 +25,7 @@ import forEach from 'lodash/forEach';
 import domReady from '@wordpress/dom-ready';
 
 domReady( () => {
-	forEach( [ buttons, navbar, jScroll, skipLinkFocus, tooltip ], ( component ) => {
+	forEach( [ buttons, navbar, jScroll, sidebar, skipLinkFocus, tooltip ], ( component ) => {
 		component.ready();
 	} );
 } );
