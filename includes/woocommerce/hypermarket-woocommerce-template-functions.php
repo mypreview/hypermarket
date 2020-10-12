@@ -56,6 +56,8 @@ if ( ! function_exists( 'hypermarket_before_content' ) ) :
 		?><div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
 			<?php
+
+			do_action( 'hypermarket_shop_archive_top' );
 	}
 endif;
 
@@ -68,17 +70,19 @@ if ( ! function_exists( 'hypermarket_after_content' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_after_content() {
-		?>
-			</main><!-- #main -->
-		</div><!-- #primary -->
-		<?php
-
 		/**
 		 * Functions hooked into `hypermarket_sidebar` action
 		 *
 		 * @hooked  hypermarket_get_sidebar         - 10
 		 */
 		do_action( 'hypermarket_sidebar' );
+
+		do_action( 'hypermarket_shop_archive_bottom' );
+		
+		?>
+			</main><!-- #main -->
+		</div><!-- #primary -->
+		<?php
 	}
 endif;
 
@@ -644,6 +648,6 @@ if ( ! function_exists( 'hypermarket_products_flkty_div_close' ) ) :
 			return;
 		}
 
-		hypermarket_flkty_close();
+		hypermarket_div_close();
 	}
 endif;
