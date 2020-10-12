@@ -56,7 +56,6 @@ if ( ! function_exists( 'hypermarket_before_content' ) ) :
 		?><div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
 			<?php
-
 			do_action( 'hypermarket_shop_archive_top' );
 	}
 endif;
@@ -70,15 +69,7 @@ if ( ! function_exists( 'hypermarket_after_content' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_after_content() {
-		/**
-		 * Functions hooked into `hypermarket_sidebar` action
-		 *
-		 * @hooked  hypermarket_get_sidebar         - 10
-		 */
-		do_action( 'hypermarket_sidebar' );
-
 		do_action( 'hypermarket_shop_archive_bottom' );
-		
 		?>
 			</main><!-- #main -->
 		</div><!-- #primary -->
