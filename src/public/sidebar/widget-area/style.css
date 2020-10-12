@@ -21,4 +21,17 @@
 			border-bottom-width: 0;
 		}
 	}
+
+	@media (--screen-md) {
+		position: fixed 0 null null -300px;
+	}
+
+	&__close {
+		display: none ?if media (--screen-md-min);
+
+		&:before {
+			font-size: 24px;
+			color: var(--general-text);
+		}
+	}
 }
