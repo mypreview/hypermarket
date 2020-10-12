@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-10-11T19:49:00+00:00\n"
+"POT-Creation-Date: 2020-10-12T15:10:31+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: hypermarket\n"
@@ -235,159 +235,167 @@ msgid "This section gives you creative control of style and layout options for y
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:262
-msgid "Sidebar before content"
+msgid "Stretched width"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:263
-msgid "Enabling this option will place the sidebar to appear before the main content."
+msgid "The container element will have a percentage width and can, therefore, adjust according to resolution."
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:268
-msgid "AJAX pagination"
+msgid "Sidebar before content"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:269
-msgid "Render the next page once clicked on the \"Load More\" button, saving users from a full page load or refresh."
+msgid "Enabling this option will place the sidebar to appear before the main content."
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:274
+msgid "AJAX pagination"
 msgstr ""
 
 #: includes/customize/class-hypermarket-customize.php:275
+msgid "Render the next page once clicked on the \"Load More\" button, saving users from a full page load or refresh."
+msgstr ""
+
+#: includes/customize/class-hypermarket-customize.php:281
 msgid "Products carousel"
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:276
+#: includes/customize/class-hypermarket-customize.php:282
 msgid "This option replaces the default grid layout in \"Related\", \"Upsell\", and \"Cross-sell\" sections with a carousel slider."
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:282
+#: includes/customize/class-hypermarket-customize.php:288
 msgid "Product Catalog"
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:288
+#: includes/customize/class-hypermarket-customize.php:294
 msgid "Display \"Featured\" flash"
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:289
+#: includes/customize/class-hypermarket-customize.php:295
 msgid "The flash (badge) will be shown on products that are featured."
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:294
+#: includes/customize/class-hypermarket-customize.php:300
 msgid "Display \"New\" flash"
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:295
+#: includes/customize/class-hypermarket-customize.php:301
 msgid "The flash (badge) will be shown on products that were published in the last 30 days."
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:300
+#: includes/customize/class-hypermarket-customize.php:306
 msgid "Display stock status"
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:301
+#: includes/customize/class-hypermarket-customize.php:307
 msgid "Append the product stock status to the loop items."
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:306
+#: includes/customize/class-hypermarket-customize.php:312
 msgid "Display categories"
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:307
+#: includes/customize/class-hypermarket-customize.php:313
 msgid "Append the product categories to the loop items."
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:312
+#: includes/customize/class-hypermarket-customize.php:318
 msgid "Product image flipper"
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:313
+#: includes/customize/class-hypermarket-customize.php:319
 msgid "Add a secondary product thumbnail that is revealed when you hover over the main product image."
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:319
+#: includes/customize/class-hypermarket-customize.php:325
 msgid "Product Details"
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:325
+#: includes/customize/class-hypermarket-customize.php:331
 msgid "Thumbnail zoom"
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:326
+#: includes/customize/class-hypermarket-customize.php:332
 msgid "Disable zooming effect that triggers by hovering over the product feature image."
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:331
+#: includes/customize/class-hypermarket-customize.php:337
 msgid "Product pagination"
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:332
+#: includes/customize/class-hypermarket-customize.php:338
 msgid "Previous and next product navigation buttons from same collection on product page."
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:337
+#: includes/customize/class-hypermarket-customize.php:343
 msgid "Sticky add to cart"
 msgstr ""
 
-#: includes/customize/class-hypermarket-customize.php:338
+#: includes/customize/class-hypermarket-customize.php:344
 msgid "A content bar at the top of the browser window which includes the product name, price, rating, stock status and the add to cart button."
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma.
-#: includes/hypermarket-functions.php:268
+#: includes/hypermarket-functions.php:254
 msgid ", "
 msgstr ""
 
 #. translators: 1: Open div tag, 2: Close div tag.
-#: includes/hypermarket-functions.php:274
+#: includes/hypermarket-functions.php:260
 msgid "%1$sin %2$s"
 msgstr ""
 
 #. translators: 1: Open span tag, 2: Close span tag.
-#: includes/hypermarket-functions.php:310
+#: includes/hypermarket-functions.php:296
 msgid "%1$sTag:%2$s"
 msgid_plural "%1$sTags:%2$s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/hypermarket-functions.php:340
+#: includes/hypermarket-functions.php:326
 msgctxt "Previous post"
 msgid "Prev"
 msgstr ""
 
-#: includes/hypermarket-functions.php:341
+#: includes/hypermarket-functions.php:327
 msgctxt "Next post"
 msgid "Next"
 msgstr ""
 
 #. translators: %s: Post type.
-#: includes/hypermarket-functions.php:402
+#: includes/hypermarket-functions.php:388
 msgid "Share %s:"
 msgstr ""
 
-#: includes/hypermarket-functions.php:408
+#: includes/hypermarket-functions.php:394
 msgctxt "share icon"
 msgid "Facebook"
 msgstr ""
 
-#: includes/hypermarket-functions.php:413
+#: includes/hypermarket-functions.php:399
 msgctxt "share icon"
 msgid "LinkedIn"
 msgstr ""
 
-#: includes/hypermarket-functions.php:418
+#: includes/hypermarket-functions.php:404
 msgctxt "share icon"
 msgid "Twitter"
 msgstr ""
 
-#: includes/hypermarket-functions.php:423
+#: includes/hypermarket-functions.php:409
 msgctxt "share icon"
 msgid "Telegram"
 msgstr ""
 
-#: includes/hypermarket-functions.php:428
+#: includes/hypermarket-functions.php:414
 msgctxt "share icon"
 msgid "WhatsApp"
 msgstr ""
 
-#: includes/hypermarket-functions.php:433
+#: includes/hypermarket-functions.php:419
 msgctxt "share icon"
 msgid "Email"
 msgstr ""
@@ -943,67 +951,67 @@ msgstr ""
 msgid "%1$sNew In Store%2$s"
 msgstr ""
 
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:114
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:115
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:109
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:110
 msgid "Update cart"
 msgstr ""
 
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:131
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:126
 msgctxt "proceed to checkout button"
 msgid "Checkout"
 msgstr ""
 
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:147
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:142
 msgid "Back to cart"
 msgstr ""
 
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:230
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:225
 msgid "Remove from the quantity"
 msgstr ""
 
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:244
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:239
 msgid "Add to the quantity"
 msgstr ""
 
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:262
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:257
 msgid "Post Navigation"
 msgstr ""
 
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:264
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:259
 msgid "Posts Navigation"
 msgstr ""
 
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:306
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:301
 msgid "More products"
 msgstr ""
 
 #. translators: %s: Medium dash.
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:315
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:310
 msgid "%s Prev"
 msgstr ""
 
 #. translators: %s: Medium dash.
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:329
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:324
 msgid "Next %s"
 msgstr ""
 
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:392
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:387
 msgid "You&#8217;re viewing:"
 msgstr ""
 
 #. translators: %s: Date.
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:445
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:440
 msgid "Joined %s ago"
 msgstr ""
 
 #. translators: 1: Open span tag, 2: Close span tag.
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:480
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:475
 msgctxt "featured flash"
 msgid "%1$sFeatured%2$s"
 msgstr ""
 
 #. translators: 1: Open span tag, 2: Close span tag.
-#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:516
+#: includes/woocommerce/hypermarket-woocommerce-template-functions.php:511
 msgctxt "new flash"
 msgid "%1$sNew%2$s"
 msgstr ""
@@ -1015,6 +1023,14 @@ msgstr ""
 #. translators: %s: search term
 #: search.php:26
 msgid "Search Results for: %s"
+msgstr ""
+
+#: sidebar.php:21
+msgid "Toggle sidebar"
+msgstr ""
+
+#: sidebar.php:27
+msgid "Close sidebar"
 msgstr ""
 
 #: template-parts/content-none.php:16
