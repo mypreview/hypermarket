@@ -1,9 +1,9 @@
-/* global hypermarket */
-
 /**
  * External dependencies
  */
 import $ from 'jquery';
+import { add, subtract, lte } from 'lodash';
+import { l10n } from './../../public/l10n';
 import slicknav from 'slicknav/dist/jquery.slicknav.min.js'; /* eslint-disable-line no-unused-vars */
 
 export const navbar = {
@@ -31,8 +31,10 @@ export const navbar = {
 					offset = $submenu.offset(),
 					width = $submenu.width(),
 					left = offset.left,
-					right = windowWidth - ( left + width ),
-					isVisible = hypermarket.isRTL ? right + width <= windowWidth : left + width <= windowWidth;
+					right = subtract( windowWidth, add( left, width ) ),
+					isVisible = l10n( 'isRTL' )
+						? lte( add( right, width ), windowWidth )
+						: lte( add( left, width ), windowWidth );
 				if ( ! isVisible ) {
 					$( this ).addClass( className );
 				} else {

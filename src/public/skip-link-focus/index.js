@@ -11,7 +11,9 @@ export const skipLinkFocus = {
 	// Execute callback after the DOM is loaded.
 	ready() {
 		skipLinkFocus.cache();
-
+		skipLinkFocus.init();
+	},
+	init() {
 		if ( skipLinkFocus.vars.isIE && document.getElementById && window.addEventListener ) {
 			window.addEventListener(
 				'hashchange',

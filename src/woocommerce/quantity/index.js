@@ -3,13 +3,14 @@
  */
 import $ from 'jquery';
 import numeric from 'jquery.numeric'; /* eslint-disable-line no-unused-vars */
-import { gte, gt, lte, isEmpty, isNull, isEqual, isNaN, isUndefined } from 'lodash';
+import { gte, gt, lte, add, subtract, isEmpty, isNull, isEqual, isNaN, isUndefined } from 'lodash';
 
 export const quantity = {
 	cache() {
 		quantity.els = {};
 		quantity.vars = {};
 		quantity.vars.buttons = '.quantity button';
+		quantity.vars.input = 'input.qty';
 		quantity.els.$body = $( 'body' );
 		quantity.els.$elm = $( '.quantity' );
 	},
@@ -23,7 +24,7 @@ export const quantity = {
 	onClick() {
 		quantity.els.$body.on( 'click', quantity.vars.buttons, ( event ) => {
 			const $this = $( event.target ),
-				$input = $this.closest( 'div' ).find( 'input.qty' );
+				$input = $this.closest( 'div' ).find( quantity.vars.input );
 
 			let value = parseFloat( $input.val() ),
 				min = parseFloat( $input.attr( 'min' ) ),
@@ -41,14 +42,14 @@ export const quantity = {
 				if ( max && gte( value, max ) ) {
 					$input.val( max );
 				} else {
-					$input.val( ( value + parseFloat( step ) ).toFixed( quantity._getDecimals( step ) ) );
+					$input.val( add( value, parseFloat( step ) ).toFixed( quantity._getDecimals( step ) ) );
 				}
 				// Subtract from the existing value.
 			} else if ( $this.hasClass( 'qty-minus' ) ) {
 				if ( min && lte( value, min ) ) {
 					$input.val( min );
 				} else if ( gt( value, 0 ) ) {
-					$input.val( ( value - parseFloat( step ) ).toFixed( quantity._getDecimals( step ) ) );
+					$input.val( subtract( value, parseFloat( step ) ).toFixed( quantity._getDecimals( step ) ) );
 				}
 			}
 
@@ -57,7 +58,7 @@ export const quantity = {
 	},
 	// Allows only valid numbers to be typed into the quantity field.
 	forceNumeric() {
-		quantity.els.$elm.find( 'input.qty' ).each( ( index, elm ) => {
+		quantity.els.$elm.find( quantity.vars.input ).each( ( index, elm ) => {
 			$( elm ).numeric( { negative: false } );
 		} );
 	},

@@ -2,6 +2,7 @@
  * External dependencies
  */
 import $ from 'jquery';
+import eq from 'lodash/eq';
 import jump from 'jump.js';
 import 'waypoints/lib/jquery.waypoints.js';
 
@@ -20,16 +21,16 @@ export const stickyAddToCart = {
 	},
 	// Reveal the add-to-cart bar as user scrolls down the page.
 	onScroll() {
-		if ( ! stickyAddToCart._isEnabled() ) return;
+		if ( ! stickyAddToCart._isActivated() ) return;
 
 		/* eslint-disable-next-line no-undef */
 		new Waypoint( {
 			element: $( 'form.cart' ),
 			handler: ( direction ) => {
-				if ( 'up' === direction ) {
+				if ( eq( direction, 'up' ) ) {
 					stickyAddToCart.els.$element.removeClass( stickyAddToCart.vars.showClassName );
 				}
-				if ( 'down' === direction ) {
+				if ( eq( direction, 'down' ) ) {
 					stickyAddToCart.els.$element.addClass( stickyAddToCart.vars.showClassName );
 				}
 			},
@@ -37,7 +38,7 @@ export const stickyAddToCart = {
 	},
 	// Scroll to the product `div` on variable add-to-cart button clicked.
 	onClick() {
-		if ( ! stickyAddToCart._isEnabled() ) return;
+		if ( ! stickyAddToCart._isActivated() ) return;
 
 		stickyAddToCart.els.$element.find( '.button:not(.ajax_add_to_cart)' ).on( 'click', ( event ) => {
 			// Default action of the event should not be triggered.
@@ -48,7 +49,7 @@ export const stickyAddToCart = {
 		} );
 	},
 	// Determine whether the sticky add-to-cart bar is enabled.
-	_isEnabled() {
+	_isActivated() {
 		if ( !! stickyAddToCart.els.$element.length ) return true;
 
 		return false;

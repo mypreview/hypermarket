@@ -20,8 +20,7 @@ export const jScroll = {
 	},
 	// Initialize jScroll.
 	init() {
-		// Bail early, in case the menu is not present on the page.
-		if ( !!! jScroll.vars.$selector.length ) return;
+		if ( ! jScroll._isActivated() ) return;
 
 		jScroll.vars.$selector.jscroll( {
 			autoTrigger: false,
@@ -29,5 +28,11 @@ export const jScroll = {
 			nextSelector: jScroll.vars.next,
 			contentSelector: jScroll.vars.inner,
 		} );
+	},
+	// Determine whether the Ajax pagination is enabled.
+	_isActivated() {
+		if ( !! jScroll.vars.$selector.length ) return true;
+
+		return false;
 	},
 };
