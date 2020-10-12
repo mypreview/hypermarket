@@ -812,12 +812,12 @@ if ( ! function_exists( 'hypermarket_container' ) ) :
 	 */
 	function hypermarket_container() {
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_stretched = get_theme_mod( sprintf( '%s_general_stretched_width', Hypermarket_Customize::$setting_prefix ), false );
-		$classname    = 'col-full';
-		$classnames   = array( $classname );
+		$is_fluid   = get_theme_mod( sprintf( '%s_general_is_fluid', Hypermarket_Customize::$setting_prefix ), false );
+		$classname  = 'col-full';
+		$classnames = array( $classname );
 		
-		if ( $is_stretched ) {
-			$classnames[] = sprintf( '%s--stretched', $classname );
+		if ( $is_fluid ) {
+			$classnames[] = sprintf( '%s--fluid', $classname );
 		}
 
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
