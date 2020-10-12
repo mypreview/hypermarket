@@ -29,7 +29,7 @@
 	&__close {
 		display: none ?if media (--screen-md-min);
 
-		&:before {
+		&::before {
 			font-size: 24px;
 			color: var(--general-text);
 		}

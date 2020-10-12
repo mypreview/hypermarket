@@ -7,15 +7,15 @@
 		size: 48px;
 		line-height: 48px;
 		font-size: 24px;
-	    text-align: center;
+		text-align: center;
 		@mixin link;
 		background-color: var(--general-background);
-	    box-shadow: 0 3px 10px 0 rgba(0,0,0,0.15);
-	    @mixin shift left;
+		box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.15);
+		@mixin shift left;
 
-	    .has-sidebar--open & {
-	    	left: -48px;
-	    	box-shadow: none;
-	    }
+		.has-sidebar--open & {
+			left: -48px;
+			box-shadow: none;
+		}
 	}
 }
