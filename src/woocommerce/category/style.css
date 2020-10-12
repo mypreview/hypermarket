@@ -18,6 +18,10 @@
 			transform: scale(1.05);
 		}
 	}
+
+	+ .type-product {
+	    grid-column: 1;
+	}
 }
 
 .woocommerce-loop-category {
