@@ -723,7 +723,7 @@ if ( ! function_exists( 'hypermarket_div_close' ) ) :
 	 * @phpcs:disable Squiz.PHP.EmbeddedPhp.ContentAfterEnd, Squiz.PHP.EmbeddedPhp.ContentBeforeOpen
 	 */
 	function hypermarket_div_close() {
-		?></div><!-- .div --><?php
+		?></div><?php
 	}
 endif;
 
@@ -790,16 +790,16 @@ if ( ! function_exists( 'hypermarket_flkty' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_flkty_close' ) ) :
+if ( ! function_exists( 'hypermarket_wrapper' ) ) :
 	/**
-	 * Close Flickity carousel wrapper.
+	 * Open div with `entry-wrapper` CSS class name.
 	 *
 	 * @since   2.0.0
 	 * @return  void
 	 * @phpcs:disable Squiz.PHP.EmbeddedPhp.ContentAfterEnd, Squiz.PHP.EmbeddedPhp.ContentBeforeOpen
 	 */
-	function hypermarket_flkty_close() {
-		?></div><!-- .flkty-div --><?php
+	function hypermarket_wrapper() {
+		?><div class="entry-wrapper"><?php
 	}
 endif;
 
