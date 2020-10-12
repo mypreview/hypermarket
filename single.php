@@ -23,11 +23,6 @@ get_header();
 
 			get_template_part( 'template-parts/content', 'single' );
 
-			/**
-			 * Functions hooked into `hypermarket_single_post_after` add_action
-			 *
-			 * @hooked hypermarket_related_posts        - 10
-			 */
 			do_action( 'hypermarket_single_post_after' );
 		endwhile; // End of the loop.
 		
