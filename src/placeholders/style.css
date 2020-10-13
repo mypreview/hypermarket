@@ -32,21 +32,6 @@
 	margin-left: -50vw;
 }
 
-%colfull {
-	max-width: 1170px;
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 0 15px;
-}
-
-%colmd {
-	max-width: 660px;
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 %meta-divider {
 	&::after {
 		content: "";
