@@ -48,6 +48,7 @@ button,
 		color: var(--general-background);
 	}
 
+	&.disabled,
 	&[disabled] {
 		@mixin button-color var(--general-text), var(--general-border), var(--general-border), var(--general-text), var(--general-tile);
 	}
