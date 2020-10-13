@@ -1,6 +1,6 @@
 .product {
 	.entry-summary {
-		padding: 48px 15px 0;
+		padding-top: 48px;
 		text-align: center;
 		margin-bottom: 15px;
 		font-size: var(--general-small);
@@ -35,6 +35,12 @@
 		> .div {
 			box: horizontal wrap center;
 			margin-bottom: 18px;
+		}
+
+		ol,
+		ul {
+			list-style-position: inside;
+    		padding-left: 0;
 		}
 	}
 }
