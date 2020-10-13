@@ -1,5 +1,5 @@
 .woocommerce-breadcrumb {
-	@extend %colfull;
+	@mixin colfull;
 	font-size: var(--general-small);
 	color: var(--general-text-alt);
 

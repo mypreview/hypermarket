@@ -18,7 +18,7 @@
 		margin-bottom: 48px;
 
 		> * {
-			@extend %colmd;
+			@mixin colfull 660px;
 		}
 
 		> .div {

@@ -27,7 +27,13 @@ body {
 }
 
 .col-full {
-	@extend %colfull;
+	&:not(&--fluid) {
+		@mixin colfull;
+	}
+
+	&--fluid {
+		@mixin colfull 1920px, 30px;
+	}
 }
 
 /**

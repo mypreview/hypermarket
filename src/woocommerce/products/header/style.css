@@ -1,5 +1,5 @@
 .woocommerce-products-header {
-	@extend %alignfull;
+	@mixin colfull;
 	background-color: var(--general-tile);
 	text-align: center;
 	margin-bottom: 60px;
@@ -7,7 +7,7 @@
 	padding-bottom: 60px;
 
 	> * {
-		@extend %colfull;
+		@mixin colfull;
 	}
 
 	&__title {
