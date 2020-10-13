@@ -1,4 +1,5 @@
-.blog-archive {
+.blog,
+.archive {
 	&.has-sidebar {
 		.site-main {
 			display: grid;
