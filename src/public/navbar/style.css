@@ -117,6 +117,7 @@ nav {
 		text-align: left;
 		background-color: var(--general-background);
 		border: 1px solid var(--general-border);
+		z-index: 1;
 
 		.sub-menu {
 			top: 0;
