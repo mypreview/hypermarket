@@ -1,0 +1,12 @@
+@import "./archive/style.css";
+
+.has-sidebar {
+	.site-main {
+		> * {
+			> .woocommerce {
+				grid-row: 1;
+				grid-column: 1/-1;
+			}
+		}
+	}
+}
