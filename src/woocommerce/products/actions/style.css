@@ -7,6 +7,7 @@ li.product {
 		visibility: hidden;
 		opacity: 0;
 		pointer-events: none;
+	    z-index: 1;
 		@mixin shift opacity, 0.35s;
 	}
 
