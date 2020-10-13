@@ -23,5 +23,6 @@
 @import "./my-account/style.css";
 @import "./track-order/style.css";
 @import "./pagination/style.css";
+@import "./sidebar/style.css";
 @import "./widgets/style.css";
 @import "./handheld/style.css";
