@@ -1,0 +1,15 @@
+.customize-control-range {
+	box: wrap space-between;
+
+	&__reset {
+		span {
+		    text-decoration: none;
+    		font-size: 14px;
+    		line-height: 20px;
+		}
+	}
+
+	&__field {
+		cursor: pointer;
+	}
+}
