@@ -1,0 +1,12 @@
+.flickity-slider {
+	> .product {
+		width: calc(25% - 22.5px) ?if media (--screen-md-min);
+		width: calc(50% - 15px) ?if media (--screen-md) and (--screen-xs-min);
+		width: 100% ?if media (--screen-xs);
+		margin-right: 30px ?if media (--screen-xs-min);
+
+		.has-sidebar & {
+			width: calc(33.333% - 20px) ?if media (--screen-md-min);
+		}
+	}
+}
