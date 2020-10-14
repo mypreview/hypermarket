@@ -132,6 +132,17 @@ add_action( 'hypermarket_archive_top', 'hypermarket_archive_header' );
 add_action( 'hypermarket_archive_top', 'hypermarket_div_close', 25 );
 
 /**
+ * Search
+ *
+ * @see  hypermarket_div()
+ * @see  hypermarket_div_close()
+ * @see  hypermarket_search_header()
+ */
+add_action( 'hypermarket_search_top', 'hypermarket_div', 5 );
+add_action( 'hypermarket_search_top', 'hypermarket_search_header' );
+add_action( 'hypermarket_search_top', 'hypermarket_div_close', 25 );
+
+/**
  * Widgets
  *
  * @see hypermarket_tag_cloud_args()
