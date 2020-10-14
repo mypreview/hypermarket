@@ -567,11 +567,6 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 * @return  html
 		 */
 		public function navigation_markup_template( $template ) {
-			// Bail early, in case the AJAX pagination module is activated.
-			if ( ! ! hypermarket_jscroll_activated() ) {
-				return $template;
-			}
-
 			/* translators: 1: Open nav tag, 2: Close nav tag. */
 			$template  = sprintf( esc_html__( '%1$sPost Navigation%2$s', 'hypermarket' ), '<nav id="post-navigation" class="navigation %1$s" role="navigation" aria-label="', '">' );
 			$template .= '<h2 class="screen-reader-text">%2$s</h2>';
