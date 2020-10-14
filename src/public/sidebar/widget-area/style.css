@@ -58,6 +58,7 @@
 
 	&__close {
 		display: none ?if media (--screen-md-min);
+		position: absolute 8px 15px null null;
 
 		&::before {
 			font-size: 24px;
