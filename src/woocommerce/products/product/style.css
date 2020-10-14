@@ -5,6 +5,10 @@ li.product {
 	align-content: baseline;
 	line-height: var(--headings-line-height);
 
+	> * {
+		min-width: 0;
+	}
+
 	a {
 		text-decoration: none;
 	}

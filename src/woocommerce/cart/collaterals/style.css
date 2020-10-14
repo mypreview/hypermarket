@@ -34,6 +34,10 @@
 		tbody {
 			display: grid;
 			grid-gap: 17px;
+
+			> * {
+				min-width: 0;
+			}
 		}
 
 		th {

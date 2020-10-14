@@ -4,6 +4,10 @@ ul.products {
 	column-gap: 30px;
 	row-gap: 36px;
 
+	> * {
+		min-width: 0;
+	}
+
 	&.columns-2 {
 		grid-template-columns: repeat(2, 1fr) ?if media (--screen-xs-min);
 	}

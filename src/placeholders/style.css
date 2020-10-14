@@ -15,6 +15,10 @@
 	grid-template-columns: 1fr ?if media (--screen-md);
 	grid-column-gap: 30px;
 	grid-row-gap: 17px;
+
+	> * {
+		min-width: 0;
+	}
 }
 
 %none-list-style {

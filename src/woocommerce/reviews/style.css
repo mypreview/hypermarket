@@ -13,12 +13,20 @@
 			grid-template-columns: 80px 1fr;
 			grid-gap: 18px;
 			position: relative;
+
+			> * {
+				min-width: 0;
+			}
 		}
 
 		&-text {
 			display: grid;
 			grid-template-columns: 1fr 103px ?if media (--screen-xs-min);
 			grid-gap: 10px;
+
+			> * {
+				min-width: 0;
+			}
 
 			.meta {
 				grid-area: 1/1 ?if media (--screen-xs-min);

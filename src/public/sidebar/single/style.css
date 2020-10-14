@@ -5,6 +5,10 @@
 				display: grid;
 				grid-template-columns: 75% 25% ?if media (--screen-md-min);
 
+				> * {
+					min-width: 0;
+				}
+
 				> .div {
 					grid-row: 1;
 					grid-column: 1/-1;
