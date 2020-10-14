@@ -302,6 +302,29 @@ if ( ! function_exists( 'hypermarket_page_header' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_search_header' ) ) :
+	/**
+	 * Display header for the search query variable.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_search_header() {
+		?>
+		<header class="entry-header">
+			<?php 
+			do_action( 'hypermarket_search_header_before' );
+
+			/* translators: 1: Open h1 tag, 2: Close h1 tag. */
+			printf( esc_attr__( '%1$sResults for: %2$s', 'hypermarket' ), '<h1 class="entry-title" itemprop="headline">', sprintf( '<span>%s</span></h1>', get_search_query() ) );
+
+			do_action( 'hypermarket_search_header_after' );
+			?>
+		</header>
+		<?php
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_page_content' ) ) :
 	/**
 	 * Display the post content.
@@ -367,7 +390,7 @@ if ( ! function_exists( 'hypermarket_post_meta' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_post_meta() {
-		if ( 'post' !== get_post_type() ) {
+		if ( 'post' !== get_post_type() || is_search() ) {
 			return;
 		}
 
@@ -504,9 +527,9 @@ if ( ! function_exists( 'hypermarket_post_footnote' ) ) :
 		$title         = get_the_title( $post_id );
 		$tags          = hypermarket_post_tags();
 
-		if ( hypermarket_is_blog_archive() ) {
+		if ( hypermarket_is_blog_archive() || is_search() ) {
 			/* translators: 1: Open anchor tag, 2: Close anchor tag. */
-			$readmore   = hypermarket_is_blog_archive() ? sprintf( esc_html__( '%1$sRead more%2$s', 'hypermarket' ), sprintf( '<a href="%s" class="more-link">', esc_url( get_the_permalink( $post_id ) ) ), sprintf( '<span class="screen-reader-text">%s</span></a>', wp_kses_post( $title ) ) ) : '';
+			$readmore   = sprintf( esc_html__( '%1$sRead more%2$s', 'hypermarket' ), sprintf( '<a href="%s" class="more-link">', esc_url( get_the_permalink( $post_id ) ) ), sprintf( '<span class="screen-reader-text">%s</span></a>', wp_kses_post( $title ) ) );
 			$categories = hypermarket_post_categories(); // Output categories only if the current query is for the archive pages.
 		} else {
 			$permalink     = get_the_permalink( $post_id );
@@ -777,7 +800,7 @@ if ( ! function_exists( 'hypermarket_flkty' ) ) :
 			'hypermarket_flickity_data_args',
 			array(
 				'cellSelector'    => 'li',
-				'cellAlign' 	  => 'left',
+				'cellAlign'       => 'left',
 				'pageDots'        => true,
 				'autoPlay'        => false,
 				'wrapAround'      => true,
