@@ -270,6 +270,12 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 									),
 									array(
 										'type'           => 'checkbox',
+										'id'             => sprintf( '%s_general_sidebar_sticky', self::$setting_prefix ),
+										'label'          => esc_html__( 'Sticky sidebar', 'hypermarket' ),
+										'description'    => esc_html__( 'Stick the sidebar area to the top of the browser window as visitor scrolls down the page.', 'hypermarket' ),
+									),
+									array(
+										'type'           => 'checkbox',
 										'id'             => sprintf( '%s_general_ajax_pagination', self::$setting_prefix ),
 										'label'          => esc_html__( 'AJAX pagination', 'hypermarket' ),
 										'description'    => esc_html__( 'Render the next page once clicked on the "Load More" button, saving users from a full page load or refresh.', 'hypermarket' ),
