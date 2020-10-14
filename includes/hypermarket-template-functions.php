@@ -777,6 +777,7 @@ if ( ! function_exists( 'hypermarket_flkty' ) ) :
 			'hypermarket_flickity_data_args',
 			array(
 				'cellSelector'    => 'li',
+				'cellAlign' 	  => 'left',
 				'pageDots'        => true,
 				'autoPlay'        => false,
 				'wrapAround'      => true,
