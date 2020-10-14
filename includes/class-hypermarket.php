@@ -41,6 +41,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			add_action( 'hypermarket_enqueue_public', array( $this, 'child_scripts' ), 35 );
 			add_action( 'wp_resource_hints', array( $this, 'preconnect_gstatic' ), 10, 2 );
 			add_filter( 'body_class', array( $this, 'body_classes' ) );
+			add_filter( 'hypermarket_sidebar_class', array( $this, 'sidebar_classes' ) );
 			add_filter( 'navigation_markup_template', array( $this, 'navigation_markup_template' ) );
 			add_filter( 'excerpt_more', array( $this, 'custom_excerpt_more' ) );
 			add_filter( 'wp_list_categories', array( $this, 'cat_count_span' ) );
@@ -508,12 +509,17 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 
 			// Add class if we're viewing the Customizer for easier styling of theme options.
 			if ( is_customize_preview() ) {
-				$classes[] = 'customizer-running';
+				$classes[] = 'customize-running';
 			}
 
 			// Add class if the current page is a blog post archive/single.
 			if ( hypermarket_is_blog_archive() ) {
 				$classes[] = 'blog-archive';
+			}
+
+			// Add class if the current browser runs on a mobile device.
+			if ( wp_is_mobile() ) {
+				$classes[] = 'is-mobile';
 			}
 
 			// Check the globals to see if the browser is in there and return a string with the match.
@@ -532,6 +538,24 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			}
 
 			return apply_filters( 'hypermarket_body_classes', $classes );
+		}
+
+		/**
+		 * Adds custom classes to the array of sidebar classes.
+		 *
+		 * @since   2.0.0
+		 * @param   array $classes   Classes for the sidebar area.
+		 * @return  array
+		 */
+		public function sidebar_classes( $classes ) {
+			// Retrieves theme modification value for the current theme (parent or child).
+			$is_sticky = get_theme_mod( sprintf( '%s_general_sidebar_sticky', Hypermarket_Customize::$setting_prefix ), false );
+			
+			if ( ! ! $is_sticky ) {
+				$classes[] = 'widget-area--sticky';
+			}
+
+			return $classes;
 		}
 
 		/**
