@@ -71,7 +71,7 @@
     <!-- Set the minimum supported WP version. This is used by several sniffs.
 		 The minimum version set here should be in line with the minimum WP version
 		 as set in the "Requires at least" tag in the readme.txt file. -->
-    <config name="minimum_supported_wp_version" value="5.0" />
+    <config name="minimum_supported_wp_version" value="5.3" />
     <rule ref="WordPress.Arrays.MultipleStatementAlignment">
         <properties>
             <!-- No need to adjust alignment of large arrays when the item with the largest key is removed. -->
@@ -80,6 +80,16 @@
             <property name="alignMultilineItems" value="!=100" />
             <!-- Array assignment operator should always be on the same line as the array key. -->
             <property name="ignoreNewlines" value="false" />
+        </properties>
+    </rule>
+    <rule ref="WordPress.Security.ValidatedSanitizedInput">
+        <properties>
+            <property name="customSanitizingFunctions" type="array" value="hypermarket_sanitize_html_classes,hypermarket_sanitize_checkbox" />
+        </properties>
+    </rule>
+    <rule ref="WordPress.Security.EscapeOutput">
+        <properties>
+            <property name="customEscapingFunctions" type="array" value="hypermarket_sanitize_html_classes" />
         </properties>
     </rule>
     <!-- Verify that everything in the global namespace is prefixed with a theme specific prefix.
