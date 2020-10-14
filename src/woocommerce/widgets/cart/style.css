@@ -40,7 +40,7 @@
 
 			&::before {
 				@mixin icon "\ec4e";
-				font-size: calc(var(--general-normal) * 1.125);
+				font-size: 18px;
 				line-height: 1;
 				position: absolute 0 -3px null null;
 				right: -3px;
@@ -82,6 +82,10 @@
 		grid-template-columns: 1fr 1fr;
 		grid-gap: 13px;
 		margin-bottom: 0;
+
+		> * {
+			min-width: 0;
+		}
 
 		.button {
 			min-height: 36px;

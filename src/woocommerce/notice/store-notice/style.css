@@ -9,7 +9,7 @@
 	&::before {
 		@mixin icon "\eda7";
 		position: absolute 8px null null 14px;
-		font-size: var(--general-medium);
+		font-size: 23px;
 	}
 
 	&__dismiss-link {

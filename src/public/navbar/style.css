@@ -92,7 +92,7 @@ nav {
 			display: inline-block;
 			vertical-align: middle;
 			@mixin icon "\e9f9";
-			font-size: calc(var(--general-normal) * 0.75);
+			font-size: 12;
 			margin-left: 1px;
 			margin-top: -2px;
 		}

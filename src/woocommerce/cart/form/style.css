@@ -56,6 +56,10 @@
 		margin-bottom: 30px;
 		padding-bottom: 30px;
 
+		> * {
+			min-width: 0;
+		}
+
 		.product {
 			&-thumbnail {
 				grid-column: 1;
@@ -101,7 +105,7 @@
 
 					&::before {
 						@mixin icon "\ec4e";
-						font-size: calc(var(--general-normal) * 1.25);
+						font-size: 20px;
 					}
 				}
 			}

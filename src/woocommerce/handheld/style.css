@@ -39,7 +39,7 @@
 
 			&::before {
 				@mixin icon "\ebbc";
-				font-size: calc(var(--general-normal) * 1.375);
+				font-size: 22px;
 				padding-top: 4px;
 			}
 		}

@@ -37,7 +37,7 @@
 
 		&::before {
 			@mixin icon "\ec4e";
-			font-size: calc(var(--general-normal) * 1.25);
+			font-size: 20px;
 			display: block;
 			line-height: 1;
 			padding: 6px;

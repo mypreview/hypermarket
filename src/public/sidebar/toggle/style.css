@@ -6,7 +6,7 @@
 		z-index: 55;
 		size: 48px;
 		line-height: 48px;
-		font-size: 24px;
+		font-size: 26px;
 		text-align: center;
 		@mixin link;
 		background-color: var(--general-background);

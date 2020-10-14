@@ -11,6 +11,7 @@
 
 			> * {
 				box: horizontal center;
+				min-width: 0;
 			}
 
 			a {
@@ -62,7 +63,7 @@
 				padding: 0 7px;
 				min-width: 44px;
 				min-height: 44px;
-				font-size: calc(var(--general-normal) * 1.125);
+				font-size: 18px;
 			}
 			span {
 				&::before {
