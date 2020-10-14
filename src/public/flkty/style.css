@@ -4,20 +4,20 @@
 .flickity-page-dots {
 	position: relative;
 	bottom: 0;
-    margin-top: 18px;
-    line-height: 1.5;
+	margin-top: 18px;
+	line-height: 1.5;
 
 	.dot {
 		size: 6px;
-	    background: transparent;
-	    border: 3px solid var(--general-text-alt);
-        margin: 0 6px;
-        opacity: 1;
-        transition: transform .25s, border .25s;
+		background: transparent;
+		border: 3px solid var(--general-text-alt);
+		margin: 0 6px;
+		opacity: 1;
+		transition: transform 0.25s, border 0.25s;
 
-        &.is-selected {
-    	    transform: scale(2);
-    		border-width: 1px;
-        }
+		&.is-selected {
+			transform: scale(2);
+			border-width: 1px;
+		}
 	}
 }
