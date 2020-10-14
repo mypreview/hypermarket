@@ -35,6 +35,7 @@
 		padding: 18px;
 		z-index: 1;
 		position: relative;
+		border-bottom: 2px solid var(--general-border);
 
 		:--active {
 			color: var(--general-text);
@@ -44,7 +45,7 @@
 	.active {
 		a {
 			color: var(--general-text);
-			border-bottom: 2px solid;
+			border-color: currentColor;
 		}
 	}
 }
