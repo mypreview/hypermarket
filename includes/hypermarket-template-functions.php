@@ -820,7 +820,6 @@ if ( ! function_exists( 'hypermarket_container' ) ) :
 			$classnames[] = sprintf( '%s--fluid', $classname );
 		}
 
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		printf( '<div class="%s">', call_user_func( hypermarket_sanitize_method( 'classes' ), $classnames, 'string' ) );
+		printf( '<div class="%s">', hypermarket_sanitize_html_classes( $classnames, 'string' ) );
 	}
 endif;
