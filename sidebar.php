@@ -21,13 +21,13 @@ if ( ! hypermarket_has_sidebar() ) {
 		<?php esc_html_e( 'Toggle sidebar', 'hypermarket' ); ?>
 	</span>
 </a><!-- .widget-area-toggle -->
-<aside id="secondary" class="<?php echo hypermarket_sanitize_html_classes( apply_filters( 'hypermarket_sidebar_class', array( 'widget-area' ) ), 'string' ); ?>" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+<aside id="secondary" class="widget-area" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
 	<a href="#" class="widget-area__close bx-x">
 		<span class="screen-reader-text">
 			<?php esc_html_e( 'Close sidebar', 'hypermarket' ); ?>
 		</span>
 	</a>
-	<div class="widget-area__content">
+	<div class="<?php echo hypermarket_sanitize_html_classes( apply_filters( 'hypermarket_sidebar_class', array( 'widget-area__content' ) ), 'string' ); ?>">
 		<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	</div>
 </aside><!-- #secondary -->

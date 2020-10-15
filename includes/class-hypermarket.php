@@ -552,7 +552,8 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			$is_sticky = get_theme_mod( sprintf( '%s_general_sidebar_sticky', Hypermarket_Customize::$setting_prefix ), false );
 			
 			if ( ! ! $is_sticky ) {
-				$classes[] = 'widget-area--sticky';
+				$classes[] = 'sticky';
+				$classes[] = 'sticky--top';
 			}
 
 			return $classes;
