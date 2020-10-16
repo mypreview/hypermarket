@@ -45,21 +45,23 @@ if ( ! function_exists( 'hypermarket_footer_widgets' ) ) :
 			if ( isset( $columns ) ) :
 				?>
 				<div class=<?php echo '"footer-widgets row-' . esc_attr( $row ) . ' col-' . esc_attr( $columns ) . ' fix"'; ?>>
-					<div class="col-full">
-						<?php
-						for ( $column = 1; $column <= $columns; $column++ ) :
-							$footer_n = $column + $regions * ( $row - 1 );
+					<?php
+					do_action( 'hypermarket_before_footer_widget_column' );
 
-							if ( is_active_sidebar( 'footer-' . esc_attr( $footer_n ) ) ) :
-								?>
-								<div class="block footer-widget-<?php echo esc_attr( $column ); ?>">
-									<?php dynamic_sidebar( sprintf( 'footer-%d', esc_attr( $footer_n ) ) ); ?>
-								</div>
-								<?php
-							endif;
-						endfor;
-						?>
-					</div>
+					for ( $column = 1; $column <= $columns; $column++ ) :
+						$footer_n = $column + $regions * ( $row - 1 );
+
+						if ( is_active_sidebar( 'footer-' . esc_attr( $footer_n ) ) ) :
+							?>
+							<div class="block footer-widget-<?php echo esc_attr( $column ); ?>">
+								<?php dynamic_sidebar( sprintf( 'footer-%d', esc_attr( $footer_n ) ) ); ?>
+							</div>
+							<?php
+						endif;
+					endfor;
+
+					do_action( 'hypermarket_after_footer_widget_column' );
+					?>
 				</div><!-- .footer-widgets.row-<?php echo esc_attr( $row ); ?> -->
 				<?php
 				unset( $columns );
@@ -216,6 +218,53 @@ if ( ! function_exists( 'hypermarket_skip_links' ) ) :
 		?>
 		</a>
 		<?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_notfound_header' ) ) :
+	/**
+	 * Display the not-found (404) header.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_notfound_header() {
+		?>
+		<header class="entry-header">
+			<?php 
+			do_action( 'hypermarket_notfound_header_before' );
+			
+			/* translators: 1: Open h1 tag, 2: Close h1 tag. */
+			printf( esc_html__( '%1$sOops! That page can&rsquo;t be found.%2$s', 'hypermarket' ), '<h1 class="entry-title" itemprop="headline">', '</h1>' );
+
+			/**
+			 * Functions hooked into `hypermarket_notfound_header_after` action
+			 *
+			 * @hooked  hypermarket_notfound_search        - 10
+			 */
+			do_action( 'hypermarket_notfound_header_after' );
+			?>
+		</header>
+		<?php
+	}
+endif;
+
+if ( ! function_exists( 'hypermarket_notfound_search' ) ) :
+	/**
+	 * Display the not-found (404) header.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_notfound_search() {
+		/* translators: 1: Open div tag, 2: Close div tag. */
+		printf( esc_html__( '%1$sNothing was found at this location. Try searching, or check out the links below.%2$s', 'hypermarket' ), '<div class="entry-description">', '</div>' );
+
+		if ( hypermarket_is_woocommerce_activated() ) {
+			hypermarket_product_search();
+		} else {
+			get_search_form();
+		}
 	}
 endif;
 
