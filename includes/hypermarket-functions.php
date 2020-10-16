@@ -61,7 +61,7 @@ if ( ! function_exists( 'hypermarket_is_fluid_template' ) ) :
 	 * @return  bool
 	 */
 	function hypermarket_is_fluid_template() {
-		return is_page_template( 'page-templates/template-fluid.php' ) ? true : false;
+		return is_page_template( 'template-fluid.php' ) ? true : false;
 	}
 endif;
 
