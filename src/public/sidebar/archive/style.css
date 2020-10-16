@@ -1,4 +1,5 @@
 .blog,
+.search,
 .archive {
 	&.has-sidebar {
 		.site-main {
