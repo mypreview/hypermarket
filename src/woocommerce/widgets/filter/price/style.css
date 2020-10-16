@@ -1,0 +1,43 @@
+.price_slider {
+    height: 3px;
+    background-color: var(--general-tile);
+    position: relative;
+    box: center;
+
+	.ui-slider-range {
+		background-color: var(--general-text);
+		height: 3px;
+	    position: absolute;
+	}
+
+	.ui-slider-handle {
+	    border: 2px solid var(--general-background);
+	    border-radius: 16px;
+	    background: var(--general-text);
+	    size: 16px;
+	    position: absolute;
+	    cursor: pointer;
+
+	    &:last-child {
+	    	margin-left: -16px;
+	    }
+	}
+
+	&_amount {
+		box: space-between center;
+		@extend %small-button;
+
+		[type="text"],
+		.clear {
+			display: none;
+		}
+
+		.button {
+			@mixin button-color;
+		}
+
+		.price_label {
+			padding-left: 15px;
+		}
+	}
+}
