@@ -28,10 +28,14 @@ add_action( 'hypermarket_header', 'hypermarket_handheld_menu', 50 );
  *
  * @see  hypermarket_get_footer_bar()
  * @see  hypermarket_footer_widgets()
+ * @see  hypermarket_container()
+ * @see  hypermarket_div_close()
  * @see  hypermarket_credit()
  */
 add_action( 'hypermarket_before_footer', 'hypermarket_get_footer_bar' );
 add_action( 'hypermarket_footer', 'hypermarket_footer_widgets' );
+add_action( 'hypermarket_before_footer_widget_column', 'hypermarket_container' );
+add_action( 'hypermarket_after_footer_widget_column', 'hypermarket_div_close' );
 add_action( 'hypermarket_footer', 'hypermarket_credit', 20 );
 
 /**
@@ -118,7 +122,20 @@ add_action( 'hypermarket_page_bottom', 'hypermarket_display_comments', 30 );
  */
 add_action( 'hypermarket_home_top', 'hypermarket_div', 5 );
 add_action( 'hypermarket_home_top', 'hypermarket_posts_page_header' );
-add_action( 'hypermarket_home_top', 'hypermarket_div_close', 25 );
+add_action( 'hypermarket_home_top', 'hypermarket_div_close', 15 );
+
+/**
+ * Not-found (404)
+ *
+ * @see  hypermarket_div()
+ * @see  hypermarket_div_close()
+ * @see  hypermarket_notfound_header()
+ * @see  hypermarket_notfound_search()
+ */
+add_action( 'hypermarket_notfound_top', 'hypermarket_div', 5 );
+add_action( 'hypermarket_notfound_top', 'hypermarket_notfound_header' );
+add_action( 'hypermarket_notfound_header_after', 'hypermarket_notfound_search' );
+add_action( 'hypermarket_notfound_top', 'hypermarket_div_close', 25 );
 
 /**
  * Archive
