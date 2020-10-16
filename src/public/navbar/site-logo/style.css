@@ -1,0 +1,33 @@
+.site-title {
+	font-size: calc(var(--general-normal) * 1.25);
+	font-weight: 500;
+	color: var(--general-text);
+
+	a {
+		color: inherit;
+	}
+}
+
+.site-description {
+	font-style: italic;
+	padding-top: 9px;
+	font-size: calc(var(--general-normal) * 0.687);
+	color: var(--general-text-alt);
+}
+
+.site-branding {
+	padding: 25px 0;
+	margin-right: 20px ?if media (--screen-lg-min);
+	margin-right: auto ?if media (--screen-lg);
+	width: 200px;
+    order: -1;
+
+	> * {
+		line-height: inherit;
+		margin-bottom: 0;
+	}
+
+	img {
+		max-width: var(--image-logo-width);
+	}
+}
