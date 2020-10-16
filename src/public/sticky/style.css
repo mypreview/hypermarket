@@ -1,0 +1,9 @@
+.sticky {
+	position: sticky;
+
+	@each $position in top, bottom {
+		&--$(position) {
+			$(position): 0;
+		}
+	}
+}
