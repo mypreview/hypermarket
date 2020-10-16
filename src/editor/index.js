@@ -2,12 +2,18 @@
  * External dependencies
  */
 import forEach from 'lodash/forEach';
+import domReady from '@wordpress/dom-ready';
 import PREFIX from './utils/prefix';
 
 /**
  * Stylesheet dependencies.
  */
 import './style.css';
+
+/**
+ * Fluid-template specific script.
+ */
+import fluidTemplateSubscribe from './fluid-template';
 
 /**
  * WordPress dependencies
@@ -35,4 +41,9 @@ export function registerPlugins() {
 		} );
 	} );
 }
+
 registerPlugins();
+
+domReady( () => {
+	fluidTemplateSubscribe();
+} );
