@@ -72,17 +72,6 @@
 	padding-right: 30px;
 }
 
-%disabled-button {
-	color: var(--general-text);
-	background-color: var(--general-border);
-	border: 2px solid var(--general-border);
-
-	:--active {
-		color: var(--general-text);
-		background-color: var(--general-tile);
-	}
-}
-
 %small-button {
 	.button {
 		min-height: 36px;
