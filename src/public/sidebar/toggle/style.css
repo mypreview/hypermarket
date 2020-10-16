@@ -3,7 +3,7 @@
 
 	@media (--screen-md) {
 		position: fixed 50% 0 null null;
-		z-index: 55;
+		z-index: 9;
 		size: 48px;
 		line-height: 48px;
 		font-size: 26px;
