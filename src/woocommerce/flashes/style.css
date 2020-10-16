@@ -7,6 +7,10 @@
 		border-radius: 24px;
 		position: absolute 20px null null 20px;
 		z-index: 3;
+
+		div.product & {
+			left: 35px;
+		}
 	}
 }
 
