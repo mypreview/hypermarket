@@ -3,7 +3,7 @@ form[role="search"] {
 
 	&::after {
 		@mixin icon "\ebbe";
-		font-size: 20;
+		font-size: 20px;
 		position: absolute null 12px 13px null;
 		line-height: 1;
 		pointer-events: none;
