@@ -1,5 +1,4 @@
 .site-handheld-toolbar {
-	position: sticky null null 0 null;
 	background-color: var(--general-tile);
 	display: none ?if media (--screen-sm-min);
 
