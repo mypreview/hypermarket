@@ -179,7 +179,7 @@ if ( ! function_exists( 'hypermarket_handheld_toolbar' ) ) :
 		$links = apply_filters( 'hypermarket_handheld_toolbar_links', $links );
 
 		?>
-		<div class="site-handheld-toolbar">
+		<div class="site-handheld-toolbar sticky sticky--bottom">
 			<ul class="columns-<?php echo count( $links ); ?>">
 				<?php 
 				foreach ( $links as $key => $link ) : 
@@ -379,34 +379,38 @@ if ( ! function_exists( 'hypermarket_single_sticky_add_to_cart' ) ) :
 		$classname = 'hypermarket-sticky-add-to-cart';
 		?>
 		<section class="<?php echo sanitize_html_class( $classname ); ?>">
-			<div class="col-full">
-				<div class="<?php echo sanitize_html_class( $classname ); ?>__content">
-					<?php echo wp_kses_post( woocommerce_get_product_thumbnail() ); ?>
-					<div class="<?php echo sanitize_html_class( $classname ); ?>__meta">
-						<span class="<?php echo sanitize_html_class( $classname ); ?>__title">
-							<?php esc_attr_e( 'You&#8217;re viewing:', 'hypermarket' ); ?>
-							<strong>
-								<?php the_title(); ?>
-							</strong>
-						</span>
-						<span class="<?php echo sanitize_html_class( $classname ); ?>__price">
-							<?php echo wp_kses_post( $product->get_price_html() ); ?>
-						</span>
-						<?php echo wp_kses_post( wc_get_rating_html( $product->get_average_rating() ) ); ?>
-					</div>
-					<?php 
-					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					echo hypermarket_do_shortcode(
-						'add_to_cart',
-						array(
-							'id'         => $product->get_id(),
-							'show_price' => false,
-							'style'      => '',
-						) 
-					); 
-					?>
+
+			<?php do_action( 'hypermarket_single_before_sticky_add_to_cart' ); ?>
+
+			<div class="<?php echo sanitize_html_class( $classname ); ?>__content">
+				<?php echo wp_kses_post( woocommerce_get_product_thumbnail() ); ?>
+				<div class="<?php echo sanitize_html_class( $classname ); ?>__meta">
+					<span class="<?php echo sanitize_html_class( $classname ); ?>__title">
+						<?php esc_attr_e( 'You&#8217;re viewing:', 'hypermarket' ); ?>
+						<strong>
+							<?php the_title(); ?>
+						</strong>
+					</span>
+					<span class="<?php echo sanitize_html_class( $classname ); ?>__price">
+						<?php echo wp_kses_post( $product->get_price_html() ); ?>
+					</span>
+					<?php echo wp_kses_post( wc_get_rating_html( $product->get_average_rating() ) ); ?>
 				</div>
+				<?php 
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo hypermarket_do_shortcode(
+					'add_to_cart',
+					array(
+						'id'         => $product->get_id(),
+						'show_price' => false,
+						'style'      => '',
+					) 
+				); 
+				?>
 			</div>
+
+			<?php do_action( 'hypermarket_single_after_sticky_add_to_cart' ); ?>
+
 		</section>
 		<?php
 	}
