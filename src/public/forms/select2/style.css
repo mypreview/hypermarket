@@ -1,10 +1,10 @@
 .select2 {
-	&&-container {
-		min-height: 48px;
-		display: block;
-		font-size: var(--general-small);
+	&-container {
+		&&--default {
+			min-height: 48px;
+			display: block;
+			font-size: var(--general-small);
 
-		&--default {
 			^^&-selection {
 				&--single {
 					@extend %select-icon;
@@ -27,6 +27,25 @@
 						}
 					}
 				}
+
+				&--multiple {
+					border: 2px solid var(--general-border);
+
+					^^^&--focus& {
+						border: 2px solid var(--general-primary);
+					}
+
+					^^^^&-selection {
+						&__rendered {
+						    min-height: 48px;
+    						box: center wrap;
+
+    						li {
+    							margin: 5px;
+    						}
+						}
+					}
+				}
 			}
 
 			^^&-results__option {
@@ -42,17 +61,25 @@
 				}
 			}
 
-			^^&-search--dropdown {
-				^^^&-search__field {
-					height: 38px;
-					border: 2px solid var(--general-border);
+			^^&-search {
+				&--dropdown {
+					^^^^&-search__field {
+						height: 38px;
+						border: 2px solid var(--general-border);
+					}
+				}
+
+				&--inline {
+					^^^^&-search__field {
+					    min-height: auto;
+					}
 				}
 			}
 		}
-	}
 
-	&-dropdown {
-		border-color: var(--general-border);
-		border-width: 2px;
+		^&-dropdown {
+			border-color: var(--general-border);
+			border-width: 2px;
+		}
 	}
 }
