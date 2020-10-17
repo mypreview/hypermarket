@@ -25,6 +25,7 @@
 
 	&_amount {
 		box: space-between center;
+	    margin-top: 30px;
 		@extend %small-button;
 
 		[type="text"],
