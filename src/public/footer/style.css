@@ -1,0 +1,47 @@
+.site-footer {
+	display: flex;
+    background-color: var(--general-tile);
+    flex-wrap: wrap ?if media (--screen-md);  
+    margin-top: 72px; 
+
+	&__widgets {
+		flex: 1;
+		flex-basis: 100% ?if media (--screen-md);
+	    padding: 45px 25px;
+	    text-align: center;
+
+	    &:nth-child(2n) {
+	    	background-color: var(--general-tile-alt);
+	    }
+	}
+
+	.widget {
+		&:nth-child(n+2) {
+			margin-top: var(--line-height-computed);
+		}
+
+		.menu,
+		ul {
+			padding-left: 0;
+        	list-style-position: inside;
+
+			ul {
+				border-left-width: 0;
+
+				li {
+					padding-left: 0;
+
+					&:before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+	.tagcloud {
+		ul {
+		    justify-content: center;
+		}
+	}
+}
