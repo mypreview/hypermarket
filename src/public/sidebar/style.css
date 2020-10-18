@@ -18,10 +18,10 @@
 				grid-area: 2/2;
 			}
 		}
-	}
 
-	.entry-wrapper {
-		margin-right: 15px;
+		.entry-wrapper {
+			margin-right: 15px;
+		}
 	}
 
 	.widget-area {
