@@ -21,7 +21,10 @@
 @import "./share-button/style.css";
 @import "./gallery/style.css";
 @import "./not-found/style.css";
+@import "./404/style.css";
 @import "./sidebar/style.css";
+@import "./footer-bar/style.css";
+@import "./footer/style.css";
 @import "./widgets/style.css";
 @import "./sticky/style.css";
 @import "./flkty/style.css";
