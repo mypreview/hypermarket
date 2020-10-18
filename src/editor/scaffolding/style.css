@@ -1,0 +1,48 @@
+/**
+ * Sections
+ */
+.wp-block {
+	max-width: 1140px;
+}
+
+.block-editor-writing-flow {
+    padding: 0 5px;
+}
+
+.block-editor-block-list__block {
+	margin-top: 0;
+    margin-bottom: 0;
+}
+
+/**
+ * Elements
+ */
+
+.editor-styles-wrapper {
+	.block-editor-writing-flow {
+		ul,
+		ol {
+			padding-left: 18px;
+			margin-top: 0;
+			margin-bottom: var(--line-height-computed);
+			line-height: 1.8;
+			ul,
+			ol {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+/**
+ * Alignment
+ */
+.editor-styles-wrapper	{
+	.block-editor-writing-flow {
+		.block-editor-block-list__layout.is-root-container {
+			> .wp-block[data-align="full"] {
+			    margin-left: -15px;
+	    		margin-right: -15px;
+			}
+		}
+	}
+}
