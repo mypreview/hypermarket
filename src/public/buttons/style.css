@@ -1,8 +1,10 @@
 .wp-block-button {
 	max-width: 100%;
+	margin: 5px;
 
 	&s {
 		box: wrap;
+		margin: 0 -5px;
 
 		&.aligncenter {
 			justify-content: center;
@@ -16,32 +18,54 @@
 			justify-content: flex-start;
 		}
 	}
+
+	&__link {
+		.is-style-outline & {
+		    border: 2px solid;
+		}
+		
+		^&:not(.is-style-outline) & {
+			&:not(.has-background) {
+				background-color: var(--general-primary);
+
+				:--active {
+					background-color: var(--general-primary-alt);
+				}
+			}
+
+			&:not(.has-text-color) {
+				color: var(--general-background);
+
+				:--active {
+					color: var(--general-background);
+				}
+			}
+		}
+	}
 }
 
 .wp-block-button__link,
-button,
-.button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-	max-width: 100%;
+:--buttons {
 	min-height: var(--btn-height);
 	font-size: var(--general-small);
-	color: var(--general-background);
-	background-color: var(--general-primary);
-	border-width: 0;
 	border-radius: var(--border-radius-base);
 	padding: 10px 22px;
 	text-transform: uppercase;
 	text-decoration: none;
-	touch-action: manipulation;
-	appearance: none;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
 	cursor: pointer;
 	@extend %button-shift;
+}
+
+:--buttons {
+	max-width: 100%;
+	background-color: var(--general-primary);
+	color: var(--general-background);
+	border-width: 0;
+	appearance: none;
 
 	:--active {
 		background-color: var(--general-primary-alt);
@@ -50,6 +74,6 @@ button,
 
 	&.disabled,
 	&[disabled] {
-		@mixin button-color var(--general-text), var(--general-border), var(--general-border), var(--general-text), var(--general-tile);
+		@mixin button-color var(--general-entry), var(--general-border), var(--general-border), var(--general-entry), var(--general-tile);
 	}
 }
