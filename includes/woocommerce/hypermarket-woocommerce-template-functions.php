@@ -268,16 +268,16 @@ if ( ! function_exists( 'hypermarket_woocommerce_pagination' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
+if ( ! function_exists( 'hypermarket_single_product_navigation' ) ) :
 	/**
-	 * Single product pagination.
+	 * Single product navigation.
 	 *
 	 * @since   2.0.0
 	 * @return  void
 	 */
-	function hypermarket_single_product_pagination() {
+	function hypermarket_single_product_navigation() {
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_activated = get_theme_mod( sprintf( '%s_wc_details_pagination', Hypermarket_Customize::$setting_prefix ), false );
+		$is_activated = get_theme_mod( sprintf( '%s_wc_details_navigation', Hypermarket_Customize::$setting_prefix ), false );
 
 		// Bail early, in case the module is not being activated.
 		if ( ! $is_activated ) {
@@ -285,13 +285,13 @@ if ( ! function_exists( 'hypermarket_single_product_pagination' ) ) :
 		}
 
 		// Show only products in the same category?
-		$in_same_term   = apply_filters( 'hypermarket_single_product_pagination_same_category', true );
-		$excluded_terms = apply_filters( 'hypermarket_single_product_pagination_excluded_terms', '' );
-		$taxonomy       = apply_filters( 'hypermarket_single_product_pagination_taxonomy', 'product_cat' );
+		$in_same_term   = apply_filters( 'hypermarket_single_product_navigation_same_category', true );
+		$excluded_terms = apply_filters( 'hypermarket_single_product_navigation_excluded_terms', '' );
+		$taxonomy       = apply_filters( 'hypermarket_single_product_navigation_taxonomy', 'product_cat' );
 
 		$previous_product = hypermarket_get_previous_product( $in_same_term, $excluded_terms, $taxonomy );
 		$next_product     = hypermarket_get_next_product( $in_same_term, $excluded_terms, $taxonomy );
-		$classname        = 'hypermarket-product-pagination';
+		$classname        = 'product-navigation';
 
 		if ( ! $previous_product && ! $next_product ) {
 			return;
@@ -376,7 +376,7 @@ if ( ! function_exists( 'hypermarket_single_sticky_add_to_cart' ) ) :
 			return;
 		}
 
-		$classname = 'hypermarket-sticky-add-to-cart';
+		$classname = 'sticky-add-to-cart';
 		?>
 		<section class="<?php echo sanitize_html_class( $classname ); ?>">
 
@@ -426,7 +426,7 @@ if ( ! function_exists( 'hypermarket_myaccount_user_info' ) ) :
 	 */
 	function hypermarket_myaccount_user_info() {
 		$user_id   = get_current_user_id();
-		$classname = 'hypermarket-myaccount-info';
+		$classname = 'myaccount-profile';
 
 		?>
 		<div class="<?php echo sanitize_html_class( $classname ); ?>">
