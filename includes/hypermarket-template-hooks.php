@@ -28,14 +28,10 @@ add_action( 'hypermarket_header', 'hypermarket_handheld_menu', 50 );
  *
  * @see  hypermarket_get_footer_bar()
  * @see  hypermarket_footer_widgets()
- * @see  hypermarket_container()
- * @see  hypermarket_div_close()
  * @see  hypermarket_credit()
  */
 add_action( 'hypermarket_before_footer', 'hypermarket_get_footer_bar' );
 add_action( 'hypermarket_footer', 'hypermarket_footer_widgets' );
-add_action( 'hypermarket_before_footer_widget_column', 'hypermarket_container' );
-add_action( 'hypermarket_after_footer_widget_column', 'hypermarket_div_close' );
 add_action( 'hypermarket_footer', 'hypermarket_credit', 20 );
 
 /**
