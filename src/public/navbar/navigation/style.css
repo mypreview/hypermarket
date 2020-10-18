@@ -20,19 +20,19 @@ nav {
 	}
 
 	a {
-		color: var(--general-text);
+		color: var(--general-entry);
 		padding: 15px;
 		display: block;
 
 		:--active {
-			color: var(--general-text-alt);
+			color: var(--general-entry-alt);
 			opacity: 0.95;
 		}
 	}
 
 	.current-menu-item {
 		a {
-			color: var(--general-text-alt);
+			color: var(--general-entry-alt);
 			opacity: 0.95;
 		}
 	}

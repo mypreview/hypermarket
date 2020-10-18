@@ -30,7 +30,7 @@
 
 		.entry-description {
 			font-size: var(--general-small);
-			color: var(--general-text-alt);
+			color: var(--general-entry-alt);
 			@mixin colfull 660px, 0;
 		}
 	}

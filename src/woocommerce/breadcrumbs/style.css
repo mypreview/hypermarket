@@ -1,10 +1,10 @@
 .woocommerce-breadcrumb {
 	@mixin colfull;
 	font-size: var(--general-small);
-	color: var(--general-text-alt);
+	color: var(--general-entry-alt);
 
 	a {
-		color: var(--general-text);
+		color: var(--general-entry);
 		text-decoration: none;
 
 		:--active {

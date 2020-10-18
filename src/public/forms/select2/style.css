@@ -19,7 +19,7 @@
 						}
 
 						&__rendered {
-							color: var(--general-text);
+							color: var(--general-entry);
 						}
 
 						&__clear {

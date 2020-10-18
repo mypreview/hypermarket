@@ -3,12 +3,12 @@ body {
 	font-family: "Work Sans";
 	font-weight: 400;
 	line-height: var(--line-height-base);
-	color: var(--general-text);
+	color: var(--general-entry);
 }
 
 :--heading {
 	margin-top: 0;
-	color: var(--general-text);
+	color: var(--general-entry);
 	line-height: var(--headings-line-height);
 }
 
@@ -77,7 +77,6 @@ a {
 	@mixin shift color;
 
 	:--active {
-		color: var(--general-primary);
 		text-decoration: none;
 	}
 

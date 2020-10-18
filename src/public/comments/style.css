@@ -41,7 +41,7 @@
 
 	&-notes {
 		font-size: var(--general-small);
-		color: var(--general-text-alt);
+		color: var(--general-entry-alt);
 		padding-bottom: 16px;
 	}
 
@@ -108,7 +108,7 @@
 	}
 
 	&-metadata {
-		color: var(--general-text-alt);
+		color: var(--general-entry-alt);
 		font-size: calc(var(--general-normal) * 0.75);
 	}
 
@@ -117,7 +117,7 @@
 	}
 
 	&-reply-link {
-		color: var(--general-text);
+		color: var(--general-entry);
 		font-size: calc(var(--general-normal) * 0.75);
 		letter-spacing: 0.07em;
 		text-transform: uppercase;

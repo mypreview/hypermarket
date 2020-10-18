@@ -1,4 +1,4 @@
-.hypermarket-sticky-add-to-cart {
+.sticky-add-to-cart {
 	background-color: var(--general-background);
 	position: fixed 0 0 null 0;
 	visibility: hidden;
@@ -36,7 +36,7 @@
 		box: wrap;
 		font-size: var(--general-small);
 		flex-grow: 1;
-		color: var(--general-text-alt);
+		color: var(--general-entry-alt);
 		padding: 0 18px;
 
 		> span {
@@ -50,7 +50,7 @@
 		strong {
 			font-weight: 500;
 			font-size: var(--general-normal);
-			color: var(--general-text);
+			color: var(--general-entry);
 		}
 	}
 

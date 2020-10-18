@@ -4,14 +4,14 @@
 	button {
 		padding: 5px;
 		background-color: transparent;
-		color: var(--general-text);
+		color: var(--general-entry);
 		border: 2px solid var(--general-border);
 		min-height: 36px;
 		width: 36px;
 
 		:--active {
 			background-color: transparent;
-			color: var(--general-text);
+			color: var(--general-entry);
 		}
 
 		&:first-child {

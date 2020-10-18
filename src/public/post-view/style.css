@@ -38,7 +38,7 @@
 			font-weight: 400;
 
 			a {
-				@mixin link var(--general-text-alt);
+				@mixin link var(--general-entry-alt);
 			}
 		}
 
@@ -62,13 +62,13 @@
 
 			&__col {
 				font-size: var(--general-small);
-				color: var(--general-text-alt);
+				color: var(--general-entry-alt);
 
 				&:first-child {
 					box: wrap;
 
 					a {
-						@mixin link var(--general-text);
+						@mixin link var(--general-entry);
 					}
 				}
 			}

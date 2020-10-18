@@ -3,7 +3,7 @@
 
 ul.payment_methods {
 	@extend %none-list-style;
-	color: var(--general-text-alt);
+	color: var(--general-entry-alt);
 	font-size: var(--general-small);
 
 	> li {

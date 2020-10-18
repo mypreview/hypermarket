@@ -5,7 +5,7 @@
     box: center;
 
 	.ui-slider-range {
-		background-color: var(--general-text);
+		background-color: var(--general-entry);
 		height: 3px;
 	    position: absolute;
 	}
@@ -13,7 +13,7 @@
 	.ui-slider-handle {
 	    border: 2px solid var(--general-background);
 	    border-radius: 16px;
-	    background: var(--general-text);
+	    background: var(--general-entry);
 	    size: 16px;
 	    position: absolute;
 	    cursor: pointer;

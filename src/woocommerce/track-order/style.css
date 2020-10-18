@@ -2,7 +2,7 @@
 	&-track-order {
 		p:first-child {
 			font-size: var(--general-small);
-			color: var(--general-text-alt);
+			color: var(--general-entry-alt);
 		}
 
 		.clear + .form-row {

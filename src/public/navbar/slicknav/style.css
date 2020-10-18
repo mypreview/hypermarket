@@ -6,7 +6,7 @@
 
 	    ^&_icon-bar {
 	    	box-shadow: none;
-    	    background-color: var(--general-text);
+    	    background-color: var(--general-entry);
     	    border-radius: 0;
     	    @mixin shift transform;
 	    }
@@ -46,7 +46,7 @@
 	    }
 
 	    a {
-    	    color: var(--general-text);
+    	    color: var(--general-entry);
 	    }
 
 	    li {
@@ -57,7 +57,7 @@
 
 			    &:hover {
 			    	background: transparent;
-			    	color: var(--general-text);
+			    	color: var(--general-entry);
 			    	border-radius: 0;
 			    }
 	    	}

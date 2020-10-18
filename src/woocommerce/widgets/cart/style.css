@@ -23,13 +23,13 @@
 		}
 
 		a {
-			color: var(--general-text);
+			color: var(--general-entry);
 
 			&:not(.remove) {
 				margin-right: 16px;
 
 				:--active {
-					color: var(--general-text-alt);
+					color: var(--general-entry-alt);
 					opacity: 0.95;
 				}
 			}
@@ -53,7 +53,7 @@
 		}
 
 		.quantity {
-			color: var(--general-text-alt);
+			color: var(--general-entry-alt);
 		}
 	}
 
@@ -68,7 +68,7 @@
 		box: horizontal space-between;
 
 		strong {
-			color: var(--general-text-alt);
+			color: var(--general-entry-alt);
 			font-weight: 400;
 		}
 

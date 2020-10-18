@@ -28,7 +28,7 @@
 
 	&_totals {
 		order: -1;
-		color: var(--general-text-alt);
+		color: var(--general-entry-alt);
 		font-size: var(--general-small);
 
 		h2 {
@@ -61,7 +61,7 @@
 
 		.order-total {
 			order: -1;
-			color: var(--general-text);
+			color: var(--general-entry);
 		}
 
 		@each $tr in cart-subtotal, shipping, order-total {
@@ -72,7 +72,7 @@
 	}
 
 	&-discount {
-		color: var(--general-text-alt);
+		color: var(--general-entry-alt);
 	}
 }
 

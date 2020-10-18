@@ -3,11 +3,11 @@
 		justify-content: center;
 
 		&__label {
-			color: var(--general-text);
+			color: var(--general-entry);
 		}
 
 		ul {
-			color: var(--general-text);
+			color: var(--general-entry);
 		}
 
 		a {

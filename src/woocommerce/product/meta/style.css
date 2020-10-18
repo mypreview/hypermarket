@@ -1,5 +1,5 @@
 .product_meta {
-	color: var(--general-text);
+	color: var(--general-entry);
 
 	> * {
 		display: inline-block;
@@ -7,12 +7,12 @@
 	}
 
 	.sku {
-		color: var(--general-text-alt);
+		color: var(--general-entry-alt);
 	}
 
 	a {
 		text-decoration: none;
-		color: var(--general-text-alt);
+		color: var(--general-entry-alt);
 
 		:--active {
 			color: inherit;

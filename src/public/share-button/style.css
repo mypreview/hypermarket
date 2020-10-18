@@ -4,7 +4,7 @@
 	box: wrap;
 
 	&__label {
-		color: var(--general-text-alt);
+		color: var(--general-entry-alt);
 		font-size: var(--general-small);
 		margin: 10px 13px 0 0;
 	}

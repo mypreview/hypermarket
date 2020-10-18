@@ -30,7 +30,7 @@
 
 	a {
 		text-decoration: none;
-		color: var(--general-text-alt);
+		color: var(--general-entry-alt);
 		display: block;
 		padding: 18px;
 		z-index: 1;
@@ -38,13 +38,13 @@
 		border-bottom: 2px solid var(--general-border);
 
 		:--active {
-			color: var(--general-text);
+			color: var(--general-entry);
 		}
 	}
 
 	.active {
 		a {
-			color: var(--general-text);
+			color: var(--general-entry);
 			border-color: currentColor;
 		}
 	}

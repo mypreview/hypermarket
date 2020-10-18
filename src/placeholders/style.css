@@ -42,7 +42,7 @@
 		display: inline-block;
 		size: 1px 11px;
 		margin: 0 10px;
-		background-color: var(--general-text-alt);
+		background-color: var(--general-entry-alt);
 		opacity: 0.5;
 	}
 }
@@ -68,7 +68,7 @@
 	background-repeat: no-repeat;
 	background-position: calc(100% - 15.5px) 50%, calc(100% - 11px) 50%, 100% 0;
 	background-size: 4.5px 4.5px, 4.5px 4.5px, 3em 3em;
-	background-image: linear-gradient(45deg, transparent 50%, var(--general-text) 50%), linear-gradient(135deg, var(--general-text) 50%, transparent 50%), linear-gradient(to right, transparent, transparent);
+	background-image: linear-gradient(45deg, transparent 50%, var(--general-entry) 50%), linear-gradient(135deg, var(--general-entry) 50%, transparent 50%), linear-gradient(to right, transparent, transparent);
 	padding-right: 30px;
 }
 

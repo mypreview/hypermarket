@@ -13,7 +13,7 @@
 
 @each $item in  myaccount, cart-contents {
 	.site-$(item) {
-		color: var(--general-text);
+		color: var(--general-entry);
 
 		&::before {
 			font-family: boxicons;
@@ -21,7 +21,7 @@
 		}
 
 		:--active {
-			color: var(--general-text-alt);
+			color: var(--general-entry-alt);
 		}
 	}
 }

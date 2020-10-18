@@ -34,7 +34,7 @@ li.product {
 	.product-categories {
 		grid-row: 3;
 		a {
-			@mixin link var(--general-text), var(--general-text-alt);
+			@mixin link var(--general-entry), var(--general-entry-alt);
 		}
 	}
 }
@@ -44,7 +44,7 @@ li.product {
 		font-size: var(--general-normal);
 		font-weight: 400;
 		margin-bottom: 0;
-		color: var(--general-text-alt);
+		color: var(--general-entry-alt);
 	}
 
 	.product &__link {

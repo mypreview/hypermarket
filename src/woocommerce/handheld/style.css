@@ -29,11 +29,11 @@
 
 		a {
 			font-size: 0;
-			color: var(--general-text);
+			color: var(--general-entry);
 			box: horizontal center;
 
 			:--active {
-				color: var(--general-text-alt);
+				color: var(--general-entry-alt);
 			}
 
 			&::before {

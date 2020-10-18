@@ -81,13 +81,13 @@
 
 	&__published-date {
 		font-size: var(--general-small);
-		color: var(--general-text-alt);
+		color: var(--general-entry-alt);
 
 		&::before {
 			content: "";
 			size: 20px 1px;
 			margin-right: 5px;
-			background-color: var(--general-text-alt);
+			background-color: var(--general-entry-alt);
 			display: inline-block;
 			vertical-align: middle;
 		}

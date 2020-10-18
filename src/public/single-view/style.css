@@ -36,7 +36,7 @@
 		&-meta {
 			box: wrap;
 			font-size: var(--general-small);
-			color: var(--general-text-alt);
+			color: var(--general-entry-alt);
 			padding-bottom: 18px;
 
 			&__col {
@@ -44,7 +44,7 @@
 			}
 
 			a {
-				@mixin link var(--general-text);
+				@mixin link var(--general-entry);
 			}
 		}
 
@@ -80,10 +80,10 @@
 
 	&-tags {
 		font-size: var(--general-small);
-		color: var(--general-text-alt);
+		color: var(--general-entry-alt);
 
 		a {
-			@mixin link var(--general-text);
+			@mixin link var(--general-entry);
 
 			&::before {
 				content: "#";

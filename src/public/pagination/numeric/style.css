@@ -6,7 +6,7 @@
 
 	li {
 		display: inline-block;
-		color: var(--general-text);
+		color: var(--general-entry);
 
 		> * {
 			display: inline-block;
@@ -34,7 +34,7 @@
 		margin: 4px 0 0 30px;
 
 		a {
-			@mixin link var(--general-text);
+			@mixin link var(--general-entry);
 			@mixin shift opacity;
 
 			&:hover {

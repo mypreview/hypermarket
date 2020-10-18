@@ -30,7 +30,7 @@
 				content: "";
 				size: 4px 100%;
 				position: absolute 0 null 0 0;
-				background: var(--general-text);
+				background: var(--general-entry);
 				opacity: 0.4;
 				border-left-radius: var(--border-radius-base);
 			}

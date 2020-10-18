@@ -1,10 +1,4 @@
 .widget-area {
-	font-size: var(--general-small);
-
-	a:not(.button) {
-		@mixin link var(--general-text), var(--general-text-alt);
-	}
-
 	.widget {
 		padding-bottom: 28px;
 		border-bottom: 2px solid var(--general-border);
@@ -62,7 +56,7 @@
 
 		&::before {
 			font-size: 24px;
-			color: var(--general-text);
+			color: var(--general-entry);
 		}
 	}
 }

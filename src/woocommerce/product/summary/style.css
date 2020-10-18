@@ -4,7 +4,7 @@
 		text-align: center;
 		margin-bottom: 15px;
 		font-size: var(--general-small);
-		color: var(--general-text-alt);
+		color: var(--general-entry-alt);
 
 		.product_title {
 			font-size: calc(var(--general-normal) * 1.875);
@@ -27,7 +27,7 @@
 		.price {
 			font-size: calc(var(--general-normal) * 1.875);
 			font-weight: 300;
-			color: var(--general-text);
+			color: var(--general-entry);
 			width: 100%;
 			margin-bottom: 20px;
 		}
