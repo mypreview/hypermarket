@@ -1,9 +1,9 @@
-.hypermarket-product-pagination {
+.product-navigation {
 	display: none ?if media (--screen-md);
 
 	@media (--screen-md-min) {
 		a {
-			@mixin link var(--general-text);
+			@mixin link var(--general-entry);
 			text-transform: uppercase;
 			position: absolute 18% null null null;
 
