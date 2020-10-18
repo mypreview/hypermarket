@@ -119,14 +119,14 @@ blockquote {
 cite {
 	box: horizontal middle;
 	font-size: var(--general-small);
-	color: var(--general-text-alt);
+	color: var(--general-entry-alt);
 	margin-top: 10px;
 	font-style: normal;
 
 	&::before {
 		content: "";
 		size: 20px 1px;
-		background-color: var(--general-text-alt);
+		background-color: var(--general-entry-alt);
 		margin-right: 9px;
 	}
 }
@@ -201,6 +201,10 @@ svg {
 /**
  * Alignment
  */
-.alignfull {
-	@extend %alignfull;
+body:not(.has-sidebar) {
+	.entry-content {
+		> .alignfull {
+			@extend %alignfull;
+		}
+	}
 }
