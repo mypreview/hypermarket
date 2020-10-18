@@ -1,0 +1,65 @@
+.wp-block-button {
+	max-width: 100%;
+
+	&s {
+		box: wrap;
+		margin: 0 -5px;
+
+		^& {
+			margin: 5px;
+		}
+
+		&.aligncenter {
+			justify-content: center;
+		}
+
+		&.alignright {
+			justify-content: flex-end;
+		}
+
+		&.alignleft {
+			justify-content: flex-start;
+		}
+	}
+
+	&__link {
+		min-height: var(--btn-height);
+		font-size: var(--general-small);
+		border-radius: var(--border-radius-base);
+		padding: 10px 22px;
+		text-transform: uppercase;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		@extend %button-shift;
+
+		.is-style-outline & {
+		    border: 2px solid;
+
+		    &:not(.has-text-color) {
+				color: var(--general-primary);
+			}
+		}
+	}
+
+	&:not(.is-style-outline) {
+		^&__link {
+			&:not(.has-background) {
+				background-color: var(--general-primary);
+
+				:--active {
+					background-color: var(--general-primary-alt);
+				}
+			}
+
+			&:not(.has-text-color) {
+				color: var(--general-background);
+
+				:--active {
+					color: var(--general-background);
+				}
+			}
+		}
+	}
+}
