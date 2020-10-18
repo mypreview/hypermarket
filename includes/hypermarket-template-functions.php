@@ -43,27 +43,21 @@ if ( ! function_exists( 'hypermarket_footer_widgets' ) ) :
 			}
 
 			if ( isset( $columns ) ) :
-				?>
-				<div class=<?php echo '"footer-widgets row-' . esc_attr( $row ) . ' col-' . esc_attr( $columns ) . ' fix"'; ?>>
-					<?php
-					do_action( 'hypermarket_before_footer_widget_column' );
+				do_action( 'hypermarket_before_footer_widget_column' );
 
-					for ( $column = 1; $column <= $columns; $column++ ) :
-						$footer_n = $column + $regions * ( $row - 1 );
+				for ( $column = 1; $column <= $columns; $column++ ) :
+					$footer_n = $column + $regions * ( $row - 1 );
 
-						if ( is_active_sidebar( 'footer-' . esc_attr( $footer_n ) ) ) :
-							?>
-							<div class="block footer-widget-<?php echo esc_attr( $column ); ?>">
-								<?php dynamic_sidebar( sprintf( 'footer-%d', esc_attr( $footer_n ) ) ); ?>
-							</div>
-							<?php
-						endif;
-					endfor;
+					if ( is_active_sidebar( 'footer-' . esc_attr( $footer_n ) ) ) :
+						?>
+						<div class="site-footer__widgets">
+							<?php dynamic_sidebar( sprintf( 'footer-%d', esc_attr( $footer_n ) ) ); ?>
+						</div>
+						<?php
+					endif;
+				endfor;
 
-					do_action( 'hypermarket_after_footer_widget_column' );
-					?>
-				</div><!-- .footer-widgets.row-<?php echo esc_attr( $row ); ?> -->
-				<?php
+				do_action( 'hypermarket_after_footer_widget_column' );
 				unset( $columns );
 			endif;
 		endfor;
@@ -850,6 +844,7 @@ if ( ! function_exists( 'hypermarket_flkty' ) ) :
 			array(
 				'cellSelector'    => 'li',
 				'cellAlign'       => 'left',
+				'groupCells'       => '100%',
 				'pageDots'        => true,
 				'autoPlay'        => false,
 				'wrapAround'      => true,
