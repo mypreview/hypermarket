@@ -1,31 +1,31 @@
 .price_slider {
-    height: 3px;
-    background-color: var(--general-tile);
-    position: relative;
-    box: center;
+	height: 3px;
+	background-color: var(--general-tile);
+	position: relative;
+	box: center;
 
 	.ui-slider-range {
 		background-color: var(--general-entry);
 		height: 3px;
-	    position: absolute;
+		position: absolute;
 	}
 
 	.ui-slider-handle {
-	    border: 2px solid var(--general-background);
-	    border-radius: 16px;
-	    background: var(--general-entry);
-	    size: 16px;
-	    position: absolute;
-	    cursor: pointer;
+		border: 2px solid var(--general-background);
+		border-radius: 16px;
+		background: var(--general-entry);
+		size: 16px;
+		position: absolute;
+		cursor: pointer;
 
-	    &:last-child {
-	    	margin-left: -16px;
-	    }
+		&:last-child {
+			margin-left: -16px;
+		}
 	}
 
 	&_amount {
 		box: space-between center;
-	    margin-top: 30px;
+		margin-top: 30px;
 		@extend %small-button;
 
 		[type="text"],

@@ -37,12 +37,12 @@
 
 					^^^^&-selection {
 						&__rendered {
-						    min-height: 48px;
-    						box: center wrap;
+							min-height: 48px;
+							box: center wrap;
 
-    						li {
-    							margin: 5px;
-    						}
+							li {
+								margin: 5px;
+							}
 						}
 					}
 				}
@@ -71,7 +71,7 @@
 
 				&--inline {
 					^^^^&-search__field {
-					    min-height: auto;
+						min-height: auto;
 					}
 				}
 			}

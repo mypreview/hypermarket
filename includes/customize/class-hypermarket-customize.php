@@ -155,11 +155,11 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 										'default' => '#f5f5f5',
 									),
 									array(
-										'var'     => sprintf( '%s-general-tile-alt', $hypermarket->slug ),
-										'id'      => sprintf( '%s_general_tile_alt_color', self::$setting_prefix ),
-										'label'   => esc_html__( 'Tile', 'hypermarket' ),
+										'var'         => sprintf( '%s-general-tile-alt', $hypermarket->slug ),
+										'id'          => sprintf( '%s_general_tile_alt_color', self::$setting_prefix ),
+										'label'       => esc_html__( 'Tile', 'hypermarket' ),
 										'description' => esc_html__( 'Alternate', 'hypermarket' ),
-										'default' => '#f0f0f0',
+										'default'     => '#f0f0f0',
 									),
 									array(
 										'var'     => sprintf( '%s-general-background', $hypermarket->slug ),

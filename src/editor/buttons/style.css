@@ -35,9 +35,9 @@
 		@extend %button-shift;
 
 		.is-style-outline & {
-		    border: 2px solid;
+			border: 2px solid;
 
-		    &:not(.has-text-color) {
+			&:not(.has-text-color) {
 				color: var(--general-primary);
 			}
 		}

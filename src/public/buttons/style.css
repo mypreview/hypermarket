@@ -21,9 +21,9 @@
 
 	&__link {
 		.is-style-outline & {
-		    border: 2px solid;
+			border: 2px solid;
 		}
-		
+
 		^&:not(.is-style-outline) & {
 			&:not(.has-background) {
 				background-color: var(--general-primary);

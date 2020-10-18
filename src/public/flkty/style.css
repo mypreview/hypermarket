@@ -14,7 +14,7 @@
 		margin: 0 6px;
 		opacity: 1;
 		transition: transform 0.25s, border 0.25s;
-		
+
 		&.is-selected {
 			transform: scale(2);
 			border-width: 1px;

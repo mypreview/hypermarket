@@ -844,7 +844,7 @@ if ( ! function_exists( 'hypermarket_flkty' ) ) :
 			array(
 				'cellSelector'    => 'li',
 				'cellAlign'       => 'left',
-				'groupCells'       => '100%',
+				'groupCells'      => '100%',
 				'pageDots'        => true,
 				'autoPlay'        => false,
 				'wrapAround'      => true,

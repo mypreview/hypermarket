@@ -1,15 +1,15 @@
 .product_list_widget {
 	text-align: left;
-	
+
 	&:not(.cart_list) {
 		font-size: calc(var(--general-normal) * 0.8125);
 		color: var(--general-entry-alt);
 
 		li {
-			&:after {
-				content: '';
+			&::after {
+				content: "";
 				display: table;
-			    clear: both;
+				clear: both;
 			}
 
 			&:nth-child(n+2) {
@@ -27,8 +27,8 @@
 			color: var(--general-entry);
 			font-size: var(--general-small);
 			font-weight: 500;
-		    display: block;
-	        margin-bottom: 4px;
+			display: block;
+			margin-bottom: 4px;
 			@mixin shift color;
 
 			&:hover {
@@ -37,10 +37,10 @@
 		}
 
 		.star-rating {
-	    	size: 65px 12px;
-	    	font-size: 12px;
-	    	letter-spacing: 1px;
-		    margin-bottom: 4px;
+			size: 65px 12px;
+			font-size: 12px;
+			letter-spacing: 1px;
+			margin-bottom: 4px;
 		}
 	}
 }

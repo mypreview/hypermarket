@@ -20,7 +20,7 @@
 	margin-right: 20px ?if media (--screen-lg-min);
 	margin-right: auto ?if media (--screen-lg);
 	width: 200px;
-    order: -1;
+	order: -1;
 
 	> * {
 		line-height: inherit;
