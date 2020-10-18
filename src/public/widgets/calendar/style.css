@@ -4,3 +4,8 @@
 		overflow-y: hidden;
 	}
 }
+
+.wp-calendar-nav {
+	box: space-between;
+    margin-top: 6px;
+}
