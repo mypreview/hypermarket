@@ -1,8 +1,8 @@
 <wpml-config>
     <admin-texts>
         <key name="theme_mods_hypermarket">
-            <key name="hypermarket_customize_general_text_color" />
-            <key name="hypermarket_customize_general_text_alt_color" />
+            <key name="hypermarket_customize_general_entry_color" />
+            <key name="hypermarket_customize_general_entry_alt_color" />
             <key name="hypermarket_customize_general_primary_color" />
             <key name="hypermarket_customize_general_primary_alt_color" />
             <key name="hypermarket_customize_general_border_color" />
