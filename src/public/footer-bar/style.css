@@ -1,0 +1,13 @@
+.site-footer-bar {
+	@mixin colfull;
+	margin-top: 57px;
+	display: flex;
+	flex-wrap: wrap ?if media (--screen-md);
+
+	.widget {
+	    padding: 15px;
+	    flex: 1;
+	    flex-basis: 50% ?if media (--screen-md) and (--screen-xs-min);
+	    flex-basis: 100% ?if media (--screen-xs);
+	}
+}
