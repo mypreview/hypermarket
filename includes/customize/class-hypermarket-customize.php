@@ -111,15 +111,15 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 								'title'    => esc_html__( 'General', 'hypermarket' ),
 								'controls' => array(
 									array(
-										'var'     => sprintf( '%s-general-text', $hypermarket->slug ),
-										'id'      => sprintf( '%s_general_text_color', self::$setting_prefix ),
-										'label'   => esc_html__( 'Text', 'hypermarket' ),
+										'var'     => sprintf( '%s-general-entry', $hypermarket->slug ),
+										'id'      => sprintf( '%s_general_entry_color', self::$setting_prefix ),
+										'label'   => esc_html__( 'Entry', 'hypermarket' ),
 										'default' => '#606060',
 									),
 									array(
-										'var'         => sprintf( '%s-general-text-alt', $hypermarket->slug ),
-										'id'          => sprintf( '%s_general_text_alt_color', self::$setting_prefix ),
-										'label'       => esc_html__( 'Text', 'hypermarket' ),
+										'var'         => sprintf( '%s-general-entry-alt', $hypermarket->slug ),
+										'id'          => sprintf( '%s_general_entry_alt_color', self::$setting_prefix ),
+										'label'       => esc_html__( 'Entry', 'hypermarket' ),
 										'description' => esc_html__( 'Alternate', 'hypermarket' ),
 										'default'     => '#999999',
 									),
@@ -153,6 +153,13 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 										'id'      => sprintf( '%s_general_tile_color', self::$setting_prefix ),
 										'label'   => esc_html__( 'Tile', 'hypermarket' ),
 										'default' => '#f5f5f5',
+									),
+									array(
+										'var'     => sprintf( '%s-general-tile-alt', $hypermarket->slug ),
+										'id'      => sprintf( '%s_general_tile_alt_color', self::$setting_prefix ),
+										'label'   => esc_html__( 'Tile', 'hypermarket' ),
+										'description' => esc_html__( 'Alternate', 'hypermarket' ),
+										'default' => '#f0f0f0',
 									),
 									array(
 										'var'     => sprintf( '%s-general-background', $hypermarket->slug ),
@@ -339,8 +346,8 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 									),
 									array(
 										'type'           => 'checkbox',
-										'id'             => sprintf( '%s_wc_details_pagination', self::$setting_prefix ),
-										'label'          => esc_html__( 'Product pagination', 'hypermarket' ),
+										'id'             => sprintf( '%s_wc_details_navigation', self::$setting_prefix ),
+										'label'          => esc_html__( 'Product navigation', 'hypermarket' ),
 										'description'    => esc_html__( 'Previous and next product navigation buttons from same collection on product page.', 'hypermarket' ),
 									),
 									array(
