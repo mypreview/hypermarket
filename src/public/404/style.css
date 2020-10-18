@@ -1,0 +1,10 @@
+.entry-header {
+	.site-search {
+		margin-top: var(--line-height-computed);
+		@mixin colfull 660px, 0;
+
+		> a {
+			display: none;
+		}
+	}
+}
