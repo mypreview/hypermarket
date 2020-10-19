@@ -2,7 +2,6 @@
 	position: relative;
 	display: flex;
 	flex-direction: column ?if media (--screen-md);
-	padding-bottom: 24px;
 
 	&__wrapper {
 		max-width: none;
@@ -45,14 +44,14 @@
 
 	.flex-control-thumbs {
 		@extend %none-list-style;
-		display: flex;
-		justify-content: center;
+		box: middle;
 		flex-direction: column ?if media (--screen-md-min);
 		margin: 12px -95px 0 15px ?if media (--screen-md-min);
-		flex-direction: wrap ?if media (--screen-md);
+		flex-wrap: wrap ?if media (--screen-md);
 
 		li {
 			width: 80px;
+			margin-top: 24px ?if media (--screen-md);
 
 			&:nth-child(n+2) {
 				margin-top: 32px ?if media (--screen-md-min);
