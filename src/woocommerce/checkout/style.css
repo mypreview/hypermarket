@@ -23,9 +23,12 @@
 			padding-left: 30px ?if media (--screen-md) and (--screen-sm-min);
 			width: 100% ?if media (--screen-sm);
 
-			.col-full--fluid &,
 			.has-sidebar & {
 				padding-left: 30px ?if media (--screen-md-min);
+			}
+
+			.col-full--fluid & {
+    			width: calc(28% + 30px) ?if media (--screen-lg-min);
 			}
 		}
 	}
