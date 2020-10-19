@@ -27,61 +27,77 @@ get_header();
 
 			?>
 			<div class="entry-wrapper">
-				<div class="error-404-widgets row-1 col-2">
-					<div class="block error-404-widget">
-						<?php 
-						if ( hypermarket_is_woocommerce_activated() ) {
-							hypermarket_promoted_products( '6', '2' );
-						} else {
-							the_widget( 'WP_Widget_Recent_Posts', array( 'title' => esc_html__( 'Recent Posts', 'hypermarket' ) ) );
-						}
-						?>
-					</div>
-					<div class="block error-404-widget">
-						<?php 
-						if ( hypermarket_is_woocommerce_activated() ) {
-							the_widget(
-								'WC_Widget_Product_Categories',
-								array(
-									'count' => 1,
-									'title' => esc_html__(
-										'Product Categories',
-										'hypermarket' 
-									),
-								) 
-							);
-						} else {
-							the_widget(
-								'WP_Widget_Categories',
-								array(
-									'count' => 1,
-									'title' => esc_html__(
-										'Post Categories',
-										'hypermarket' 
-									),
-								) 
-							);
-						}
-						?>
-					</div>
+				<div class="error-404-widgets">
+					<?php 
+					if ( hypermarket_is_woocommerce_activated() ) {
+						the_widget(
+							'WC_Widget_Products',
+							array(
+								'title' => esc_html__(
+									'Recent Products',
+									'hypermarket' 
+								),
+							) 
+						);
+						the_widget(
+							'WC_Widget_Product_Categories',
+							array(
+								'count'        => 1,
+								'hide_empty'   => 1,
+								'hierarchical' => 0,
+								'title'        => esc_html__(
+									'Product Categories',
+									'hypermarket' 
+								),
+							) 
+						);
+						the_widget(
+							'WC_Widget_Product_Tag_Cloud',
+							array(
+								'title' => esc_html__(
+									'Product Tags',
+									'hypermarket' 
+								),
+							) 
+						);
+					} else {
+						the_widget( 'WP_Widget_Recent_Posts', array( 'title' => esc_html__( 'Recent Posts', 'hypermarket' ) ) );
+						the_widget(
+							'WP_Widget_Categories',
+							array(
+								'title' => esc_html__(
+									'Post Categories',
+									'hypermarket' 
+								),
+							) 
+						);
+						the_widget(
+							'WP_Widget_Tag_Cloud',
+							array(
+								'title' => esc_html__(
+									'Post Tags',
+									'hypermarket' 
+								),
+							) 
+						);
+					}
+					?>
 				</div>
 				<?php if ( hypermarket_is_woocommerce_activated() ) : ?>
-					<div class="error-404-widgets row-2 col-1">
-						<div class="block error-404-widget">
-							<?php
-							/* translators: 1: Open h2 tag, Close h2 tag. */
-							printf( esc_html__( '%1$sBest-Selling Products%2$s', 'hypermarket' ), '<h2>', '</h2>' );
+					<div class="error-404-widget">
+						<?php
+						/* translators: 1: Open h2 tag, Close h2 tag. */
+						printf( esc_html__( '%1$sBest-Selling Products%2$s', 'hypermarket' ), '<h2>', '</h2>' );
 
-							//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							echo hypermarket_do_shortcode(
-								'best_selling_products',
-								array(
-									'per_page' => 4,
-									'columns'  => 4,
-								)
-							);
-							?>
-						</div>
+						//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo hypermarket_do_shortcode(
+							'best_selling_products',
+							array(
+								'per_page' => 4,
+								'columns'  => 4,
+							)
+						);
+						?>
 					</div>
 				<?php endif; ?>
 			</div>
