@@ -5,8 +5,7 @@
 .woocommerce-cart {
 	.entry-content {
 		> .woocommerce {
-			display: flex;
-			justify-content: space-between;
+			box: space-between;
 			flex-wrap: wrap ?if media (--screen-sm-min);
 			flex-direction: column ?if media (--screen-sm);
 		}
