@@ -32,7 +32,8 @@ add_action( 'hypermarket_header', 'hypermarket_handheld_menu', 50 );
  */
 add_action( 'hypermarket_before_footer', 'hypermarket_get_footer_bar' );
 add_action( 'hypermarket_footer', 'hypermarket_footer_widgets' );
-add_action( 'hypermarket_footer', 'hypermarket_credit', 20 );
+add_action( 'hypermarket_after_footer_widget_region', 'hypermarket_credit' );
+add_action( 'hypermarket_no_footer_widget_region', 'hypermarket_credit' );
 
 /**
  * Content
