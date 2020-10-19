@@ -277,35 +277,21 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 				'description' => __( 'A full-width widgetized area which will display any widget added to this region above the footer widget area.', 'hypermarket' ),
 			);
 
-			$rows    = intval( apply_filters( 'hypermarket_footer_widget_rows', 1 ) );
-			$regions = intval( apply_filters( 'hypermarket_footer_widget_columns', 3 ) );
+			$regions = intval( apply_filters( 'hypermarket_footer_widget_regions', 3 ) );
 
-			for ( $row = 1; $row <= $rows; $row++ ) {
-				for ( $region = 1; $region <= $regions; $region++ ) {
-					$footer_n = $region + $regions * ( $row - 1 ); // Defines footer sidebar ID.
-					$footer   = sprintf( 'footer_%d', $footer_n );
-
-					if ( 1 === $rows ) {
-						/* translators: 1: column number */
-						$footer_region_name = sprintf( __( 'Footer Column %1$d', 'hypermarket' ), $region );
-
-						/* translators: 1: column number */
-						$footer_region_description = sprintf( __( 'Widgets added here will appear in column %1$d of the footer.', 'hypermarket' ), $region );
-					} else {
-						/* translators: 1: row number, 2: column number */
-						$footer_region_name = sprintf( __( 'Footer Row %1$d - Column %2$d', 'hypermarket' ), $row, $region );
-
-						/* translators: 1: column number, 2: row number */
-						$footer_region_description = sprintf( __( 'Widgets added here will appear in column %1$d of footer row %2$d.', 'hypermarket' ), $region, $row );
-					}
-
-					$sidebar_args[ $footer ] = array(
-						'name'        => $footer_region_name,
-						'id'          => sprintf( 'footer-%d', $footer_n ),
-						'description' => $footer_region_description,
-					);
-				} // End of the loop.
-			} // End of the loop.
+			for ( $region = 1; $region <= $regions; $region++ ) {
+				$footer_n = $region + $regions;
+				$footer   = sprintf( 'footer_%d', $footer_n );
+				/* translators: 1: column number */
+				$footer_region_name = sprintf( __( 'Footer Column %1$d', 'hypermarket' ), $region );
+				/* translators: 1: column number */
+				$footer_region_description = sprintf( __( 'Widgets added here will appear in column %1$d of the footer.', 'hypermarket' ), $region );
+				$sidebar_args[ $footer ]   = array(
+					'name'        => $footer_region_name,
+					'id'          => sprintf( 'footer-%d', $footer_n ),
+					'description' => $footer_region_description,
+				);
+			}
 
 			$sidebar_args = apply_filters( 'hypermarket_sidebar_args', $sidebar_args );
 
@@ -322,10 +308,9 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 				 *
 				 * 'hypermarket_header_widget_tags'
 				 * 'hypermarket_sidebar_widget_tags'
-				 *
-				 * 'hypermarket_footer_1_widget_tags' -> (Row 1)
-				 * 'hypermarket_footer_2_widget_tags' -> (Row 1)
-				 * 'hypermarket_footer_3_widget_tags' -> (Row 1)
+				 * 'hypermarket_footer_1_widget_tags'
+				 * 'hypermarket_footer_2_widget_tags'
+				 * 'hypermarket_footer_3_widget_tags'
 				 */
 				$filter_hook = sprintf( '%s_%s_widget_tags', $hypermarket->slug, $sidebar );
 				$widget_tags = apply_filters( $filter_hook, $widget_tags ); //phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound

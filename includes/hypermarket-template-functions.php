@@ -30,37 +30,33 @@ if ( ! function_exists( 'hypermarket_footer_widgets' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_footer_widgets() {
-		$rows    = intval( apply_filters( 'hypermarket_footer_widget_rows', 1 ) );
-		$regions = intval( apply_filters( 'hypermarket_footer_widget_columns', 3 ) );
+		$has_widgets = false;
+		$regions     = intval( apply_filters( 'hypermarket_footer_widget_regions', 3 ) );
+		
+		for ( $region = 1; $region <= $regions; $region++ ) :
+			$footer_n = $region + $regions;
+			$footer   = sprintf( 'footer-%d', $footer_n );
 
-		for ( $row = 1; $row <= $rows; $row++ ) :
-			// Defines the number of active columns in this footer row.
-			for ( $region = $regions; 0 < $region; $region-- ) {
-				if ( is_active_sidebar( sprintf( 'footer-%d', esc_attr( $region + $regions * ( $row - 1 ) ) ) ) ) {
-					$columns = $region;
-					break;
-				}
-			}
+			if ( is_active_sidebar( $footer ) ) :
+				?>
+				<div class="site-footer__widgets">
+					<?php 
+					do_action( 'hypermarket_before_footer_widget_region' );
+					
+					dynamic_sidebar( $footer ); 
 
-			if ( isset( $columns ) ) :
-				do_action( 'hypermarket_before_footer_widget_column' );
-
-				for ( $column = 1; $column <= $columns; $column++ ) :
-					$footer_n = $column + $regions * ( $row - 1 );
-
-					if ( is_active_sidebar( 'footer-' . esc_attr( $footer_n ) ) ) :
-						?>
-						<div class="site-footer__widgets">
-							<?php dynamic_sidebar( sprintf( 'footer-%d', esc_attr( $footer_n ) ) ); ?>
-						</div>
-						<?php
-					endif;
-				endfor;
-
-				do_action( 'hypermarket_after_footer_widget_column' );
-				unset( $columns );
+					do_action( 'hypermarket_after_footer_widget_region' );
+					?>
+				</div>
+				<?php
+				$has_widgets = ! $has_widgets;
 			endif;
 		endfor;
+
+		// Run this action if all widget regions are empty!
+		if ( ! $has_widgets ) {
+			do_action( 'hypermarket_no_footer_widget_region' );
+		}
 	}
 endif;
 
@@ -72,32 +68,27 @@ if ( ! function_exists( 'hypermarket_credit' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_credit() {
+		// Bail early, in case the copyright is already being outputted.
+		if ( did_action( 'hypermarket_before_footer_widget_region' ) > 1 ) {
+			return;
+		}
+
 		global $hypermarket;
 		$return = '';
 
 		if ( apply_filters( 'hypermarket_credit_link', true ) ) {
-			//phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
-			$return .= sprintf( '<a href="%s" target="_blank" title="%s" rel="author">%s</a>.', esc_url( $hypermarket->theme_uri ), esc_attr__( 'Proudly powered by WordPress', 'hypermarket' ), sprintf( esc_html__( 'Built with %s', 'hypermarket' ), $hypermarket->name ) );
+			// phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+			$return .= sprintf( '<a href="%s" target="_blank" title="%s" rel="author" rel="noopener noreferrer nofollow">%s</a>.', esc_url( $hypermarket->theme_uri ), esc_attr__( 'Proudly powered by WordPress', 'hypermarket' ), sprintf( esc_html__( '&copy; %1$s. Made with %2$s by %3$s', 'hypermarket' ), date_i18n( 'Y' ), '❤', $hypermarket->name ) );
 		}
 
-		if ( apply_filters( 'hypermarket_privacy_policy_link', true ) && function_exists( 'the_privacy_policy_link' ) ) {
-			$separator = '<span role="separator" aria-hidden="true"></span>';
-			$return    = get_the_privacy_policy_link( '', ( ! empty( $return ) ? $separator : '' ) ) . $return;
-		}
-		
 		$return = apply_filters( 'hypermarket_credit_links_output', $return );
 		
 		?>
 		<div class="site-info">
 		<?php 
-			echo esc_html( apply_filters( 'hypermarket_copyright_text', $content = sprintf( '&copy; %s %s', get_bloginfo( 'name' ), date( 'Y' ) ) ) );
-
-		if ( ! empty( $return ) ) :
-			?>
-				<br />
-				<?php
-				echo wp_kses_post( $return ); 
-			endif; 
+		if ( ! empty( $return ) ) {
+			echo wp_kses_post( $return ); 
+		}
 		?>
 		</div><!-- .site-info -->
 		<?php
