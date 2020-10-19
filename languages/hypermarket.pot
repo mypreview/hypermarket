@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-10-19T00:12:13+00:00\n"
+"POT-Creation-Date: 2020-10-19T21:49:45+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: hypermarket\n"
@@ -35,19 +35,31 @@ msgid "https://www.mypreview.one"
 msgstr ""
 
 #: 404.php:36
-msgid "Recent Posts"
+msgid "Recent Products"
 msgstr ""
 
-#: 404.php:47
+#: 404.php:48
 msgid "Product Categories"
 msgstr ""
 
-#: 404.php:58
+#: 404.php:57
+msgid "Product Tags"
+msgstr ""
+
+#: 404.php:64
+msgid "Recent Posts"
+msgstr ""
+
+#: 404.php:68
 msgid "Post Categories"
 msgstr ""
 
+#: 404.php:77
+msgid "Post Tags"
+msgstr ""
+
 #. translators: 1: Open h2 tag, Close h2 tag.
-#: 404.php:73
+#: 404.php:90
 msgid "%1$sBest-Selling Products%2$s"
 msgstr ""
 
