@@ -44,6 +44,17 @@ add_action( 'hypermarket_after_footer', 'hypermarket_handheld_toolbar', 99 );
 add_action( 'hypermarket_page_top', 'hypermarket_shop_messages', 30 );
 
 /**
+ * No products found
+ *
+ * @see  hypermarket_wrapper()
+ * @see  hypermarket_div_close()
+ * @see  woocommerce_get_sidebar()
+ */
+add_action( 'woocommerce_no_products_found', 'hypermarket_wrapper', 5 );
+add_action( 'woocommerce_no_products_found', 'hypermarket_div_close', 15 );
+add_action( 'woocommerce_no_products_found', 'woocommerce_get_sidebar', 30 );
+
+/**
  * Layout
  *
  * @see  hypermarket_before_content()
