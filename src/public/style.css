@@ -14,6 +14,7 @@
 @import "./tables/style.css";
 @import "./pagination/style.css";
 @import "./content/style.css";
+@import "./core-blocks/style.css";
 @import "./single-view/style.css";
 @import "./post-view/style.css";
 @import "./post-navigation/style.css";
