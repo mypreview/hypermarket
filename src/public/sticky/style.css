@@ -6,4 +6,8 @@
 			$(position): 0;
 		}
 	}
+
+	.admin-bar &--top {
+		@extend %is-admin-bar;
+	}
 }
