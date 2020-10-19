@@ -79,3 +79,8 @@
 		padding: 8px 17px;
 	}
 }
+
+%is-admin-bar {
+	top: 32px ?if media (min-width: 783px);
+	top: 46px ?if media (max-width: 782px) and (min-width: 601px);
+}
