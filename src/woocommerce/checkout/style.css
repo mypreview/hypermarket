@@ -28,7 +28,7 @@
 			}
 
 			.col-full--fluid & {
-    			width: calc(28% + 30px) ?if media (--screen-lg-min);
+				width: calc(28% + 30px) ?if media (--screen-lg-min);
 			}
 		}
 	}
