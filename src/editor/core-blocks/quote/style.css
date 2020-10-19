@@ -1,0 +1,33 @@
+.wp-block-quote {
+	position: relative;
+	padding: 12px 0 12px 25px;
+	margin: 0 0 var(--line-height-computed);
+	font-size: calc(var(--general-normal) * 1.125);
+	font-weight: 300;
+	color: var(--general-quote);
+	border-left: 5px solid var(--general-border);
+
+	.editor-styles-wrapper .block-editor-writing-flow & p {
+		margin-bottom: 0;
+	}
+
+	&.is-style-large {
+		p {
+			font-size: var(--general-medium);
+		}
+	}
+
+	&__citation {
+		box: horizontal middle;
+		font-size: var(--general-small);
+		color: var(--general-entry-alt);
+		margin-top: 10px;
+
+		&::before {
+			content: "";
+			size: 20px 1px;
+			background-color: var(--general-entry-alt);
+			margin-right: 9px;
+		}
+	}
+}

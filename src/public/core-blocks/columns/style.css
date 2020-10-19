@@ -1,0 +1,13 @@
+.wp-block-columns {
+	margin-bottom: 0;
+
+	@media (max-width: 48.813em) {
+		.wp-block-column {
+			flex-basis: 100% !important;
+
+			&:nth-child(2n) {
+				margin-left: 0;
+			}
+		}
+	}
+}

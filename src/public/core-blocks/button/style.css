@@ -28,23 +28,19 @@
 		border-radius: var(--border-radius-base);
 		padding: 10px 22px;
 		text-transform: uppercase;
+		text-decoration: none;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+		text-align: center;
 		cursor: pointer;
 		@extend %button-shift;
 
 		.is-style-outline & {
 			border: 2px solid;
-
-			&:not(.has-text-color) {
-				color: var(--general-primary);
-			}
 		}
-	}
 
-	&:not(.is-style-outline) {
-		^&__link {
+		^&:not(.is-style-outline) & {
 			&:not(.has-background) {
 				background-color: var(--general-primary);
 
