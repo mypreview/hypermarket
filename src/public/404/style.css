@@ -10,13 +10,13 @@
 }
 .error-404-widget {
 	margin-top: 70px;
-    border-top: 1px solid var(--general-border);
-    padding-top: 48px;
+	border-top: 1px solid var(--general-border);
+	padding-top: 48px;
 
-    > h2 {
-	    font-size: var(--general-large);
-    	margin-bottom: 44px;
-    }
+	> h2 {
+		font-size: var(--general-large);
+		margin-bottom: 44px;
+	}
 
 	&s {
 		display: flex;
@@ -29,9 +29,9 @@
 			&:nth-child(n+2) {
 				margin-left: 30px ?if media (--screen-sm-min);
 				@media (--screen-sm) {
-				    border-top: 2px solid var(--general-border);
-				    padding-top: 28px;
-				    margin-top: 28px;
+					border-top: 2px solid var(--general-border);
+					padding-top: 28px;
+					margin-top: 28px;
 				}
 			}
 		}
