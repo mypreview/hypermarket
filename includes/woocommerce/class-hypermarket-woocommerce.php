@@ -104,7 +104,6 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 * @return  void
 		 */
 		public function enqueue() {
-			global $hypermarket;
 			$asset_name    = 'woocommerce';
 			$asset         = hypermarket_get_file_assets( $asset_name );
 			$style_handle  = hypermarket_get_asset_handle( $asset_name, 'style' );
