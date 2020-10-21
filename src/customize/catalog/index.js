@@ -1,10 +1,5 @@
 /* global hypermarket_customize */
 
-/**
- * External dependencies
- */
-import $ from 'jquery';
-
 export const catalog = {
 	cache() {
 		catalog.els = {};
@@ -18,8 +13,8 @@ export const catalog = {
 	},
 	// Redirect to the `Shop` page when the `Product Catalog` section is expanded.
 	onExpand() {
-		wp.customize.section( catalog.vars.section, function( section ) {
-			section.expanded.bind( function( isExpanded ) {
+		wp.customize.section( catalog.vars.section, ( section ) => {
+			section.expanded.bind( ( isExpanded ) => {
 				if ( !! isExpanded ) {
 					wp.customize.previewer.previewUrl.set( hypermarket_customize.shop_url );
 				}
