@@ -48,6 +48,7 @@
 		"eslint-config-prettier": "6.12.0",
 		"file-loader": "^6.1.1",
 		"license-checker-webpack-plugin": "^0.1.5",
+		"lodash": "^4.17.20",
 		"mini-css-extract-plugin": "^1.0.0",
 		"optimize-css-assets-webpack-plugin": "^5.0.4",
 		"postcss-calc": "^7.0.2",
