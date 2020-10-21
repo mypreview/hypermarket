@@ -3,7 +3,6 @@
 		padding-top: 48px;
 	}
 
-
 	&-form {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr) ?if media (--screen-sm-min);
@@ -47,19 +46,27 @@
 
 	&-list {
 		padding-left: 0;
+
+		@each $item in .pingback, .trackback, .comment {
+			li$(item) {
+				list-style: none;
+				margin: 0 0 30px 66px;
+				margin-left: 0 ?if media (--screen-xs);
+				padding: 24px;
+				background-color: var(--general-tile);
+				position: relative;
+				font-size: var(--general-small);
+				line-height: 1.5;
+				border-radius: var(--border-radius-small);
+			}
+		}
+
+		.edit-link {
+			font-size: calc(var(--general-normal)*0.75);
+		}
 	}
 
 	li& {
-		list-style: none;
-		margin: 0 0 30px 66px;
-		margin-left: 0 ?if media (--screen-xs);
-		padding: 24px;
-		background-color: var(--general-tile);
-		position: relative;
-		font-size: var(--general-small);
-		line-height: 1.5;
-		border-radius: var(--border-radius-small);
-
 		^&-reply-title {
 			margin-bottom: 10px;
 			font-size: calc(var(--general-normal) * 1.25);
