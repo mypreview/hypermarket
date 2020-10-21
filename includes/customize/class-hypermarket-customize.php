@@ -48,15 +48,16 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		 * @return  void
 		 */
 		public function enqueue() {
-			global $hypermarket;
-			$asset_name = 'customize';
-			$asset      = hypermarket_get_file_assets( $asset_name );
+			$asset_name    = 'customize';
+			$asset         = hypermarket_get_file_assets( $asset_name );
+			$style_handle  = hypermarket_get_asset_handle( $asset_name, 'style' );
+			$script_handle = hypermarket_get_asset_handle( $asset_name, 'script' );
 
 			// Styles.
-			wp_enqueue_style( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
-			wp_style_add_data( sprintf( '%s-%s-style', $hypermarket->slug, $asset_name ), 'rtl', 'replace' );
+			wp_enqueue_style( $style_handle, get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
+			wp_style_add_data( $style_handle, 'rtl', 'replace' );
 			// Scripts.
-			wp_enqueue_script( sprintf( '%s-%s-script', $hypermarket->slug, $asset_name ), get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), array( 'jquery', 'customize-controls' ), $asset['version'], true );
+			wp_enqueue_script( $script_handle, get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), array( 'jquery', 'customize-controls' ), $asset['version'], true );
 		}
 
 		/**
