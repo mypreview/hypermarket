@@ -119,7 +119,7 @@ add_action( 'hypermarket_page_bottom', 'hypermarket_display_comments', 30 );
  */
 add_action( 'hypermarket_home_top', 'hypermarket_div', 5 );
 add_action( 'hypermarket_home_top', 'hypermarket_posts_page_header' );
-add_action( 'hypermarket_home_top', 'hypermarket_div_close', 15 );
+add_action( 'hypermarket_home_top', 'hypermarket_div_close', 25 );
 
 /**
  * Not-found (404)
