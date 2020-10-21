@@ -39,6 +39,12 @@
 
 			a {
 				@mixin link var(--general-entry-alt);
+
+				.sticky&:before {
+					@mixin icon "\ee21";
+				    vertical-align: bottom;
+			        color: var(--general-entry-alt);
+				}
 			}
 		}
 
@@ -76,8 +82,6 @@
 	}
 
 	.post-categories {
-		&:nth-last-child(2) {
-			@extend %meta-divider;
-		}
+		@extend %meta-divider;
 	}
 }
