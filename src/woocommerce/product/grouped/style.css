@@ -1,0 +1,24 @@
+.woocommerce-grouped-product-list {
+	margin-bottom: 15px;
+	
+	td {
+		vertical-align: middle;
+
+		.product .entry-summary & > * {
+			margin: 0;
+		}
+	}
+
+	&-item {
+		&__label {
+			a {
+				@mixin link;
+			}
+
+			label {
+			    margin-bottom: 0;
+	    		padding-left: 0;
+			}
+		}
+	}
+}
