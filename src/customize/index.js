@@ -6,6 +6,7 @@ import './style.css';
 /**
  * Custom scripts.
  */
+import { catalog } from './catalog';
 import { range } from './range';
 
 /**
@@ -17,7 +18,7 @@ import forEach from 'lodash/forEach';
 if ( !! wp && !! wp.customize ) {
 	// Trigger the custom scripts once the Customizer is ready and fully loaded.
 	window.wp.customize.bind( 'ready', () => {
-		forEach( [ range ], ( component ) => {
+		forEach( [ catalog, range ], ( component ) => {
 			component.ready();
 		} );
 	} );
