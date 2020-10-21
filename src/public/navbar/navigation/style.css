@@ -9,7 +9,7 @@ nav {
 }
 
 .main-navigation {
-	flex-grow: 1;
+	flex: 1;
 	text-transform: uppercase;
 	font-size: var(--general-small);
 	padding: 10px 0;
@@ -30,6 +30,7 @@ nav {
 		}
 	}
 
+	[class*="current_"],
 	.current-menu-item {
 		a {
 			color: var(--general-entry-alt);
@@ -37,6 +38,7 @@ nav {
 		}
 	}
 
+	[class*="_has_children"],
 	.menu-item-has-children {
 		> a::after {
 			display: inline-block;
@@ -58,64 +60,67 @@ nav {
 		}
 	}
 
-	.sub-menu {
-		display: none;
-		position: absolute calc(100% + 9px) null null 0;
-		width: 240px;
-		margin-top: -14px;
-		padding: 20px;
-		text-align: left;
-		background-color: var(--general-background);
-		border: 1px solid var(--general-border);
-		z-index: 1;
+	@each $item in children, sub-menu {
+		.$(item) {
+			display: none;
+			position: absolute calc(100% + 9px) null null 0;
+			width: 240px;
+			margin-top: -14px;
+			padding: 20px;
+			text-align: left;
+			background-color: var(--general-background);
+			border: 1px solid var(--general-border);
+			z-index: 1;
 
-		.sub-menu {
-			top: 0;
-			left: 100%;
-			margin-top: -6px;
-		}
+			.$(item) {
+				top: 0;
+				left: 100%;
+				margin-top: -6px;
+			}
 
-		.is-off-screen {
-			.sub-menu {
-				left: auto;
-				right: 100%;
+			.is-off-screen {
+				.$(item) {
+					left: auto;
+					right: 100%;
+				}
+			}
+
+			li {
+				&:nth-child(n+2) {
+					margin-top: 8px;
+				}
+			}
+
+			a {
+				padding: 0;
+				font-size: calc(var(--general-small) * 6/7);
+			}
+
+			[class*="_has_children"],
+			.menu-item-has-children {
+				> a::after {
+					content: "\e9ff";
+					margin-left: 8px;
+					margin-top: -1px;
+				}
 			}
 		}
 
 		li {
-			&:nth-child(n+2) {
-				margin-top: 8px;
+			position: relative;
+
+			&:hover {
+				> .$(item) {
+					display: block;
+					animation: slideUp 0.4s;
+				}
 			}
-		}
 
-		a {
-			padding: 0;
-			font-size: calc(var(--general-small) * 6/7);
-		}
-
-		.menu-item-has-children {
-			> a::after {
-				content: "\e9ff";
-				margin-left: 8px;
-				margin-top: -1px;
-			}
-		}
-	}
-
-	li {
-		position: relative;
-
-		&:hover {
-			> .sub-menu {
-				display: block;
-				animation: slideUp 0.4s;
-			}
-		}
-
-		.sub-menu {
-			> li:hover {
-				> .sub-menu {
-					animation: slideRight 0.4s;
+			.$(item) {
+				> li:hover {
+					.$(item) {
+						animation: slideRight 0.4s;
+					}
 				}
 			}
 		}
