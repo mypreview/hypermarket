@@ -6,6 +6,7 @@
 @import "./star-rating/style.css";
 @import "./meta/style.css";
 @import "./stock/style.css";
+@import "./grouped/style.css";
 @import "./variations/style.css";
 @import "./tabs/style.css";
 @import "./products/style.css";
