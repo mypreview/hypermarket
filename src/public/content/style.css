@@ -38,11 +38,19 @@
 
 .post-edit-link {
 	font-size: var(--general-small);
-	text-decoration: none;
-	display: inline-flex;
 	margin-top: 14px;
+}
 
-	&::before {
-		@mixin icon "\ed50";
+.edit-link {
+	display: block;
+	text-align: right;
+	color: var(--general-entry-alt);
+
+	a {
+		@mixin link;
+
+		&::before {
+			@mixin icon "\ed50";
+		}
 	}
 }
