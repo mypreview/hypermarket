@@ -37,7 +37,7 @@
 }
 
 %meta-divider {
-	&::after {
+	&:nth-last-child(2)::after {
 		content: "";
 		display: inline-block;
 		size: 1px 11px;
