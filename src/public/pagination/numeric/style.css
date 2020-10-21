@@ -1,13 +1,42 @@
+@each $nav, $item in (.pagination, .page-links), (li, .post-page-numbers) {
+	$(nav) {
+		font-size: var(--general-small);
+		padding-top: 30px;
+		border-top: 1px solid var(--general-border);
+		box: horizontal top;
+
+		$(item) {
+			display: inline-block;
+			color: var(--general-entry);
+		}
+
+		.current {
+			opacity: 0.55;
+		}
+	}
+}
+
+.post-page-numbers {
+	display: inline-block;
+	padding: 2px 10px 2px 0;
+    margin-top: -2px;
+	@mixin shift opacity;
+
+	&:first-child {
+		margin-left: 10px;
+	}
+
+	&:hover {
+		opacity: 0.55;
+	}
+
+	a& {
+		@mixin link;
+	}
+}
+
 .pagination {
-	font-size: var(--general-small);
-	padding-top: 30px;
-	border-top: 1px solid var(--general-border);
-	box: horizontal top;
-
 	li {
-		display: inline-block;
-		color: var(--general-entry);
-
 		> * {
 			display: inline-block;
 			padding: 2px 10px 2px 0;
@@ -21,10 +50,6 @@
 		a {
 			@mixin link;
 		}
-	}
-
-	.current {
-		opacity: 0.55;
 	}
 }
 
@@ -43,9 +68,7 @@
 		}
 
 		> * {
-			&:nth-last-child(2) {
-				@extend %meta-divider;
-			}
+			@extend %meta-divider;
 		}
 	}
 }
