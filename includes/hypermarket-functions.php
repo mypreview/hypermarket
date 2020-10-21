@@ -316,7 +316,7 @@ if ( ! function_exists( 'hypermarket_navigation_pager' ) ) :
 	 */
 	function hypermarket_navigation_pager( $echo = false ) {
 		// Bail early, in case the AJAX pagination module is activated.
-		if ( ! ! hypermarket_jscroll_activated() ) {
+		if ( ! ! hypermarket_jscroll_activated() || is_single() ) {
 			return;
 		}
 

@@ -286,8 +286,8 @@ if ( ! function_exists( 'hypermarket_posts_page_header' ) ) :
 	 * @return  void
 	 */
 	function hypermarket_posts_page_header() {
-		// Bail early if the blog posts page is not configured.
-		if ( ! ! ! hypermarket_has_blog_page() || ! ! ! hypermarket_is_blog_archive() ) {
+		// Bail early if the current page is a blog post archive.
+		if ( ! ! ! hypermarket_is_blog_archive() ) {
 			return;
 		}
 
