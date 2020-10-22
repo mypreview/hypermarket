@@ -1,6 +1,6 @@
 .wp-block-image {
 	.components-resizable-box__container {
-	    max-width: 100% !important;
+		max-width: 100% !important;
 	}
 
 	&.is-resized {
