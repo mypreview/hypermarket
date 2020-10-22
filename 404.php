@@ -3,8 +3,8 @@
  * The template for displaying 404 pages (not found).
  *
  * @link        https://codex.wordpress.org/Creating_an_Error_404_Page
- * @link        https://www.upwork.com/fl/mahdiyazdani
- * @author      Mahdi Yazdani <mahdiyazdani@mail.com>
+ * @link        https://mypreview.github.io/hypermarket
+ * @author      MyPreview
  * @since       2.0.0
  *
  * @package     hypermarket

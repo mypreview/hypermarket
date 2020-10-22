@@ -13,7 +13,7 @@
  *
  * @see         https://codex.wordpress.org/Theme_Development
  * @see         https://codex.wordpress.org/Plugin_API
- * @author      Mahdi Yazdani <mahdiyazdani@mail.com>
+ * @author      MyPreview
  * @since       2.0.0
  *
  * @package     hypermarket

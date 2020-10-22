@@ -4,8 +4,8 @@
  * Included on pages like index.php, archive.php and `search.php` to display a loop of posts.
  *
  * @link        https://codex.wordpress.org/The_Loop
- * @link        https://www.upwork.com/fl/mahdiyazdani
- * @author      Mahdi Yazdani <mahdiyazdani@mail.com>
+ * @link        https://mypreview.github.io/hypermarket
+ * @author      MyPreview
  * @since       2.0.0
  *
  * @package     hypermarket

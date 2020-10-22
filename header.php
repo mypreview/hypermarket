@@ -4,8 +4,8 @@
  * This is the template that displays all of the `<head>` section and everything up until `<div id="content">`
  *
  * @link        https://developer.wordpress.org/themes/basics/template-files/#template-partials
- * @link        https://www.upwork.com/fl/mahdiyazdani
- * @author      Mahdi Yazdani <mahdiyazdani@mail.com>
+ * @link        https://mypreview.github.io/hypermarket
+ * @author      MyPreview
  * @since       2.0.0
  *
  * @package     hypermarket

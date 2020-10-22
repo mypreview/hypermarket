@@ -2,8 +2,8 @@
 /**
  * Hypermarket WooCommerce hooks
  *
- * @link       https://www.upwork.com/fl/mahdiyazdani
- * @author     Mahdi Yazdani <mahdiyazdani@mail.com>
+ * @link       https://mypreview.github.io/hypermarket
+ * @author     MyPreview
  * @since      2.0.0
  *
  * @package    hypermarket

@@ -4,8 +4,8 @@
  * Displays a button to open the collapsible sidebar on mobile devices.
  *
  * @link        https://developer.wordpress.org/themes/basics/template-files/#template-partials
- * @link        https://www.upwork.com/fl/mahdiyazdani
- * @author      Mahdi Yazdani <mahdiyazdani@mail.com>
+ * @link        https://mypreview.github.io/hypermarket
+ * @author      MyPreview
  * @since       2.0.0
  *
  * @package     hypermarket
