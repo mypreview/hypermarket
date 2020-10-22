@@ -1,0 +1,20 @@
+.post-password-form {
+	> p {
+		&:last-child {
+			display: flex;
+    		flex-direction: column;
+		    max-width: 360px;
+		}
+	}
+
+	[type="password"] {
+		margin-left: -18px;
+    	width: calc(100% + 18px);
+	}
+
+	[type="submit"] {
+		min-width: 40%;
+    	width: auto;
+    	margin: 17px 0 0 auto;
+	}
+}
