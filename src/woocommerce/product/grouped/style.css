@@ -1,6 +1,6 @@
 .woocommerce-grouped-product-list {
 	margin-bottom: 15px;
-	
+
 	td {
 		vertical-align: middle;
 
@@ -16,8 +16,8 @@
 			}
 
 			label {
-			    margin-bottom: 0;
-	    		padding-left: 0;
+				margin-bottom: 0;
+				padding-left: 0;
 			}
 		}
 	}

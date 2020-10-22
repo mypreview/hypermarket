@@ -40,10 +40,10 @@
 			a {
 				@mixin link var(--general-entry-alt);
 
-				.sticky&:before {
+				.sticky&::before {
 					@mixin icon "\ee21";
-				    vertical-align: bottom;
-			        color: var(--general-entry-alt);
+					vertical-align: bottom;
+					color: var(--general-entry-alt);
 				}
 			}
 		}
