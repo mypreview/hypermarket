@@ -1,0 +1,78 @@
+.wp-block-table {
+	margin-bottom: var(--line-height-computed);
+	overflow-x: auto;
+
+	figcaption {
+		@extend %caption;
+	}
+
+	table {
+		border-collapse: collapse;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.is-style-stripes& {
+		border-width: 0;
+		
+		tbody {
+			tr:nth-of-type(odd) {
+				background-color: var(--general-tile);
+			}
+		}
+	}
+
+	td,
+	th {
+		text-align: left;
+		word-break: normal;
+		vertical-align: top;
+		line-height: var(--line-height-base);
+		padding: var(--table-cell-padding);
+		border-style: solid;
+		border-width: 0 0 1px;
+		border-color: var(--general-border);
+	}
+
+	thead {
+		border-width: 0;
+
+		td,
+		th {
+			border-width: 0 0 2px;
+			vertical-align: bottom;
+		}
+	}
+
+	tfoot {
+		border-width: 0;
+	}
+
+	@media (--screen-xs) {
+		width: 100%;
+		overflow-y: hidden;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+
+		th,
+		td {
+			white-space: nowrap;
+
+			&:first-child {
+				border-left: 0;
+			}
+			&:last-child {
+				border-right: 0;
+			}
+		}
+
+		tbody,
+		tfoot {
+			tr:last-child {
+				th,
+				td {
+					border-bottom: 0;
+				}
+			}
+		}
+	}
+}
