@@ -1,4 +1,7 @@
 .wp-block-image {
 	margin-bottom: 0;
-	width: 100%;
+
+	figcaption {
+		@extend %caption;
+	}
 }
