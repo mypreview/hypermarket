@@ -172,7 +172,30 @@ code {
 	font-size: 90%;
 	color: #c7254e;
 	background-color: #f9f2f4;
-	border-radius: 4px;
+	border-radius: var(--border-radius-small);
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	max-width: 100%;
+}
+
+td,
+th {
+	text-align: left;
+	word-break: normal;
+	vertical-align: top;
+	line-height: var(--line-height-base);
+	padding: var(--table-cell-padding);
+	border-style: solid;
+	border-width: 0 0 1px;
+	border-color: var(--general-border);
+
+	thead & {
+		border-width: 0 0 2px;
+		vertical-align: bottom;
+	}
 }
 
 /**
