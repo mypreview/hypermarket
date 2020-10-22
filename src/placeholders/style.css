@@ -3,8 +3,8 @@
 }
 
 %caption {
-	color: #555d66;
-	font-size: 13px;
+	color: inherit;
+	font-size: calc(var(--general-normal) * 0.8125);
 	text-align: center;
 	padding-top: var(--table-cell-padding);
 }
