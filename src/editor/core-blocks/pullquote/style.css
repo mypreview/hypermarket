@@ -1,0 +1,38 @@
+.wp-block-pullquote {
+	padding: 24px 0;
+    margin-bottom: var(--line-height-computed);
+
+	blockquote {
+    	p {
+    		font-size: var(--general-medium);
+    	}
+	}
+
+	&__citation {
+        text-transform: uppercase;
+        font-size: var(--general-small);
+    	margin-top: 10px;
+	}
+
+	&:not(.is-style-solid-color) {
+		border-color: var(--general-border);
+    	border-width: 4px 0;
+    	border-style: solid;
+    	
+		blockquote {
+			text-align: center;
+			margin: 0;
+		}
+	}
+
+	&.is-style-solid-color {
+		blockquote {
+			max-width: 60%;
+			margin: 0 auto;
+
+			p {
+				font-size: var(--general-medium);
+			}
+		}
+	}
+}
