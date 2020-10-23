@@ -54,7 +54,7 @@ if ( ! class_exists( 'Hypermarket_Customize_More_Control' ) ) :
 			<p>
 				<?php 
 				/* translators: 1: Emoji unicode, 2: Open anchor tag, 3: Close anchor tag. */
-				printf( esc_html__( 'If you&rsquo;ve stumbled upon an issue (bug) %1$s with the functionality (and you do not know how to fix it), have trouble following the documentation or have a question about hooks (filters and actions) used in the theme &mdash; %2$screate an issue%3$s!', 'hypermarket' ), '🐛🐞', sprintf( '<a href="https://github.com/mypreview/%s" target="_blank" rel="noopener noreferrer nofollow">', esc_html( $hypermarket->slug ) ), '</a>' ); 
+				printf( esc_html__( 'Found a bug? %1$s Want to contribute a patch or create a new feature? %2$sGitHub is the place to go%3$s!', 'hypermarket' ), '🐛🐞', sprintf( '<a href="https://github.com/mypreview/%s" target="_blank" rel="noopener noreferrer nofollow">', esc_html( $hypermarket->slug ) ), '</a>' ); 
 				?>
 			</p>
 			<?php
