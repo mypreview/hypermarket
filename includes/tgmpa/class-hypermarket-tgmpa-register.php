@@ -145,8 +145,4 @@ if ( ! class_exists( 'Hypermarket_TGMPA_Register' ) ) :
 			tgmpa( $plugins, $config );
 		}
 	}
-
 endif;
-// End Class.
-
-return new Hypermarket_TGMPA_Register();
