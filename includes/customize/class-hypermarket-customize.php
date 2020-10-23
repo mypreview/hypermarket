@@ -273,6 +273,12 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 								'controls'       => array(
 									array(
 										'type'           => 'checkbox',
+										'id'             => sprintf( '%s_general_is_tagline', self::$setting_prefix ),
+										'label'          => esc_html__( 'Display tagline', 'hypermarket' ),
+										'description'    => esc_html__( 'Outputs the short description entered within the "Site Identity" section.', 'hypermarket' ),
+									),
+									array(
+										'type'           => 'checkbox',
 										'id'             => sprintf( '%s_general_is_fluid', self::$setting_prefix ),
 										'label'          => esc_html__( 'Fluid width', 'hypermarket' ),
 										'description'    => esc_html__( 'The container element will have a percentage width and can, therefore, adjust according to resolution.', 'hypermarket' ),
