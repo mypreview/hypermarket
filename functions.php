@@ -51,9 +51,12 @@ if ( hypermarket_is_jetpack_activated() ) {
 
 // Determines whether the current request is for an administrative interface page.
 if ( is_admin() ) {
+	$hypermarket->admin = require get_parent_theme_file_path( '/includes/admin/class-hypermarket-admin.php' );
 	$hypermarket->tgmpa = require get_parent_theme_file_path( '/includes/tgmpa/class-hypermarket-tgmpa-register.php' );
 
 	require get_parent_theme_file_path( '/includes/tgmpa/class-tgm-plugin-activation.php' );
+	require get_parent_theme_file_path( '/includes/admin/hypermarket-admin-template-hooks.php' );
+	require get_parent_theme_file_path( '/includes/admin/hypermarket-admin-template-functions.php' );
 }
 
 /**
@@ -68,6 +71,12 @@ if ( is_admin() ) {
 function hypermarket_run() {
 	$theme = new Hypermarket();
 	
+	// Whether the the current request is for an administrative interface page.
+	if ( is_admin() ) {
+		$admin = new Hypermarket_Admin();
+		$tgmpa = new Hypermarket_TGMPA_Register();
+	}
+
 	// Whether the site is being previewed in the Customizer.
 	if ( is_customize_preview() ) {
 		$customize = new Hypermarket_Customize();
