@@ -176,10 +176,15 @@ if ( ! function_exists( 'hypermarket_site_title_or_logo' ) ) :
 		} else {
 			$tag    = is_home() ? 'h1' : 'div';
 			$return = sprintf( '<%s class="beta site-title"><a href="%s" rel="home">%s</a></%s>', esc_attr( $tag ), esc_url( home_url( '/' ) ), esc_html( get_bloginfo( 'name' ) ), esc_attr( $tag ) );
+		}
 
-			if ( '' !== get_bloginfo( 'description' ) ) {
-				$return .= sprintf( '<p class="site-description">%s</p>', esc_html( get_bloginfo( 'description', 'display' ) ) );
-			}
+		// Retrieves theme modification value for the current theme (parent or child).
+		$is_tagline = get_theme_mod( sprintf( '%s_general_is_tagline', Hypermarket_Customize::$setting_prefix ), false );
+		$tagline    = get_bloginfo( 'description' );
+
+		// Check the tagline is not empty and set to be visible.
+		if ( ! empty( $tagline ) && $is_tagline ) {
+			$return .= sprintf( '<p class="site-description">%s</p>', esc_html( get_bloginfo( 'description', 'display' ) ) );
 		}
 
 		if ( ! $echo ) {
