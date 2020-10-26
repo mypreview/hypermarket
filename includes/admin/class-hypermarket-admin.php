@@ -37,7 +37,34 @@ if ( ! class_exists( 'Hypermarket_Admin' ) ) :
 		 * @return  void
 		 */
 		public function __construct() {
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );
 			add_action( 'admin_menu', array( $this, 'register_welcome_page' ) );
+		}
+
+		/**
+		 * Enqueue scripts for admin pages.
+		 *
+		 * @since   2.0.0
+		 * @return  void
+		 */
+		public function enqueue( $hook_suffix ) {
+			$asset_name    = 'admin';
+			$asset         = hypermarket_get_file_assets( $asset_name );
+			$style_handle  = hypermarket_get_asset_handle( $asset_name, 'style' );
+			$script_handle = hypermarket_get_asset_handle( $asset_name, 'script' );
+
+			// Styles.
+			wp_register_style( $style_handle, get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
+			wp_style_add_data( $style_handle, 'rtl', 'replace' );
+			// Scripts.
+			wp_register_script( $script_handle, get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
+
+			if ( sprintf( 'appearance_page_%s', self::$welcome_slug ) === $hook_suffix ) {
+				wp_enqueue_style( 'thickbox' );
+				wp_enqueue_script( 'thickbox' );
+				wp_enqueue_style( $style_handle );
+				wp_enqueue_script( $script_handle );
+			}
 		}
 
 		/**
@@ -57,8 +84,6 @@ if ( ! class_exists( 'Hypermarket_Admin' ) ) :
 		 * @return  void
 		 */
 		public function welcome_screen() {
-			global $hypermarket;
-			$embed = new WP_Embed();
 			?>
 			<section class="wrap about-wrap <?php echo sanitize_html_class( self::$welcome_slug ); ?>" role="complementary">
 				<?php
