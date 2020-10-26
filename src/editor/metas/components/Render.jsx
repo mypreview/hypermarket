@@ -5,7 +5,7 @@ import { isPlainObject, toUpper, slice, join } from 'lodash';
 import applyWithCondition from './../utils/with-condition';
 import applyWithSelect from './../utils/with-select';
 import applyWithDispatch from './../utils/with-dispatch';
-import PREFIX from './../../utils/prefix';
+import PREFIX from './../../../utils/prefix';
 
 /**
  * WordPress dependencies

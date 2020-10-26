@@ -3,7 +3,7 @@
  */
 import forEach from 'lodash/forEach';
 import domReady from '@wordpress/dom-ready';
-import PREFIX from './utils/prefix';
+import PREFIX from './../utils/prefix';
 
 /**
  * Stylesheet dependencies.
