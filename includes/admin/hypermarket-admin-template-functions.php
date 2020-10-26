@@ -57,7 +57,20 @@ if ( ! function_exists( 'hypermarket_welcome_tabs' ) ) :
 	}
 endif;
 
-
-
-
-				
+if ( ! function_exists( 'hypermarket_welcome_extensions' ) ) :
+	/**
+	 * Display `Recommended Extensions` tab content.
+	 *
+	 * @since   2.0.0
+	 * @return  void
+	 */
+	function hypermarket_welcome_extensions() {
+		$classname = (string) Hypermarket_Admin::$welcome_slug;
+		?>
+		<div class="<?php echo sanitize_html_class( $classname ); ?>__extensions">
+			<ul></ul>
+			<div class="spinner is-active alignleft"></div>
+		</div>
+		<?php
+	}
+endif;
