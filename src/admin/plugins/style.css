@@ -1,0 +1,9 @@
+.hypermarket-welcome {
+	&__extensions {
+		ul {
+			&:not(:empty) + .spinner {
+				display: hidden;
+			}
+		}
+	}
+}
