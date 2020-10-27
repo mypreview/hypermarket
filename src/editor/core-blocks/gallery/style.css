@@ -1,0 +1,12 @@
+.editor-styles-wrapper {
+	.block-editor-writing-flow {
+		.blocks-gallery-grid {
+			padding-left: 0;
+			margin-bottom: 0;
+
+			figcaption {
+				font-size: calc(var(--general-normal) * 0.8125);
+			}
+		}
+	}
+}

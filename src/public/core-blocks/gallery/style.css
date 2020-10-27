@@ -1,0 +1,66 @@
+.blocks-gallery {
+	&-grid {
+		padding-left: 0;
+	    margin-bottom: 0;
+	    box: wrap;
+	}
+
+	&-item {
+		margin: 0 16px 16px 0;
+	    box: vertical middle;
+	    flex-grow: 1;
+	    position: relative;
+
+	    &:last-child {
+    		margin-right: 0;
+    	}
+
+	    @media (max-width: 600px) {
+	    	width: calc(50% - 16px);
+
+	    	&:nth-child(2n) {
+	    		margin-right: 0;
+	    	}
+	    }
+
+	    figure a,
+	    figure {
+    		height: 100%;
+	    }
+
+	    &__caption {
+	    	position: absolute null 0 0 0;
+	    	max-height: 100%;
+    	    overflow: auto;
+    	    padding: 40px 10px 9px;
+    	    color: #fff;
+    		text-align: center;
+    		font-size: calc(var(--general-normal) * 0.8125);
+    		background: linear-gradient(0deg,rgba(0,0,0,.7),rgba(0,0,0,.3) 70%,transparent);
+	    }
+	}
+}
+
+.wp-block-gallery {
+	&.is-cropped {
+		img {
+			size: 100%;
+    		flex: 1;
+    		object-fit: cover;
+		}
+	}
+
+	@media (min-width: 600px) {
+		.blocks-gallery-item {
+			@for $i from 1 to 4 {
+				.columns-$i& {
+					width: calc(calc(100%/$(i)) - calc(16px*($(i)-1)/$(i)));
+
+					&:nth-child($(i)n) {
+			    		margin-right: 0;
+			    	}
+		    	}
+	    	}
+		}
+	}
+}
