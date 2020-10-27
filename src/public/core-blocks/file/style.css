@@ -1,0 +1,21 @@
+.wp-block-file {
+	box: center;
+
+	&__button {
+		min-height: 36px;
+	    font-size: calc(var(--general-normal)*0.75);
+	    padding: 8px 17px;
+	    background-color: var(--general-primary);
+	    color: var(--general-background);
+	    border-radius: var(--border-radius-base);
+	    text-align: center;
+	    box: center middle;
+	    text-decoration: none;
+	    margin-left: 12px;
+	    @mixin shift background;
+
+	    &:hover {
+    	    background-color: var(--general-primary-alt);
+	    }
+	}
+}
