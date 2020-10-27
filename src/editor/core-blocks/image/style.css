@@ -1,9 +1,38 @@
 .wp-block-image {
 	.components-resizable-box__container {
-		max-width: 100% !important;
+	    max-width: 100% !important;
+        vertical-align: middle
+	}
+
+	figcaption {
+		@extend %caption;
+		margin: 0;
+
+		.wp-block& {
+			text-align: left;
+		}
 	}
 
 	&.is-resized {
 		display: block;
+
+		[data-align] > & {
+			max-width: 100%;
+		}
+
+		> figcaption {
+			display: block;
+		}
+	}
+
+	.wp-block > & {
+		max-width: 100%;
+		
+		[data-align="left"]& {
+			margin: 12px 18px 12px 0;
+		}
+		[data-align="right"]& {
+			margin: 12px 0 12px 18px;
+		}
 	}
 }
