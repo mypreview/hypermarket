@@ -218,5 +218,33 @@ body:not(.has-sidebar) {
 		> .alignfull {
 			@extend %alignfull;
 		}
+		> .alignwide {
+			@extend %alignwide;
+		}
 	}
+}
+figure {
+	&.alignwide,
+	&.alignfull {
+    	max-width: none;
+	}
+}
+/*rtl:begin:ignore*/
+@each $align, $space in (left, right), (right, left) {
+	.align$(align) {
+	    float: $(align);
+	    margin-$(space): 24px;
+	}
+
+	.has-text-align-$(align) {
+	    text-align: $(align);
+	}
+}
+/*rtl:end:ignore*/
+.aligncenter {
+    margin-left: auto;
+    margin-right: auto;
+}
+.has-text-align-center {
+    text-align: center;
 }
