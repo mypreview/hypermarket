@@ -6,7 +6,7 @@
 	color: inherit;
 	font-size: calc(var(--general-normal) * 0.8125);
 	text-align: center;
-	padding-top: var(--table-cell-padding);
+	padding: var(--table-cell-padding) 0;
 }
 
 %coupon-grid {
@@ -34,6 +34,12 @@
 	width: 100vw;
 	position: relative null null null 50%;
 	margin-left: -50vw;
+}
+
+%alignwide {
+	width: 90vw;
+	position: relative null null null 50%;
+	margin-left: -45vw;
 }
 
 %meta-divider {
