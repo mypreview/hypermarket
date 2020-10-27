@@ -3,7 +3,11 @@
 @import "./quote/style.css";
 @import "./pullquote/style.css";
 @import "./separator/style.css";
+@import "./file/style.css";
+@import "./cover/style.css";
 @import "./image/style.css";
+@import "./gallery/style.css";
+@import "./audio/style.css";
 @import "./video/style.css";
 @import "./code/style.css";
 @import "./table/style.css";

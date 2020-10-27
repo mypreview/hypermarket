@@ -1,6 +1,9 @@
 @import "./button/style.css";
 @import "./quote/style.css";
 @import "./pullquote/style.css";
+@import "./file/style.css";
 @import "./image/style.css";
+@import "./gallery/style.css";
+@import "./audio/style.css";
 @import "./code/style.css";
 @import "./table/style.css";
