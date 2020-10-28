@@ -1,4 +1,5 @@
 :root {
+	--general-font: "Work Sans";
 	--line-height-base: 1.5;
 	--headings-line-height: 1.3;
 	--line-height-computed: 24px;
