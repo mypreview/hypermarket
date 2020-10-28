@@ -1,35 +1,6 @@
 .widget {
 	ul.menu,
 	> ul {
-		@extend %none-list-style;
-
-		li {
-			margin-bottom: 5px;
-			position: relative;
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-
-		ul {
-			border-left: 1px solid var(--general-border);
-			padding-left: 0;
-
-			li {
-				padding-left: 14px;
-
-				&::before {
-					content: "";
-					position: absolute 14px null null 0;
-					size: 8px 1px;
-					background-color: var(--general-border);
-				}
-			}
-		}
-
-		.count {
-			padding: 0 3px;
-		}
+		@extend %widget-list;
 	}
 }
