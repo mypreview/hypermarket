@@ -7,6 +7,10 @@
 	color: var(--general-quote);
 	border-left: 5px solid var(--general-border);
 
+	.has-text-color & {
+		color: inherit;
+	}
+
 	.editor-styles-wrapper .block-editor-writing-flow & p {
 		margin-bottom: 0;
 	}
@@ -23,10 +27,14 @@
 		color: var(--general-entry-alt);
 		margin-top: 10px;
 
+		.has-text-color & {
+			color: inherit;
+		}
+
 		&::before {
 			content: "";
 			size: 20px 1px;
-			background-color: var(--general-entry-alt);
+			border-bottom: 1px solid;
 			margin-right: 9px;
 		}
 	}

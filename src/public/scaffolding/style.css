@@ -120,6 +120,10 @@ blockquote {
 	color: var(--general-quote);
 	border-left: 5px solid var(--general-border);
 
+	.has-text-color & {
+		color: inherit;
+	}
+
 	p {
 		margin-bottom: 0;
 	}
@@ -132,10 +136,14 @@ cite {
 	margin-top: 10px;
 	font-style: normal;
 
+	.has-text-color & {
+		color: inherit;
+	}
+
 	&::before {
 		content: "";
 		size: 20px 1px;
-		background-color: var(--general-entry-alt);
+		border-bottom: 1px solid;
 		margin-right: 9px;
 	}
 }
