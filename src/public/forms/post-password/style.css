@@ -1,8 +1,7 @@
 .post-password-form {
 	> p {
 		&:last-child {
-			display: flex;
-			flex-direction: column;
+			box: vertical;
 			max-width: 360px;
 		}
 	}
