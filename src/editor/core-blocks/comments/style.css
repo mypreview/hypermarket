@@ -1,0 +1,57 @@
+.editor-styles-wrapper {
+	.block-editor-writing-flow {
+		.wp-block-latest-comments {
+			@extend %none-list-style;
+
+			&__comment {
+		    	box: horizontal top;
+		    	margin-bottom: 30px;
+
+		    	&-avatar {
+		    		border-radius: var(--border-radius-base);
+		    		margin-right: 16px;
+		    		size: 48px;
+		    	}
+
+		    	> article {
+				    padding: 24px;
+				    background-color: var(--general-tile);
+				    font-size: var(--general-small);
+				    line-height: 1.5;
+				    border-radius: var(--border-radius-small);
+				    flex: 1;
+		    	}
+
+		    	&-meta {
+		    		box: wrap;
+		    		margin-bottom: 5px;
+		    		margin-left: 0;
+
+		    		a {
+		    			@mixin link;
+		    			font-weight: 500;
+				    	padding-right: 5px;
+		    		}
+		    	}
+
+		    	&-date {
+				    color: var(--general-entry-alt);
+		    		font-size: calc(var(--general-normal)*0.75);
+		    	}
+
+		    	&-link {
+				    margin-left: 5px;
+				    margin-right: auto;
+		    	}
+
+		    	&-excerpt {
+		    		margin-left: 0;
+
+		    		p {
+		    			margin-bottom: 0;
+		    		}
+		    	}
+			}
+		}
+	}
+}
