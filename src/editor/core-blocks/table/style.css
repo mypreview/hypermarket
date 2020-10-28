@@ -47,32 +47,4 @@
 	tfoot {
 		border-width: 0;
 	}
-
-	@media (--screen-xs) {
-		width: 100%;
-		overflow-y: hidden;
-		-ms-overflow-style: -ms-autohiding-scrollbar;
-
-		th,
-		td {
-			white-space: nowrap;
-
-			&:first-child {
-				border-left: 0;
-			}
-			&:last-child {
-				border-right: 0;
-			}
-		}
-
-		tbody,
-		tfoot {
-			tr:last-child {
-				th,
-				td {
-					border-bottom: 0;
-				}
-			}
-		}
-	}
 }
