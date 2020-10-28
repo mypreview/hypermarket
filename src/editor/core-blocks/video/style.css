@@ -1,0 +1,6 @@
+.wp-block-video {
+	figcaption {
+		@extend %caption;
+		margin: 0;
+	}
+}
