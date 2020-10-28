@@ -1,7 +1,7 @@
 .editor-styles-wrapper {
 	.block-editor-writing-flow {
 		font-size: var(--general-normal);
-		font-family: "Work Sans";
+		font-family: var(--general-font);
 		font-weight: 400;
 		line-height: var(--line-height-base);
 		color: var(--general-entry);
