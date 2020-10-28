@@ -9,7 +9,8 @@
 	min-height: var(--navbar-min-height);
 	background-color: var(--general-background);
 	box: horizontal top;
-	padding: 0 30px;
+	padding: 0 30px ?if media (--screen-sm-min);
+	padding: 0 15px ?if media (--screen-sm);
 	align-items: center ?if media (--screen-lg);
 
 	a {
