@@ -1,0 +1,30 @@
+.wp-block-categories {
+	font-size: var(--general-small);
+	@extend %widget-list;
+
+	a {
+		@mixin link var(--general-entry), var(--general-entry-alt);
+	}
+
+	.editor-styles-wrapper .block-editor-writing-flow &__list {
+		@extend %none-list-style;
+
+		li:nth-child(n+2) {
+			margin-top: 5px;
+		}
+	}
+
+	.wp-core-ui &__dropdown {
+		height: 48px;
+		padding-left: 16px;
+	    width: 100%;
+	    max-width: 100%;
+		@extend %select-icon;
+	    line-height: var(--line-height-base);
+	    font-size: var(--general-small);
+	    color: var(--general-entry);
+	    border: 2px solid var(--general-border);
+	    border-radius: var(--border-radius-base);
+	    background-color: var(--general-background);
+	}
+}
