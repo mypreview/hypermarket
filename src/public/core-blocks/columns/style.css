@@ -1,13 +1,32 @@
-.wp-block-columns {
-	margin-bottom: 0;
+.wp-block-column {
+    flex: 1 0 0;
 
-	@media (max-width: 48.813em) {
-		.wp-block-column {
-			flex-basis: 100% !important;
+    &[style*=flex-basis] {
+	    flex-grow: 0;
+    }
 
-			&:nth-child(2n) {
-				margin-left: 0;
-			}
+	&:nth-child(n+2) {
+		margin-left: 32px ?if media (min-width: 48.875em);
+	}
+
+	flex-basis: 100% !important ?if media (max-width: 48.813em);
+
+	&s {
+		display: flex;
+		flex-wrap: wrap ?if media (max-width: 48.813em);
+
+		&.has-background {
+		    padding: 20px 38px;
 		}
+	}
+}
+
+@each $align, $flex in (top, center, bottom), (flex-start, center, flex-end) {
+	.are-vertically-aligned-$(align) {
+		align-items: $(flex);
+	}
+
+	.is-vertically-aligned-$(align) {
+		align-self: $(flex);
 	}
 }
