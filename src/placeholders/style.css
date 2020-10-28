@@ -72,7 +72,7 @@
 
 %select-icon {
 	background-repeat: no-repeat;
-	background-position: calc(100% - 15.5px) 50%, calc(100% - 11px) 50%, 100% 0;
+	background-position: calc(100% - 15.5px) 50%, calc(100% - 11.5px) 50%, 100% 0;
 	background-size: 4.5px 4.5px, 4.5px 4.5px, 3em 3em;
 	background-image: linear-gradient(45deg, transparent 50%, var(--general-entry) 50%), linear-gradient(135deg, var(--general-entry) 50%, transparent 50%), linear-gradient(to right, transparent, transparent);
 	padding-right: 30px;
@@ -89,4 +89,39 @@
 %is-admin-bar {
 	top: 32px ?if media (min-width: 783px);
 	top: 46px ?if media (max-width: 782px) and (min-width: 601px);
+}
+
+
+%widget-list {
+	padding-left: 0;
+	margin-bottom: 0;
+
+	li {
+		position: relative;
+		list-style: none;
+
+		&:nth-child(n+2) {
+			margin-top: 5px;
+		}
+	}
+
+	ul {
+		border-left: 1px solid var(--general-border);
+		padding-left: 0;
+
+		li {
+			padding-left: 14px;
+
+			&::before {
+				content: "";
+				position: absolute 14px null null 0;
+				size: 8px 1px;
+				background-color: var(--general-border);
+			}
+		}
+	}
+
+	.count {
+		padding: 0 3px;
+	}
 }
