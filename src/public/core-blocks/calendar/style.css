@@ -1,0 +1,9 @@
+.wp-block-calendar {
+	font-size: var(--general-small);
+	overflow-x: auto;
+
+	a {
+		text-decoration: none;
+		@mixin link var(--general-entry), var(--general-entry-alt);
+	}
+}

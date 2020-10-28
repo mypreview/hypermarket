@@ -1,0 +1,38 @@
+@import "./../../../public/core-blocks/calendar/style.css";
+
+.wp-block-calendar {
+	table {
+		max-width: 100%;
+		font-family: var(--general-font);
+
+		th {
+		    background: transparent;
+	        font-weight: 600;
+		}
+
+		td,
+		th {
+			text-align: left;
+			word-break: normal;
+			vertical-align: top;
+			line-height: var(--line-height-base);
+			padding: var(--table-cell-padding);
+			border-style: solid;
+			border-width: 0 0 1px;
+			border-color: var(--general-border);
+		}
+
+		thead {
+			td,
+			th {
+				border-width: 0 0 2px;
+				vertical-align: bottom;
+			}
+		}
+	}
+}
+
+.wp-calendar-nav {
+	box: space-between;
+	margin-top: 6px;
+}
