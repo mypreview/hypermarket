@@ -1,0 +1,11 @@
+.wp-block-archives {
+	font-size: var(--general-small);
+	
+	&-list {
+		@extend %widget-list;
+
+		a {
+			@mixin link var(--general-entry), var(--general-entry-alt);
+		}
+	}
+}

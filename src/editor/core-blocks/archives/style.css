@@ -1,0 +1,22 @@
+@import "./../../../public/core-blocks/archives/style.css";
+
+.wp-block-archives {
+	.editor-styles-wrapper .block-editor-writing-flow &-list {
+		@extend %none-list-style;
+
+		li:nth-child(n+2) {
+			margin-top: 5px;
+		}
+	}
+
+	.wp-core-ui &-dropdown {
+		select {
+			height: 48px;
+			padding-left: 16px;
+		    width: 100%;
+		    max-width: 100%;
+			@extend %select-icon;
+			cursor: pointer;
+		}
+	}
+}
