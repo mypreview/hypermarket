@@ -1,14 +1,14 @@
 .wp-block-separator {
-    border-width: 1px;
-    border-color: var(--general-border);
-    margin-top: var(--line-height-computed);
-    margin-bottom: var(--line-height-computed);
-    color: var(--general-entry-alt);
+	border-width: 1px;
+	border-color: var(--general-border);
+	margin-top: var(--line-height-computed);
+	margin-bottom: var(--line-height-computed);
+	color: var(--general-entry-alt);
 }
 
 .block-editor-block-list__block {
 	&[data-type="core/separator"] {
-	    padding-top: 0;
-	    padding-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
 	}
 }

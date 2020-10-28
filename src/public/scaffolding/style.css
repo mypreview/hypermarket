@@ -234,25 +234,25 @@ body:not(.has-sidebar) {
 figure {
 	&.alignwide,
 	&.alignfull {
-    	max-width: none;
+		max-width: none;
 	}
 }
 /*rtl:begin:ignore*/
 @each $align, $space in (left, right), (right, left) {
 	.align$(align) {
-	    float: $(align);
-	    margin-$(space): 24px;
+		float: $(align);
+		margin-$(space): 24px;
 	}
 
 	.has-text-align-$(align) {
-	    text-align: $(align);
+		text-align: $(align);
 	}
 }
 /*rtl:end:ignore*/
 .aligncenter {
-    margin-left: auto;
-    margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 .has-text-align-center {
-    text-align: center;
+	text-align: center;
 }

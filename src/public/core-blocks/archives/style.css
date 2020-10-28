@@ -1,6 +1,6 @@
 .wp-block-archives {
 	font-size: var(--general-small);
-	
+
 	&-list {
 		@extend %widget-list;
 

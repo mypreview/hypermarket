@@ -1,6 +1,6 @@
 .wp-block-categories {
 	font-size: var(--general-small);
-	
+
 	&-list {
 		@extend %widget-list;
 

@@ -1,6 +1,6 @@
 .wp-block-audio {
 	figcaption {
 		@extend %caption;
-	    margin: 0;
+		margin: 0;
 	}
 }

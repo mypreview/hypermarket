@@ -9,16 +9,16 @@
 
 	&.is-style-dots {
 		line-height: 1;
-	    border-width: 0;
-	    text-align: center;
+		border-width: 0;
+		text-align: center;
 
-	    &:before {
-		    content: "\00b7 \00b7 \00b7";
-		    color: currentColor;
-		    font-size: 20px;
-		    letter-spacing: 2em;
-		    padding-left: 2em;
-		    font-family: serif;
+		&::before {
+			content: "\00b7 \00b7 \00b7";
+			color: currentColor;
+			font-size: 20px;
+			letter-spacing: 2em;
+			padding-left: 2em;
+			font-family: serif;
 		}
 	}
 }

@@ -1,11 +1,11 @@
 .wp-block-media-text {
 	display: grid;
-	grid-template-columns: repeat(2,1fr);
+	grid-template-columns: repeat(2, 1fr);
 	align-items: center;
 	direction: ltr /*rtl:ignore*/;
 
 	&.is-stacked-on-mobile {
-		grid-template-columns: 100%!important ?if media (max-width: 600px);
+		grid-template-columns: 100% !important ?if media (max-width: 600px);
 	}
 
 	&__content {
@@ -14,13 +14,13 @@
 
 	&.is-image-fill {
 		^&__media {
-		    height: 100%;
-    		min-height: 250px;
-    		background-size: cover;
+			height: 100%;
+			min-height: 250px;
+			background-size: cover;
 
-    		img {
-    			display: hidden;
-    		}
+			img {
+				display: hidden;
+			}
 		}
 	}
 }

@@ -13,8 +13,8 @@
 		select {
 			height: 48px;
 			padding-left: 16px;
-		    width: 100%;
-		    max-width: 100%;
+			width: 100%;
+			max-width: 100%;
 			@extend %select-icon;
 			cursor: pointer;
 		}

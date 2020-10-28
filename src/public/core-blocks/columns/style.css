@@ -1,9 +1,9 @@
 .wp-block-column {
-    flex: 1 0 0;
+	flex: 1 0 0;
 
-    &[style*=flex-basis] {
-	    flex-grow: 0;
-    }
+	&[style*=flex-basis] {
+		flex-grow: 0;
+	}
 
 	&:nth-child(n+2) {
 		margin-left: 32px ?if media (min-width: 48.875em);
@@ -16,7 +16,7 @@
 		flex-wrap: wrap ?if media (max-width: 48.813em);
 
 		&.has-background {
-		    padding: 20px 38px;
+			padding: 20px 38px;
 		}
 	}
 }
