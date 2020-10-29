@@ -904,3 +904,22 @@ if ( ! function_exists( 'hypermarket_generate_editor_css' ) ) :
 		return hypermarket_minify_inline_css( $return );
 	}
 endif;
+
+if ( ! function_exists( 'hypermarket_get_admin_url' ) ) :
+	/**
+	 * Retrieves the URL to the admin area for the network or single setup.
+	 *
+	 * @since    2.0.0
+	 * @param    string $path     Optional. Path relative to the admin URL.
+	 * @return   string
+	 */
+	function hypermarket_get_admin_url( $path = null ) {
+		$return = self_admin_url( $path );
+		
+		if ( is_multisite() ) {
+			$return = network_admin_url( $path );
+		}
+
+		return esc_url_raw( $return );
+	}
+endif;
