@@ -3,14 +3,13 @@
  */
 import $ from 'jquery';
 import moment from 'moment';
-import { map, join, forEach, isEmpty, escape, truncate, isPlainObject } from 'lodash';
+import { map, join, forEach, isEmpty, truncate, isPlainObject } from 'lodash';
 import { __ } from '@wordpress/i18n';
 import { addQueryArgs } from '@wordpress/url';
 import { decodeEntities } from '@wordpress/html-entities';
 import striptags from 'striptags';
 import windowFetch from './../../utils/fetch';
 import { l10n } from './../l10n';
-const API = 'https://api.wordpress.org/plugins/info/1.2/';
 
 export const plugins = {
 	cache() {
@@ -31,7 +30,6 @@ export const plugins = {
 		const results = await windowFetch(
 			`https://api.wordpress.org/plugins/info/1.2/${ plugins._api( plugins._list() ) }`
 		);
-		console.log(results);
 		if ( isPlainObject( results ) ) {
 			forEach( results, ( post, key ) => {
 				const title = decodeEntities( post.name );
@@ -50,7 +48,7 @@ export const plugins = {
 			plugins.vars.$extensions.append( template );
 		}
 	},
-	// Create a fetchable API address. 
+	// Create a fetchable API address.
 	_api( extensions, key = 'request[slugs]' ) {
 		extensions = map( extensions, encodeURIComponent );
 		return `?action=plugin_information&${ key }[]=${ join( extensions, `&${ key }[]=` ) }`;
@@ -61,7 +59,9 @@ export const plugins = {
 		if ( ! isEmpty( content ) ) {
 			let template = '';
 			if ( !! isFrame ) {
-				template += `<a href="${ plugins._installUri( key ) }" target="_blank" class="thickbox button-primary" data-plugin="${ key }" rel="nofollow">`;
+				template += `<a href="${ plugins._installUri(
+					key
+				) }" target="_blank" class="thickbox button-primary" data-plugin="${ key }" rel="nofollow">`;
 			} else {
 				template += `<a href="${ uri }" target="_blank" data-plugin="${ key }" rel="nofollow">`;
 			}
@@ -108,12 +108,19 @@ export const plugins = {
 	_lastUpdated( date ) {
 		let template = `<div class="${ plugins.vars.extension }-updated"><p>`;
 		template += __( 'Last Updated:', 'hypermarket' );
-		template += moment(date, 'YYYY-MM-DDTHH:mm:ss').fromNow();
+		template += moment( date, 'YYYY-MM-DDTHH:mm:ss' ).fromNow();
 		template += '</p></div>';
 		return template;
 	},
 	// List of plugins/extensions.
 	_list() {
-		return [ 'woocommerce', 'woo-store-vacation', 'woo-additional-terms', 'block-data-attribute', 'seo-ready', 'jetpack' ];
+		return [
+			'woocommerce',
+			'woo-store-vacation',
+			'woo-additional-terms',
+			'block-data-attribute',
+			'seo-ready',
+			'jetpack',
+		];
 	},
 };
