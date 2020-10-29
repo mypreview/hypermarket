@@ -34,13 +34,13 @@
 .post {
 	.entry {
 		&-meta {
-			box: wrap;
+			box: wrap center;
 			font-size: var(--general-small);
 			color: var(--general-entry-alt);
 			padding-bottom: 18px;
 
 			&__col {
-				box: wrap;
+				box: wrap center;
 			}
 
 			a {
