@@ -52,12 +52,19 @@ if ( ! class_exists( 'Hypermarket_Admin' ) ) :
 			$asset         = hypermarket_get_file_assets( $asset_name );
 			$style_handle  = hypermarket_get_asset_handle( $asset_name, 'style' );
 			$script_handle = hypermarket_get_asset_handle( $asset_name, 'script' );
+			$l10n          = apply_filters(
+				sprintf( 'hypermarket_%s_l10n_args', $asset_name ),
+				array(
+					'install_uri'  => hypermarket_get_admin_url( 'plugin-install.php' ),
+				) 
+			);
 
 			// Styles.
 			wp_register_style( $style_handle, get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
 			wp_style_add_data( $style_handle, 'rtl', 'replace' );
 			// Scripts.
 			wp_register_script( $script_handle, get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
+			wp_localize_script( $script_handle, sprintf( 'hypermarket_%s', $asset_name ), $l10n );
 
 			if ( sprintf( 'appearance_page_%s', self::$welcome_slug ) === $hook_suffix ) {
 				wp_enqueue_style( 'thickbox' );
