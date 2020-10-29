@@ -1,0 +1,133 @@
+.editor-styles-wrapper {
+	.block-editor-writing-flow {
+		.wp-block-latest-posts {
+			padding-left: 0;
+			margin-bottom: 0;
+
+			&:not(.is-grid) {
+				box: vertical;
+
+				> li {
+				    border-bottom: 1px solid var(--general-border);
+		    		padding-bottom: 42px;
+
+		    		&:nth-child(n+2) {
+					    padding-top: 24px;
+		    			margin-top: 24px;
+		    		}
+				}
+			}
+
+			&.is-grid {
+				.wp-block-latest-posts__post-excerpt {
+					font-size: var(--general-small);
+				}
+			}
+
+			> li {
+				list-style: none;
+
+				> a {
+					@mixin link var(--general-entry-alt);
+					font-size: calc(var(--general-normal) * 1.125);
+				    &:after {
+					    content: "";
+					    display: table;
+					}
+				}
+			}
+
+			@each $item in date, author {
+				&__post-$(item) {
+					font-size: var(--general-small);
+					color: var(--general-entry-alt);
+				    display: inline-flex;
+		    		align-items: center;
+				}
+			}
+
+			&.has-dates {
+				.wp-block-latest-posts__post-author {
+					@extend %meta-divider;
+				}
+			}
+
+			&__featured-image {
+				&.aligncenter {
+					text-align: center;
+					margin-bottom: 12px;
+				}
+
+				/*rtl:begin:ignore*/
+				@each $item, $align in (left, right), (right, left) {
+				    &.align$(item) {
+				    	margin-$(align): 12px;
+				    }
+				}
+				/*rtl:end:ignore*/
+			}
+		}
+
+		[class*="wp-block-"] {
+			&.is-grid {
+				box: wrap;
+
+				& > * {
+					margin: 0 16px 20px 0;
+
+					@media (--screen-sm) {
+						margin-right: 0;
+					}
+				}
+			}
+
+			@media (--screen-lg-min) {
+				@for $i from 5 to 6 {
+					&.columns-$(i) > * {
+						width: calc(calc(100%/$(i)) - calc(16px*($(i) -1)/$(i)));
+
+						&:nth-child($(i)n) {
+							margin-right: 0;
+						}
+					}
+				}
+			}
+
+			@media (--screen-lg) and (--screen-md-min) {
+				@for $i from 5 to 6 {
+					&.columns-$(i) > * {
+						width: calc(calc(100%/3) - calc(16px*2/3));
+
+						&:nth-child(3n) {
+							margin-right: 0;
+						}
+					}
+				}
+			}
+
+			@media (--screen-md-min) {
+				@for $i from 2 to 4 {
+					&.columns-$(i) > * {
+						width: calc(calc(100%/$(i)) - calc(16px*($(i) -1)/$(i)));
+
+						&:nth-child($(i)n) {
+							margin-right: 0;
+						}
+					}
+				}
+			}
+
+			@media (--screen-md) and (--screen-sm-min) {
+				@for $i from 2 to 6 {
+					&.columns-$(i) > * {
+						width: calc(50% - 8px);
+
+						&:nth-child(2n) {
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
