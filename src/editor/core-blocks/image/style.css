@@ -28,11 +28,13 @@
 	.wp-block > & {
 		max-width: 100%;
 
+		/*rtl:begin:ignore*/
 		[data-align="left"]& {
 			margin: 12px 18px 12px 0;
 		}
 		[data-align="right"]& {
 			margin: 12px 0 12px 18px;
 		}
+		/*rtl:end:ignore*/
 	}
 }
