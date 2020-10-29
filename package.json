@@ -36,6 +36,7 @@
 		"@wordpress/eslint-plugin": "^7.3.0",
 		"@wordpress/html-entities": "^2.9.0",
 		"@wordpress/i18n": "3.16.0",
+		"@wordpress/url": "^2.19.0",
 		"autoprefixer": "9.8.3",
 		"babel-core": "7.0.0-bridge.0",
 		"babel-eslint": "10.1.0",
@@ -51,6 +52,7 @@
 		"license-checker-webpack-plugin": "^0.1.5",
 		"lodash": "^4.17.20",
 		"mini-css-extract-plugin": "^1.0.0",
+		"moment": "^2.29.1",
 		"node-fetch": "^2.6.1",
 		"optimize-css-assets-webpack-plugin": "^5.0.4",
 		"postcss-calc": "^7.0.2",
@@ -103,7 +105,6 @@
 		"node-waves": "^0.7.6",
 		"notyf": "^3.9.0",
 		"slicknav": "^1.0.8",
-		"slugify": "^1.4.5",
 		"striptags": "^3.1.1",
 		"tippy.js": "^6.2.7",
 		"waypoints": "^4.0.1"
