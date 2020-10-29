@@ -52,6 +52,8 @@
 			order: -1;
 
 			&__col {
+				@extend %meta-divider;
+				
 				&:last-child {
 					flex-grow: 1;
 					justify-content: space-between;
