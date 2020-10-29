@@ -3,42 +3,42 @@
 	margin: 0 -4px;
 
 	& &__label {
-	    flex-basis: 100%;
-	    margin: 0 4px 7px;
-	    font-size: calc(var(--general-normal)*0.75);
-	    padding-left: 18px;
-	    text-transform: uppercase;
-	    font-weight: 400;
+		flex-basis: 100%;
+		margin: 0 4px 7px;
+		font-size: calc(var(--general-normal) *0.75);
+		padding-left: 18px;
+		text-transform: uppercase;
+		font-weight: 400;
 	}
 
 	& &__input {
 		width: auto;
-    	flex-grow: 1;
-    	line-height: var(--line-height-base);
-	    color: var(--general-entry);
-	    border: 2px solid var(--general-border);
-	    background-color: var(--general-background);
-	    transition: border .3s;
-        min-height: 48px;
-    	padding: 0 16px;
+		flex-grow: 1;
+		line-height: var(--line-height-base);
+		color: var(--general-entry);
+		border: 2px solid var(--general-border);
+		background-color: var(--general-background);
+		transition: border 0.3s;
+		min-height: 48px;
+		padding: 0 16px;
 
 		&:focus {
-		    border-color: var(--general-primary);
+			border-color: var(--general-primary);
 		}
 	}
 
 	& &__button {
 		min-height: var(--btn-height);
-	    padding: 10px 22px;
-	    text-transform: uppercase;
-	    display: inline-flex;
-	    align-items: center;
-	    justify-content: center;
-	    text-align: center;
-	    background-color: var(--general-primary);
-	    color: var(--general-background);
-	    border-width: 0;
-	    box-shadow: none;
+		padding: 10px 22px;
+		text-transform: uppercase;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		background-color: var(--general-primary);
+		color: var(--general-background);
+		border-width: 0;
+		box-shadow: none;
 	}
 
 	@each $item in button, input {

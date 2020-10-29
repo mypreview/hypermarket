@@ -8,11 +8,11 @@
 				box: vertical;
 
 				& > li {
-				    border-bottom: 1px solid var(--general-border);
+					border-bottom: 1px solid var(--general-border);
 					padding-bottom: 42px;
 
 					&:nth-child(n+2) {
-					    padding-top: 24px;
+						padding-top: 24px;
 						margin-top: 24px;
 					}
 				}

@@ -8,13 +8,13 @@
 				box: vertical;
 
 				> li {
-				    border-bottom: 1px solid var(--general-border);
-		    		padding-bottom: 42px;
+					border-bottom: 1px solid var(--general-border);
+					padding-bottom: 42px;
 
-		    		&:nth-child(n+2) {
-					    padding-top: 24px;
-		    			margin-top: 24px;
-		    		}
+					&:nth-child(n+2) {
+						padding-top: 24px;
+						margin-top: 24px;
+					}
 				}
 			}
 
@@ -30,9 +30,9 @@
 				> a {
 					@mixin link var(--general-entry-alt);
 					font-size: calc(var(--general-normal) * 1.125);
-				    &:after {
-					    content: "";
-					    display: table;
+					&::after {
+						content: "";
+						display: table;
 					}
 				}
 			}
@@ -41,8 +41,8 @@
 				&__post-$(item) {
 					font-size: var(--general-small);
 					color: var(--general-entry-alt);
-				    display: inline-flex;
-		    		align-items: center;
+					display: inline-flex;
+					align-items: center;
 				}
 			}
 
@@ -60,9 +60,9 @@
 
 				/*rtl:begin:ignore*/
 				@each $item, $align in (left, right), (right, left) {
-				    &.align$(item) {
-				    	margin-$(align): 12px;
-				    }
+					&.align$(item) {
+						margin-$(align): 12px;
+					}
 				}
 				/*rtl:end:ignore*/
 			}
