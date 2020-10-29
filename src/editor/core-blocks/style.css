@@ -15,3 +15,6 @@
 @import "./categories/style.css";
 @import "./calendar/style.css";
 @import "./comments/style.css";
+@import "./posts/style.css";
+@import "./rss/style.css";
+@import "./search/style.css";
