@@ -43,7 +43,7 @@
 }
 
 %meta-divider {
-	&:nth-last-child(2)::after {
+	&:nth-last-child(n+2)::after {
 		content: "";
 		display: inline-block;
 		size: 1px 11px;
