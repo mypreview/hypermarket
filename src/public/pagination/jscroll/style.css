@@ -46,8 +46,7 @@
 		border-top: 1px solid var(--general-border);
 
 		&::before {
-			font-family: boxicons;
-			content: "\eb11";
+			@mixin icon "\eb11";
 			color: var(--general-entry-alt);
 			-webkit-animation: spin 1s ease-in infinite;
 			animation: spin 1s ease-in infinite;
