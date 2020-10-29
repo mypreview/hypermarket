@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-10-23T20:24:10+00:00\n"
+"POT-Creation-Date: 2020-10-29T23:53:05+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: hypermarket\n"
@@ -78,6 +78,19 @@ msgstr[1] ""
 
 #: comments.php:74
 msgid "Comments are closed."
+msgstr ""
+
+#: includes/admin/hypermarket-admin-template-functions.php:31
+msgctxt "theme tagline"
+msgid "Minimal, fast, and free!"
+msgstr ""
+
+#: includes/admin/hypermarket-admin-template-functions.php:52
+msgid "Welcome"
+msgstr ""
+
+#: includes/admin/hypermarket-admin-template-functions.php:57
+msgid "Recommended Extensions"
 msgstr ""
 
 #: includes/class-hypermarket.php:181
@@ -483,6 +496,8 @@ msgid "Posted on %s"
 msgstr ""
 
 #: includes/hypermarket-template-functions.php:460
+#: dist/admin.js:185
+#: src/admin/plugins/index.js:87
 msgid "by"
 msgstr ""
 
@@ -1093,4 +1108,14 @@ msgstr ""
 
 #: template-parts/content-none.php:42
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: dist/admin.js:185
+#: src/admin/plugins/index.js:96
+msgid "Read more"
+msgstr ""
+
+#: dist/admin.js:185
+#: src/admin/plugins/index.js:112
+msgid "Last Updated:"
 msgstr ""
