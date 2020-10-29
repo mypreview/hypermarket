@@ -55,7 +55,7 @@ if ( ! class_exists( 'Hypermarket_Admin' ) ) :
 			$l10n          = apply_filters(
 				sprintf( 'hypermarket_%s_l10n_args', $asset_name ),
 				array(
-					'install_uri'  => hypermarket_get_admin_url( 'plugin-install.php' ),
+					'install_uri'  => wp_nonce_url( hypermarket_get_admin_url( 'plugin-install.php' ) ),
 				) 
 			);
 
