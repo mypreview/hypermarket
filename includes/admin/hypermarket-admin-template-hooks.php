@@ -21,6 +21,9 @@ add_action( 'hypermarket_welcome_top', 'hypermarket_welcome_header' );
  * Content
  *
  * @see  hypermarket_welcome_tabs()
+ * @see  hypermarket_welcome_tab()
+ * @see  hypermarket_extensions_tab()
  */
 add_action( 'hypermarket_welcome_content', 'hypermarket_welcome_tabs' );
-add_action( 'hypermarket_welcome_content', 'hypermarket_welcome_extensions', 20 );
+add_action( 'hypermarket_welcome_tab_content', 'hypermarket_welcome_tab' );
+add_action( 'hypermarket_welcome_tab_content', 'hypermarket_extensions_tab', 20 );
