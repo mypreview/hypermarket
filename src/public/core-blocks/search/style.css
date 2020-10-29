@@ -1,0 +1,17 @@
+.wp-block-search {
+	box: wrap;
+	margin: 0 -4px;
+
+	&__label {
+	    flex-basis: 100%;
+	}
+
+	&__input {
+		width: auto;
+    	flex-grow: 1;
+	}
+
+	& > * {
+		margin: 0 4px 7px;
+	}
+}
