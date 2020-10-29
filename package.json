@@ -106,6 +106,7 @@
 		"notyf": "^3.9.0",
 		"slicknav": "^1.0.8",
 		"striptags": "^3.1.1",
+		"tabslet": "^1.7.3",
 		"tippy.js": "^6.2.7",
 		"waypoints": "^4.0.1"
 	},
