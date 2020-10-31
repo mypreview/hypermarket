@@ -1,7 +1,7 @@
-@import "./coupon/style.css";
-@import "./login/style.css";
-@import "./place-order/style.css";
-@import "./review-order/style.css";
+@import "./coupon";
+@import "./login";
+@import "./place-order";
+@import "./review-order";
 
 .woocommerce-checkout {
 	> h2 {

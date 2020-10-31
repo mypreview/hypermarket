@@ -12,7 +12,7 @@
 	padding: 0.4px 12px;
 	margin: 0 7px 8px 0;
 	transition: color 0.3s, border-color 0.3s;
-	display: block;
+	box: center;
 
 	&:hover {
 		border-color: currentColor;

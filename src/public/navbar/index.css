@@ -1,6 +1,6 @@
-@import "./site-logo/style.css";
-@import "./navigation/style.css";
-@import "./slicknav/style.css";
+@import "./site-logo";
+@import "./navigation";
+@import "./slicknav";
 
 .site-header {
 	position: relative;

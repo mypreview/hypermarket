@@ -1,12 +1,12 @@
-@import "./login/style.css";
-@import "./register/style.css";
-@import "./tabs/style.css";
-@import "./reset-password/style.css";
-@import "./table/style.css";
-@import "./orders/style.css";
-@import "./downloads/style.css";
-@import "./addresses/style.css";
-@import "./info/style.css";
+@import "./login";
+@import "./register";
+@import "./tabs";
+@import "./reset-password";
+@import "./table";
+@import "./orders";
+@import "./downloads";
+@import "./addresses";
+@import "./info";
 
 .woocommerce-account {
 	.col2-set {

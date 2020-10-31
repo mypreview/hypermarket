@@ -1,6 +1,6 @@
-@import "./search/style.css";
-@import "./select2/style.css";
-@import "./post-password/style.css";
+@import "./search";
+@import "./select2";
+@import "./post-password";
 
 label {
 	display: block;

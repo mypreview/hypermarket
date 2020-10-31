@@ -1,6 +1,6 @@
-@import "./collaterals/style.css";
-@import "./form/style.css";
-@import "./shipping/style.css";
+@import "./collaterals";
+@import "./form";
+@import "./shipping";
 
 .woocommerce-cart {
 	.entry-content {

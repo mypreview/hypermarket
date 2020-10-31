@@ -1,9 +1,9 @@
-@import "./archive/style.css";
-@import "./page/style.css";
-@import "./single/style.css";
-@import "./post-view/style.css";
-@import "./widget-area/style.css";
-@import "./toggle/style.css";
+@import "./archive";
+@import "./page";
+@import "./single";
+@import "./post-view";
+@import "./widget-area";
+@import "./toggle";
 
 @media (--screen-md-min) {
 	.has-sidebar {

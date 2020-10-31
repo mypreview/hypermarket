@@ -1,4 +1,4 @@
-@import "./../../../public/core-blocks/archives/style.css";
+@import "./../../../public/core-blocks/archives";
 
 .wp-block-archives {
 	.editor-styles-wrapper .block-editor-writing-flow &-list {

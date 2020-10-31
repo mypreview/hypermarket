@@ -1,4 +1,4 @@
-@import "./store-notice/style.css";
+@import "./store-notice";
 
 .woocommerce-NoticeGroup,
 .woocommerce-notices-wrapper {

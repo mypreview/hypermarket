@@ -1,0 +1,29 @@
+@import "./add-to-cart";
+@import "./gallery";
+@import "./share-button";
+@import "./summary";
+@import "./navigation";
+@import "./star-rating";
+@import "./meta";
+@import "./stock";
+@import "./grouped";
+@import "./variations";
+@import "./tabs";
+@import "./products";
+
+.product {
+	div& > .div {
+		background-color: var(--general-tile);
+		@extend %alignfull;
+		padding: 96px 15px 72px;
+		margin-bottom: 48px;
+
+		> * {
+			@mixin colfull 660px;
+		}
+
+		> .div {
+			position: relative;
+		}
+	}
+}

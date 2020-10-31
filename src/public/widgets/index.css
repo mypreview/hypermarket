@@ -1,10 +1,10 @@
-@import "./title/style.css";
-@import "./list/style.css";
-@import "./tagcloud/style.css";
-@import "./recent-posts/style.css";
-@import "./table/style.css";
-@import "./calendar/style.css";
-@import "./rss/style.css";
+@import "./title";
+@import "./list";
+@import "./tagcloud";
+@import "./recent-posts";
+@import "./table";
+@import "./calendar";
+@import "./rss";
 
 .widget {
 	font-size: var(--general-small);
