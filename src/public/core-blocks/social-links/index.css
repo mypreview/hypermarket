@@ -1,0 +1,87 @@
+.wp-block-social-links {
+	box: wrap left;
+	@extend %none-list-style;
+
+	&.aligncenter {
+		justify-content: center;
+	}
+}
+
+.wp-social-link {
+	border-radius: 9999px;
+	margin: 0 8px 8px 0;
+	background-color: #f0f0f0;
+	color: #444;
+	@mixin shift transform, 0.1s;
+
+	a {
+		padding: 6px;
+	    height: 36px;
+		box: center;
+		line-height: 1;
+		text-decoration: none;
+		color: currentColor;
+
+		.is-style-pill-shape > & {
+			padding-left: 16px;
+			padding-right: 16px;
+		}
+	}
+
+	svg {
+		fill: currentColor;
+	}
+
+	&:hover {
+		transform: scale(1.1);
+	}
+
+	@each $item, $color in 
+		(amazon,bandcamp,behance,codepen,deviantart,dribbble,dropbox,etsy,facebook,fivehundredpx,flickr,foursquare,github,goodreads,google,instagram,lastfm,linkedin,mastodon,medium,meetup,pinterest,pocket,reddit,skype,snapchat,soundcloud,spotify,tumblr,twitch,twitter,vimeo,vk,wordpress,yelp,youtube),
+		(#f90,#1ea0c3,#0757fe,#1e1f26,#02e49b,#e94c89,#4280ff,#f45800,#1778f2,#000,#0461dd,#e65678,#24292d,#eceadd,#ea4434,#f00075,#e21b24,#0d66c2,#3288d4,#02ab6c,#f6405f,#e60122,#ef4155,#fe4500,#0478d7,#fefc00,#ff5600,#1bd760,#011835,#6440a4,#1da1f2,#1eb7ea,#4680c2,#3499cd, #d32422,#f00) {
+		&-$(item) {
+			ul:not(.is-style-logos-only) > & {
+				background-color: $(color);
+			}
+
+			.is-style-logos-only > & {
+				color: $(color);
+			}
+		}
+	}
+
+	@each $icon in amazon,bandcamp,behance,codepen,deviantart,dribbble,dropbox,etsy,facebook,fivehundredpx,flickr,foursquare,github,google,instagram,lastfm,linkedin,mastodon,medium,meetup,pinterest,pocket,reddit,skype,snapchat,soundcloud,spotify,tumblr,twitch,twitter,vimeo,vk,wordpress,yelp,youtube {
+		ul:not(.is-style-logos-only) > &-$(icon) {
+			color: #fff;
+		}
+	}
+
+	&-snapchat {
+		svg {
+			stroke: #000;
+		}
+	}
+}
+
+
+.wp-block-social-links:not(.is-style-logos-only) {
+	.wp-social-link-goodreads {
+		color: #382110;
+	}
+}
+
+.is-style-logos-only {
+	> .wp-social-link {
+		background: none;
+
+		a {
+		    padding-left: 4px;
+    		padding-right: 4px;
+		}
+
+		svg {
+			width: 28px;
+			height: 28px;
+		}
+	}
+}

@@ -1,0 +1,15 @@
+.editor-styles-wrapper {
+	.block-editor-writing-flow {
+		.wp-block-social-link {
+		    margin: 0 8px 8px 0;
+
+		    &s {
+				@extend %none-list-style;
+
+				&.is-style-logos-only .wp-block-social-link {
+    				padding: 0;
+				}
+			}
+		}
+	}
+}
