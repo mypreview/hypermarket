@@ -36,6 +36,25 @@ if ( ! function_exists( 'hypermarket_get_file_assets' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hypermarket_get_admin_url' ) ) :
+	/**
+	 * Retrieves the URL to the admin area for the network or single setup.
+	 *
+	 * @since    2.0.0
+	 * @param    string $path     Optional. Path relative to the admin URL.
+	 * @return   string
+	 */
+	function hypermarket_get_admin_url( $path = null ) {
+		$return = self_admin_url( $path );
+		
+		if ( is_multisite() ) {
+			$return = network_admin_url( $path );
+		}
+
+		return esc_url_raw( $return );
+	}
+endif;
+
 if ( ! function_exists( 'hypermarket_get_asset_handle' ) ) :
 	/**
 	 * Reterive handle of the stylesheet or script to enqueue.
@@ -448,35 +467,6 @@ if ( ! function_exists( 'hypermarket_social_share_buttons' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_header_styles' ) ) :
-	/**
-	 * Apply inline style to the theme header.
-	 *
-	 * @since   2.0.0
-	 * @return  void
-	 */
-	function hypermarket_header_styles() {
-		$header_bg_image = '';
-		$is_header_image = get_header_image();
-
-		if ( $is_header_image ) {
-			$header_bg_image = sprintf( 'url(%s)', esc_url( $is_header_image ) );
-		}
-
-		$styles = array();
-
-		if ( ! empty( $header_bg_image ) ) {
-			$styles['background-image'] = $header_bg_image;
-		}
-
-		$styles = apply_filters( 'hypermarket_header_styles', $styles );
-
-		foreach ( $styles as $style => $value ) {
-			echo esc_attr( $style . ': ' . $value . '; ' );
-		} // End of the loop.
-	}
-endif;
-
 if ( ! function_exists( 'hypermarket_user_registered_date' ) ) :
 	/**
 	 * Display user’s registered date.
@@ -819,13 +809,21 @@ if ( ! function_exists( 'hypermarket_generate_editor_features' ) ) :
 	 * Enhancements to opt-in to and the ability to extend and customize core WordPress editor.
 	 *
 	 * @since    2.0.0
-	 * @param    string $id    The group id or key name.
+	 * @param    string $group_id                 The group id or key name.
+	 * @param    string $subgroup_id    Optional. Control type value.
 	 * @return   array
 	 */
-	function hypermarket_generate_editor_features( $id ) {
-		$return = array();
-		$value  = 'font' === $id ? 'size' : $id;
-		$group  = Hypermarket_Customize::get_controls( $id );
+	function hypermarket_generate_editor_features( $group_id, $subgroup_id = null ) {
+		$return        = array();
+		$sanitize_type = $group_id;
+		$value         = 'font' === $group_id ? 'size' : $group_id;
+		$group         = Hypermarket_Customize::get_controls( $group_id );
+
+		// .
+		if ( ! is_null( $subgroup_id ) ) {
+			$value         = $subgroup_id;
+			$sanitize_type = $subgroup_id;
+		}
 
 		if ( is_array( $group ) && ! empty( $group ) && isset( $group['settings'] ) ) {
 			// Pluck the `Controls` list out of each object in the list.
@@ -834,7 +832,8 @@ if ( ! function_exists( 'hypermarket_generate_editor_features' ) ) :
 			if ( is_array( $sections ) && ! empty( $sections ) ) {
 				foreach ( $sections as $controls ) {
 					if ( is_array( $controls ) && ! empty( $controls ) ) {
-						foreach ( $controls as $control ) {
+						$controls = Hypermarket_Customize::get_controls_by_type( $controls, 'type', $subgroup_id );
+						foreach ( (array) $controls as $control ) {
 							// Determine if the control id is declared and is different than null.
 							if ( isset( $control['id'] ) ) {
 								$control_id            = (string) $control['id'];
@@ -844,13 +843,13 @@ if ( ! function_exists( 'hypermarket_generate_editor_features' ) ) :
 								$control_suffix        = isset( $control['suffix'] ) ? (string) $control['suffix'] : '';
 								$control_default_value = isset( $control['default'] ) ? (string) $control['default'] : '';
 								$control_value         = (string) get_theme_mod( $control_id, $control_default_value );
-								$control_slug          = (string) hypermarket_slugify( $control_label . $control_description );
+								$control_slug          = (string) hypermarket_slugify( sprintf( '%s-%s', $control_label, $control_description ) );
 								$control_name          = ! empty( $control_description ) ? (string) sprintf( '%s %s', $control_label, $control_description ) : $control_label;
 								$return[]              = array(
 									'name'  => esc_html( $control_name ),
 									'slug'  => esc_html( $control_slug ),
 									'var'   => esc_html( $control_var ),
-									$value  => hypermarket_sanitize( $control_value, $id ),
+									$value  => hypermarket_sanitize( $control_value, $sanitize_type ),
 								);
 							}
 						}
@@ -897,7 +896,7 @@ if ( ! function_exists( 'hypermarket_generate_editor_css' ) ) :
 		if ( ! empty( $gradient_presets ) && is_array( $gradient_presets ) ) {
 			$gradient_presets = $gradient_presets[0];
 			foreach ( $gradient_presets as $gradient ) {
-				$return .= hypermarket_generate_css( sprintf( '.has-%s-gradient-background', $gradient['slug'] ), 'background-image', $gradient['gradient'] );
+				$return .= hypermarket_generate_css( sprintf( '.has-%s-gradient-background', $gradient['slug'] ), 'background-image', sprintf( 'var(--%s)', $gradient['var'] ) );
 			}
 		}
 
@@ -905,21 +904,23 @@ if ( ! function_exists( 'hypermarket_generate_editor_css' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_get_admin_url' ) ) :
+if ( ! function_exists( 'hypermarket_get_gradient_presets' ) ) :
 	/**
-	 * Retrieves the URL to the admin area for the network or single setup.
+	 * Retrieves a list of Hypermarket theme specific gradient presets.
 	 *
 	 * @since    2.0.0
-	 * @param    string $path     Optional. Path relative to the admin URL.
-	 * @return   string
+	 * @return   array
 	 */
-	function hypermarket_get_admin_url( $path = null ) {
-		$return = self_admin_url( $path );
-		
-		if ( is_multisite() ) {
-			$return = network_admin_url( $path );
-		}
-
-		return esc_url_raw( $return );
+	function hypermarket_get_gradient_presets() {
+		return apply_filters(
+			'hypermarket_gradient_presets',
+			array(
+				array(
+					'name'     => __( 'Midnight', 'hypermarket' ),
+					'slug'     => 'midnight',
+					'gradient' => 'linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%)',
+				),
+			) 
+		);
 	}
 endif;
