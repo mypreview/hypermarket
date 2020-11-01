@@ -45,7 +45,9 @@ if ( ! class_exists( 'Hypermarket_Admin' ) ) :
 		 * Enqueue scripts for admin pages.
 		 *
 		 * @since   2.0.0
+		 * @param   string $hook_suffix      Hook suffix for the current admin page.
 		 * @return  void
+		 * @phpcs:disable WordPress.NamingConventions.ValidHookName.UseUnderscores, WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 		 */
 		public function enqueue( $hook_suffix ) {
 			$asset_name    = 'admin';
