@@ -46,6 +46,7 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		 *
 		 * @since   2.0.0
 		 * @return  void
+		 * @phpcs:disable WordPress.NamingConventions.ValidHookName.UseUnderscores, WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 		 */
 		public function enqueue() {
 			$asset_name    = 'customize';
@@ -77,10 +78,11 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		 */
 		public function customize_register( $wp_customize ) {
 			// Import Customizer custom control(s).
+			require get_parent_theme_file_path( '/includes/customize/class-hypermarket-customize-color-control.php' );
 			require get_parent_theme_file_path( '/includes/customize/class-hypermarket-customize-more-control.php' );
 			require get_parent_theme_file_path( '/includes/customize/class-hypermarket-customize-range-control.php' );
 			// Registers Customizer color controls.
-			$this->_register_controls( $wp_customize, 'color', 'WP_Customize_Color_Control' );
+			$this->_register_controls( $wp_customize, 'color', 'Hypermarket_Customize_Color_Control' );
 			// Registers Customizer font controls.
 			$this->_register_controls( $wp_customize, 'font', 'Hypermarket_Customize_Range_Control' );
 			// Registers Customizer layout controls.
@@ -204,6 +206,54 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 										'id'      => sprintf( '%s_alert_danger_color', self::$setting_prefix ),
 										'label'   => esc_html__( 'Danger', 'hypermarket' ),
 										'default' => '#ef0568',
+									),
+								),
+							),
+							array(
+								'id'       => sprintf( '%s_gradient_colors', self::$setting_prefix ),
+								'title'    => esc_html__( 'Gradient', 'hypermarket' ),
+								'controls' => array(
+									array(
+										'type'    => 'gradient',
+										'var'     => sprintf( '%s-gradient-preset-1', $hypermarket->slug ),
+										'id'      => sprintf( '%s_gradient_preset_1', self::$setting_prefix ),
+										'label'   => esc_html__( 'Preset 1', 'hypermarket' ),
+										'default' => 'linear-gradient(to right, rgb(238,238,238) 0%, rgb(169,184,195) 100%)',
+									),
+									array(
+										'type'    => 'gradient',
+										'var'     => sprintf( '%s-gradient-preset-2', $hypermarket->slug ),
+										'id'      => sprintf( '%s_gradient_preset_2', self::$setting_prefix ),
+										'label'   => esc_html__( 'Preset 2', 'hypermarket' ),
+										'default' => 'linear-gradient(to right, rgb(254,205,165) 0%, rgb(254,45,45) 50%, rgb(107,0,62) 100%)',
+									),
+									array(
+										'type'    => 'gradient',
+										'var'     => sprintf( '%s-gradient-preset-3', $hypermarket->slug ),
+										'id'      => sprintf( '%s_gradient_preset_3', self::$setting_prefix ),
+										'label'   => esc_html__( 'Preset 3', 'hypermarket' ),
+										'default' => 'linear-gradient(to right, rgb(255,203,112) 0%, rgb(199,81,192) 50%, rgb(65,88,208) 100%)',
+									),
+									array(
+										'type'    => 'gradient',
+										'var'     => sprintf( '%s-gradient-preset-4', $hypermarket->slug ),
+										'id'      => sprintf( '%s_gradient_preset_4', self::$setting_prefix ),
+										'label'   => esc_html__( 'Preset 4', 'hypermarket' ),
+										'default' => 'linear-gradient(to right, rgb(255,245,203) 0%, rgb(182,227,212) 50%, rgb(51,167,181) 100%)',
+									),
+									array(
+										'type'    => 'gradient',
+										'var'     => sprintf( '%s-gradient-preset-5', $hypermarket->slug ),
+										'id'      => sprintf( '%s_gradient_preset_5', self::$setting_prefix ),
+										'label'   => esc_html__( 'Preset 5', 'hypermarket' ),
+										'default' => 'linear-gradient(to right, rgb(202,248,128) 0%, rgb(113,206,126) 100%)',
+									),
+									array(
+										'type'    => 'gradient',
+										'var'     => sprintf( '%s-gradient-preset-6', $hypermarket->slug ),
+										'id'      => sprintf( '%s_gradient_preset_6', self::$setting_prefix ),
+										'label'   => esc_html__( 'Preset 6', 'hypermarket' ),
+										'default' => 'linear-gradient(to right, rgb(2,3,129) 0%, rgb(40,116,252) 100%)',
 									),
 								),
 							),
@@ -398,6 +448,31 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		}
 
 		/**
+		 * Filter controls based on the given (control) type definition.
+		 *
+		 * @since   2.0.0
+		 * @param   array       $controls                 A list of controls.
+		 * @param   string      $type           Optional. Type of the control.
+		 * @param   bool|string $type_value     Optional. Value of the control type.
+		 * @return  array
+		 */
+		public static function get_controls_by_type( $controls, $type = null, $type_value = false ) {
+			$controls = array_filter(
+				$controls,
+				// phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
+				function( $controls ) use ( $type, $type_value ) { 
+					if ( ! $type_value ) {
+						return ! isset( $controls[ $type ] );
+					} else {
+						return isset( $controls[ $type ] ) && $type_value === $controls[ $type ];
+					}
+				}
+			);
+
+			return $controls;
+		}
+
+		/**
 		 * Add extra CSS styles to a registered stylesheet.
 		 *
 		 * @since   2.0.0
@@ -405,13 +480,7 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		 */
 		public static function get_css() {
 			$return = ':root {';
-			$groups = array_filter(
-				self::get_controls(),
-				// phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
-				function( $controls ) { 
-					return isset( $controls['has_css'] ); 
-				}
-			);
+			$groups = self::get_controls_by_type( self::get_controls(), 'has_css', true );
 
 			if ( is_array( $groups ) && ! empty( $groups ) ) {
 				// Loop through Customize groups.
