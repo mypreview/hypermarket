@@ -172,6 +172,17 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			);
 
 			/**
+			 * Add support for editor gradient color presets.
+			 */
+			add_theme_support( 
+				'editor-gradient-presets',
+				apply_filters(
+					'hypermarket_gradient_presets_args',
+					(array) hypermarket_generate_editor_features( 'color', 'gradient' )
+				) 
+			);
+
+			/**
 			 * This theme uses `wp_nav_menu()` in four location.
 			 */
 			register_nav_menus(
