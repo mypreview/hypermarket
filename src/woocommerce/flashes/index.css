@@ -1,12 +1,6 @@
 @each $flash in sale, new, featured {
 	.on$(flash) {
-		background-color: var(--general-background);
-		font-size: calc(var(--general-normal) * 0.75);
-		padding: 3px 14px;
-		display: inline-block;
-		border-radius: 24px;
-		position: absolute 20px null null 20px;
-		z-index: 3;
+		@extend %flashes;
 
 		div.product & {
 			left: 35px;
