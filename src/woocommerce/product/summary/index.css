@@ -43,6 +43,11 @@
 			padding-left: 0;
 		}
 	}
+
+	.edit-link {
+    	text-align: center;
+    	margin-top: 16px;
+	}
 }
 
 .woocommerce-product-details__short-description {
