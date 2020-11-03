@@ -11,12 +11,10 @@
 
 	.wp-core-ui &-dropdown {
 		select {
-			height: 48px;
-			padding-left: 16px;
+			@extend %select;
+			@extend %select-icon;
 			width: 100%;
 			max-width: 100%;
-			@extend %select-icon;
-			cursor: pointer;
 		}
 	}
 }

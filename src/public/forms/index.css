@@ -17,15 +17,7 @@ label {
 	}
 }
 
-@each $field in input, select, button, textarea {
-	$(field) {
-		font-family: inherit;
-		font-size: inherit;
-		line-height: inherit;
-	}
-}
-
-@each $form in input, select, textarea {
+@each $form in input, textarea {
 	$(form) {
 		display: block;
 		width: 100%;
@@ -37,6 +29,8 @@ label {
 		border-radius: var(--border-radius-base);
 		background-color: var(--general-background);
 		appearance: none;
+		font-family: inherit;
+		line-height: inherit;
 		@mixin shift border;
 
 		&:focus {
@@ -55,18 +49,19 @@ textarea {
 input {
 	min-height: 48px;
 	padding: 0 16px;
+	overflow: visible;
 }
 
 select {
-	height: 48px;
-	padding-left: 16px;
+	@extend %select;
 	@extend %select-icon;
+	@mixin shift border;
 	cursor: pointer;
+	width: 100%;
 
 	&::-ms-expand {
 		display: none;
 	}
-
 }
 
 optgroup {
@@ -125,11 +120,6 @@ body [disabled],
 body .disabled {
 	opacity: 0.88;
 	cursor: not-allowed;
-}
-
-button,
-input {
-	overflow: visible;
 }
 
 fieldset {
