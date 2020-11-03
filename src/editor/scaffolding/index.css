@@ -20,10 +20,17 @@
 
 .editor-styles-wrapper {
 	.block-editor-writing-flow {
+		.wp-block {
+			ul,
+			ol {
+				margin-left: 0;
+			}
+		}
+		
 		ul,
 		ol {
 			padding-left: 18px;
-			margin: 0 0 var(--line-height-computed);
+			margin-bottom: var(--line-height-computed);
 			line-height: 1.8;
 
 			ul {
