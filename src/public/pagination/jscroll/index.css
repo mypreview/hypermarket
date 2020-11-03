@@ -46,10 +46,13 @@
 		border-top: 1px solid var(--general-border);
 
 		&::before {
-			@mixin icon "\eb11";
-			color: var(--general-entry-alt);
-			-webkit-animation: spin 1s ease-in infinite;
-			animation: spin 1s ease-in infinite;
+			content: "";
+		    width: 25.2px;
+		    height: 25.2px;
+		    border-radius: 20px;
+		    border: 2px solid var(--general-entry-alt);
+		    border-right-color: transparent;
+			animation: spin 1s linear infinite;
 		}
 	}
 }
