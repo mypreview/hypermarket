@@ -5,13 +5,40 @@
 		position: fixed 50% 0 null null;
 		z-index: 9;
 		size: 48px;
-		line-height: 48px;
-		font-size: 26px;
-		text-align: center;
-		@mixin link;
+		color: inherit;
 		background-color: var(--general-background);
 		box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.15);
 		@mixin shift right;
+
+		span {
+    		size: 21px 10px;
+    		overflow: hidden;
+    		padding-top: 10px;
+    		display: block;
+    		margin: 18px 13.5px;
+    		border-top: 2px solid currentColor;
+    		position: relative;
+
+			&:after,
+    		&:before {
+				content: '';
+				border-top: 2px solid currentColor;
+				position: absolute;
+				height: 2px;
+    		}
+
+    		&:after {
+    			width: 7px;
+			    top: 8px;
+			    left: 6.5px;
+    		}
+
+    		&:before {
+				width: 15px;
+			    top: 3px;
+			    left: 3px;
+    		}
+		}
 
 		.has-sidebar--open & {
 			right: -48px;
