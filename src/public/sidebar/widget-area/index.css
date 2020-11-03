@@ -27,6 +27,7 @@
 
 		.admin-bar & {
 			@extend %is-admin-bar;
+			z-index: 99999;
 		}
 
 		.has-sidebar--open & {
