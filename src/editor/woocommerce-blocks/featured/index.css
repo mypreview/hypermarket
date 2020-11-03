@@ -1,0 +1,35 @@
+@import "./../../../woocommerce/blocks/featured";
+
+@each $item in category, product {
+	.wc-block-featured-$(item) {
+		.editor-styles-wrapper .block-editor-writing-flow & {
+			&__title {
+			    color: #fff;
+			    line-height: 1.25;
+			    margin-bottom: 0;
+			}
+
+			&__description {
+				p {
+					margin: 0;
+    				line-height: 1.5em;
+				}
+			}
+		}
+
+		&__wrapper {
+			width: 100%;
+			
+			@each $align, $flex in (right, left, center), (flex-end, flex-start, center) {
+				.has-$(align)-content & {
+					justify-content: $(flex);
+				}
+			}
+		}
+
+		.wp-block {
+			margin-left: 0;
+	   		margin-right: 0;
+		}
+	}
+}
