@@ -70,6 +70,27 @@
 	}
 }
 
+%select {
+	display: block;
+	height: 48px;
+	padding-left: 16px;
+	line-height: var(--line-height-base);
+	font-size: var(--general-small);
+	color: var(--general-entry);
+	text-transform: none;
+	border: 2px solid var(--general-border);
+	border-radius: var(--border-radius-base);
+	background-color: var(--general-background);
+	appearance: none;
+	font-family: inherit;
+	line-height: inherit;
+
+	&:focus {
+		border-color: var(--general-primary);
+		outline: none;
+	}
+}
+
 %select-icon {
 	background-repeat: no-repeat;
 	background-position: calc(100% - 15.5px) 50%, calc(100% - 11.5px) 50%, 100% 0;
@@ -124,4 +145,14 @@
 	.count {
 		padding: 0 3px;
 	}
+}
+
+%flashes {
+	background-color: var(--general-background);
+	font-size: calc(var(--general-normal) * 0.75);
+	padding: 3px 14px;
+	display: inline-block;
+	border-radius: 24px;
+	position: absolute 20px null null 20px;
+	z-index: 3;
 }
