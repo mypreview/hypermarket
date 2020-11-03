@@ -22,6 +22,10 @@
 		}
 	}
 
+	&.aligncenter {
+		text-align: center;
+	}
+
 	&__link {
 		min-height: var(--btn-height);
 		font-size: var(--general-small);
