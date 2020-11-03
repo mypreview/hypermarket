@@ -1,0 +1,44 @@
+.wc-block-grid {
+	&__products {
+		display: grid;
+		column-gap: 30px;
+		row-gap: 36px;
+		margin: 0;
+
+		^&.has-2-columns & {
+			grid-template-columns: repeat(2, 1fr) ?if media (--screen-xs-min);
+		}
+		^&.has-3-columns & {
+			grid-template-columns: repeat(3, 1fr) ?if media (--screen-md-min);
+			grid-template-columns: repeat(2, 1fr) ?if media (--screen-md) and (--screen-xs-min);
+		}
+		^&.has-4-columns & {
+			grid-template-columns: repeat(4, 1fr) ?if media (--screen-md-min);
+			grid-template-columns: repeat(2, 1fr) ?if media (--screen-md) and (--screen-xs-min);
+		}
+		^&.has-5-columns & {
+			grid-template-columns: repeat(5, 1fr) ?if media (--screen-lg-min);
+			grid-template-columns: repeat(3, 1fr) ?if media (--screen-lg) and (--screen-md-min);
+			grid-template-columns: repeat(2, 1fr) ?if media (--screen-md) and (--screen-xs-min);
+		}
+		^&.has-6-columns & {
+			grid-template-columns: repeat(6, 1fr) ?if media (--screen-lg-min);
+			grid-template-columns: repeat(3, 1fr) ?if media (--screen-lg) and (--screen-md-min);
+			grid-template-columns: repeat(2, 1fr) ?if media (--screen-md) and (--screen-xs-min);
+		}
+
+		^& & ^&__product {
+			border-width: 0;
+			max-width: 100%;
+
+			&-onsale {
+				color: var(--alert-danger);
+				text-transform: none;
+    			font-weight: 400;
+    			border-width: 0;
+    			line-height: 1.3;
+				@extend %flashs;
+			}
+		}
+	}
+}
