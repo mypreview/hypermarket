@@ -34,9 +34,9 @@
 			&-onsale {
 				color: var(--alert-danger);
 				text-transform: none;
-    			font-weight: 400;
-    			border-width: 0;
-    			line-height: 1.3;
+				font-weight: 400;
+				border-width: 0;
+				line-height: 1.3;
 				@extend %flashs;
 			}
 		}
