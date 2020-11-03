@@ -86,8 +86,8 @@
 		^&_arrow {
 			font-size: 0;
 			&::before {
-				@mixin icon "\ea1d";
-				font-size: 22px;
+				@mixin icon "\f139";
+				font-size: 18px;
 			}
 		}
 
@@ -95,7 +95,7 @@
 			> ^^&_row {
 				^^^&_arrow {
 					&::before {
-						content: "\ea17";
+						content: "\f140";
 					}
 				}
 			}

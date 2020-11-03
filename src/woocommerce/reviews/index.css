@@ -106,7 +106,7 @@
 		color: var(--alert-success);
 
 		&::before {
-			@mixin icon "\ec70";
+			@mixin icon "\f12a";
 			font-style: normal;
 			position: absolute 0 null null null;
 			line-height: 1;

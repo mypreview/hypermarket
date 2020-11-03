@@ -71,10 +71,10 @@ optgroup {
 [type="checkbox"] {
 	border-radius: 1px;
 	&::before {
-		position: absolute -2px null null -2px;
+		position: absolute -2.3px null null -3px;
 		display: block;
-		font-size: 14px;
-		@mixin icon "\ea0f";
+		font-size: 16px;
+		@mixin icon "\f147";
 		color: var(--general-background);
 		line-height: 1;
 	}

@@ -25,13 +25,13 @@
 
 					> span {
 						&::before {
-							@mixin icon "\ee67\ee67\ee67\ee67\ee67";
+							@mixin icon "\f155\f155\f155\f155\f155";
 							color: var(--alert-warning);
 						}
 					}
 
 					&::before {
-						@mixin icon "\ebea\ebea\ebea\ebea\ebea";
+						@mixin icon "\f154\f154\f154\f154\f154";
 						color: var(--alert-warning);
 						opacity: 1;
 					}

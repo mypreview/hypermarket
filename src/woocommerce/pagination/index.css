@@ -15,7 +15,7 @@
 				margin-left: auto;
 
 				&::after {
-					@mixin icon "\ea1d";
+					@mixin icon "\f345";
 					margin: 0 -3px 0 4px;
 				}
 			}
@@ -24,7 +24,7 @@
 				margin-right: auto;
 
 				&::before {
-					@mixin icon "\ea1a";
+					@mixin icon "\f341";
 					margin: 0 4px 0 -3px;
 				}
 			}

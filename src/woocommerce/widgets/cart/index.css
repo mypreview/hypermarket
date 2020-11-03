@@ -39,7 +39,7 @@
 			font-size: 0;
 
 			&::before {
-				@mixin icon "\ec4e";
+				@mixin icon "\f335";
 				font-size: 18px;
 				line-height: 1;
 				position: absolute 0 -3px null null;

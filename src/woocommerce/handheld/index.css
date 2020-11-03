@@ -37,7 +37,7 @@
 			}
 
 			&::before {
-				@mixin icon "\ebbc";
+				@mixin icon "\f179";
 				font-size: 22px;
 				padding-top: 4px;
 			}

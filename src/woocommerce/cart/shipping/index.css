@@ -29,7 +29,7 @@
 		@extend %meta-item;
 
 		&::before {
-			@mixin icon "\ed4f";
+			@mixin icon "\f327";
 		}
 	}
 

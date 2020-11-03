@@ -7,7 +7,7 @@
 	z-index: 20;
 
 	&::before {
-		@mixin icon "\eda7";
+		@mixin icon "\f16d";
 		position: absolute 8px null null 14px;
 		font-size: 23px;
 	}

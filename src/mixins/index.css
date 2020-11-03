@@ -9,7 +9,7 @@
 
 @define-mixin icon $name {
 	content: $(name);
-	font-family: boxicons;
+	font-family: dashicons;
 }
 
 @define-mixin link $hover: inherit, $color: inherit {

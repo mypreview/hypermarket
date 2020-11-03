@@ -1,5 +1,5 @@
 .entry-share {
-	.bxl {
+	.dashicons {
 		&-facebook {
 			:--active {
 				color: #3b5998;
@@ -31,10 +31,6 @@
 		}
 
 		&-email {
-			&::before {
-				content: "\ea8e";
-			}
-
 			:--active {
 				color: #3f549b;
 			}

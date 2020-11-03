@@ -16,13 +16,13 @@ if ( ! hypermarket_has_sidebar() ) {
 }
 
 ?>
-<a href="#" class="widget-area-toggle bx-filter">
-	<span class="screen-reader-text">
+<a href="#" class="widget-area-toggle">
+	<span>
 		<?php esc_html_e( 'Toggle sidebar', 'hypermarket' ); ?>
 	</span>
 </a><!-- .widget-area-toggle -->
 <aside id="secondary" class="widget-area" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
-	<a href="#" class="widget-area__close bx-x">
+	<a href="#" class="widget-area__close dashicons dashicons-no-alt">
 		<span class="screen-reader-text">
 			<?php esc_html_e( 'Close sidebar', 'hypermarket' ); ?>
 		</span>

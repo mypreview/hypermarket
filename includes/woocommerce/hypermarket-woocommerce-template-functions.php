@@ -222,7 +222,7 @@ if ( ! function_exists( 'hypermarket_quantity_minus_btn' ) ) :
 	 */
 	function hypermarket_quantity_minus_btn() {
 		?>
-		<button type="button" class="qty-minus bx-minus" aria-label="<?php esc_attr_e( 'Remove from the quantity', 'hypermarket' ); ?>"></button>
+		<button type="button" class="qty-minus dashicons dashicons-minus" aria-label="<?php esc_attr_e( 'Remove from the quantity', 'hypermarket' ); ?>"></button>
 		<?php
 	}
 endif;
@@ -236,7 +236,7 @@ if ( ! function_exists( 'hypermarket_quantity_plus_btn' ) ) :
 	 */
 	function hypermarket_quantity_plus_btn() {
 		?>
-		<button type="button" class="qty-plus bx-plus" aria-label="<?php esc_attr_e( 'Add to the quantity', 'hypermarket' ); ?>" /></button>
+		<button type="button" class="qty-plus dashicons dashicons-plus-alt2" aria-label="<?php esc_attr_e( 'Add to the quantity', 'hypermarket' ); ?>" /></button>
 		<?php
 	}
 endif;

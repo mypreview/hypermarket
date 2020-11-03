@@ -20,7 +20,7 @@
 				@extend %meta-item;
 
 				&::before {
-					@mixin icon "\e9e5";
+					@mixin icon "\f508";
 				}
 			}
 		}
@@ -73,7 +73,7 @@
 		a {
 			@extend %meta-item;
 			&::before {
-				@mixin icon "\ea43";
+				@mixin icon "\f101";
 			}
 		}
 	}

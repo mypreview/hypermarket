@@ -2,7 +2,7 @@ form[role="search"]:not(.wp-block-search) {
 	position: relative;
 
 	&::after {
-		@mixin icon "\ebbe";
+		@mixin icon "\f179";
 		font-size: 20px;
 		position: absolute null 12px 13px null;
 		line-height: 1;

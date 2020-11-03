@@ -41,7 +41,7 @@
 				@mixin link var(--general-entry-alt);
 
 				.sticky&::before {
-					@mixin icon "\ee21";
+					@mixin icon "\f537";
 					vertical-align: bottom;
 					color: var(--general-entry-alt);
 				}

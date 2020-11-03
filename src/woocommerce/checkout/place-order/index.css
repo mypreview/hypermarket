@@ -10,7 +10,7 @@
 		@mixin button-color;
 
 		&::before {
-			@mixin icon "\e988";
+			@mixin icon "\f340";
 			margin-right: 5px;
 			font-size: 18px;
 		}

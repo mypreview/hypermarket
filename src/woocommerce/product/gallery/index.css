@@ -24,7 +24,7 @@
 		}
 
 		&::before {
-			@mixin icon "\ec51";
+			@mixin icon "\f188";
 		}
 
 		> img {

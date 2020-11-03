@@ -57,7 +57,7 @@
 		}
 
 		.woocommerce-input-wrapper::before {
-			font-family: boxicons;
+			font-family: dashicons;
 			position: absolute 11px 10px null null;
 			line-height: 1;
 			font-size: var(--general-medium);
@@ -74,7 +74,7 @@
 	}
 
 	.woocommerce-input-wrapper::before {
-		content: "\ea0f";
+		content: "\f147";
 		color: var(--alert-success);
 	}
 }
@@ -87,7 +87,7 @@
 	}
 
 	.woocommerce-input-wrapper::before {
-		content: "\ec4e";
+		content: "\f335";
 		color: var(--alert-danger);
 	}
 }

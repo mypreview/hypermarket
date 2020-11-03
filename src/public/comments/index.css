@@ -132,7 +132,7 @@
 		display: inline-flex;
 
 		&::before {
-			@mixin icon "\ee50";
+			@mixin icon "\f171";
 			padding-right: 3px;
 		}
 
