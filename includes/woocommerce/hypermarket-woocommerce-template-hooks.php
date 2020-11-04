@@ -37,11 +37,11 @@ add_actioN( 'hypermarket_single_after_sticky_add_to_cart', 'hypermarket_div_clos
 add_action( 'hypermarket_after_footer', 'hypermarket_handheld_toolbar', 99 );
 
 /**
- * Content
+ * Pages
  *
  * @see  hypermarket_shop_messages()
  */
-add_action( 'hypermarket_page_top', 'hypermarket_shop_messages', 30 );
+add_action( 'hypermarket_page', 'hypermarket_shop_messages', 0 );
 
 /**
  * No products found
