@@ -354,6 +354,8 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 
 			// Remove the previously enqueued block-editor stylesheet.
 			wp_dequeue_style( 'wp-block-library' );
+			// Dashicons.
+			wp_enqueue_style( 'dashicons' );
 			// Fonts.
 			// phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 			wp_enqueue_style( $font_handle, $this->google_fonts(), array(), null );
