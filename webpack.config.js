@@ -86,15 +86,6 @@ const config = {
 				],
 			},
 			{
-				test: /\.(ttf|eot|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-				use: {
-					loader: 'file-loader',
-					options: {
-						name: '[name].[ext]',
-					},
-				},
-			},
-			{
 				test: /\.(png|jpg|gif|svg)$/i,
 				use: {
 					loader: 'url-loader',
