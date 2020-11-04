@@ -33,7 +33,7 @@
 
 			> *:last-child {
 				margin-bottom: 0;
-			} 
+			}
 
 			&-onsale {
 				color: var(--alert-danger);
@@ -60,31 +60,31 @@
 			position: absolute 22px 20px null null;
 
 			.star-rating {
-			    line-height: 1;
+				line-height: 1;
 				size: 64.5px 12px;
 				font-size: 12px;
 				letter-spacing: 1px;
 
-			    &:before {
-		    	    content: "\f154\f154\f154\f154\f154";
-		    	    color: inherit;
-	    	        opacity: 1;
-			    }
+				&::before {
+					content: "\f154\f154\f154\f154\f154";
+					color: inherit;
+					opacity: 1;
+				}
 
-			    > span {
-		    	    padding-top: 16px;
+				> span {
+					padding-top: 16px;
 
-		    	    &:before {
-		    	    	content: "\f155\f155\f155\f155\f155";
-		    	    	color: inherit;
-		    	    }
-			    }
+					&::before {
+						content: "\f155\f155\f155\f155\f155";
+						color: inherit;
+					}
+				}
 
-			    .rating {
-			    	&:before {
-			    		display: none;
-			    	}
-			    }
+				.rating {
+					&::before {
+						display: none;
+					}
+				}
 			}
 		}
 
@@ -100,7 +100,7 @@
 
 					&.loading {
 						color: transparent;
-					    opacity: 1;
+						opacity: 1;
 
 						&::before {
 							animation-duration: 0.8s;
