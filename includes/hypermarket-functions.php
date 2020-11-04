@@ -430,9 +430,9 @@ if ( ! function_exists( 'hypermarket_social_share_buttons' ) ) :
 					'url'     => sprintf( 'https://www.twitter.com/share?text=%1$s&amp;url=%2$s', rawurlencode( $title ), $permalink ),
 				),
 				array(
-					'network' => 'telegram',
-					'label'   => esc_html_x( 'Telegram', 'share icon', 'hypermarket' ),
-					'url'     => sprintf( 'https://www.telegram.me/share/url?text=%1$s&amp;url=%2$s', rawurlencode( $title ), $permalink ),
+					'network' => 'reddit',
+					'label'   => esc_html_x( 'Reddit', 'share icon', 'hypermarket' ),
+					'url'     => sprintf( 'http://www.reddit.com/submit?text=%1$s&amp;url=%2$s', rawurlencode( $title ), $permalink ),
 				),
 				'whatsapp' => array(
 					'network' => 'whatsapp',
