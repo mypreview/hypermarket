@@ -47,11 +47,11 @@
 
 		&::before {
 			content: "";
-		    width: 25.2px;
-		    height: 25.2px;
-		    border-radius: 20px;
-		    border: 2px solid var(--general-entry-alt);
-		    border-right-color: transparent;
+			width: 25.2px;
+			height: 25.2px;
+			border-radius: 20px;
+			border: 2px solid var(--general-entry-alt);
+			border-right-color: transparent;
 			animation: spin 1s linear infinite;
 		}
 	}
