@@ -48,7 +48,6 @@
 		"css-loader": "^5.0.0",
 		"eslint": "7.12.1",
 		"eslint-config-prettier": "6.15.0",
-		"file-loader": "^6.2.0",
 		"license-checker-webpack-plugin": "^0.1.5",
 		"lodash": "^4.17.20",
 		"mini-css-extract-plugin": "^1.2.1",
@@ -63,7 +62,6 @@
 		"postcss-each": "^0.10.0",
 		"postcss-extend": "^1.0.5",
 		"postcss-flexbox": "^1.0.3",
-		"postcss-fontpath": "^1.0.0",
 		"postcss-for": "^2.1.1",
 		"postcss-hidden": "^1.0.7",
 		"postcss-if-media": "^1.0.3",
@@ -96,7 +94,6 @@
 		"webpack-rtl-plugin": "^2.0.0"
 	},
 	"dependencies": {
-		"boxicons": "^2.0.5",
 		"es6-object-assign": "^1.1.0",
 		"flickity": "^2.2.1",
 		"grapick": "^0.1.9",
