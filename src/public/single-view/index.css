@@ -29,6 +29,10 @@
 			padding-top: 10px;
 		}
 	}
+
+	.edit-link {
+		margin: 6px 0 16px;
+	}
 }
 
 .post {
