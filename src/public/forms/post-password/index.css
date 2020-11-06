@@ -1,8 +1,8 @@
 .post-password-form {
 	> p {
 		&:last-child {
-			box: vertical;
-			max-width: 360px;
+			@extend %coupon-grid;
+		    align-items: flex-end;
 		}
 	}
 
@@ -11,9 +11,7 @@
 		width: calc(100% + 18px);
 	}
 
-	[type="submit"] {
-		min-width: 40%;
-		width: auto;
-		margin: 17px 0 0 auto;
+	label {
+		margin-bottom: 0;
 	}
 }
