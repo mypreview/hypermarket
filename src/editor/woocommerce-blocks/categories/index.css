@@ -5,13 +5,13 @@
 		.wc-block-product-categories {
 			&-list {
 				padding-left: 0;
-			    margin: 0;
+				margin: 0;
 			}
 
 			select {
 				@extend %select;
 				@extend %select-icon;
-			    margin-right: 0;
+				margin-right: 0;
 			}
 
 			&__button {

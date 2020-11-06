@@ -2,7 +2,7 @@
 	> p {
 		&:last-child {
 			@extend %coupon-grid;
-		    align-items: flex-end;
+			align-items: flex-end;
 		}
 	}
 

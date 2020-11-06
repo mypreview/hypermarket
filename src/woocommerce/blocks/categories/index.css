@@ -24,16 +24,16 @@
 	}
 
 	&__button {
-	    padding: 10px;
-	    width: 48px;
-	    margin-left: 5px;
+		padding: 10px;
+		width: 48px;
+		margin-left: 5px;
 
-	    &:focus:enabled,
-	    &:not(:disabled):not([aria-disabled="true"]):active,
-	    &:not(:disabled):not([aria-disabled="true"]):hover {
-    	    box-shadow: none;
-    	    background-color: var(--general-primary-alt);
-   			color: var(--general-background);
-	    }
+		&:focus:enabled,
+		&:not(:disabled):not([aria-disabled="true"]):active,
+		&:not(:disabled):not([aria-disabled="true"]):hover {
+			box-shadow: none;
+			background-color: var(--general-primary-alt);
+			color: var(--general-background);
+		}
 	}
 }

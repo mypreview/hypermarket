@@ -25,8 +25,8 @@
 			&-title {
 				a {
 					color: inherit;
-				    text-align: left;
-				    display: block;
+					text-align: left;
+					display: block;
 				}
 			}
 
@@ -49,8 +49,8 @@
 				@mixin shift opacity, 0.35s;
 
 				.wp-block-button__link {
-				    margin: 0 !important;
-				    pointer-events: auto;
+					margin: 0 !important;
+					pointer-events: auto;
 				}
 			}
 

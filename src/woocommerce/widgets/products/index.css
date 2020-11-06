@@ -11,10 +11,10 @@
 
 		li {
 			padding-left: 62px;
-		    min-height: 50px;
+			min-height: 50px;
 
 			&:nth-child(n+2) {
-			    margin-top: 12px;
+				margin-top: 12px;
 			}
 		}
 

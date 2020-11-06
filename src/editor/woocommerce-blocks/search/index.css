@@ -10,7 +10,7 @@
 
 		^&__label {
 			display: block;
-		    height: auto;
+			height: auto;
 			font-size: calc(var(--general-normal) * 0.75);
 			color: var(--general-entry);
 			margin-bottom: 7px;
@@ -18,10 +18,10 @@
 		}
 
 		^&__field {
-	    	padding: 0;
+			padding: 0;
 
-	    	.components-text-control__input {
-	    		display: block;
+			.components-text-control__input {
+				display: block;
 				width: 100%;
 				line-height: var(--line-height-base);
 				font-size: var(--general-small);
@@ -37,7 +37,7 @@
 					border-color: var(--general-primary);
 					outline: none;
 				}
-	    	}
+			}
 		}
 
 		^&__button {
@@ -50,14 +50,14 @@
 			background: transparent;
 
 			&:focus:enabled,
-		    &:not(:disabled):not([aria-disabled="true"]):active,
-		    &:not(:disabled):not([aria-disabled="true"]):hover {
+			&:not(:disabled):not([aria-disabled="true"]):active,
+			&:not(:disabled):not([aria-disabled="true"]):hover {
 				background-color: transparent;
-		    	box-shadow: none;
+				box-shadow: none;
 			}
 		}
 	}
-	
+
 	.components-base-control {
 		.components-base-control__field {
 			margin-bottom: 0;
