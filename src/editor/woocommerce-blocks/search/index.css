@@ -1,0 +1,66 @@
+.wc-block-product-search {
+	.block-editor & {
+		&::after {
+			@mixin icon "\f179";
+			font-size: 20px;
+			position: absolute null 12px 13px null;
+			line-height: 1;
+			pointer-events: none;
+		}
+
+		^&__label {
+			display: block;
+		    height: auto;
+			font-size: calc(var(--general-normal) * 0.75);
+			color: var(--general-entry);
+			margin-bottom: 7px;
+			text-transform: uppercase;
+		}
+
+		^&__field {
+	    	padding: 0;
+
+	    	.components-text-control__input {
+	    		display: block;
+				width: 100%;
+				line-height: var(--line-height-base);
+				font-size: var(--general-small);
+				color: var(--general-entry);
+				border: 2px solid var(--general-border);
+				border-radius: var(--border-radius-base);
+				background-color: var(--general-background);
+				min-height: 48px;
+				padding: 0 16px;
+				@mixin shift border;
+
+				&:focus {
+					border-color: var(--general-primary);
+					outline: none;
+				}
+	    	}
+		}
+
+		^&__button {
+			position: absolute null 0 0 null;
+			display: block;
+			size: 40px 48px;
+			padding: 48px 0 0;
+			min-height: auto;
+			overflow: hidden;
+			background: transparent;
+
+			&:focus:enabled,
+		    &:not(:disabled):not([aria-disabled="true"]):active,
+		    &:not(:disabled):not([aria-disabled="true"]):hover {
+				background-color: transparent;
+		    	box-shadow: none;
+			}
+		}
+	}
+	
+	.components-base-control {
+		.components-base-control__field {
+			margin-bottom: 0;
+		}
+	}
+}
