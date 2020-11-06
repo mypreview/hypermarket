@@ -2,7 +2,7 @@
 	.on$(flash) {
 		@extend %flashes;
 
-		div.product & {
+		.div > & {
 			left: 35px;
 		}
 	}
