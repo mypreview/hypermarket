@@ -27,10 +27,7 @@
 			grid-template-columns: repeat(2, 1fr) ?if media (--screen-md) and (--screen-xs-min);
 		}
 
-		^& & ^&__product {
-			border-width: 0;
-			max-width: 100%;
-
+		^&__product {
 			> *:last-child {
 				margin-bottom: 0;
 			}
@@ -43,6 +40,11 @@
 				line-height: 1.3;
 				@extend %flashes;
 			}
+		}
+
+		^& & ^&__product {
+			border-width: 0;
+			max-width: 100%;
 		}
 
 		^&__product-title {
