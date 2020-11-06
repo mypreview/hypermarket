@@ -32,7 +32,7 @@ nav {
 
 	[class*="current_"],
 	.current-menu-item {
-		a {
+		> a {
 			color: var(--general-entry-alt);
 			opacity: 0.95;
 		}
