@@ -58,10 +58,7 @@
 	}
 
 	img {
-		position: absolute 0 null null 0;
 		max-width: 65px;
-		left: 0;
-		top: 0;
 	}
 
 	&__total {
