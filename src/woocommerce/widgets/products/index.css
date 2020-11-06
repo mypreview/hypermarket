@@ -1,26 +1,25 @@
 .product_list_widget {
 	text-align: left;
 
+	img {
+		position: absolute 0 null null 0;
+	}
+
 	&:not(.cart_list) {
 		font-size: calc(var(--general-normal) * 0.8125);
 		color: var(--general-entry-alt);
 
 		li {
-			&::after {
-				content: "";
-				display: table;
-				clear: both;
-			}
+			padding-left: 62px;
+		    min-height: 50px;
 
 			&:nth-child(n+2) {
-				padding-top: 15px;
+			    margin-top: 12px;
 			}
 		}
 
 		img {
-			width: 62px;
-			padding-left: 12px;
-			float: right;
+			width: 50px;
 		}
 
 		.product-title {
@@ -28,7 +27,6 @@
 			font-size: var(--general-small);
 			font-weight: 500;
 			display: block;
-			margin-bottom: 4px;
 			@mixin shift color;
 
 			&:hover {
