@@ -1,0 +1,37 @@
+.entry-share {
+	&__facebook {
+		:--active {
+			color: #3b5998;
+		}
+	}
+
+	&__linkedin {
+		:--active {
+			color: #0e76a8;
+		}
+	}
+
+	&__twitter {
+		:--active {
+			color: #00acee;
+		}
+	}
+
+	&__reddit {
+		:--active {
+			color: #FF4500;
+		}
+	}
+
+	&__whatsapp {
+		:--active {
+			color: #25d366;
+		}
+	}
+
+	&__email {
+		:--active {
+			color: #333;
+		}
+	}
+}
