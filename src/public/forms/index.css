@@ -30,7 +30,6 @@ label {
 		background-color: var(--general-background);
 		appearance: none;
 		font-family: inherit;
-		line-height: inherit;
 		@mixin shift border;
 
 		&:focus {
