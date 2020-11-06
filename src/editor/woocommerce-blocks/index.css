@@ -1,3 +1,6 @@
 @import "./review";
 @import "./featured";
 @import "./products";
+@import "./all-products";
+@import "./categories";
+@import "./search";
