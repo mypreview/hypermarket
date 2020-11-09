@@ -2,9 +2,7 @@
 	box: center;
 
 	&__button {
-		min-height: 36px;
-		font-size: calc(var(--general-normal) *0.75);
-		padding: 8px 17px;
+		@extend %small-input;
 		background-color: var(--general-primary);
 		color: var(--general-background);
 		border-radius: var(--border-radius-base);

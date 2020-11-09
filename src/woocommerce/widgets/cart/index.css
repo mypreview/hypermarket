@@ -85,9 +85,7 @@
 		}
 
 		.button {
-			min-height: 36px;
-			font-size: calc(var(--general-small) * 6/7);
-			padding: 0 15px;
+			@extend %small-input;
 
 			&:not(.checkout) {
 				@mixin button-color;

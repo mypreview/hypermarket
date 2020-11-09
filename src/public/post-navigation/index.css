@@ -27,9 +27,7 @@
 		@each $nav in previous, next {
 			&-$(nav) {
 				a {
-					padding: 0 16px;
-					font-size: calc(var(--general-normal) * 0.75);
-					min-height: 36px;
+					@extend %small-input;
 				}
 			}
 		}

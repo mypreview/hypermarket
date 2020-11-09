@@ -6,9 +6,7 @@
 
 		.woocommerce-button {
 			@mixin button-color;
-			padding: 0 16px;
-			font-size: calc(var(--general-normal) * 0.75);
-			min-height: 36px;
+			@extend %small-input;
 			max-width: calc(50% - 5px);
 
 			&--next {

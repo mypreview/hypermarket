@@ -11,12 +11,8 @@
 	}
 
 	.ui-slider-handle {
-		border: 2px solid var(--general-background);
-		border-radius: 16px;
-		background: var(--general-entry);
-		size: 16px;
+		@extend %filter-range-thumb;
 		position: absolute;
-		cursor: pointer;
 
 		&:last-child {
 			margin-left: -16px;
@@ -26,7 +22,6 @@
 	&_amount {
 		box: space-between center;
 		margin-top: 30px;
-		@extend %small-button;
 
 		[type="text"],
 		.clear {
@@ -35,6 +30,7 @@
 
 		.button {
 			@mixin button-color;
+			@extend %small-input;
 		}
 
 		.price_label {
