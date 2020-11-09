@@ -2,5 +2,7 @@
 @import "./featured";
 @import "./products";
 @import "./all-products";
+@import "./pagination";
+@import "./price-filter";
 @import "./categories";
 @import "./search";
