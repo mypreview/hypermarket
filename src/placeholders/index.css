@@ -99,12 +99,10 @@
 	padding-right: 30px;
 }
 
-%small-button {
-	.button {
-		min-height: 36px;
-		font-size: calc(var(--general-normal) * 0.75);
-		padding: 8px 17px;
-	}
+%small-input {
+	min-height: 36px;
+	font-size: calc(var(--general-normal) * 0.75);
+	padding: 8px 17px;
 }
 
 %is-admin-bar {
@@ -155,4 +153,19 @@
 	border-radius: 24px;
 	position: absolute 20px auto null 20px;
 	z-index: 3;
+}
+
+%filter-range-thumb {
+	border: 2px solid var(--general-background);
+	border-radius: 16px;
+	background: var(--general-entry);
+	size: 16px;
+	cursor: pointer;
+}
+
+%small-title {
+	font-size: var(--general-small);
+	line-height: var(--headings-line-height);
+	margin-bottom: var(--line-height-computed);
+	font-weight: 400;
 }
