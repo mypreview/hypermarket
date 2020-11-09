@@ -10,9 +10,8 @@
 		padding-left: 0;
 
 		^&__product-rating {
-			.star-rating {
+			> * {
 				display: flex;
-				font-family: dashicons;
 				color: var(--alert-warning);
 			}
 		}
