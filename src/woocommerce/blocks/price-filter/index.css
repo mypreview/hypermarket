@@ -1,0 +1,44 @@
+.wc-block-price-filter {
+	font-size: var(--general-small);
+
+	& &__range-input-wrapper {
+	    height: 3px;
+	    background: var(--general-tile);
+	    box-shadow: none;
+        margin-bottom: 30px;
+	    
+		^&__range-input{
+			min-height: auto;
+
+			&-progress {
+				height: 3px;
+				--range-color: var(--general-entry);
+			}
+
+			&::range-thumb {
+				@extend %filter-range-thumb;
+			}
+		}
+	}
+
+	&__controls {
+		^&__button {
+			@extend %small-input;
+			@mixin button-color;
+		}
+
+		^&__amount {
+			@extend %small-input;
+		}
+
+		^&__range-text {
+			align-self: center;
+		}
+	}
+}
+
+.wp-block-woocommerce-price-filter {
+	> *:nth-last-child(2) {
+		@extend %small-title;
+	}
+}
