@@ -3,13 +3,13 @@
 .wc-block-price-filter {
 	&__controls {
 		^&__button {
-		    text-transform: uppercase;
+			text-transform: uppercase;
 			border-radius: var(--border-radius-base);
 		}
 
 		^&__amount {
 			border: 2px solid var(--general-border);
-		    line-height: var(--line-height-base);
+			line-height: var(--line-height-base);
 			box-shadow: none;
 		}
 	}
@@ -22,6 +22,6 @@
 				@extend %small-title;
 			}
 		}
-		
+
 	}
 }

@@ -23,8 +23,8 @@
 			}
 
 			&-title {
-			    text-align: left;
-			    
+				text-align: left;
+
 				a {
 					color: inherit;
 					display: block;
@@ -74,7 +74,7 @@
 	}
 
 	.wc-block-sort-select__select {
-	    min-width: 25%;
-	    margin-bottom: 36px;
+		min-width: 25%;
+		margin-bottom: 36px;
 	}
 }

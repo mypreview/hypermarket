@@ -52,7 +52,7 @@
 			font-weight: 400;
 			margin-bottom: 0;
 			color: var(--general-entry-alt);
-		    line-height: inherit;
+			line-height: inherit;
 		}
 
 		^&__product-link {
@@ -61,9 +61,9 @@
 
 		^&__product-rating {
 			position: absolute 22px 20px null null;
-		    width: auto;
+			width: auto;
 
-			&:before {
+			&::before {
 				content: none;
 			}
 
@@ -72,8 +72,8 @@
 				size: 64.5px 12px;
 				font-size: 12px;
 				letter-spacing: 1px;
-			    margin: 0;
-			    font-family: dashicons;
+				margin: 0;
+				font-family: dashicons;
 
 				&::before {
 					content: "\f154\f154\f154\f154\f154";

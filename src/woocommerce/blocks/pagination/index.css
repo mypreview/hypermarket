@@ -7,39 +7,39 @@
 	color: var(--general-entry);
 
 	button&-page {
-	    border-width: 0;
-	    min-height: auto;
-	    line-height: 1.8;
-	    color: inherit;
-        min-width: auto;
-    	padding: 2px 10px 2px 4px;
-    	@mixin shift opacity;
+		border-width: 0;
+		min-height: auto;
+		line-height: 1.8;
+		color: inherit;
+		min-width: auto;
+		padding: 2px 10px 2px 4px;
+		@mixin shift opacity;
 
-    	&:last-of-type {
-    		margin-left: 15px;
-    		padding-right: 0;
-    	}
+		&:last-of-type {
+			margin-left: 15px;
+			padding-right: 0;
+		}
 
-    	&:first-of-type {
-    		margin-right: 15px;
-		    padding-left: 0;
-    	}
+		&:first-of-type {
+			margin-right: 15px;
+			padding-left: 0;
+		}
 
-	    &:hover {
-	    	background-color: transparent;
-	    	opacity: .55;
-	    }
+		&:hover {
+			background-color: transparent;
+			opacity: 0.55;
+		}
 
-	    &--active {
-	    	&[disabled] {
-	    		color: inherit;
-	    		font-weight: 400;
-	    		opacity: .55 !important;
-	    	}
-	    }
+		&--active {
+			&[disabled] {
+				color: inherit;
+				font-weight: 400;
+				opacity: 0.55 !important;
+			}
+		}
 
-	    &[disabled] {
-	    	opacity: .55;
-	    }
+		&[disabled] {
+			opacity: 0.55;
+		}
 	}
 }

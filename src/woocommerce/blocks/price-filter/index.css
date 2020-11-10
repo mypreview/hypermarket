@@ -2,12 +2,12 @@
 	font-size: var(--general-small);
 
 	& &__range-input-wrapper {
-	    height: 3px;
-	    background: var(--general-tile);
-	    box-shadow: none;
-        margin-bottom: 30px;
-	    
-		^&__range-input{
+		height: 3px;
+		background: var(--general-tile);
+		box-shadow: none;
+		margin-bottom: 30px;
+
+		^&__range-input {
 			min-height: auto;
 
 			&-progress {
