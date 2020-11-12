@@ -1,5 +1,6 @@
 .wc-block-price-filter {
 	font-size: var(--general-small);
+	box: vertical;
 
 	& &__range-input-wrapper {
 		height: 3px;
@@ -9,6 +10,7 @@
 
 		^&__range-input {
 			min-height: auto;
+			z-index: 4;
 
 			&-progress {
 				height: 3px;
@@ -16,7 +18,11 @@
 			}
 
 			&::range-thumb {
-				@extend %filter-range-thumb;
+				border: 2px solid var(--general-background);
+				border-radius: 16px;
+				background: var(--general-entry);
+				size: 16px;
+				cursor: pointer;
 			}
 		}
 	}
