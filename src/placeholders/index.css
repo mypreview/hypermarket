@@ -71,8 +71,8 @@
 }
 
 %select {
-	display: block;
-	height: 48px;
+	display: flex;
+	min-height: 48px;
 	padding-left: 16px;
 	line-height: var(--line-height-base);
 	font-size: var(--general-small);
