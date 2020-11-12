@@ -1,0 +1,19 @@
+.wc-block-components-chip {
+	color: var(--general-entry);
+	background-color: var(--general-tile);
+	min-height: 36px;
+
+	&:hover {
+		background-color: var(--general-tile-alt);
+		color: var(--general-entry);
+	}
+
+	&__remove {
+	    min-height: auto;
+	    @mixin link var(--alert-danger);
+	}
+
+	&&--radius-large {
+		border-radius: var(--border-radius-base);
+	}
+}
