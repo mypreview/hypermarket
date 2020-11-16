@@ -41,6 +41,14 @@
 	margin-top: 14px;
 }
 
+.entry-content {
+	&::after {
+		content: "";
+	    display: block;
+	    clear: both;
+	}
+}
+
 .edit-link {
 	display: block;
 	text-align: right;
