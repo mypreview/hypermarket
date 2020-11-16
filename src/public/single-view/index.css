@@ -3,8 +3,14 @@
 	width: 100%;
 	margin: 0 auto;
 
-	.entry-meta {
-		justify-content: space-between;
+	.entry {
+		&-meta {
+			justify-content: space-between;
+		}
+
+		&-thumbnail {
+			text-align: center;
+		}
 	}
 
 	.post {
