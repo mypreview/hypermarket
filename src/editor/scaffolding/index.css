@@ -5,13 +5,15 @@
 	max-width: 1140px;
 }
 
-.block-editor-writing-flow {
-	padding: 0 5px;
-}
-
 .block-editor-block-list__block {
 	margin-top: 0;
 	margin-bottom: 0;
+}
+
+.editor-styles-wrapper {
+	.edit-post-layout & {
+		padding: 0 15px;
+    }
 }
 
 /**
@@ -72,6 +74,7 @@
 				&[data-align="full"] {
 					margin-left: -15px;
 					margin-right: -15px;
+					max-width: none;
 
 					.wp-block {
 						max-width: 100%;
