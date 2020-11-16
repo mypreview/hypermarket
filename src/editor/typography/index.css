@@ -12,10 +12,14 @@
 			line-height: var(--headings-line-height);
 		}
 
+		.editor-post-title__input,
 		h1 {
-			margin-bottom: calc(var(--line-height-computed) * 1.2);
 			font-size: calc(var(--general-normal) * 2.5);
 			font-weight: 300;
+		}
+
+		h1 {
+			margin-bottom: calc(var(--line-height-computed) * 1.2);
 		}
 
 		h2 {
