@@ -6,6 +6,7 @@
 @import "./../mixins";
 @import "./scaffolding";
 @import "./typography";
+@import "./post-title";
 @import "./core-blocks";
 @import "./woocommerce-blocks";
 @import "./post-type-post";
