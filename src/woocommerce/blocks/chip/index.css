@@ -9,8 +9,8 @@
 	}
 
 	&__remove {
-	    min-height: auto;
-	    @mixin link var(--alert-danger);
+		min-height: auto;
+		@mixin link var(--alert-danger);
 	}
 
 	&&--radius-large {

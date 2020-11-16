@@ -44,8 +44,8 @@
 .entry-content {
 	&::after {
 		content: "";
-	    display: block;
-	    clear: both;
+		display: block;
+		clear: both;
 	}
 }
 

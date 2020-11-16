@@ -4,7 +4,7 @@
 	&__button {
 		text-transform: uppercase;
 		border-radius: var(--border-radius-base);
-	    margin-left: 0;
+		margin-left: 0;
 	}
 
 	&-list {
@@ -13,9 +13,9 @@
 		}
 
 		label {
-		    display: inline-block;
-    		margin: 0 0 0 9px;
-    		padding-left: 18px;
+			display: inline-block;
+			margin: 0 0 0 9px;
+			padding-left: 18px;
 		}
 
 		[type="checkbox"] {

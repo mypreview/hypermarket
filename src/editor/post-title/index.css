@@ -1,19 +1,19 @@
 .edit-post-visual-editor {
 	&__post-title-wrapper {
 		.editor-post-title {
-		    .block-editor-writing-flow & {
-		    	background-color: var(--general-tile);
-			    margin: 0 -15px 60px;
-			    width: calc(100% + 30px);
-		   		max-width: none;
-		    }
+			.block-editor-writing-flow & {
+				background-color: var(--general-tile);
+				margin: 0 -15px 60px;
+				width: calc(100% + 30px);
+				max-width: none;
+			}
 
-		    &__input {
-		    	text-align: center;
-		    	@mixin colfull;
-	    	    padding-top: 60px;
-	    	    padding-bottom: 60px;
-		    }
+			&__input {
+				text-align: center;
+				@mixin colfull;
+				padding-top: 60px;
+				padding-bottom: 60px;
+			}
 		}
 	}
 }
