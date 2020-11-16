@@ -18,6 +18,10 @@
 	}
 	/*rtl:end:ignore*/
 
+	.aligncenter {
+		text-align: center;
+	}
+
 	&[class*="align"] {
 		img {
 			min-width: 100%;
