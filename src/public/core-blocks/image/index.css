@@ -1,5 +1,8 @@
 .wp-block-image {
-	margin-bottom: 0;
+	& figure,
+	&figure {
+		margin-bottom: 12px;
+	}
 
 	figcaption {
 		@extend %caption;
@@ -11,10 +14,10 @@
 
 	/*rtl:begin:ignore*/
 	.alignleft {
-		margin: 12px 18px 12px 0;
+		margin-right: 18px;
 	}
 	.alignright {
-		margin: 12px 0 12px 18px;
+		margin-left: 18px;
 	}
 	/*rtl:end:ignore*/
 

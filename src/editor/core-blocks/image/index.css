@@ -4,6 +4,10 @@
 		vertical-align: middle;
 	}
 
+	figure& {
+		margin-bottom: 12px;
+	}
+
 	figcaption {
 		@extend %caption;
 		margin: 0;
@@ -30,11 +34,14 @@
 
 		/*rtl:begin:ignore*/
 		[data-align="left"]& {
-			margin: 12px 18px 12px 0;
+			margin-right: 18px;
 		}
 		[data-align="right"]& {
-			margin: 12px 0 12px 18px;
+			margin-left: 18px;
 		}
 		/*rtl:end:ignore*/
+		[data-align]& {
+			margin-bottom: 12px;
+		}
 	}
 }
