@@ -3,3 +3,10 @@
 .wp-block-buttons:not(.is-selected):not(.has-child-selected) .block-list-appender__toggle {
 	display: none;
 }
+.wp-block-button {
+	&__link {
+		.is-style-outline &:not(.has-text-color) {
+			color: var(--general-primary);
+		}
+	}
+}
