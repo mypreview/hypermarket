@@ -67,64 +67,64 @@
 				/*rtl:end:ignore*/
 			}
 		}
+	}
+}
 
-		[class*="wp-block-"] {
-			&.is-grid {
-				box: wrap;
+[class*="wp-block-"] {
+	&.is-grid {
+		box: wrap;
 
-				& > * {
-					margin: 0 16px 20px 0;
+		.wp-block & > * {
+			margin: 0 16px 20px 0;
 
-					@media (--screen-sm) {
+			@media (--screen-sm) {
+				margin-right: 0;
+			}
+		}
+
+		@media (--screen-lg-min) {
+			@for $i from 5 to 6 {
+				&.columns-$(i) > * {
+					width: calc(calc(100%/$(i)) - calc(16px*($(i) -1)/$(i)));
+
+					&:nth-child($(i)n) {
 						margin-right: 0;
 					}
 				}
 			}
+		}
 
-			@media (--screen-lg-min) {
-				@for $i from 5 to 6 {
-					&.columns-$(i) > * {
-						width: calc(calc(100%/$(i)) - calc(16px*($(i) -1)/$(i)));
+		@media (--screen-lg) and (--screen-md-min) {
+			@for $i from 5 to 6 {
+				&.columns-$(i) > * {
+					width: calc(calc(100%/3) - calc(16px*2/3));
 
-						&:nth-child($(i)n) {
-							margin-right: 0;
-						}
+					&:nth-child(3n) {
+						margin-right: 0;
 					}
 				}
 			}
+		}
 
-			@media (--screen-lg) and (--screen-md-min) {
-				@for $i from 5 to 6 {
-					&.columns-$(i) > * {
-						width: calc(calc(100%/3) - calc(16px*2/3));
+		@media (--screen-md-min) {
+			@for $i from 2 to 4 {
+				&.columns-$(i) > * {
+					width: calc(calc(100%/$(i)) - calc(16px*($(i) -1)/$(i)));
 
-						&:nth-child(3n) {
-							margin-right: 0;
-						}
+					&:nth-child($(i)n) {
+						margin-right: 0;
 					}
 				}
 			}
+		}
 
-			@media (--screen-md-min) {
-				@for $i from 2 to 4 {
-					&.columns-$(i) > * {
-						width: calc(calc(100%/$(i)) - calc(16px*($(i) -1)/$(i)));
+		@media (--screen-md) and (--screen-sm-min) {
+			@for $i from 2 to 6 {
+				&.columns-$(i) > * {
+					width: calc(50% - 8px);
 
-						&:nth-child($(i)n) {
-							margin-right: 0;
-						}
-					}
-				}
-			}
-
-			@media (--screen-md) and (--screen-sm-min) {
-				@for $i from 2 to 6 {
-					&.columns-$(i) > * {
-						width: calc(50% - 8px);
-
-						&:nth-child(2n) {
-							margin-right: 0;
-						}
+					&:nth-child(2n) {
+						margin-right: 0;
 					}
 				}
 			}
