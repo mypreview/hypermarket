@@ -7,7 +7,7 @@
 
 	&-item {
 		margin: 0 16px 16px 0;
-		box: vertical middle;
+		box: vertical bottom;
 		flex-grow: 1;
 		position: relative;
 
@@ -23,11 +23,6 @@
 			}
 		}
 
-		figure a,
-		figure {
-			height: 100%;
-		}
-
 		&__caption {
 			position: absolute null 0 0 0;
 			max-height: 100%;
@@ -39,6 +34,10 @@
 			background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3) 70%, transparent);
 		}
 	}
+
+	&-caption {
+		@extend %caption;
+	}
 }
 
 .wp-block-gallery {
@@ -48,11 +47,23 @@
 			flex: 1;
 			object-fit: cover;
 		}
+
+		figure a,
+		figure {
+			height: 100%;
+		}
+	}
+
+	@each $align in left, right {
+		&.align$(align) {
+			max-width: 290px;
+			width: 100%;
+		}
 	}
 
 	@media (min-width: 600px) {
 		.blocks-gallery-item {
-			@for $i from 1 to 4 {
+			@for $i from 1 to 8 {
 				.columns-$i& {
 					width: calc(calc(100%/$(i)) - calc(16px*($(i) -1)/$(i)));
 
