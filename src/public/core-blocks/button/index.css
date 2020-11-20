@@ -40,6 +40,10 @@
 		cursor: pointer;
 		@extend %button-shift;
 
+		&.no-border-radius {
+			border-radius: 0;
+		}
+
 		.is-style-outline & {
 			border: 2px solid;
 		}
