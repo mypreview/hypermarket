@@ -1,8 +1,4 @@
 .wp-block-video {
-	video {
-		max-width: 100%;
-	}
-
 	figcaption {
 		@extend %caption;
 	}

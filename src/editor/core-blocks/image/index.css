@@ -3,11 +3,7 @@
 		max-width: 100% !important;
 		vertical-align: middle;
 	}
-
-	figure& {
-		margin-bottom: 12px;
-	}
-
+	
 	figcaption {
 		@extend %caption;
 		margin: 0;
@@ -40,8 +36,5 @@
 			margin-left: 18px;
 		}
 		/*rtl:end:ignore*/
-		[data-align]& {
-			margin-bottom: 12px;
-		}
 	}
 }

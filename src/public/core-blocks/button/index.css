@@ -46,6 +46,10 @@
 
 		.is-style-outline & {
 			border: 2px solid;
+
+			&:not(.has-text-color) {
+				color: var(--general-primary);
+			}
 		}
 
 		^&:not(.is-style-outline) & {

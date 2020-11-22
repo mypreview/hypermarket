@@ -1,7 +1,7 @@
 .wp-block-file {
 	box: center;
 
-	&__button {
+	& &__button {
 		@extend %small-input;
 		background-color: var(--general-primary);
 		color: var(--general-background);

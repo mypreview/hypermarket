@@ -3,8 +3,10 @@
 	margin-bottom: var(--line-height-computed);
 
 	blockquote {
-		p {
+		.editor-styles-wrapper & p {
 			font-size: var(--general-medium);
+			margin-bottom: 0;
+			line-height: var(--line-height-base);
 		}
 	}
 
@@ -27,12 +29,7 @@
 
 	&.is-style-solid-color {
 		blockquote {
-			max-width: 60%;
 			margin: 0 auto;
-
-			p {
-				font-size: var(--general-medium);
-			}
 		}
 	}
 }

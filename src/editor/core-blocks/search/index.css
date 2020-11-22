@@ -1,19 +1,13 @@
 .wp-block-search {
-	box: wrap;
-	margin: 0 -4px;
-
 	& &__label {
-		flex-basis: 100%;
-		margin: 0 4px 7px;
 		font-size: calc(var(--general-normal) *0.75);
 		padding-left: 18px;
 		text-transform: uppercase;
 		font-weight: 400;
+	    margin-bottom: 7px;
 	}
 
 	& &__input {
-		width: auto;
-		flex-grow: 1;
 		line-height: var(--line-height-base);
 		color: var(--general-entry);
 		border: 2px solid var(--general-border);
@@ -43,11 +37,9 @@
 
 	@each $item in button, input {
 		& &__$(item) {
-			margin: 0 4px 7px;
 			font-family: var(--general-font);
 			font-size: var(--general-small);
 			border-radius: var(--border-radius-base);
-			max-width: 100%;
 		}
 	}
 }

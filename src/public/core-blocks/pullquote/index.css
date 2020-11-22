@@ -5,13 +5,20 @@
 	blockquote {
 		padding: 0;
 		border-width: 0;
-		font-size: var(--general-medium);
 		font-weight: 400;
+
+		& p {
+			font-size: var(--general-medium);
+			margin-bottom: 0;
+			line-height: var(--line-height-base);
+
+			.is-style-solid-color& {
+				font-size: var(--general-medium);
+			}
+		}
 	}
 
 	cite {
-		color: inherit;
-
 		&::before {
 			display: none;
 		}
@@ -35,7 +42,6 @@
 
 	&.is-style-solid-color {
 		blockquote {
-			max-width: 60%;
 			margin: 0 auto;
 		}
 	}

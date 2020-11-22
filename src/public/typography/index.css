@@ -53,18 +53,6 @@ p {
 	margin-top: 0;
 }
 
-.has-small-font-size {
-	font-size: var(--general-small);
-}
-
-.has-regular-font-size {
-	font-size: var(--general-normal);
-}
-
-.has-large-font-size {
-	font-size: calc(var(--general-normal) * 1.125);
-}
-
 a {
 	color: var(--general-primary);
 	text-decoration: underline;
@@ -81,4 +69,8 @@ a {
 
 ins {
 	text-decoration: none;
+}
+
+strong {
+	font-weight: 600;
 }

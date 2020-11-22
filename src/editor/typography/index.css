@@ -66,8 +66,10 @@
 		:--active {
 			text-decoration: none;
 		}
+	}
 
-		.has-text-color & {
+	.has-text-color {
+		a {
 			color: inherit;
 		}
 	}

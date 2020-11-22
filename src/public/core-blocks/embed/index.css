@@ -1,4 +1,4 @@
-.wp-block-audio {
+.wp-block-embed {
 	figcaption {
 		@extend %caption;
 	}

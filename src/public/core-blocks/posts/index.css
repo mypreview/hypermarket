@@ -2,9 +2,11 @@
 	padding-left: 0;
 	margin-bottom: 0;
 
-	&:not(.is-grid) {
-		box: vertical;
+	&__post-excerpt {
+		margin: 0;
+	}
 
+	&:not(.is-grid) {
 		& > li {
 			border-bottom: 1px solid var(--general-border);
 			padding-bottom: 42px;
@@ -63,67 +65,5 @@
 			}
 		}
 		/*rtl:end:ignore*/
-	}
-}
-
-[class*="wp-block-"] {
-	&.is-grid {
-		box: wrap;
-
-		& > * {
-			margin: 0 16px 20px 0;
-
-			@media (--screen-sm) {
-				margin-right: 0;
-			}
-		}
-
-		@media (--screen-lg-min) {
-			@for $i from 5 to 6 {
-				&.columns-$(i) > * {
-					width: calc(calc(100%/$(i)) - calc(16px*($(i) -1)/$(i)));
-
-					&:nth-child($(i)n) {
-						margin-right: 0;
-					}
-				}
-			}
-		}
-
-		@media (--screen-lg) and (--screen-md-min) {
-			@for $i from 5 to 6 {
-				&.columns-$(i) > * {
-					width: calc(calc(100%/3) - calc(16px*2/3));
-
-					&:nth-child(3n) {
-						margin-right: 0;
-					}
-				}
-			}
-		}
-
-		@media (--screen-md-min) {
-			@for $i from 2 to 4 {
-				&.columns-$(i) > * {
-					width: calc(calc(100%/$(i)) - calc(16px*($(i) -1)/$(i)));
-
-					&:nth-child($(i)n) {
-						margin-right: 0;
-					}
-				}
-			}
-		}
-
-		@media (--screen-md) and (--screen-sm-min) {
-			@for $i from 2 to 6 {
-				&.columns-$(i) > * {
-					width: calc(50% - 8px);
-
-					&:nth-child(2n) {
-						margin-right: 0;
-					}
-				}
-			}
-		}
 	}
 }

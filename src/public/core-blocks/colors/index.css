@@ -1,5 +1,0 @@
-@each $name, $color in (pale-green, light-gray, pale-blue, pale-pink), (e9fbe5, f3f4f5, e7f5fe, fcf0ef) {
-	.has-subtle-$(name)-background-color {
-		background-color: #$(color);
-	}
-}

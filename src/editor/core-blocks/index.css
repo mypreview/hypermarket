@@ -15,6 +15,7 @@
 @import "./categories";
 @import "./calendar";
 @import "./comments";
+@import "./embed";
 @import "./posts";
 @import "./rss";
 @import "./search";

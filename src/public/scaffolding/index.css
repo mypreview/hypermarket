@@ -118,7 +118,9 @@ blockquote {
 	font-size: calc(var(--general-normal) * 1.125);
 	font-weight: 300;
 	color: var(--general-quote);
-	border-left: 5px solid var(--general-border);
+	border-style: solid;
+	border-width: 0 0 0 5px;
+	border-color: var(--general-border);
 
 	.has-text-color & {
 		color: inherit;
@@ -218,6 +220,10 @@ svg {
 	max-width: 100%;
 }
 
+iframe {
+	width: 100%;
+}
+
 /**
  * Alignment
  */
@@ -243,16 +249,9 @@ figure {
 		float: $(align);
 		margin-$(space): 24px;
 	}
-
-	.has-text-align-$(align) {
-		text-align: $(align);
-	}
 }
 /*rtl:end:ignore*/
 .aligncenter {
 	margin-left: auto;
 	margin-right: auto;
-}
-.has-text-align-center {
-	text-align: center;
 }

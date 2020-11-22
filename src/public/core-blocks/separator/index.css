@@ -1,24 +1,10 @@
 .wp-block-separator {
-	color: var(--general-entry-alt);
+	color: var(--general-border);
+	border-color: currentColor;
 
 	&:not(.is-style-wide) {
 		&:not(.is-style-dots) {
 			max-width: 100px;
-		}
-	}
-
-	&.is-style-dots {
-		line-height: 1;
-		border-width: 0;
-		text-align: center;
-
-		&::before {
-			content: "\00b7 \00b7 \00b7";
-			color: currentColor;
-			font-size: 20px;
-			letter-spacing: 2em;
-			padding-left: 2em;
-			font-family: serif;
 		}
 	}
 }

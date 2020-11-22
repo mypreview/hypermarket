@@ -5,9 +5,10 @@
 		box: horizontal top;
 		margin-bottom: 30px;
 
-		&-avatar {
+		^& &-avatar {
 			border-radius: var(--border-radius-base);
 			margin-right: 16px;
+			size: 48px;
 		}
 
 		> article {
@@ -28,6 +29,10 @@
 				font-weight: 500;
 				padding-right: 5px;
 			}
+
+			.has-avatars ^& & {
+				margin-left: 0;
+			}
 		}
 
 		&-date {
@@ -42,7 +47,13 @@
 
 		&-excerpt {
 			p {
-				margin-bottom: 0;
+			    margin: 0;
+    			line-height: inherit;
+    			font-size: inherit;
+			}
+
+			.has-avatars ^& & {
+				margin-left: 0;
 			}
 		}
 	}

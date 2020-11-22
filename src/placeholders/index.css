@@ -7,6 +7,7 @@
 	font-size: calc(var(--general-normal) * 0.8125);
 	text-align: center;
 	padding: var(--table-cell-padding) 0;
+	margin: 0;
 }
 
 %coupon-grid {

@@ -5,7 +5,9 @@
 	font-size: calc(var(--general-normal) * 1.125);
 	font-weight: 300;
 	color: var(--general-quote);
-	border-left: 5px solid var(--general-border);
+	border-style: solid;
+	border-width: 0 0 0 5px;
+	border-color: var(--general-border);
 
 	.has-text-color & {
 		color: inherit;
@@ -36,6 +38,42 @@
 			size: 20px 1px;
 			border-bottom: 1px solid;
 			margin-right: 9px;
+		}
+	}
+
+	&.has-text-align {
+		&-right {
+
+			&:not(.is-style-large) {
+				border-width: 0 5px 0 0;
+				padding: 12px 25px 12px 0;
+				border-color: var(--general-border);
+			}
+
+			&.is-style-large {
+				padding-left: 1em;
+			}
+
+			^^&__citation {
+				justify-content: flex-end;
+
+				&::before {
+					order: 2;
+					margin: 0 0 0 9px;
+				}
+			}
+		}
+
+		&-center {
+			border-width: 0;
+
+			&:not(.is-style-large) {
+				padding-left: 0;
+			}
+
+			^^&__citation {
+				justify-content: center;
+			}
 		}
 	}
 }

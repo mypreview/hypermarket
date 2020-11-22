@@ -1,9 +1,21 @@
 .wp-block-categories {
 	font-size: var(--general-small);
-	@extend %widget-list;
+
+	&__list {
+		@extend %widget-list;
+	}
+
+	li {
+		color: var(--general-entry-alt);
+		@mixin shift color;
+
+		&:hover {
+			color: var(--general-entry);
+		}
+	}
 
 	a {
-		@mixin link var(--general-entry), var(--general-entry-alt);
+		@mixin link;
 	}
 
 	.editor-styles-wrapper .block-editor-writing-flow &__list {

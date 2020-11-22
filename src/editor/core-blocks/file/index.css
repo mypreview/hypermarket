@@ -1,5 +1,7 @@
+@import "./../../../public/core-blocks/file";
+
 .wp-block-file {
-	box: center;
+    margin-bottom: 1.5em;
 
 	&__textlink {
 		color: var(--general-primary);
@@ -11,21 +13,6 @@
 	}
 
 	& &__button-richtext-wrapper {
-		margin-left: 12px;
-	}
-
-	& &__button {
-		@extend %small-input;
-		background-color: var(--general-primary);
-		color: var(--general-background);
-		border-radius: var(--border-radius-base);
-		text-align: center;
-		box: center middle;
-		text-decoration: none;
-		@mixin shift background;
-
-		&:hover {
-			background-color: var(--general-primary-alt);
-		}
+		margin-left: 0;
 	}
 }

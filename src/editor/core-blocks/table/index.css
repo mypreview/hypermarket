@@ -32,6 +32,11 @@
 		border-style: solid;
 		border-width: 0 0 1px;
 		border-color: var(--general-border);
+
+		.is-hovered & {
+			border-width: 1px;
+			border-color: var(--general-border);
+		}
 	}
 
 	thead {
