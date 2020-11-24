@@ -12,45 +12,38 @@
 	"license": "GPL-3.0",
 	"copyright": "© Mahdi Yazdani. All Rights Reserved.",
 	"scripts": {
-		"dev": "cross-env BABEL_ENV=default webpack --watch --info-verbosity none",
-		"build": "cross-env BABEL_ENV=default NODE_ENV=production webpack",
-		"lint:css": "stylelint 'src/**/*.css'",
-		"lint:css-fix": "stylelint 'src/**/*.css' --fix",
-		"lint:js": "eslint src/ --ext=js,jsx",
-		"lint:js-fix": "eslint src/ --ext=js,jsx --fix",
+		"build": "wp-scripts build",
+		"check-engines": "wp-scripts check-engines",
+		"check-licenses": "wp-scripts check-licenses",
+		"format:js": "wp-scripts format-js",
+		"lint:css": "wp-scripts lint-style",
+		"lint:css-fix": "wp-scripts lint-style --fix",
+		"lint:js": "wp-scripts lint-js src/",
+		"lint:js-fix": "wp-scripts lint-js src/ --fix",
+		"lint:md:docs": "wp-scripts lint-md-docs",
+		"lint:md:js": "wp-scripts lint-md-js",
+		"lint:pkg-json": "wp-scripts lint-pkg-json",
+		"packages-update": "wp-scripts packages-update",
+		"dev": "wp-scripts start",
+		"test:e2e": "wp-scripts test-e2e",
+		"test:unit": "wp-scripts test-unit-js",
 		"lint:wpcs": "composer lint:wpcs",
 		"lint:wpcs-fix": "composer lint:wpcbf",
 		"lint:php": "composer lint:php",
-		"makepot": "composer make-pot",
-		"reformat-files": "prettier --ignore-path .eslintignore --write \"**/*.{js,jsx,json,ts,tsx}\""
+		"makepot": "composer make-pot"
 	},
 	"devDependencies": {
-		"@babel/core": "7.12.3",
 		"@babel/plugin-proposal-class-properties": "^7.12.1",
 		"@babel/plugin-proposal-object-rest-spread": "^7.12.1",
-		"@wordpress/babel-preset-default": "4.19.0",
-		"@wordpress/browserslist-config": "^2.6.0",
-		"@wordpress/dependency-extraction-webpack-plugin": "^2.1.0",
 		"@wordpress/dom": "2.15.0",
 		"@wordpress/dom-ready": "2.11.0",
-		"@wordpress/eslint-plugin": "^7.3.0",
-		"@wordpress/html-entities": "^2.9.0",
-		"@wordpress/i18n": "3.16.0",
-		"@wordpress/url": "^2.19.0",
-		"autoprefixer": "9.8.3",
-		"babel-core": "7.0.0-bridge.0",
-		"babel-eslint": "10.1.0",
-		"babel-loader": "8.1.0",
+		"@wordpress/scripts": "^12.5.0",
+		"autoprefixer": "^9.8.6",
 		"chalk": "^4.1.0",
-		"classnames": "^2.2.6",
-		"clean-webpack-plugin": "^3.0.0",
-		"cross-env": "^7.0.2",
-		"css-loader": "^5.0.0",
-		"eslint": "7.12.1",
-		"eslint-config-prettier": "6.15.0",
-		"license-checker-webpack-plugin": "^0.1.5",
+		"husky": "^4.3.0",
+		"license-checker-webpack-plugin": "^0.2.0",
+		"lint-staged": "^10.5.1",
 		"lodash": "^4.17.20",
-		"mini-css-extract-plugin": "^1.2.1",
 		"moment": "^2.29.1",
 		"node-fetch": "^2.6.1",
 		"optimize-css-assets-webpack-plugin": "^5.0.4",
@@ -80,16 +73,7 @@
 		"postcss-start-to-end": "^1.0.1",
 		"postcss-transform-shortcut": "^2.0.1",
 		"postcss-variables-prefixer": "0.0.0-beta.0",
-		"prettier": "npm:wp-prettier@2.0.5",
 		"progress-bar-webpack-plugin": "^2.1.0",
-		"stylelint": "13.7.2",
-		"stylelint-config-wordpress": "17.0.0",
-		"terser-webpack-plugin": "^4.2.3",
-		"thread-loader": "^3.0.1",
-		"url-loader": "^4.1.1",
-		"webpack": "^4.44.2",
-		"webpack-bundle-analyzer": "^3.9.0",
-		"webpack-cli": "^3.3.12",
 		"webpack-fix-style-only-entries": "^0.6.0",
 		"webpack-notifier": "^1.8.0",
 		"webpack-rtl-plugin": "^2.0.0"
@@ -109,14 +93,25 @@
 		"tippy.js": "^6.2.7",
 		"waypoints": "^4.0.1"
 	},
-	"browserslist": [
-		"extends @wordpress/browserslist-config"
-	],
 	"engines": {
-		"node": ">=10.10.0",
-		"npm": ">=6.4.0"
+		"node": "12.19.1",
+		"npm": "6.14.8"
 	},
-	"eslintConfig": {
-		"extends": "wordpress"
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.css": [
+			"npm run lint:css-fix"
+		],
+		"*.js": [
+			"npm run lint:js-fix",
+			"npm run format:js"
+		],
+		"*.php": [
+			"npm run lint:wpcs-fix"
+		]
 	}
 }
