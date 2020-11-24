@@ -8,12 +8,6 @@ module.exports = {
 			},
 		],
 		[
-			'@babel/plugin-proposal-private-methods',
-			{
-				loose: true,
-			},
-		],
-		[
 			'@babel/plugin-proposal-object-rest-spread',
 			{
 				loose: true,
