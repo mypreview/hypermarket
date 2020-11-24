@@ -3,7 +3,7 @@
 		min-height: 30px;
 		margin: 0;
 		padding: 0;
-		font-size: var(--hypermarket-general-small);
+		font-size: var(--general-small);
 
 		&-wrapper {
 			@extend %select;
