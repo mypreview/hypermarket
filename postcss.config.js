@@ -1,4 +1,4 @@
-module.exports = ( { env } ) => ( {
+module.exports = () => ( {
 	plugins: {
 		'postcss-import': {},
 		'postcss-for': {},
@@ -27,6 +27,6 @@ module.exports = ( { env } ) => ( {
 		'postcss-combine-media-query': {},
 		'postcss-normalize': {},
 		'postcss-input-range': {},
-		autoprefixer: {},
+		autoprefixer: { grid: true },
 	},
 } );
