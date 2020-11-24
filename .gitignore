@@ -41,6 +41,7 @@ tests/cli/vendor
 /vendor/
 
 # Compiled (Webpack)
+/build/
 /dist/
 
 # ignore everything in the root except the "wp-content" directory.
