@@ -1,7 +1,7 @@
 /**
  * Internal dependencies & components
  */
-import render from './components/Render.jsx';
+import render from './render';
 
 /**
  * Meta-data for registering plugin
