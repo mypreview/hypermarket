@@ -51,18 +51,31 @@
 			li$(item) {
 				list-style: none;
 				margin: 0 0 30px 66px;
-				margin-left: 0 ?if media (--screen-xs);
-				padding: 24px;
-				background-color: var(--general-tile);
+				margin-left: 0 ?if media (--screen-xs);								
 				position: relative;
 				font-size: var(--general-small);
 				line-height: 1.5;
-				border-radius: var(--border-radius-small);
+
+				@media (--screen-sm-min) {
+					padding: 24px;
+					background-color: var(--general-tile);
+					border-radius: var(--border-radius-small);
+				}
 			}
 		}
 
 		.edit-link {
 			font-size: calc(var(--general-normal) *0.75);
+		}
+
+		> ^& > .children > li {
+			@media (--screen-sm-min) {
+				background-color: var(--general-border);
+
+				> .children > li > .children > li {
+					background-color: var(--general-border);
+				}
+			}
 		}
 	}
 
@@ -78,12 +91,20 @@
 
 		.children {
 			padding-left: 0;
+	    	margin-left: -66px ?if media (--screen-sm) and (--screen-xs-min) ;
 
-			.comment {
-				background-color: var(--general-border);
+			^^& {
 				margin-top: 30px;
 				margin-bottom: 0;
 			}
+		}
+	}
+
+	&-body {
+		@media (--screen-sm) {
+			padding: 24px;
+			background-color: var(--general-tile);
+			border-radius: var(--border-radius-small);
 		}
 	}
 
@@ -142,6 +163,8 @@
 	}
 
 	&-content {
+		overflow-x: auto;
+		
 		p {
 			margin-bottom: 10px;
 		}
