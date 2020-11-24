@@ -405,6 +405,11 @@ if ( ! function_exists( 'hypermarket_post_header' ) ) :
 
 			if ( is_single() ) {
 				the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' );
+				
+				// Whether to retrieve and display the post excerpt.
+				if ( ! ! apply_filters( 'hypermarket_post_header_excerpt', true ) ) {
+					printf( '<div class="entry-description">%s</div>', wp_kses_post( get_the_excerpt( $post_id ) ) );
+				}
 			} else {
 				the_title( sprintf( '<h2 class="alpha entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 			}
