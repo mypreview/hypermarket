@@ -45,10 +45,10 @@ if ( ! function_exists( 'hypermarket_welcome_tabs' ) ) :
 	function hypermarket_welcome_tabs() {
 		$classname = (string) Hypermarket_Admin::$welcome_slug;
 		?>
-		<div class="tabs nav-tab-wrapper <?php echo sanitize_html_class( $classname ); ?>__tabs" data-toggle="tabslet" data-animation="true" data-autorotate="false">
-			<ul class="tab-links">
+		<div class="<?php echo sanitize_html_class( $classname ); ?>__tabs" data-toggle="tabslet" data-animation="true" data-autorotate="false">
+			<ul class="nav-tab-wrapper">
 				<li>
-					<a href="#welcome" class="nav-tab nav-tab-active">
+					<a href="#welcome" class="nav-tab">
 						<?php echo esc_html_e( 'Welcome', 'hypermarket' ); ?>
 					</a>
 				</li>
