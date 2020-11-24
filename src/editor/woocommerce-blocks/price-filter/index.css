@@ -1,7 +1,9 @@
 @import "./../../../woocommerce/blocks/price-filter";
 
 .wc-block-price-filter {
+
 	&__controls {
+
 		^&__button {
 			text-transform: uppercase;
 			border-radius: var(--border-radius-base);
@@ -16,9 +18,13 @@
 }
 
 .editor-styles-wrapper .block-editor-writing-flow {
+
 	[data-type="woocommerce/price-filter"] {
+
 		> div {
+
 			> *:nth-last-child(2) {
+
 				@extend %small-title;
 			}
 		}

@@ -2,11 +2,14 @@
 	font-size: var(--general-small);
 
 	a {
+
 		@mixin link var(--general-entry), var(--general-entry-alt);
 	}
 
 	&-list {
+
 		&:not(&--has-images) {
+
 			@extend %widget-list;
 		}
 

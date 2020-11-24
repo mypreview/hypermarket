@@ -1,4 +1,5 @@
 .wp-block-shortcode {
+
 	&.components-placeholder {
 		min-height: auto;
 	}

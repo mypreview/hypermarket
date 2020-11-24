@@ -1,6 +1,8 @@
 .entry-header {
+
 	.site-search {
 		margin-top: var(--line-height-computed);
+
 		@mixin colfull 660px, 0;
 
 		> a {
@@ -8,6 +10,7 @@
 		}
 	}
 }
+
 .error-404-widget {
 	margin-top: 70px;
 	border-top: 1px solid var(--general-border);
@@ -28,6 +31,7 @@
 
 			&:nth-child(n+2) {
 				margin-left: 30px ?if media (--screen-sm-min);
+
 				@media (--screen-sm) {
 					border-top: 2px solid var(--general-border);
 					padding-top: 28px;

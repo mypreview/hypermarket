@@ -1,4 +1,5 @@
 .woocommerce-checkout {
+
 	&-review-order-table {
 		font-size: var(--general-small);
 
@@ -20,6 +21,7 @@
 		}
 
 		.woocommerce-shipping-totals {
+
 			td {
 				width: 100%;
 			}
@@ -55,6 +57,7 @@
 }
 
 .woocommerce-order-pay {
+
 	#payment {
 		margin-top: 48px;
 	}

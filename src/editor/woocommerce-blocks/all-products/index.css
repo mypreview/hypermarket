@@ -1,9 +1,13 @@
 @import "./../../../woocommerce/blocks/all-products";
 
 .editor-styles-wrapper {
+
 	.block-editor-writing-flow {
+
 		.wc-block-all-products {
+
 			.wc-block-grid__product {
+
 				&-title {
 					font-size: var(--general-normal);
 					font-weight: 400;
@@ -25,8 +29,11 @@
 		}
 	}
 }
+
 .wc-block-grid__product {
+
 	.editor-styles-wrapper .block-editor-writing-flow & {
+
 		&-title {
 			font-size: var(--general-normal);
 			font-weight: 400;
@@ -37,6 +44,7 @@
 
 		&s ^& ^&-image ^
 		.wc-block-all-products {
+
 			.wc-block-grid__product-image {
 
 			}

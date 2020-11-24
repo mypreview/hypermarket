@@ -1,3 +1,4 @@
 .wp-caption-text {
+
 	@extend %caption;
 }

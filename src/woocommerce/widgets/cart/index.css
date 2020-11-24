@@ -39,6 +39,7 @@
 			font-size: 0;
 
 			&::before {
+
 				@mixin icon "\f335";
 				font-size: 18px;
 				line-height: 1;
@@ -85,9 +86,11 @@
 		}
 
 		.button {
+
 			@extend %small-input;
 
 			&:not(.checkout) {
+
 				@mixin button-color;
 			}
 		}

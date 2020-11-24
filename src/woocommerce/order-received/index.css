@@ -40,7 +40,9 @@
 }
 
 .woocommerce-table {
+
 	&--order-details {
+
 		tfoot,
 		thead {
 			background-color: var(--general-tile);
@@ -48,7 +50,9 @@
 	}
 
 	&__product-name {
+
 		a {
+
 			@mixin link var(--general-entry-alt);
 		}
 	}

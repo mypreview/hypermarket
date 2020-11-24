@@ -6,6 +6,7 @@
 	font-size: var(--general-small);
 	line-height: var(--line-height-base);
 	text-transform: uppercase;
+
 	@extend %none-list-style;
 	padding-bottom: 10px;
 	margin-bottom: 26px;
@@ -19,6 +20,7 @@
 	}
 
 	li {
+
 		&:first-child {
 			margin-left: auto;
 		}
@@ -43,6 +45,7 @@
 	}
 
 	.active {
+
 		a {
 			color: var(--general-entry);
 			border-color: currentColor;
@@ -51,7 +54,9 @@
 }
 
 .woocommerce-Tabs {
+
 	&-panel {
+
 		&--description {
 			padding-top: 19px;
 		}

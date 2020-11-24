@@ -1,10 +1,12 @@
 .woocommerce-pagination {
+
 	&--without-numbers {
 		display: flex;
 		padding: 15px 0;
 		border-bottom: 1px solid var(--general-border);
 
 		.woocommerce-button {
+
 			@mixin button-color;
 			@extend %small-input;
 			max-width: calc(50% - 5px);
@@ -13,6 +15,7 @@
 				margin-left: auto;
 
 				&::after {
+
 					@mixin icon "\f345";
 					margin: 0 -3px 0 4px;
 				}
@@ -22,6 +25,7 @@
 				margin-right: auto;
 
 				&::before {
+
 					@mixin icon "\f341";
 					margin: 0 4px 0 -3px;
 				}

@@ -1,6 +1,9 @@
 .block-editor-block-list__layout {
+
 	.wp-block-freeform {
+
 		&.block-library-rich-text__tinymce {
+
 			a {
 				color: var(--general-primary);
 			}
@@ -49,9 +52,9 @@
 		}
 
 		pre {
-		    font-size: 1em;
-    		overflow: auto;
-    		color: var(--general-entry);
+			font-size: 1em;
+			overflow: auto;
+			color: var(--general-entry);
 		}
 
 		img,
@@ -60,6 +63,7 @@
 			&.alignright {
 				margin-left: 18px;
 			}
+
 			&.alignleft {
 				margin-right: 18px;
 			}
@@ -71,7 +75,7 @@
 		border-collapse: collapse;
 		width: 100%;
 		max-width: 100%;
-	    border-width: 0;
+		border-width: 0;
 
 		td,
 		th {
@@ -123,6 +127,7 @@
 	}
 
 	.wp-caption-dd {
+
 		@extend %caption;
 	}
 }

@@ -1,6 +1,9 @@
 .post-password-form {
+
 	> p {
+
 		&:last-child {
+
 			@extend %coupon-grid;
 			align-items: flex-end;
 		}

@@ -2,6 +2,7 @@
 @import "./my-account";
 
 .site-header {
+
 	> .div {
 		padding: 10px 0;
 		box: horizontal center right;

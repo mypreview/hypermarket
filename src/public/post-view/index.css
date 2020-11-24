@@ -1,6 +1,7 @@
 .post-view {
 	border-bottom: 1px solid var(--general-border);
 	padding-bottom: 24px;
+
 	@extend %clear;
 
 	&:last-of-type {
@@ -8,6 +9,7 @@
 	}
 
 	.jscroll-added & {
+
 		&:first-of-type {
 			border-top: 1px solid var(--general-border);
 			padding-top: 48px;
@@ -33,14 +35,17 @@
 	}
 
 	.entry {
+
 		&-title {
 			font-size: var(--general-medium);
 			font-weight: 400;
 
 			a {
+
 				@mixin link var(--general-entry-alt);
 
 				.sticky&::before {
+
 					@mixin icon "\f537";
 					vertical-align: bottom;
 					color: var(--general-entry-alt);
@@ -52,6 +57,7 @@
 			order: -1;
 
 			&__col {
+
 				@extend %meta-divider;
 
 				&:last-child {
@@ -76,6 +82,7 @@
 					box: wrap;
 
 					a {
+
 						@mixin link var(--general-entry);
 					}
 				}
@@ -84,6 +91,7 @@
 	}
 
 	.post-categories {
+
 		@extend %meta-divider;
 	}
 }

@@ -1,11 +1,14 @@
 li.type-product {
+
 	img {
+
 		@mixin shift opacity, 0.5s;
 		display: block;
 		margin: 0 auto;
 	}
 
 	&:hover {
+
 		img {
 			opacity: 0;
 
@@ -17,7 +20,9 @@ li.type-product {
 }
 
 .woocommerce-loop-product {
+
 	.product &__link {
+
 		&:first-child {
 			grid-column: 1/-1;
 			grid-row: 1;

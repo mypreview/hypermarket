@@ -6,6 +6,7 @@
 }
 
 .woocommerce {
+
 	@each $notice in error, info, message {
 		&-$(notice) {
 			position: relative;

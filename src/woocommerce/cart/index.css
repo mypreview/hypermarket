@@ -3,7 +3,9 @@
 @import "./shipping";
 
 .woocommerce-cart {
+
 	.entry-content {
+
 		> .woocommerce {
 			box: space-between;
 			flex-wrap: wrap ?if media (--screen-sm-min);

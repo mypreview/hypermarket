@@ -17,6 +17,7 @@
 	}
 
 	&.is-grid {
+
 		^&__item-excerpt {
 			font-size: var(--general-small);
 		}
@@ -27,7 +28,9 @@
 	}
 
 	&__item-title {
+
 		> a {
+
 			@mixin link var(--general-entry-alt);
 			font-size: calc(var(--general-normal) * 1.125);
 		}

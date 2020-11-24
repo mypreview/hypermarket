@@ -2,7 +2,9 @@
 
 @each $item in category, product {
 	.wc-block-featured-$(item) {
+
 		.editor-styles-wrapper .block-editor-writing-flow & {
+
 			&__title {
 				color: #fff;
 				line-height: 1.25;
@@ -10,6 +12,7 @@
 			}
 
 			&__description {
+
 				p {
 					margin: 0;
 					line-height: 1.5em;

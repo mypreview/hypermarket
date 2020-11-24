@@ -3,6 +3,7 @@
 	border-color: currentColor;
 
 	&:not(.is-style-wide) {
+
 		&:not(.is-style-dots) {
 			max-width: 100px;
 		}

@@ -1,4 +1,5 @@
 .cart {
+
 	&-collaterals {
 		width: 34% ?if media (--screen-sm-min);
 		padding-left: 11% ?if media (--screen-md-min);
@@ -16,6 +17,7 @@
 		}
 
 		.cross-sells {
+
 			> h2 {
 				display: hidden;
 			}
@@ -84,12 +86,14 @@
 		margin: 5px 0;
 
 		&:not([disabled]):nth-last-child(2) {
+
 			@mixin button-color;
 		}
 	}
 }
 
 .order-total {
+
 	.woocommerce-Price-amount {
 		font-size: calc(var(--general-normal) * 1.375);
 	}

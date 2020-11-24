@@ -9,6 +9,7 @@
 @import "./info";
 
 .woocommerce-account {
+
 	.col2-set {
 		display: grid;
 		grid-template-columns: 1fr 1fr ?if media (--screen-sm-min);
@@ -23,6 +24,7 @@
 }
 
 .edit-account {
+
 	.button {
 		margin-top: 20px;
 	}

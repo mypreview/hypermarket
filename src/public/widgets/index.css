@@ -10,12 +10,15 @@
 	font-size: var(--general-small);
 
 	&:not(.widget_text) {
+
 		a:not(.button) {
+
 			@mixin link var(--general-entry), var(--general-entry-alt);
 		}
 	}
 
 	&.widget_text {
+
 		a {
 			text-decoration: none;
 		}

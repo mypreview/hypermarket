@@ -4,6 +4,7 @@
 	margin-bottom: 48px;
 
 	&__contents {
+
 		thead {
 			display: hidden;
 		}
@@ -14,6 +15,7 @@
 		}
 
 		.coupon {
+
 			@extend %coupon-grid;
 
 			.has-sidebar & {
@@ -35,12 +37,14 @@
 			}
 
 			.button {
+
 				@mixin button-color;
 				padding: 10px;
 			}
 		}
 
 		.actions {
+
 			> [type="submit"] {
 				display: hidden;
 			}
@@ -61,6 +65,7 @@
 		}
 
 		.product {
+
 			&-thumbnail {
 				grid-column: 1;
 				grid-row: 1/4 ?if media (--screen-xs-min);
@@ -74,6 +79,7 @@
 				grid-row: 2 ?if media (--screen-xs);
 
 				a {
+
 					@mixin link;
 					font-size: calc(var(--general-normal) * 1.375);
 				}
@@ -97,6 +103,7 @@
 				font-size: 0;
 
 				.remove {
+
 					@mixin link var(--alert-danger);
 					border: 2px solid var(--general-border);
 					box: center middle;
@@ -104,6 +111,7 @@
 					size: 36px;
 
 					&::before {
+
 						@mixin icon "\f335";
 						font-size: 20px;
 					}

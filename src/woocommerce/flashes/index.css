@@ -1,5 +1,6 @@
 @each $flash in sale, new, featured {
 	.on$(flash) {
+
 		@extend %flashes;
 
 		.div > & {

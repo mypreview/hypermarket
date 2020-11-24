@@ -1,4 +1,5 @@
 .widget_recent_entries {
+
 	.post-date {
 		font-size: calc(var(--general-normal) * 0.75);
 		display: block;

@@ -4,6 +4,7 @@
 	margin: 0 auto;
 
 	.entry {
+
 		&-meta {
 			justify-content: space-between;
 		}
@@ -14,18 +15,22 @@
 	}
 
 	.post {
+
 		&-categories {
 			margin-right: 15px;
 		}
 
 		&ed-on {
 			box: horizontal middle;
+
 			@extend %meta-divider;
 
 			time {
+
 				@extend %meta-item;
 
 				&::before {
+
 					@mixin icon "\f508";
 				}
 			}
@@ -42,7 +47,9 @@
 }
 
 .post {
+
 	.entry {
+
 		&-meta {
 			box: wrap center;
 			font-size: var(--general-small);
@@ -54,6 +61,7 @@
 			}
 
 			a {
+
 				@mixin link var(--general-entry);
 			}
 		}
@@ -64,6 +72,7 @@
 	}
 
 	&-author {
+
 		@extend %meta-divider;
 	}
 
@@ -80,9 +89,13 @@
 	}
 
 	&-comments {
+
 		a {
+
 			@extend %meta-item;
+
 			&::before {
+
 				@mixin icon "\f101";
 			}
 		}
@@ -93,6 +106,7 @@
 		color: var(--general-entry-alt);
 
 		a {
+
 			@mixin link var(--general-entry);
 
 			&::before {

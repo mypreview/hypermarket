@@ -1,4 +1,5 @@
 .wp-block-latest-comments {
+
 	@extend %none-list-style;
 
 	&__comment {
@@ -25,6 +26,7 @@
 			margin-bottom: 5px;
 
 			a {
+
 				@mixin link;
 				font-weight: 500;
 				padding-right: 5px;
@@ -46,10 +48,11 @@
 		}
 
 		&-excerpt {
+
 			p {
-			    margin: 0;
-    			line-height: inherit;
-    			font-size: inherit;
+				margin: 0;
+				line-height: inherit;
+				font-size: inherit;
 			}
 
 			.has-avatars ^& & {

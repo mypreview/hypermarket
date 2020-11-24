@@ -3,11 +3,14 @@
 	overflow-x: auto;
 
 	figcaption {
+
 		@extend %caption;
 	}
 
 	&.is-style-stripes {
+
 		tbody {
+
 			tr:nth-of-type(odd) {
 				background-color: var(--general-tile);
 			}

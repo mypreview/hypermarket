@@ -1,4 +1,5 @@
 .entry-summary {
+
 	.variations {
 		margin-bottom: 18px;
 
@@ -31,11 +32,13 @@
 		position: absolute null null 0 calc(100% + 10px);
 		overflow: hidden;
 		size: 36px;
+
 		@mixin link var(--alert-danger);
 		border: 2px solid var(--general-border);
 		border-radius: var(--border-radius-small);
 
 		&::before {
+
 			@mixin icon "\f335";
 			font-size: 20px;
 			display: block;

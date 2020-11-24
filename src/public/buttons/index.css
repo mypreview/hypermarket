@@ -15,6 +15,7 @@
 	color: var(--general-background);
 	border-width: 0;
 	appearance: none;
+
 	@extend %button-shift;
 
 	:--active {
@@ -24,6 +25,7 @@
 
 	&.disabled,
 	&[disabled] {
+
 		@mixin button-color var(--general-entry), var(--general-border), var(--general-border), var(--general-entry), var(--general-tile);
 	}
 }

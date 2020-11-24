@@ -30,6 +30,7 @@ label {
 		background-color: var(--general-background);
 		appearance: none;
 		font-family: inherit;
+
 		@mixin shift border;
 
 		&:focus {
@@ -52,6 +53,7 @@ input {
 }
 
 select {
+
 	@extend %select;
 	@extend %select-icon;
 	@mixin shift border;
@@ -69,10 +71,12 @@ optgroup {
 
 [type="checkbox"] {
 	border-radius: 1px;
+
 	&::before {
 		position: absolute -2.3px null null -3px;
 		display: block;
 		font-size: 16px;
+
 		@mixin icon "\f147";
 		color: var(--general-background);
 		line-height: 1;
@@ -86,6 +90,7 @@ optgroup {
 
 [type="radio"] {
 	border-radius: 50%;
+
 	&:checked {
 		border-width: 4px;
 		border-color: var(--general-primary);

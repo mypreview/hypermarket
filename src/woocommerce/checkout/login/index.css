@@ -1,4 +1,5 @@
 .woocommerce-checkout {
+
 	.woocommerce-form-login {
 		margin-bottom: 30px;
 
@@ -8,6 +9,7 @@
 		}
 
 		.clear + .form-row {
+
 			@extend %coupon-grid;
 			margin-bottom: 0;
 			align-items: center;

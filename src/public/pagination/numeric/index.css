@@ -20,6 +20,7 @@
 	display: inline-block;
 	padding: 2px 10px 2px 0;
 	margin-top: -2px;
+
 	@mixin shift opacity;
 
 	&:first-child {
@@ -31,15 +32,19 @@
 	}
 
 	a& {
+
 		@mixin link;
 	}
 }
 
 .pagination {
+
 	li {
+
 		> * {
 			display: inline-block;
 			padding: 2px 10px 2px 0;
+
 			@mixin shift opacity;
 
 			&:hover {
@@ -48,17 +53,20 @@
 		}
 
 		a {
+
 			@mixin link;
 		}
 	}
 }
 
 .navigation {
+
 	&__pager {
 		display: flex;
 		margin: 4px 0 0 30px;
 
 		a {
+
 			@mixin link var(--general-entry);
 			@mixin shift opacity;
 
@@ -68,6 +76,7 @@
 		}
 
 		> * {
+
 			@extend %meta-divider;
 		}
 	}

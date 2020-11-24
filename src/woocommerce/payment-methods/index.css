@@ -2,6 +2,7 @@
 @import "./paypal";
 
 ul.payment_methods {
+
 	@extend %none-list-style;
 	color: var(--general-entry-alt);
 	font-size: var(--general-small);
@@ -10,6 +11,7 @@ ul.payment_methods {
 		margin-bottom: 4px;
 
 		&:only-child {
+
 			label {
 				padding-left: 0;
 				margin-left: 0;
@@ -59,10 +61,12 @@ ul.payment_methods {
 	}
 
 	.form-row {
+
 		&-last,
 		&-first {
 			width: calc(50% - 5px);
 		}
+
 		&-first {
 			margin-right: 10px;
 		}
@@ -70,6 +74,7 @@ ul.payment_methods {
 }
 
 .woocommerce-SavedPaymentMethods-saveNew {
+
 	label {
 		display: flex !important;
 	}
@@ -80,7 +85,9 @@ ul.payment_methods {
 }
 
 .wc-payment-form {
+
 	[role="alert"] {
+
 		ul {
 			margin-bottom: 0;
 		}
@@ -88,12 +95,14 @@ ul.payment_methods {
 }
 
 .payment-method {
+
 	&-actions {
 		text-align: right;
 	}
 }
 
 .woocommerce-Payment {
+
 	.button {
 		margin-top: 11px;
 	}

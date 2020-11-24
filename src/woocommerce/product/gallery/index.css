@@ -15,8 +15,10 @@
 		border-radius: var(--border-radius-small);
 		z-index: 3;
 		background-color: var(--general-background);
+
 		@mixin link;
 		opacity: 0.6;
+
 		@mixin shift opacity;
 
 		:--active {
@@ -24,6 +26,7 @@
 		}
 
 		&::before {
+
 			@mixin icon "\f188";
 		}
 
@@ -33,6 +36,7 @@
 	}
 
 	&--disable-zoom {
+
 		^&__wrapper {
 			pointer-events: none;
 		}
@@ -43,6 +47,7 @@
 	}
 
 	.flex-control-thumbs {
+
 		@extend %none-list-style;
 		box: middle;
 		flex-direction: column ?if media (--screen-md-min);
@@ -61,6 +66,7 @@
 
 		img {
 			opacity: 0.35;
+
 			@mixin shift opacity;
 			cursor: pointer;
 

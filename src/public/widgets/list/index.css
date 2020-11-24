@@ -1,6 +1,8 @@
 .widget {
+
 	ul.menu,
 	> ul {
+
 		@extend %widget-list;
 	}
 }

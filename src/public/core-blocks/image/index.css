@@ -1,5 +1,7 @@
 .wp-block-image {
+
 	figcaption {
+
 		@extend %caption;
 	}
 
@@ -15,6 +17,7 @@
 	.alignleft {
 		margin-right: 18px;
 	}
+
 	.alignright {
 		margin-left: 18px;
 	}
@@ -25,6 +28,7 @@
 	}
 
 	&[class*="align"] {
+
 		img {
 			min-width: 100%;
 		}

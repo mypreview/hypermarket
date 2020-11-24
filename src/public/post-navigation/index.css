@@ -1,5 +1,7 @@
 .post-navigation {
+
 	.nav {
+
 		&-links {
 			display: grid;
 			grid-template-columns: 1fr 60px 1fr;
@@ -19,6 +21,7 @@
 				box: horizontal center middle;
 				text-transform: uppercase;
 				text-decoration: none;
+
 				@mixin button-color;
 				@extend %button-shift;
 			}
@@ -26,7 +29,9 @@
 
 		@each $nav in previous, next {
 			&-$(nav) {
+
 				a {
+
 					@extend %small-input;
 				}
 			}
@@ -35,8 +40,11 @@
 		&-previous {
 			grid-area: 1/1;
 			justify-content: flex-start;
+
 			a {
+
 				&::before {
+
 					@mixin icon "\f341";
 					margin: 0 4px 0 -3px;
 				}
@@ -46,8 +54,11 @@
 		&-next {
 			grid-area: 1/3;
 			justify-content: flex-end;
+
 			a {
+
 				&::after {
+
 					@mixin icon "\f345";
 					margin: 0 -3px 0 4px;
 				}
@@ -57,14 +68,18 @@
 		&-blog {
 			grid-area: 1/2;
 			margin: 0 auto;
+
 			a {
 				padding: 0 7px;
 				min-width: 44px;
 				min-height: 44px;
 				font-size: 18px;
 			}
+
 			span {
+
 				&::before {
+
 					@mixin icon "\f228";
 					line-height: 1.7;
 				}

@@ -1,17 +1,23 @@
 .product {
+
 	.cart {
+
 		.button {
+
 			@extend %small-input;
 		}
 	}
 
 	li& {
+
 		.button {
+
 			@extend %small-input;
 		}
 	}
 
 	.button {
+
 		&.loading {
 			color: transparent;
 
@@ -34,7 +40,9 @@
 }
 
 .add_to_cart_inline {
+
 	.button {
+
 		@extend %small-input;
 	}
 }

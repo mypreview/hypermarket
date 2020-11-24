@@ -44,6 +44,7 @@
 }
 
 %meta-divider {
+
 	&:nth-last-child(n+2)::after {
 		content: "";
 		display: inline-block;
@@ -63,6 +64,7 @@
 }
 
 %clear {
+
 	&::before,
 	&::after {
 		content: "";

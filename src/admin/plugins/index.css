@@ -1,24 +1,28 @@
 .hypermarket-welcome {
+
 	&__extension {
+
 		&s {
+
 			ul {
+
 				&:not(:empty) + .spinner {
 					display: hidden;
 				}
 
 				display: grid;
-	    		grid-template-columns: repeat(2, 1fr) ?if media (--screen-md-min);
-	    		grid-gap: 30px;
+				grid-template-columns: repeat(2, 1fr) ?if media (--screen-md-min);
+				grid-gap: 30px;
 			}
 
 			li {
-			    background-color: #fff;
-	    		border: 1px solid #ddd;
-	    		box: vertical;
+				background-color: #fff;
+				border: 1px solid #ddd;
+				box: vertical;
 			}
 		}
 
-		&-banner{
+		&-banner {
 			margin: 0;
 		}
 
@@ -32,11 +36,11 @@
 			}
 
 			> a:first-child {
-			    font-weight: 600;
-			    font-size: 18px;
-			    order: 1;
-		        max-width: 49% ?if media (--screen-xs-min);
-	            margin-bottom: 10px;
+				font-weight: 600;
+				font-size: 18px;
+				order: 1;
+				max-width: 49% ?if media (--screen-xs-min);
+				margin-bottom: 10px;
 			}
 
 			.button-primary {
@@ -47,19 +51,19 @@
 		}
 
 		&-byline {
-		    display: block;
-		    font-size: 13px;
-	        margin-top: auto;
-	        order: 4;
+			display: block;
+			font-size: 13px;
+			margin-top: auto;
+			order: 4;
 		}
 
 		&-updated {
-		    order: 5;
-	        margin-top: auto;
+			order: 5;
+			margin-top: auto;
 
 			p {
 				margin: 0;
-    			font-size: 12px;
+				font-size: 12px;
 			}
 		}
 

@@ -1,4 +1,5 @@
 nav {
+
 	ul {
 		margin: 0;
 	}
@@ -32,6 +33,7 @@ nav {
 
 	[class*="current_"],
 	.current-menu-item {
+
 		> a {
 			color: var(--general-entry-alt);
 			opacity: 0.95;
@@ -40,9 +42,11 @@ nav {
 
 	[class*="_has_children"],
 	.menu-item-has-children {
+
 		> a::after {
 			display: inline-block;
 			vertical-align: middle;
+
 			@mixin icon "\f140";
 			font-size: 15px;
 			margin-left: 1px;
@@ -51,10 +55,12 @@ nav {
 	}
 
 	ul {
+
 		@extend %none-list-style;
 	}
 
 	> div {
+
 		> ul {
 			box: horizontal wrap center;
 		}
@@ -86,6 +92,7 @@ nav {
 			}
 
 			li {
+
 				&:nth-child(n+2) {
 					margin-top: 8px;
 				}
@@ -98,6 +105,7 @@ nav {
 
 			[class*="_has_children"],
 			.menu-item-has-children {
+
 				> a::after {
 					content: "\f139";
 					margin-left: 8px;
@@ -117,6 +125,7 @@ nav {
 			}
 
 			.$(item) {
+
 				> li:hover {
 					.$(item) {
 						animation: slideRight 0.4s;

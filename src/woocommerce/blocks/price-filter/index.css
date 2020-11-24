@@ -28,12 +28,15 @@
 	}
 
 	&__controls {
+
 		^&__button {
+
 			@extend %small-input;
 			@mixin button-color;
 		}
 
 		^&__amount {
+
 			@extend %small-input;
 		}
 
@@ -44,7 +47,9 @@
 }
 
 .wp-block-woocommerce-price-filter {
+
 	> *:nth-last-child(2) {
+
 		@extend %small-title;
 	}
 }

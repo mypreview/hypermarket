@@ -3,6 +3,7 @@
 	font-size: var(--general-small);
 
 	a {
+
 		@mixin link;
 	}
 }

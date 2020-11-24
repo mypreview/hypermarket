@@ -1,6 +1,9 @@
 .woocommerce-account {
+
 	&.logged-in {
+
 		.entry-content {
+
 			> .woocommerce {
 				box: wrap;
 
@@ -14,6 +17,7 @@
 }
 
 .woocommerce-MyAccount {
+
 	&-navigation {
 		border-radius: var(--border-radius-small);
 		overflow: hidden;
@@ -21,6 +25,7 @@
 		text-transform: uppercase;
 
 		a {
+
 			@mixin link var(--general-primary);
 			display: block;
 			padding: 14px 20px;
@@ -28,6 +33,7 @@
 		}
 
 		.is-active {
+
 			a {
 				border-left-color: currentColor;
 				color: var(--general-primary);
@@ -35,6 +41,7 @@
 		}
 
 		ul {
+
 			@extend %none-list-style;
 		}
 

@@ -1,10 +1,11 @@
 .wp-block-search {
+
 	& &__label {
 		font-size: calc(var(--general-normal) *0.75);
 		padding-left: 18px;
 		text-transform: uppercase;
 		font-weight: 400;
-	    margin-bottom: 7px;
+		margin-bottom: 7px;
 	}
 
 	& &__input {

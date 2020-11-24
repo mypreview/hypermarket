@@ -1,4 +1,5 @@
 ul.payment_methods {
+
 	img[class*="stripe"] {
 		size: auto 13px;
 	}
@@ -9,7 +10,9 @@ ul.payment_methods {
 }
 
 .wc-payment-form {
+
 	.wc-stripe {
+
 		&-sepa-mandate {
 			margin-bottom: 10px !important;
 		}
@@ -29,10 +32,15 @@ ul.payment_methods {
 }
 
 #main {
+
 	#payment {
+
 		ul.payment_methods {
+
 			li {
+
 				label {
+
 					img[class*="stripe"] {
 						margin-top: 4px;
 
@@ -45,8 +53,10 @@ ul.payment_methods {
 		}
 
 		.methods {
+
 			@each $item in token, new {
 				li.woocommerce-SavedPaymentMethods-$(item) {
+
 					label {
 						display: inline-block;
 					}

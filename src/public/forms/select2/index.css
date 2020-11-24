@@ -1,12 +1,16 @@
 .select2 {
+
 	&-container {
+
 		&&--default {
 			min-height: 48px;
 			display: block;
 			font-size: var(--general-small);
 
 			^^&-selection {
+
 				&--single {
+
 					@extend %select-icon;
 					border: 2px solid var(--general-border);
 					height: 48px;
@@ -14,6 +18,7 @@
 					padding-left: 8px;
 
 					^^^^&-selection {
+
 						&__arrow {
 							display: hidden;
 						}
@@ -36,6 +41,7 @@
 					}
 
 					^^^^&-selection {
+
 						&__rendered {
 							min-height: 48px;
 							box: center wrap;
@@ -49,7 +55,9 @@
 			}
 
 			^^&-results__option {
+
 				&--highlighted {
+
 					&[aria-selected] {
 						color: var(--general-background);
 						background-color: var(--general-primary);
@@ -62,7 +70,9 @@
 			}
 
 			^^&-search {
+
 				&--dropdown {
+
 					^^^^&-search__field {
 						height: 38px;
 						border: 2px solid var(--general-border);
@@ -70,6 +80,7 @@
 				}
 
 				&--inline {
+
 					^^^^&-search__field {
 						min-height: auto;
 					}

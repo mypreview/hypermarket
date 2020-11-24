@@ -1,7 +1,9 @@
 .woocommerce {
+
 	@each $filter in result-count, ordering {
 		&-$(filter) {
 			font-size: var(--general-small);
+
 			@media (--screen-xs-min) {
 				width: calc(50% - 3px);
 				display: inline-flex;

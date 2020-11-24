@@ -1,6 +1,9 @@
 .editor-styles-wrapper {
+
 	.block-editor-writing-flow {
+
 		.wp-block-latest-comments {
+
 			@extend %none-list-style;
 
 			&__comment {
@@ -28,6 +31,7 @@
 					margin-left: 0;
 
 					a {
+
 						@mixin link;
 						font-weight: 500;
 						padding-right: 5px;

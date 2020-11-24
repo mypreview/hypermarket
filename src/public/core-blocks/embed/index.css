@@ -1,5 +1,7 @@
 .wp-block-embed {
+
 	figcaption {
+
 		@extend %caption;
 	}
 }

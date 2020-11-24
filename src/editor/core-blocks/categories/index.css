@@ -2,11 +2,13 @@
 	font-size: var(--general-small);
 
 	&__list {
+
 		@extend %widget-list;
 	}
 
 	li {
 		color: var(--general-entry-alt);
+
 		@mixin shift color;
 
 		&:hover {
@@ -15,10 +17,12 @@
 	}
 
 	a {
+
 		@mixin link;
 	}
 
 	.editor-styles-wrapper .block-editor-writing-flow &__list {
+
 		@extend %none-list-style;
 
 		li:nth-child(n+2) {
@@ -27,6 +31,7 @@
 	}
 
 	.wp-core-ui &__dropdown {
+
 		@extend %select;
 		@extend %select-icon;
 		width: 100%;

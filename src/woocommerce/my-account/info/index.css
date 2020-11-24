@@ -15,6 +15,7 @@
 	}
 
 	&__avatar {
+
 		img {
 			border: 5px solid var(--general-background);
 			border-radius: var(--border-radius-base);

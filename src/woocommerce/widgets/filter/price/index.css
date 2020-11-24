@@ -11,6 +11,7 @@
 	}
 
 	.ui-slider-handle {
+
 		@extend %filter-range-thumb;
 		position: absolute;
 
@@ -29,6 +30,7 @@
 		}
 
 		.button {
+
 			@mixin button-color;
 			@extend %small-input;
 		}

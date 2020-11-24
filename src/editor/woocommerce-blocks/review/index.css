@@ -1,7 +1,9 @@
 @import "./../../../woocommerce/blocks/review";
 
 .editor-styles-wrapper {
+
 	.block-editor-writing-flow {
+
 		.wc-block-review-list {
 			padding-left: 0;
 		}
@@ -9,6 +11,7 @@
 }
 
 .wc-block-sort-select {
+
 	&__label {
 		font-size: calc(var(--general-normal) *0.75);
 		color: var(--general-entry);
@@ -19,6 +22,7 @@
 	}
 
 	.wp-core-ui &__select:disabled {
+
 		@extend %select;
 		@extend %select-icon;
 	}

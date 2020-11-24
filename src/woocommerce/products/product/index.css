@@ -33,13 +33,16 @@ li.product {
 
 	.product-categories {
 		grid-row: 3;
+
 		a {
+
 			@mixin link var(--general-entry), var(--general-entry-alt);
 		}
 	}
 }
 
 .woocommerce-loop-product {
+
 	&__title {
 		font-size: var(--general-normal);
 		font-weight: 400;
@@ -48,6 +51,7 @@ li.product {
 	}
 
 	.product &__link {
+
 		@mixin link;
 	}
 }

@@ -1,6 +1,9 @@
 .archive {
+
 	&.has-sidebar {
+
 		.site-main {
+
 			.woocommerce-products-header {
 				grid-row: 1;
 				grid-column: 1/-1;

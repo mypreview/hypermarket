@@ -1,10 +1,12 @@
 .wp-block-image {
+
 	.components-resizable-box__container {
 		max-width: 100% !important;
 		vertical-align: middle;
 	}
-	
+
 	figcaption {
+
 		@extend %caption;
 		margin: 0;
 
@@ -32,6 +34,7 @@
 		[data-align="left"]& {
 			margin-right: 18px;
 		}
+
 		[data-align="right"]& {
 			margin-left: 18px;
 		}

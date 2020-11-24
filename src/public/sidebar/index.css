@@ -6,8 +6,11 @@
 @import "./toggle";
 
 @media (--screen-md-min) {
+
 	.has-sidebar {
+
 		&--before {
+
 			.widget-area {
 				margin: 0 15px 0 0;
 				grid-area: 2/1;

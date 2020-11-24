@@ -15,12 +15,14 @@
 		position: relative;
 
 		&::before {
+
 			@mixin icon "\f155\f155\f155\f155\f155";
 			position: absolute 0;
 		}
 	}
 
 	&::before {
+
 		@mixin icon "\f154\f154\f154\f154\f154";
 		position: absolute;
 	}

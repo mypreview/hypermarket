@@ -8,6 +8,7 @@
 	}
 
 	.admin-bar &--top {
+
 		@extend %is-admin-bar;
 	}
 }

@@ -1,4 +1,5 @@
 .wp-block {
+
 	@each $code in code, preformatted, verse {
 		pre&-$(code) {
 			display: block;
@@ -16,7 +17,9 @@
 	}
 
 	.block-editor-writing-flow &-code {
+
 		.editor-styles-wrapper & {
+
 			code {
 				padding: 0;
 				font-size: inherit;

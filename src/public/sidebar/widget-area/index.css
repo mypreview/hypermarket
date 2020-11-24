@@ -1,4 +1,5 @@
 .widget-area {
+
 	.widget {
 		padding-bottom: 28px;
 		border-bottom: 2px solid var(--general-border);
@@ -26,6 +27,7 @@
 		transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
 		.admin-bar & {
+
 			@extend %is-admin-bar;
 			z-index: 99999;
 		}

@@ -8,10 +8,12 @@
 
 	ul {
 		box: horizontal middle;
+
 		@extend %none-list-style;
 	}
 
 	.columns-3 {
+
 		li {
 			width: 33.333%;
 			box: horizontal center;
@@ -23,6 +25,7 @@
 	}
 
 	&__search {
+
 		.site-search {
 			width: 100%;
 		}
@@ -37,6 +40,7 @@
 			}
 
 			&::before {
+
 				@mixin icon "\f179";
 				font-size: 22px;
 				padding-top: 4px;
@@ -46,6 +50,7 @@
 		.widget {
 			size: 100% 0;
 			position: absolute null null 0 0;
+
 			@mixin shift bottom;
 			z-index: -2;
 			overflow: hidden;
@@ -53,11 +58,13 @@
 
 			form {
 				opacity: 0;
+
 				@mixin shift opacity;
 			}
 		}
 
 		.shown {
+
 			.widget {
 				bottom: 100%;
 				height: auto;

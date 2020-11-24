@@ -4,6 +4,7 @@
 
 	a {
 		text-decoration: none;
+
 		@mixin link var(--general-entry), var(--general-entry-alt);
 	}
 
@@ -29,6 +30,7 @@
 		}
 
 		thead {
+
 			td,
 			th {
 				border-width: 0 0 2px;

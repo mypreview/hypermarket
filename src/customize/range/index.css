@@ -2,6 +2,7 @@
 	box: wrap space-between;
 
 	&__reset {
+
 		span {
 			text-decoration: none;
 			font-size: 14px;

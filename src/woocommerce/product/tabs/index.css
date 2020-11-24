@@ -1,5 +1,7 @@
 .woocommerce-product-attributes {
+
 	&-item {
+
 		p {
 			margin-bottom: 0;
 		}
@@ -12,8 +14,11 @@
 }
 
 .product {
+
 	.woocommerce-Tabs-panel {
+
 		> h2 {
+
 			&:first-child {
 				display: hidden;
 			}

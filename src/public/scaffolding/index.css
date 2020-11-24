@@ -31,11 +31,14 @@ body {
 }
 
 .col-full {
+
 	&:not(&--fluid) {
+
 		@mixin colfull;
 	}
 
 	&--fluid {
+
 		@mixin colfull 1920px, 30px;
 	}
 }
@@ -228,16 +231,23 @@ iframe {
  * Alignment
  */
 body:not(.has-sidebar) {
+
 	.entry-content {
+
 		> .alignfull {
+
 			@extend %alignfull;
 		}
+
 		> .alignwide {
+
 			@extend %alignwide;
 		}
 	}
 }
+
 figure {
+
 	&.alignwide,
 	&.alignfull {
 		max-width: none;

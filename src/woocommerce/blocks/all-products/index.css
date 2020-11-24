@@ -1,5 +1,7 @@
 .wc-block-grid {
+
 	.wc-block-all-products & {
+
 		&__product {
 			position: relative;
 			display: grid;
@@ -47,6 +49,7 @@
 				opacity: 0;
 				pointer-events: none;
 				z-index: 1;
+
 				@mixin shift opacity, 0.35s;
 
 				.wp-block-button__link {
@@ -56,11 +59,13 @@
 			}
 
 			img {
+
 				@mixin shift opacity, 0.5s;
 				margin: 0 auto;
 			}
 
 			&:hover {
+
 				^^^&__product-add-to-cart {
 					opacity: 1;
 					visibility: visible;

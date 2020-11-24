@@ -1,5 +1,6 @@
 @each $item in category, product {
 	.wc-block-featured-$(item) {
+
 		div& &__link {
 			width: auto;
 		}

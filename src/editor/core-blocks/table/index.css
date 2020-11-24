@@ -3,6 +3,7 @@
 	overflow-x: auto;
 
 	figcaption {
+
 		@extend %caption;
 	}
 
@@ -16,6 +17,7 @@
 		border-width: 0;
 
 		tbody {
+
 			tr:nth-of-type(odd) {
 				background-color: var(--general-tile);
 			}

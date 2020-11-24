@@ -10,8 +10,11 @@
 	}
 
 	&-item {
+
 		&__label {
+
 			a {
+
 				@mixin link;
 			}
 

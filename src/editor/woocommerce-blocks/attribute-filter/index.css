@@ -1,6 +1,7 @@
 @import "./../../../woocommerce/blocks/attribute-filter";
 
 .wc-block-attribute-filter {
+
 	&__button {
 		text-transform: uppercase;
 		border-radius: var(--border-radius-base);
@@ -8,6 +9,7 @@
 	}
 
 	&-list {
+
 		.editor-styles-wrapper .block-editor-writing-flow & {
 			padding-left: 0;
 		}
@@ -30,9 +32,13 @@
 }
 
 .editor-styles-wrapper .block-editor-writing-flow {
+
 	[data-type="woocommerce/attribute-filter"] {
+
 		> div {
+
 			> *:nth-last-child(2) {
+
 				@extend %small-title;
 			}
 		}

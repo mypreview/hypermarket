@@ -1,5 +1,6 @@
 .widgettitle,
 .widget-title {
+
 	@extend %small-title;
 	text-transform: uppercase;
 	display: block;

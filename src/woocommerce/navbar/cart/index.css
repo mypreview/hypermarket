@@ -17,6 +17,7 @@
 		padding-left: 0;
 
 		> li {
+
 			&:last-child {
 				display: none;
 				position: absolute calc(100% + 12px) 0 null null;
@@ -27,6 +28,7 @@
 		}
 
 		&:hover {
+
 			> li:last-child {
 				display: block;
 				animation: slideUp 0.4s;

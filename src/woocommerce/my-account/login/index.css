@@ -1,8 +1,10 @@
 #customer_login {
+
 	.woocommerce-form {
 		max-width: 360px ?if media (--screen-sm-min);
 
 		&-login {
+
 			.form-row:not(.woocommerce-form-row) {
 				box: horizontal wrap space-between middle;
 				margin-bottom: 0;

@@ -1,5 +1,7 @@
 .blocks-gallery {
+
 	&-caption {
+
 		@extend %caption;
 		width: 100%;
 	}

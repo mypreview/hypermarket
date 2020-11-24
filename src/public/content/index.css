@@ -1,6 +1,8 @@
 .page-view,
 .single-view {
+
 	.entry-thumbnail {
+
 		img {
 			margin: 0 auto 48px;
 		}
@@ -9,6 +11,7 @@
 
 @each $content in .page-view, .single-view, .site-main {
 	$(content) > .div:not(:empty):first-child {
+
 		@extend %alignfull;
 		background-color: var(--general-tile);
 		text-align: center;
@@ -17,6 +20,7 @@
 		padding-bottom: 60px;
 
 		.entry-header {
+
 			@mixin colfull;
 
 			.entry-title {
@@ -31,6 +35,7 @@
 		.entry-description {
 			font-size: var(--general-small);
 			color: var(--general-entry-alt);
+
 			@mixin colfull 660px, 0;
 		}
 	}
@@ -42,6 +47,7 @@
 }
 
 .entry-content {
+
 	&::after {
 		content: "";
 		display: block;
@@ -55,9 +61,11 @@
 	color: var(--general-entry-alt);
 
 	a {
+
 		@mixin link;
 
 		&::before {
+
 			@mixin icon "\f464";
 			text-decoration: underline;
 			margin-right: 2px;

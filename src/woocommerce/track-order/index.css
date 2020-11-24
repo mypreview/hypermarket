@@ -1,11 +1,14 @@
 .woocommerce-form {
+
 	&-track-order {
+
 		p:first-child {
 			font-size: var(--general-small);
 			color: var(--general-entry-alt);
 		}
 
 		.clear + .form-row {
+
 			@extend %coupon-grid;
 
 			.button {

@@ -7,9 +7,11 @@
 	}
 
 	&__back-to-cart {
+
 		@mixin button-color;
 
 		&::before {
+
 			@mixin icon "\f340";
 			margin-right: 5px;
 			font-size: 18px;

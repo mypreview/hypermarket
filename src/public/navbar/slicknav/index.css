@@ -1,4 +1,5 @@
 .slicknav {
+
 	&_menu {
 		display: none ?if media (--screen-lg-min);
 		background: transparent;
@@ -8,12 +9,15 @@
 			box-shadow: none;
 			background-color: var(--general-entry);
 			border-radius: 0;
+
 			@mixin shift transform;
 		}
 	}
 
 	&_open {
+
 		^&_icon-bar {
+
 			&:first-child {
 				transform: rotate(45deg) translateY(0.5px) translateX(3.4px);
 			}
@@ -50,6 +54,7 @@
 		}
 
 		li {
+
 			.slicknav_row,
 			> a {
 				padding: 15px 20px;
@@ -63,12 +68,14 @@
 			}
 
 			&.current-menu-item {
+
 				> a {
 					border-left: 2px solid var(--general-primary);
 				}
 			}
 
 			&:nth-child(n+2) {
+
 				> .slicknav_row,
 				> a {
 					border-top: 1px solid var(--general-border);
@@ -78,6 +85,7 @@
 
 		.slicknav_row {
 			box: space-between center;
+
 			a {
 				color: inherit;
 			}
@@ -85,15 +93,20 @@
 
 		^&_arrow {
 			font-size: 0;
+
 			&::before {
+
 				@mixin icon "\f139";
 				font-size: 18px;
 			}
 		}
 
 		^&_open {
+
 			> ^^&_row {
+
 				^^^&_arrow {
+
 					&::before {
 						content: "\f140";
 					}

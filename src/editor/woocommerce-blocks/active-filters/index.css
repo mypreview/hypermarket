@@ -1,6 +1,7 @@
 @import "./../../../woocommerce/blocks/active-filters";
 
 .wc-block-active-filters {
+
 	.editor-styles-wrapper .block-editor-writing-flow &__list {
 		padding-left: 0;
 		margin: 0 0 4px;
@@ -13,9 +14,13 @@
 }
 
 .editor-styles-wrapper .block-editor-writing-flow {
+
 	[data-type="woocommerce/active-filters"] {
+
 		> div {
+
 			> *:nth-last-child(2) {
+
 				@extend %small-title;
 			}
 		}

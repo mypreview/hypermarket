@@ -38,6 +38,7 @@
 		justify-content: center;
 		text-align: center;
 		cursor: pointer;
+
 		@extend %button-shift;
 
 		&.no-border-radius {
@@ -53,6 +54,7 @@
 		}
 
 		^&:not(.is-style-outline) & {
+
 			&:not(.has-background) {
 				background-color: var(--general-primary);
 

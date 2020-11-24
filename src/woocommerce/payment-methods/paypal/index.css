@@ -1,6 +1,9 @@
 .payment_method {
+
 	&_paypal {
+
 		> label {
+
 			img {
 				size: auto 34px;
 				order: 3;

@@ -1,6 +1,9 @@
 .wc-block-product-search {
+
 	.block-editor & {
+
 		&::after {
+
 			@mixin icon "\f179";
 			font-size: 20px;
 			position: absolute null 12px 13px null;
@@ -31,6 +34,7 @@
 				background-color: var(--general-background);
 				min-height: 48px;
 				padding: 0 16px;
+
 				@mixin shift border;
 
 				&:focus {
@@ -59,6 +63,7 @@
 	}
 
 	.components-base-control {
+
 		.components-base-control__field {
 			margin-bottom: 0;
 		}

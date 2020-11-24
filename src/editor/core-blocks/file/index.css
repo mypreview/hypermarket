@@ -1,7 +1,7 @@
 @import "./../../../public/core-blocks/file";
 
 .wp-block-file {
-    margin-bottom: 1.5em;
+	margin-bottom: 1.5em;
 
 	&__textlink {
 		color: var(--general-primary);

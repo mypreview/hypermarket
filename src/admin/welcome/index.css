@@ -1,24 +1,27 @@
 .hypermarket-welcome {
+
 	&__tabs {
+
 		.nav-tab {
-		    font-size: 14px;
+			font-size: 14px;
 		}
 	}
 
 	.nav-tab-wrapper {
 		margin-bottom: 30px;
-		
+
 		li {
 			margin-bottom: 0;
 
 			&.active {
-    			a {
-    				border-bottom: 1px solid #f1f1f1;
-				    background: #f1f1f1;
-				    color: #000;
-				    margin-bottom: -1px;
-    			}
-    		}
+
+				a {
+					border-bottom: 1px solid #f1f1f1;
+					background: #f1f1f1;
+					color: #000;
+					margin-bottom: -1px;
+				}
+			}
 		}
 	}
 }

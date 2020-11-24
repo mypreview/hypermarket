@@ -27,6 +27,7 @@
 			font-size: var(--general-small);
 			font-weight: 500;
 			display: block;
+
 			@mixin shift color;
 
 			&:hover {

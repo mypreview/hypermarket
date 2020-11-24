@@ -1,4 +1,5 @@
 .comment {
+
 	&s-area {
 		padding-top: 48px;
 	}
@@ -51,7 +52,7 @@
 			li$(item) {
 				list-style: none;
 				margin: 0 0 30px 66px;
-				margin-left: 0 ?if media (--screen-xs);								
+				margin-left: 0 ?if media (--screen-xs);
 				position: relative;
 				font-size: var(--general-small);
 				line-height: 1.5;
@@ -69,6 +70,7 @@
 		}
 
 		> ^& > .children > li {
+
 			@media (--screen-sm-min) {
 				background-color: var(--general-border);
 
@@ -80,6 +82,7 @@
 	}
 
 	li& {
+
 		^&-reply-title {
 			margin-bottom: 10px;
 			font-size: calc(var(--general-normal) * 1.25);
@@ -91,7 +94,7 @@
 
 		.children {
 			padding-left: 0;
-	    	margin-left: -66px ?if media (--screen-sm) and (--screen-xs-min) ;
+			margin-left: -66px ?if media (--screen-sm) and (--screen-xs-min);
 
 			^^& {
 				margin-top: 30px;
@@ -101,6 +104,7 @@
 	}
 
 	&-body {
+
 		@media (--screen-sm) {
 			padding: 24px;
 			background-color: var(--general-tile);
@@ -113,6 +117,7 @@
 		margin-bottom: 5px;
 
 		a {
+
 			@mixin link;
 		}
 
@@ -122,6 +127,7 @@
 	}
 
 	&-author {
+
 		.fn {
 			font-weight: 500;
 			margin-right: 10px;
@@ -153,6 +159,7 @@
 		display: inline-flex;
 
 		&::before {
+
 			@mixin icon "\f171";
 			padding-right: 3px;
 		}
@@ -164,7 +171,7 @@
 
 	&-content {
 		overflow-x: auto;
-		
+
 		p {
 			margin-bottom: 10px;
 		}

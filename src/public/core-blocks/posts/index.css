@@ -7,6 +7,7 @@
 	}
 
 	&:not(.is-grid) {
+
 		& > li {
 			border-bottom: 1px solid var(--general-border);
 			padding-bottom: 42px;
@@ -22,8 +23,10 @@
 		list-style: none;
 
 		> a {
+
 			@mixin link var(--general-entry-alt);
 			font-size: calc(var(--general-normal) * 1.125);
+
 			&::after {
 				content: "";
 				display: table;
@@ -32,6 +35,7 @@
 	}
 
 	&.is-grid {
+
 		^&__post-excerpt {
 			font-size: var(--general-small);
 		}
@@ -47,12 +51,15 @@
 	}
 
 	&.has-dates {
+
 		^&__post-author {
+
 			@extend %meta-divider;
 		}
 	}
 
 	&__featured-image {
+
 		&.aligncenter {
 			text-align: center;
 			margin-bottom: 12px;

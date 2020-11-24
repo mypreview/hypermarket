@@ -1,4 +1,5 @@
 .wc-block-review {
+
 	div&-sort-select {
 		text-align: left;
 	}
@@ -8,6 +9,7 @@
 		margin-bottom: 24px;
 
 		&-item {
+
 			^& &__item {
 				padding: 33px 0;
 				margin: 0;
@@ -15,6 +17,7 @@
 			}
 
 			&__rating {
+
 				^^& & > &__stars {
 					line-height: 1;
 					letter-spacing: 4.5px;
@@ -24,13 +27,16 @@
 					white-space: nowrap;
 
 					> span {
+
 						&::before {
+
 							@mixin icon "\f155\f155\f155\f155\f155";
 							color: var(--alert-warning);
 						}
 					}
 
 					&::before {
+
 						@mixin icon "\f154\f154\f154\f154\f154";
 						color: var(--alert-warning);
 						opacity: 1;
@@ -39,6 +45,7 @@
 			}
 
 			&__product a {
+
 				@mixin link;
 			}
 
@@ -53,6 +60,7 @@
 			}
 
 			&__text {
+
 				p:last-child {
 					margin-bottom: 0;
 				}

@@ -4,6 +4,7 @@
 @import "./review-order";
 
 .woocommerce-checkout {
+
 	> h2 {
 		margin-bottom: 20px;
 		font-size: var(--general-large);
@@ -34,6 +35,7 @@
 	}
 
 	.order-total {
+
 		th {
 			display: hidden;
 		}
@@ -41,6 +43,7 @@
 }
 
 .woocommerce-billing-fields {
+
 	> h3 {
 		display: hidden;
 	}

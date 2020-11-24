@@ -1,11 +1,14 @@
 .wc-block-attribute-filter {
+
 	& &__button {
+
 		@extend %small-input;
 		@mixin button-color;
 		margin-top: 21px;
 	}
 
 	&-list {
+
 		li {
 			line-height: var(--line-height-base);
 		}
@@ -24,8 +27,11 @@
 		margin-bottom: 10px;
 	}
 }
+
 .wp-block-woocommerce-attribute-filter {
+
 	> *:nth-last-child(2) {
+
 		@extend %small-title;
 	}
 }

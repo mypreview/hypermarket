@@ -1,4 +1,5 @@
 .wp-block-quote {
+
 	&.is-style-large {
 		border-left-width: 0;
 
@@ -12,7 +13,9 @@
 	}
 
 	&.has-text-align {
+
 		&-right {
+
 			&:not(.is-style-large) {
 				border-width: 0 5px 0 0;
 				padding: 12px 25px 12px 0;

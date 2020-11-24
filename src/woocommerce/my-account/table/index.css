@@ -1,4 +1,5 @@
 .woocommerce-MyAccount-content {
+
 	th {
 		font-weight: 500;
 		padding: 12px;
@@ -17,8 +18,11 @@
 	}
 
 	.shop_table {
+
 		&_responsive {
+
 			@media (--screen-md) {
+
 				thead {
 					display: none;
 				}
