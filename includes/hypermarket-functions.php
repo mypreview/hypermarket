@@ -24,8 +24,8 @@ if ( ! function_exists( 'hypermarket_get_file_assets' ) ) :
 			return;
 		}
 
-		$file_path       = get_parent_theme_file_path( sprintf( '/dist/%s.js', $filename ) );
-		$file_asset_path = get_parent_theme_file_path( sprintf( '/dist/%s.asset.php', $filename ) );
+		$file_path       = get_parent_theme_file_path( sprintf( '/build/%s.js', $filename ) );
+		$file_asset_path = get_parent_theme_file_path( sprintf( '/build/%s.asset.php', $filename ) );
 		//phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		$file_asset = file_exists( $file_asset_path ) ? require $file_asset_path : array(
 			'dependencies' => $dependencies,

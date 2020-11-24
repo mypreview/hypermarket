@@ -61,10 +61,10 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 			);
 
 			// Styles.
-			wp_enqueue_style( $style_handle, get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
+			wp_enqueue_style( $style_handle, get_theme_file_uri( sprintf( '/build/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
 			wp_style_add_data( $style_handle, 'rtl', 'replace' );
 			// Scripts.
-			wp_enqueue_script( $script_handle, get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), array( 'jquery', 'customize-controls' ), $asset['version'], true );
+			wp_enqueue_script( $script_handle, get_theme_file_uri( sprintf( '/build/%s.js', $asset_name ) ), array( 'jquery', 'customize-controls' ), $asset['version'], true );
 			wp_localize_script( $script_handle, sprintf( 'hypermarket_%s', $asset_name ), $l10n );
 		}
 

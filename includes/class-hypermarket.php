@@ -198,7 +198,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			/**
 			 * Enqueue editor styles.
 			 */
-			add_editor_style( array( 'dist/legacy-editor.css', $this->google_fonts() ) );
+			add_editor_style( array( 'build/legacy-editor.css', $this->google_fonts() ) );
 
 			/**
 			 * Add 'hypermarket_after_setup_theme' action.
@@ -358,10 +358,10 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			// phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 			wp_enqueue_style( $font_handle, $this->google_fonts(), array(), null );
 			// Styles.
-			wp_enqueue_style( $style_handle, get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
+			wp_enqueue_style( $style_handle, get_theme_file_uri( sprintf( '/build/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
 			wp_style_add_data( $style_handle, 'rtl', 'replace' );
 			// Scripts.
-			wp_enqueue_script( $script_handle, get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
+			wp_enqueue_script( $script_handle, get_theme_file_uri( sprintf( '/build/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
 			wp_localize_script( $script_handle, 'hypermarket', $l10n );
 
 			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -389,10 +389,10 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			// phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 			wp_enqueue_style( $font_handle, $this->google_fonts(), array(), null );
 			// Styles.
-			wp_enqueue_style( $style_handle, get_theme_file_uri( sprintf( '/dist/%s.css', $asset_name ) ), '', $asset['version'] );
+			wp_enqueue_style( $style_handle, get_theme_file_uri( sprintf( '/build/%s.css', $asset_name ) ), '', $asset['version'] );
 			wp_style_add_data( $style_handle, 'rtl', 'replace' );
 			// Scripts.
-			wp_enqueue_script( $script_handle, get_theme_file_uri( sprintf( '/dist/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
+			wp_enqueue_script( $script_handle, get_theme_file_uri( sprintf( '/build/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
 		
 			// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound, WordPress.NamingConventions.ValidHookName.UseUnderscores
 			do_action( sprintf( 'hypermarket_enqueue_%s', $asset_name ), $style_handle, $script_handle, $asset_name );
