@@ -1,6 +1,7 @@
 .gallery {
 	display: grid;
 	grid-gap: 10px;
+    text-align: center;
 
 	> * {
 		min-width: 0;
