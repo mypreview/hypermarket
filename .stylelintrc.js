@@ -1,15 +1,16 @@
 module.exports = {
 	extends: 'stylelint-config-wordpress/scss',
 	rules: {
-		'selector-class-pattern': null,
-		'no-descending-specificity': null,
-		'selector-id-pattern': null,
 		'max-line-length': null,
 		'value-keyword-case': null,
+		'selector-id-pattern': null,
 		'no-duplicate-selectors': null,
-		'comment-empty-line-before': null,
-		'scss/selector-no-redundant-nesting-selector': null,
+		'selector-class-pattern': null,
 		'selector-type-no-unknown': null,
+		'no-descending-specificity': null,
+		'comment-empty-line-before': null,
+		'declaration-block-no-duplicate-properties': null,
+		'scss/selector-no-redundant-nesting-selector': null,
 		'property-no-unknown': [
 			true,
 			{
