@@ -100,7 +100,7 @@ dl {
 
 dt {
 	line-height: var(--line-height-base);
-	font-weight: bold;
+	font-weight: 600;
 }
 
 dd {

@@ -1,7 +1,7 @@
 .wp-block-search {
 
 	& &__label {
-		font-size: calc(var(--general-normal) *0.75);
+		font-size: calc(var(--general-normal) * 0.75);
 		padding-left: 18px;
 		text-transform: uppercase;
 		font-weight: 400;

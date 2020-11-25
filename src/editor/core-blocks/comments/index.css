@@ -40,7 +40,7 @@
 
 				&-date {
 					color: var(--general-entry-alt);
-					font-size: calc(var(--general-normal) *0.75);
+					font-size: calc(var(--general-normal) * 0.75);
 				}
 
 				&-link {

@@ -13,7 +13,7 @@
 .wc-block-sort-select {
 
 	&__label {
-		font-size: calc(var(--general-normal) *0.75);
+		font-size: calc(var(--general-normal) * 0.75);
 		color: var(--general-entry);
 		margin-bottom: 7px;
 		padding-left: 18px;

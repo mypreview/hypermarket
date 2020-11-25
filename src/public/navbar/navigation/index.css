@@ -100,7 +100,7 @@ nav {
 
 			a {
 				padding: 0;
-				font-size: calc(var(--general-small) * 6/7);
+				font-size: calc(var(--general-small) * 6 / 7);
 			}
 
 			[class*="_has_children"],

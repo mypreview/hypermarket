@@ -77,7 +77,6 @@
 	display: flex;
 	min-height: 48px;
 	padding-left: 16px;
-	line-height: var(--line-height-base);
 	font-size: var(--general-small);
 	color: var(--general-entry);
 	text-transform: none;

@@ -41,13 +41,5 @@
 			color: var(--general-entry-alt);
 			line-height: inherit;
 		}
-
-		&s ^& ^&-image ^
-		.wc-block-all-products {
-
-			.wc-block-grid__product-image {
-
-			}
-		}
 	}
 }
