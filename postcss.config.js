@@ -25,6 +25,8 @@ module.exports = () => ( {
 		'postcss-transform-shortcut': {},
 		'postcss-selector-not': {},
 		'postcss-combine-media-query': {},
+		'postcss-combine-duplicated-selectors': {},
+		'postcss-discard-empty': {},
 		'postcss-normalize': {},
 		'postcss-input-range': {},
 		autoprefixer: { grid: true },
