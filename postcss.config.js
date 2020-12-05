@@ -1,6 +1,7 @@
 module.exports = () => ( {
 	plugins: {
 		'postcss-import': {},
+		'postcss-url': {},
 		'postcss-for': {},
 		'postcss-each': {},
 		'postcss-mixins': {},
@@ -13,6 +14,7 @@ module.exports = () => ( {
 		},
 		'postcss-extend': {},
 		'postcss-if-media': {},
+		'postcss-important-startstop': {},
 		'postcss-custom-media': {},
 		'postcss-quantity-queries': {},
 		'postcss-start-to-end': {},
