@@ -1,2 +1,3 @@
-@import-normalize;
-@import-sanitize;
+/* stylelint-disable */
+@import-normalize "normalize.css";
+@import-normalize "sanitize.css";
