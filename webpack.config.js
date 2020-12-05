@@ -2,8 +2,8 @@
  * All of the the JavaScript compile functionality
  * for the "Hypermarket" theme reside in this file.
  *
- * @requires    Webpack
- * @package     hypermarket
+ * @requires Webpack
+ * @package
  * @author      MyPreview (Github: @mahdiyazdani, @mypreview)
  */
 const defaultConfig = require( './node_modules/@wordpress/scripts/config/webpack.config.js' );
@@ -51,7 +51,7 @@ module.exports = {
 			filename: '[name]-rtl.css',
 		} ),
 		new LicenseCheckerWebpackPlugin( {
-			outputFilename: './../credits.txt',
+			outputFilename: './credits.txt',
 			ignore: [ 'flickity' ],
 		} ),
 		new WebpackNotifierPlugin( {
