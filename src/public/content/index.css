@@ -5,6 +5,7 @@
 
 		img {
 			margin: 0 auto 48px;
+			display: block;
 		}
 	}
 }
