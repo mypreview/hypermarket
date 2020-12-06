@@ -14,7 +14,10 @@ ul.payment_methods {
 	.wc-stripe {
 
 		&-sepa-mandate {
-			margin-bottom: 10px !important;
+
+			@important {
+				margin-bottom: 10px;
+			}
 		}
 
 		&-elements-field,

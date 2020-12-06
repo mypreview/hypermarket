@@ -53,8 +53,11 @@
 				@mixin shift opacity, 0.35s;
 
 				.wp-block-button__link {
-					margin: 0 !important;
 					pointer-events: auto;
+
+					@important {
+						margin: 0;
+					}
 				}
 			}
 

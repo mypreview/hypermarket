@@ -36,7 +36,10 @@
 			&[disabled] {
 				color: inherit;
 				font-weight: 400;
-				opacity: 0.55 !important;
+
+				@important {
+					opacity: 0.55;
+				}
 			}
 		}
 

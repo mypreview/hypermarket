@@ -76,7 +76,10 @@ ul.payment_methods {
 .woocommerce-SavedPaymentMethods-saveNew {
 
 	label {
-		display: flex !important;
+
+		@important {
+			display: flex;
+		}
 	}
 }
 

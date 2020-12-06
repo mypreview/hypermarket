@@ -20,13 +20,13 @@ module.exports = {
 		'at-rule-no-unknown': [
 			true,
 			{
-				ignoreAtRules: [ 'for', 'extend', 'each', 'mixin', 'define-mixin' ],
+				ignoreAtRules: [ 'important', 'for', 'extend', 'each', 'mixin', 'define-mixin' ],
 			},
 		],
 		'scss/at-rule-no-unknown': [
 			true,
 			{
-				ignoreAtRules: [ 'define-mixin' ],
+				ignoreAtRules: [ 'important', 'define-mixin' ],
 			},
 		],
 		'selector-pseudo-element-no-unknown': [ true, { ignorePseudoElements: [ 'range-thumb' ] } ],

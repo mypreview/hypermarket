@@ -1,8 +1,11 @@
 .wp-block-image {
 
 	.components-resizable-box__container {
-		max-width: 100% !important;
 		vertical-align: middle;
+
+		@important {
+			max-width: 100%;
+		}
 	}
 
 	figcaption {

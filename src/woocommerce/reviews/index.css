@@ -143,7 +143,10 @@
 		}
 
 		#rating {
-			display: block !important;
+
+			@important {
+				display: block;
+			}
 		}
 	}
 }

@@ -31,7 +31,10 @@
 		}
 
 		> img {
-			display: none !important;
+
+			@important {
+				display: none;
+			}
 		}
 	}
 
