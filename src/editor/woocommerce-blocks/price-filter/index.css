@@ -5,7 +5,6 @@
 	&__controls {
 
 		^&__button {
-			text-transform: uppercase;
 			border-radius: var(--border-radius-base);
 		}
 

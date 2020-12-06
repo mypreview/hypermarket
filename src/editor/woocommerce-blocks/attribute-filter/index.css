@@ -3,7 +3,6 @@
 .wc-block-attribute-filter {
 
 	&__button {
-		text-transform: uppercase;
 		border-radius: var(--border-radius-base);
 		margin-left: 0;
 	}

@@ -31,7 +31,6 @@
 		font-size: var(--general-small);
 		border-radius: var(--border-radius-base);
 		padding: 10px 22px;
-		text-transform: uppercase;
 		text-decoration: none;
 		display: inline-flex;
 		align-items: center;

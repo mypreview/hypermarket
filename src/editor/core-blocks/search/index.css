@@ -3,7 +3,6 @@
 	& &__label {
 		font-size: calc(var(--general-normal) * 0.75);
 		padding-left: 18px;
-		text-transform: uppercase;
 		font-weight: 400;
 		margin-bottom: 7px;
 	}
@@ -25,7 +24,6 @@
 	& &__button {
 		min-height: var(--btn-height);
 		padding: 10px 22px;
-		text-transform: uppercase;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;

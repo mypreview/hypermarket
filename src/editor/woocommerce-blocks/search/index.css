@@ -17,7 +17,6 @@
 			font-size: calc(var(--general-normal) * 0.75);
 			color: var(--general-entry);
 			margin-bottom: 7px;
-			text-transform: uppercase;
 		}
 
 		^&__field {

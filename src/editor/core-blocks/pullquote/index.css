@@ -12,7 +12,6 @@
 	}
 
 	&__citation {
-		text-transform: uppercase;
 		font-size: var(--general-small);
 		margin-top: 10px;
 	}
