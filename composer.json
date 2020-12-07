@@ -10,12 +10,12 @@
 	"license": "GPL-3.0",
 	"authors": [
 		{
-			"name": "Mahdi Yazdani",
+			"name": "MyPreview",
 			"homepage": "https://mypreview.github.io/hypermarket"
 		}
 	],
 	"require": {
-		"php": ">=7.0"
+		"php": ">=7.2"
 	},
 	"require-dev": {
 		"dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
