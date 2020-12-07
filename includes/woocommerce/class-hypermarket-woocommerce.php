@@ -40,7 +40,7 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 			add_filter( 'woocommerce_cross_sells_columns', array( $this, 'cross_sell_products_cols' ) );
 			add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'thumbnail_columns' ) );
 			add_filter( 'woocommerce_breadcrumb_defaults', array( $this, 'change_breadcrumb_delimiter' ) );
-			add_filter( 'woocommerce_single_product_carousel_options', array( $this, 'flexslider_args' ) );
+			add_filter( 'woocommerce_single_product_carousel_options', array( $this, 'single_product_carousel_args' ) );
 			add_filter( 'woocommerce_single_product_image_gallery_classes', array( $this, 'image_gallery_classes' ) );
 			add_filter( 'woocommerce_pagination_args', array( $this, 'pagination_args' ) );
 			add_filter( 'woocommerce_cart_item_remove_link', array( $this, 'remove_link' ) );
@@ -273,12 +273,12 @@ if ( ! class_exists( 'Hypermarket_WooCommerce' ) ) :
 		 * @param   array $args       The current flexslider arguments.
 		 * @return  array
 		 */
-		public function flexslider_args( $args ) {
+		public function single_product_carousel_args( $args ) {
 			$args['smoothHeight'] = false;
 			$args['animation']    = 'fade';
 			$args['useCSS']       = is_rtl();
 
-			return apply_filters( 'hypermarket_product_flexslider_args', $args );
+			return apply_filters( 'hypermarket_single_product_carousel_args', $args );
 		}
 
 		/**
