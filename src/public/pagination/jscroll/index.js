@@ -9,9 +9,9 @@ export const jScroll = {
 		jScroll.els = {};
 		jScroll.vars = {};
 		jScroll.vars.selector = 'jscroll-div';
-		jScroll.vars.$selector = $( `.${ jScroll.vars.selector }` );
 		jScroll.vars.inner = `.${ jScroll.vars.selector }__inner`;
 		jScroll.vars.next = 'a.next';
+		jScroll.els.$selector = $( `.${ jScroll.vars.selector }` );
 	},
 	// Execute callback after the DOM is loaded.
 	ready() {
@@ -22,7 +22,7 @@ export const jScroll = {
 	init() {
 		if ( ! jScroll._isActivated() ) return;
 
-		jScroll.vars.$selector.jscroll( {
+		jScroll.els.$selector.jscroll( {
 			autoTrigger: false,
 			loadingHtml: `<div class="${ jScroll.vars.selector }__loading"></div>`,
 			nextSelector: jScroll.vars.next,
@@ -31,7 +31,7 @@ export const jScroll = {
 	},
 	// Determine whether the Ajax pagination is enabled.
 	_isActivated() {
-		if ( !! jScroll.vars.$selector.length ) return true;
+		if ( !! jScroll.els.$selector.length ) return true;
 
 		return false;
 	},
