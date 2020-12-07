@@ -66,6 +66,9 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 			// Scripts.
 			wp_enqueue_script( $script_handle, get_theme_file_uri( sprintf( '/build/%s.js', $asset_name ) ), array( 'jquery', 'customize-controls' ), $asset['version'], true );
 			wp_localize_script( $script_handle, sprintf( 'hypermarket_%s', $asset_name ), $l10n );
+
+			// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound, WordPress.NamingConventions.ValidHookName.UseUnderscores
+			do_action( sprintf( 'hypermarket_enqueue_%s', $asset_name ), $style_handle, $script_handle, $asset_name );
 		}
 
 		/**

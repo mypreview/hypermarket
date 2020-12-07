@@ -62,18 +62,19 @@ if ( ! class_exists( 'Hypermarket_Admin' ) ) :
 			);
 
 			// Styles.
-			wp_register_style( $style_handle, get_theme_file_uri( sprintf( '/build/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
+			wp_enqueue_style( $style_handle, get_theme_file_uri( sprintf( '/build/%s.css', $asset_name ) ), '', $asset['version'], 'all' );
 			wp_style_add_data( $style_handle, 'rtl', 'replace' );
 			// Scripts.
-			wp_register_script( $script_handle, get_theme_file_uri( sprintf( '/build/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
+			wp_enqueue_script( $script_handle, get_theme_file_uri( sprintf( '/build/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
 			wp_localize_script( $script_handle, sprintf( 'hypermarket_%s', $asset_name ), $l10n );
 
 			if ( sprintf( 'appearance_page_%s', self::$welcome_slug ) === $hook_suffix ) {
 				wp_enqueue_style( 'thickbox' );
 				wp_enqueue_script( 'thickbox' );
-				wp_enqueue_style( $style_handle );
-				wp_enqueue_script( $script_handle );
 			}
+
+			// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound, WordPress.NamingConventions.ValidHookName.UseUnderscores
+			do_action( sprintf( 'hypermarket_enqueue_%s', $asset_name ), $style_handle, $script_handle, $asset_name );
 		}
 
 		/**
