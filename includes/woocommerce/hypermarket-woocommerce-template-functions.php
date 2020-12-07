@@ -613,33 +613,33 @@ if ( ! function_exists( 'hypermarket_product_image_flipper' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_products_flkty_div' ) ) :
+if ( ! function_exists( 'hypermarket_products_slider_div' ) ) :
 	/**
 	 * Outputs Flickity carousel wrapper.
 	 *
 	 * @since   2.0.0
 	 * @return  void
 	 */
-	function hypermarket_products_flkty_div() {
+	function hypermarket_products_slider_div() {
 		// Bail early, in case the products flickity module is not being activated.
-		if ( ! hypermarket_products_flkty_activated() ) {
+		if ( ! hypermarket_products_slider_activated() ) {
 			return;
 		}
 
-		hypermarket_flkty();
+		hypermarket_slider( 'ul.products' );
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_products_flkty_div_close' ) ) :
+if ( ! function_exists( 'hypermarket_products_slider_div_close' ) ) :
 	/**
 	 * Outputs Flickity carousel wrapper close tag.
 	 *
 	 * @since   2.0.0
 	 * @return  void
 	 */
-	function hypermarket_products_flkty_div_close() {
+	function hypermarket_products_slider_div_close() {
 		// Bail early, in case the products flickity module is not being activated.
-		if ( ! hypermarket_products_flkty_activated() ) {
+		if ( ! hypermarket_products_slider_activated() ) {
 			return;
 		}
 

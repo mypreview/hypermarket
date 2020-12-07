@@ -357,7 +357,7 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 									array(
 										'type'           => 'checkbox',
 										'theme_supports' => 'woocommerce',
-										'id'             => sprintf( '%s_general_products_flkty', self::$setting_prefix ),
+										'id'             => sprintf( '%s_general_products_slider', self::$setting_prefix ),
 										'label'          => esc_html__( 'Products carousel', 'hypermarket' ),
 										'description'    => esc_html__( 'This option replaces the default grid layout in "Related", "Upsell", and "Cross-sell" sections with a carousel slider.', 'hypermarket' ),
 									),

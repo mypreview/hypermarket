@@ -287,15 +287,15 @@ if ( ! function_exists( 'hypermarket_is_product_new' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_products_flkty_activated' ) ) :
+if ( ! function_exists( 'hypermarket_products_slider_activated' ) ) :
 	/**
 	 * Determine whether the Flickity should be activated on related/upsell and cross-sell products loop.
 	 *
 	 * @return  bool
 	 */
-	function hypermarket_products_flkty_activated() {
+	function hypermarket_products_slider_activated() {
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_activated = get_theme_mod( sprintf( '%s_general_products_flkty', Hypermarket_Customize::$setting_prefix ), false );
+		$is_activated = get_theme_mod( sprintf( '%s_general_products_slider', Hypermarket_Customize::$setting_prefix ), false );
 		return $is_activated;
 	}
 endif;
