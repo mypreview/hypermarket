@@ -825,32 +825,34 @@ if ( ! function_exists( 'hypermarket_jscroll_close' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_flkty' ) ) :
+if ( ! function_exists( 'hypermarket_slider' ) ) :
 	/**
-	 * Flickity carousel wrapper.
+	 * Owl-Carousel wrapper.
 	 *
 	 * @since   2.0.0
 	 * @param   array $args       Value to merge with $defaults.
 	 * @return  void
 	 * @phpcs:disable Squiz.PHP.EmbeddedPhp.ContentAfterEnd, Squiz.PHP.EmbeddedPhp.ContentBeforeOpen
 	 */
-	function hypermarket_flkty( $args = array() ) {
+	function hypermarket_slider( $selector = '', $args = array() ) {
 		$defaults = apply_filters(
-			'hypermarket_flickity_data_args',
+			'hypermarket_slider_data_args',
 			array(
-				'cellSelector'    => 'li',
-				'cellAlign'       => 'left',
-				'groupCells'      => '100%',
-				'pageDots'        => true,
-				'autoPlay'        => false,
-				'wrapAround'      => true,
-				'adaptiveHeight'  => false,
-				'prevNextButtons' => false,
+				'items'           => 4,
+				'loop'            => true,
+				'dots'            => true,
+				'autoWidth'       => true,
+				'autoplay'        => false,
+				'nav'             => false,
+				'center'          => true,
+				'margin'          => 10,
+				'startPosition'   => 0,
+				'autoplayTimeout' => 5000,
 			) 
 		);
 		// Merge user defined arguments into defaults array.
 		$args = wp_parse_args( $args, $defaults );
-		?><div class="flkty-div" data-flickity='<?php echo wp_json_encode( $args ); ?>'><?php
+		?><div class="hypermarket-slider" data-selector="<?php echo esc_attr( $selector ); ?>" data-options='<?php echo wp_json_encode( $args ); ?>'><?php
 	}
 endif;
 
