@@ -56,6 +56,7 @@ module.exports = {
 		} ),
 		new WebpackNotifierPlugin( {
 			title: 'Hypermarket',
+			emoji: true,
 			alwaysNotify: true,
 			skipFirstNotification: true,
 		} ),
