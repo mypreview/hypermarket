@@ -75,7 +75,7 @@
 		"postcss-size": "^3.0.0",
 		"postcss-start-to-end": "^1.0.1",
 		"postcss-transform-shortcut": "^2.0.1",
-		"postcss-url": "^10.1.1",
+		"postcss-url": "^9.0.0",
 		"postcss-variables-prefixer": "0.0.0-beta.0",
 		"progress-bar-webpack-plugin": "^2.1.0",
 		"webpack-fix-style-only-entries": "^0.6.0",
