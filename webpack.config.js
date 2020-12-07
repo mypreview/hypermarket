@@ -26,6 +26,21 @@ module.exports = {
 		customize: path.resolve( process.cwd(), 'src', 'customize/index.js' ),
 		woocommerce: path.resolve( process.cwd(), 'src', 'woocommerce/index.js' ),
 	},
+	module: {
+		...defaultConfig.module,
+		rules: [
+			...defaultConfig.module.rules,
+			{
+				test: /\.(png|jpg|gif)$/i,
+				use: {
+					loader: 'url-loader',
+					options: {
+						encoding: true,
+					},
+				},
+			},
+		],
+	},
 	optimization: {
 		...defaultConfig.optimization,
 		splitChunks: {
@@ -52,7 +67,7 @@ module.exports = {
 		} ),
 		new LicenseCheckerWebpackPlugin( {
 			outputFilename: './credits.txt',
-			ignore: [ 'flickity' ],
+			ignore: [ 'owl.carousel' ],
 		} ),
 		new WebpackNotifierPlugin( {
 			title: 'Hypermarket',
