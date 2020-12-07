@@ -37,6 +37,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
 			add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_editor' ) );
 			add_action( 'hypermarket_enqueue_public', array( $this, 'add_inline_styles' ) );
+			add_action( 'hypermarket_enqueue_admin', array( $this, 'add_inline_styles' ) );
 			add_action( 'hypermarket_enqueue_editor', array( $this, 'add_inline_styles' ) );
 			add_action( 'hypermarket_enqueue_public', array( $this, 'child_scripts' ), 35 );
 			add_action( 'wp_resource_hints', array( $this, 'preconnect_gstatic' ), 10, 2 );
