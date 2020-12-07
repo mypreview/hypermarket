@@ -341,7 +341,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 */
 		public function enqueue() {
 			$asset_name    = 'public';
-			$asset         = hypermarket_get_file_assets( $asset_name );
+			$asset         = hypermarket_get_file_asset( $asset_name );
 			$font_handle   = hypermarket_get_asset_handle( $asset_name, 'font' );
 			$style_handle  = hypermarket_get_asset_handle( $asset_name, 'style' );
 			$script_handle = hypermarket_get_asset_handle( $asset_name, 'script' );
@@ -381,7 +381,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 */
 		public function enqueue_editor() {
 			$asset_name    = 'editor';
-			$asset         = hypermarket_get_file_assets( $asset_name );
+			$asset         = hypermarket_get_file_asset( $asset_name );
 			$font_handle   = hypermarket_get_asset_handle( $asset_name, 'font' );
 			$style_handle  = hypermarket_get_asset_handle( $asset_name, 'style' );
 			$script_handle = hypermarket_get_asset_handle( $asset_name, 'script' );

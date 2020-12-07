@@ -50,7 +50,7 @@ if ( ! class_exists( 'Hypermarket_Customize' ) ) :
 		 */
 		public function enqueue() {
 			$asset_name    = 'customize';
-			$asset         = hypermarket_get_file_assets( $asset_name );
+			$asset         = hypermarket_get_file_asset( $asset_name );
 			$style_handle  = hypermarket_get_asset_handle( $asset_name, 'style' );
 			$script_handle = hypermarket_get_asset_handle( $asset_name, 'script' );
 			$l10n          = apply_filters(

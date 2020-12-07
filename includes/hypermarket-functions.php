@@ -10,7 +10,7 @@
  * @subpackage hypermarket/includes
  */
 
-if ( ! function_exists( 'hypermarket_get_file_assets' ) ) :
+if ( ! function_exists( 'hypermarket_get_file_asset' ) ) :
 	/**
 	 * Reterive dependency extraction array for a given resource.
 	 *
@@ -19,7 +19,7 @@ if ( ! function_exists( 'hypermarket_get_file_assets' ) ) :
 	 * @param    array  $dependencies    Array of asset dependencies.
 	 * @return   void|array
 	 */
-	function hypermarket_get_file_assets( $filename = null, $dependencies = array() ) {
+	function hypermarket_get_file_asset( $filename = null, $dependencies = array() ) {
 		if ( empty( $filename ) ) {
 			return;
 		}
