@@ -60,7 +60,10 @@ module.exports = {
 		new FixStyleOnlyEntriesPlugin(),
 		new ProgressBarPlugin( {
 			format:
-				chalk.blue( 'Build core script' ) + ' [:bar] ' + chalk.green( ':percent' ) + ' :msg (:elapsed seconds)',
+				chalk.yellowBright( 'Build core script' ) +
+				' [:bar] ' +
+				chalk.greenBright( ':percent' ) +
+				' :msg (:elapsed seconds)',
 		} ),
 		new WebpackRTLPlugin( {
 			filename: '[name]-rtl.css',
