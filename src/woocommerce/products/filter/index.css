@@ -4,7 +4,7 @@
 		&-$(filter) {
 			font-size: var(--general-small);
 
-			@media (--screen-xs-min) {
+			@media (--screen-smartphone-min) {
 				width: calc(50% - 3px);
 				display: inline-flex;
 				margin-bottom: 36px;
@@ -13,8 +13,8 @@
 	}
 
 	&-ordering {
-		justify-content: flex-end ?if media (--screen-xs-min);
-		margin-bottom: 36px ?if media (--screen-xs);
+		justify-content: flex-end ?if media (--screen-smartphone-min);
+		margin-bottom: 36px ?if media (--screen-smartphone);
 
 		select {
 			width: auto;
@@ -23,6 +23,6 @@
 	}
 
 	&-result-count {
-		margin-bottom: 15px ?if media (--screen-xs);
+		margin-bottom: 15px ?if media (--screen-smartphone);
 	}
 }

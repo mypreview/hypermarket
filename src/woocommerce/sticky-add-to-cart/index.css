@@ -7,7 +7,7 @@
 	transition: transform 0.4s, opacity 0.4s, visibility 0.4s;
 	z-index: 30;
 	box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
-	display: none ?if media (--screen-sm);
+	display: none ?if media (--screen-tablet);
 
 	p {
 		margin-bottom: 0;

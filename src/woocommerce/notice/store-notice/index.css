@@ -22,7 +22,7 @@
 
 		@mixin link;
 
-		@media (--screen-sm) {
+		@media (--screen-tablet) {
 			padding: 3px 0 3px 8px;
 		}
 	}

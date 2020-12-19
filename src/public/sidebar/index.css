@@ -5,7 +5,7 @@
 @import "./widget-area";
 @import "./toggle";
 
-@media (--screen-md-min) {
+@media (--screen-laptop-min) {
 
 	.has-sidebar {
 

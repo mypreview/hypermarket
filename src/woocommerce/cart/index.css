@@ -8,8 +8,8 @@
 
 		> .woocommerce {
 			box: space-between;
-			flex-wrap: wrap ?if media (--screen-sm-min);
-			flex-direction: column ?if media (--screen-sm);
+			flex-wrap: wrap ?if media (--screen-tablet-min);
+			flex-direction: column ?if media (--screen-tablet);
 		}
 	}
 }

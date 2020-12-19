@@ -21,7 +21,7 @@
 
 		&_responsive {
 
-			@media (--screen-md) {
+			@media (--screen-laptop) {
 
 				thead {
 					display: none;

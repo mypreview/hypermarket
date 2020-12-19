@@ -3,12 +3,12 @@
 	@mixin colfull;
 	margin-top: 57px;
 	display: flex;
-	flex-wrap: wrap ?if media (--screen-md);
+	flex-wrap: wrap ?if media (--screen-laptop);
 
 	.widget {
 		padding: 15px;
 		flex: 1;
-		flex-basis: 50% ?if media (--screen-md) and (--screen-xs-min);
-		flex-basis: 100% ?if media (--screen-xs);
+		flex-basis: 50% ?if media (--screen-laptop) and (--screen-smartphone-min);
+		flex-basis: 100% ?if media (--screen-smartphone);
 	}
 }

@@ -6,8 +6,8 @@
 
 	&-form {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr) ?if media (--screen-sm-min);
-		grid-template-columns: 1fr ?if media (--screen-sm);
+		grid-template-columns: repeat(3, 1fr) ?if media (--screen-tablet-min);
+		grid-template-columns: 1fr ?if media (--screen-tablet);
 		grid-row-gap: 24px;
 		grid-column-gap: 30px;
 
@@ -18,7 +18,7 @@
 
 		&-cookies-consent {
 			order: 10;
-			grid-column: 1/3 ?if media (--screen-sm-min);
+			grid-column: 1/3 ?if media (--screen-tablet-min);
 			box-item: center;
 		}
 
@@ -52,12 +52,12 @@
 			li$(item) {
 				list-style: none;
 				margin: 0 0 30px 66px;
-				margin-left: 0 ?if media (--screen-xs);
+				margin-left: 0 ?if media (--screen-smartphone);
 				position: relative;
 				font-size: var(--general-small);
 				line-height: 1.5;
 
-				@media (--screen-sm-min) {
+				@media (--screen-tablet-min) {
 					padding: 24px;
 					background-color: var(--general-tile);
 					border-radius: var(--border-radius-small);
@@ -71,7 +71,7 @@
 
 		> ^& > .children > li {
 
-			@media (--screen-sm-min) {
+			@media (--screen-tablet-min) {
 				background-color: var(--general-border);
 
 				> .children > li > .children > li {
@@ -94,7 +94,7 @@
 
 		.children {
 			padding-left: 0;
-			margin-left: -66px ?if media (--screen-sm) and (--screen-xs-min);
+			margin-left: -66px ?if media (--screen-tablet) and (--screen-smartphone-min);
 
 			^^& {
 				margin-top: 30px;
@@ -105,7 +105,7 @@
 
 	&-body {
 
-		@media (--screen-sm) {
+		@media (--screen-tablet) {
 			padding: 24px;
 			background-color: var(--general-tile);
 			border-radius: var(--border-radius-small);
@@ -137,7 +137,7 @@
 			position: absolute 0 null null -66px;
 			width: 50px;
 			border-radius: var(--border-radius-base);
-			display: none ?if media (--screen-xs);
+			display: none ?if media (--screen-smartphone);
 		}
 	}
 
@@ -179,13 +179,13 @@
 }
 
 .form-submit {
-	grid-column: 3 ?if media (--screen-sm-min);
+	grid-column: 3 ?if media (--screen-tablet-min);
 	order: 10;
 	text-align: right;
 
 	.submit {
 		margin: 0;
-		width: auto ?if media (--screen-sm-min);
+		width: auto ?if media (--screen-tablet-min);
 		min-width: 75%;
 	}
 }

@@ -13,7 +13,7 @@ nav {
 	flex: 1;
 	font-size: var(--general-small);
 	padding: 10px 0;
-	display: none ?if media (--screen-lg);
+	display: none ?if media (--screen-desktop);
 
 	&:last-child {
 		padding-right: 140px;

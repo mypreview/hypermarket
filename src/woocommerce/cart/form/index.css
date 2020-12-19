@@ -1,6 +1,6 @@
 .woocommerce-cart-form {
-	width: 66% ?if media (--screen-sm-min);
-	width: 100% ?if media (--screen-sm);
+	width: 66% ?if media (--screen-tablet-min);
+	width: 100% ?if media (--screen-tablet);
 	margin-bottom: 48px;
 
 	&__contents {
@@ -68,15 +68,15 @@
 
 			&-thumbnail {
 				grid-column: 1;
-				grid-row: 1/4 ?if media (--screen-xs-min);
-				grid-row: 1 ?if media (--screen-xs);
+				grid-row: 1/4 ?if media (--screen-smartphone-min);
+				grid-row: 1 ?if media (--screen-smartphone);
 				padding-right: 16px;
 			}
 
 			&-name {
-				grid-area: 1/2 ?if media (--screen-xs-min);
-				grid-column: 1/-1 ?if media (--screen-xs);
-				grid-row: 2 ?if media (--screen-xs);
+				grid-area: 1/2 ?if media (--screen-smartphone-min);
+				grid-column: 1/-1 ?if media (--screen-smartphone);
+				grid-row: 2 ?if media (--screen-smartphone);
 
 				a {
 
@@ -86,15 +86,15 @@
 			}
 
 			&-price {
-				grid-area: 2/2 ?if media (--screen-xs-min);
-				grid-column: 1/-1 ?if media (--screen-xs);
-				grid-row: 3 ?if media (--screen-xs);
+				grid-area: 2/2 ?if media (--screen-smartphone-min);
+				grid-column: 1/-1 ?if media (--screen-smartphone);
+				grid-row: 3 ?if media (--screen-smartphone);
 			}
 
 			&-quantity {
-				grid-area: 3/2 ?if media (--screen-xs-min);
-				grid-column: 1/-1 ?if media (--screen-xs);
-				grid-row: 4 ?if media (--screen-xs);
+				grid-area: 3/2 ?if media (--screen-smartphone-min);
+				grid-column: 1/-1 ?if media (--screen-smartphone);
+				grid-row: 4 ?if media (--screen-smartphone);
 				margin-bottom: 10px;
 			}
 

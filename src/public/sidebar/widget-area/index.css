@@ -13,7 +13,7 @@
 		}
 	}
 
-	@media (--screen-md) {
+	@media (--screen-laptop) {
 		position: fixed 0 -300px null null;
 		size: 300px 100%;
 		z-index: 55;
@@ -50,7 +50,7 @@
 	}
 
 	&__close {
-		display: none ?if media (--screen-md-min);
+		display: none ?if media (--screen-laptop-min);
 		position: absolute 8px 15px null null;
 		text-decoration: none;
 

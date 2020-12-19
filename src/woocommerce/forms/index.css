@@ -1,6 +1,6 @@
 .form-row {
 
-	@media (--screen-sm-min) {
+	@media (--screen-tablet-min) {
 
 		&-last,
 		&-first {

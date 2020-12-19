@@ -1,7 +1,7 @@
 .product-navigation {
-	display: none ?if media (--screen-md);
+	display: none ?if media (--screen-laptop);
 
-	@media (--screen-md-min) {
+	@media (--screen-laptop-min) {
 
 		a {
 

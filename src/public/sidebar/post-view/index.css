@@ -3,7 +3,7 @@
 	.post-view {
 
 		> .div {
-			padding-right: 30px ?if media (--screen-md-min);
+			padding-right: 30px ?if media (--screen-laptop-min);
 		}
 	}
 }

@@ -1,15 +1,15 @@
 .cart {
 
 	&-collaterals {
-		width: 34% ?if media (--screen-sm-min);
-		padding-left: 11% ?if media (--screen-md-min);
-		padding-left: 30px ?if media (--screen-md) and (--screen-sm-min);
-		width: 100% ?if media (--screen-sm);
+		width: 34% ?if media (--screen-tablet-min);
+		padding-left: 11% ?if media (--screen-laptop-min);
+		padding-left: 30px ?if media (--screen-laptop) and (--screen-tablet-min);
+		width: 100% ?if media (--screen-tablet);
 		box: vertical;
 
 		.col-full--fluid &,
 		.has-sidebar & {
-			padding-left: 30px ?if media (--screen-md-min);
+			padding-left: 30px ?if media (--screen-laptop-min);
 		}
 
 		> * {

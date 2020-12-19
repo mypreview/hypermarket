@@ -7,29 +7,29 @@
 		margin: 0;
 
 		^&.has-2-columns & {
-			grid-template-columns: repeat(2, 1fr) ?if media (--screen-xs-min);
+			grid-template-columns: repeat(2, 1fr) ?if media (--screen-smartphone-min);
 		}
 
 		^&.has-3-columns & {
-			grid-template-columns: repeat(3, 1fr) ?if media (--screen-md-min);
-			grid-template-columns: repeat(2, 1fr) ?if media (--screen-md) and (--screen-xs-min);
+			grid-template-columns: repeat(3, 1fr) ?if media (--screen-laptop-min);
+			grid-template-columns: repeat(2, 1fr) ?if media (--screen-laptop) and (--screen-smartphone-min);
 		}
 
 		^&.has-4-columns & {
-			grid-template-columns: repeat(4, 1fr) ?if media (--screen-md-min);
-			grid-template-columns: repeat(2, 1fr) ?if media (--screen-md) and (--screen-xs-min);
+			grid-template-columns: repeat(4, 1fr) ?if media (--screen-laptop-min);
+			grid-template-columns: repeat(2, 1fr) ?if media (--screen-laptop) and (--screen-smartphone-min);
 		}
 
 		^&.has-5-columns & {
-			grid-template-columns: repeat(5, 1fr) ?if media (--screen-lg-min);
-			grid-template-columns: repeat(3, 1fr) ?if media (--screen-lg) and (--screen-md-min);
-			grid-template-columns: repeat(2, 1fr) ?if media (--screen-md) and (--screen-xs-min);
+			grid-template-columns: repeat(5, 1fr) ?if media (--screen-desktop-min);
+			grid-template-columns: repeat(3, 1fr) ?if media (--screen-desktop) and (--screen-laptop-min);
+			grid-template-columns: repeat(2, 1fr) ?if media (--screen-laptop) and (--screen-smartphone-min);
 		}
 
 		^&.has-6-columns & {
-			grid-template-columns: repeat(6, 1fr) ?if media (--screen-lg-min);
-			grid-template-columns: repeat(3, 1fr) ?if media (--screen-lg) and (--screen-md-min);
-			grid-template-columns: repeat(2, 1fr) ?if media (--screen-md) and (--screen-xs-min);
+			grid-template-columns: repeat(6, 1fr) ?if media (--screen-desktop-min);
+			grid-template-columns: repeat(3, 1fr) ?if media (--screen-desktop) and (--screen-laptop-min);
+			grid-template-columns: repeat(2, 1fr) ?if media (--screen-laptop) and (--screen-smartphone-min);
 		}
 
 		^&__product {

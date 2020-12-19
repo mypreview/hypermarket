@@ -1,6 +1,6 @@
 .site-handheld-toolbar {
 	background-color: var(--general-tile);
-	display: none ?if media (--screen-sm-min);
+	display: none ?if media (--screen-tablet-min);
 
 	.input-focused & {
 		display: none;

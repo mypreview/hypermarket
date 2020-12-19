@@ -1,7 +1,7 @@
 #customer_login {
 
 	.woocommerce-form {
-		max-width: 360px ?if media (--screen-sm-min);
+		max-width: 360px ?if media (--screen-tablet-min);
 
 		&-login {
 

@@ -24,7 +24,7 @@
 
 		&-text {
 			display: grid;
-			grid-template-columns: 1fr 103px ?if media (--screen-xs-min);
+			grid-template-columns: 1fr 103px ?if media (--screen-smartphone-min);
 			grid-gap: 10px;
 
 			> * {
@@ -32,7 +32,7 @@
 			}
 
 			.meta {
-				grid-area: 1/1 ?if media (--screen-xs-min);
+				grid-area: 1/1 ?if media (--screen-smartphone-min);
 				box: horizontal wrap middle;
 				margin-bottom: 0;
 
@@ -43,7 +43,7 @@
 
 			.star-rating {
 
-				@media (--screen-xs-min) {
+				@media (--screen-smartphone-min) {
 					grid-area: 1/2;
 					margin-top: 8px;
 				}
@@ -51,7 +51,7 @@
 
 			.description {
 
-				@media (--screen-xs-min) {
+				@media (--screen-smartphone-min) {
 					grid-row: 2;
 					grid-column: 1/-1;
 				}

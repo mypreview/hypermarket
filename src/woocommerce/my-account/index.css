@@ -12,7 +12,7 @@
 
 	.col2-set {
 		display: grid;
-		grid-template-columns: 1fr 1fr ?if media (--screen-sm-min);
+		grid-template-columns: 1fr 1fr ?if media (--screen-tablet-min);
 		grid-column-gap: 30px;
 		grid-row-gap: 48px;
 	}

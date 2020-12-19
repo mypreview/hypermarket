@@ -46,7 +46,7 @@
 				border-radius: 0;
 				margin-left: 4px;
 
-				@media (--screen-sm) {
+				@media (--screen-tablet) {
 					padding: 3px 0 3px 8px;
 				}
 			}

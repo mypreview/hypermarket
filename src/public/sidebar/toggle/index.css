@@ -1,7 +1,7 @@
 .widget-area-toggle {
-	display: none ?if media (--screen-md-min);
+	display: none ?if media (--screen-laptop-min);
 
-	@media (--screen-md) {
+	@media (--screen-laptop) {
 		position: fixed 50% 0 null null;
 		z-index: 9;
 		size: 48px;

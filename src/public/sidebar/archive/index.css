@@ -6,7 +6,7 @@
 
 		.site-main {
 			display: grid;
-			grid-template-columns: 75% 25% ?if media (--screen-md-min);
+			grid-template-columns: 75% 25% ?if media (--screen-laptop-min);
 
 			> * {
 				min-width: 0;
@@ -21,7 +21,7 @@
 		&--before {
 
 			.site-main {
-				grid-template-columns: 25% 75% ?if media (--screen-md-min);
+				grid-template-columns: 25% 75% ?if media (--screen-laptop-min);
 			}
 		}
 	}

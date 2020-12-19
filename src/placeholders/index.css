@@ -12,8 +12,8 @@
 
 %coupon-grid {
 	display: grid;
-	grid-template-columns: 2.5fr 1fr ?if media (--screen-md-min);
-	grid-template-columns: 1fr ?if media (--screen-md);
+	grid-template-columns: 2.5fr 1fr ?if media (--screen-laptop-min);
+	grid-template-columns: 1fr ?if media (--screen-laptop);
 	grid-column-gap: 30px;
 	grid-row-gap: 17px;
 

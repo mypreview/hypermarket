@@ -11,7 +11,7 @@
 				}
 
 				display: grid;
-				grid-template-columns: repeat(2, 1fr) ?if media (--screen-md-min);
+				grid-template-columns: repeat(2, 1fr) ?if media (--screen-laptop-min);
 				grid-gap: 30px;
 			}
 
@@ -39,13 +39,13 @@
 				font-weight: 600;
 				font-size: 18px;
 				order: 1;
-				max-width: 49% ?if media (--screen-xs-min);
+				max-width: 49% ?if media (--screen-smartphone-min);
 				margin-bottom: 10px;
 			}
 
 			.button-primary {
 				order: 2;
-				max-width: 49% ?if media (--screen-xs-min);
+				max-width: 49% ?if media (--screen-smartphone-min);
 				align-self: center;
 			}
 		}

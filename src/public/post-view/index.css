@@ -22,16 +22,16 @@
 	}
 
 	> .div {
-		width: 34.3% ?if media (--screen-sm-min);
-		float: left ?if media (--screen-sm-min);
-		padding-right: 11% ?if media (--screen-md-min);
-		padding-right: 30px ?if media (--screen-md);
+		width: 34.3% ?if media (--screen-tablet-min);
+		float: left ?if media (--screen-tablet-min);
+		padding-right: 11% ?if media (--screen-laptop-min);
+		padding-right: 30px ?if media (--screen-laptop);
 		box: vertical;
 	}
 
 	> *:not(.div) {
-		float: right ?if media (--screen-sm-min);
-		width: 65.7% ?if media (--screen-sm-min);
+		float: right ?if media (--screen-tablet-min);
+		width: 65.7% ?if media (--screen-tablet-min);
 	}
 
 	.entry {

@@ -23,16 +23,16 @@
 
 	&s {
 		display: flex;
-		flex-wrap: wrap ?if media (--screen-sm);
+		flex-wrap: wrap ?if media (--screen-tablet);
 
 		.widget {
 			flex: 1;
-			flex-basis: 100% ?if media (--screen-sm);
+			flex-basis: 100% ?if media (--screen-tablet);
 
 			&:nth-child(n+2) {
-				margin-left: 30px ?if media (--screen-sm-min);
+				margin-left: 30px ?if media (--screen-tablet-min);
 
-				@media (--screen-sm) {
+				@media (--screen-tablet) {
 					border-top: 2px solid var(--general-border);
 					padding-top: 28px;
 					margin-top: 28px;

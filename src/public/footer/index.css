@@ -1,12 +1,12 @@
 .site-footer {
 	display: flex;
 	background-color: var(--general-tile);
-	flex-wrap: wrap ?if media (--screen-md);
+	flex-wrap: wrap ?if media (--screen-laptop);
 	margin-top: 72px;
 
 	&__widgets {
 		flex: 1;
-		flex-basis: 100% ?if media (--screen-md);
+		flex-basis: 100% ?if media (--screen-laptop);
 		padding: 45px 25px;
 		text-align: center;
 

@@ -17,8 +17,8 @@
 
 .site-branding {
 	padding: 25px 0;
-	margin-right: 20px ?if media (--screen-lg-min);
-	margin-right: auto ?if media (--screen-lg);
+	margin-right: 20px ?if media (--screen-desktop-min);
+	margin-right: auto ?if media (--screen-desktop);
 	width: 200px;
 	order: -1;
 

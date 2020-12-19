@@ -12,7 +12,7 @@
 		&-actions {
 
 			&::before {
-				display: none ?if media (--screen-md);
+				display: none ?if media (--screen-laptop);
 			}
 		}
 
