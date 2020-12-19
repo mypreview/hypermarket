@@ -615,13 +615,13 @@ endif;
 
 if ( ! function_exists( 'hypermarket_products_slider_div' ) ) :
 	/**
-	 * Outputs Flickity carousel wrapper.
+	 * Outputs carousel wrapper.
 	 *
 	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_products_slider_div() {
-		// Bail early, in case the products flickity module is not being activated.
+		// Bail early, in case the products carousel module is not being activated.
 		if ( ! hypermarket_products_slider_activated() ) {
 			return;
 		}
@@ -632,13 +632,13 @@ endif;
 
 if ( ! function_exists( 'hypermarket_products_slider_div_close' ) ) :
 	/**
-	 * Outputs Flickity carousel wrapper close tag.
+	 * Outputs carousel wrapper close tag.
 	 *
 	 * @since   2.0.0
 	 * @return  void
 	 */
 	function hypermarket_products_slider_div_close() {
-		// Bail early, in case the products flickity module is not being activated.
+		// Bail early, in case the products carousel module is not being activated.
 		if ( ! hypermarket_products_slider_activated() ) {
 			return;
 		}
