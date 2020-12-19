@@ -840,14 +840,21 @@ if ( ! function_exists( 'hypermarket_slider' ) ) :
 			array(
 				'items'           => 4,
 				'loop'            => true,
-				'dots'            => true,
-				'autoWidth'       => true,
-				'autoplay'        => false,
-				'nav'             => false,
-				'center'          => true,
-				'margin'          => 10,
-				'startPosition'   => 0,
-				'autoplayTimeout' => 5000,
+				'margin'          => 30,
+				'responsive'	=> array(
+					'0'	=>	array(
+						'items'	=> 1,
+					),
+					'481'	=>	array(
+						'items'	=> 2,
+					),
+					'769'	=>	array(
+						'items'	=> 3,
+					),
+					'993'	=>	array(
+						'items'	=> 4,
+					),
+				),
 			) 
 		);
 		// Merge user defined arguments into defaults array.
