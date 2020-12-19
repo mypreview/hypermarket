@@ -71,6 +71,7 @@
 		"postcss-position": "^1.1.0",
 		"postcss-quantity-queries": "^0.5.0",
 		"postcss-selector-not": "^4.0.0",
+		"postcss-selector-replace": "^1.0.2",
 		"postcss-short-border-radius": "^3.0.0",
 		"postcss-size": "^3.0.0",
 		"postcss-start-to-end": "^1.0.1",
@@ -105,7 +106,7 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "lint-staged"
+			"pre-commit --no-verify": "lint-staged"
 		}
 	},
 	"lint-staged": {
