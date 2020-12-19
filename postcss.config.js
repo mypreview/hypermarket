@@ -6,6 +6,10 @@ module.exports = () => ( {
 		'postcss-each': {},
 		'postcss-mixins': {},
 		'postcss-custom-selectors': {},
+		'postcss-selector-replace': {
+			before: [ '[prefix]' ],
+			after: [ 'hypermarket' ],
+		},
 		'postcss-nested-ancestors': {},
 		'postcss-nested': {},
 		'postcss-variables-prefixer': {
