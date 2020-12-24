@@ -4,6 +4,7 @@
 @import "./../variables/media";
 @import "./../variables/selector";
 @import "./../mixins";
+@import "./../public/slider";
 @import "./scaffolding";
 @import "./typography";
 @import "./post-title";
