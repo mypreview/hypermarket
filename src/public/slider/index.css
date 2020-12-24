@@ -19,37 +19,73 @@
 			}
 		}
 
-		&-dot {
-			size: 6px;
-			background: transparent;
-			border: 3px solid var(--general-entry-alt);
-			margin: 0 6px;
-			opacity: 1;
-			transition: transform 0.25s, border 0.25s;
-			padding: 0;
-			min-height: auto;
+		&-dots {
+			margin-top: 18px;
+			text-align: center;
 
-			&.active {
-				transform: scale(2);
-				border-width: 1px;
-			}
+			.owl-dot {
+				size: 6px;
+				background: transparent;
+				border: 3px solid var(--general-entry-alt);
+				border-radius: var(--border-radius-base);
+				margin: 0 6px;
+				opacity: 1;
+				transition: transform 0.25s, border 0.25s;
+				padding: 0;
+				min-height: auto;
 
-			&s {
-				margin-top: 18px;
-				text-align: center;
+				&.active {
+					transform: scale(2);
+					border-width: 1px;
+				}
 			}
 		}
 
 		&-nav {
+			box: space-between;
+			position: absolute calc(50% - 40px) -120px null;
+			transition: left 0.4s, right 0.4s;
+
+			:hover& {
+				left: 30px;
+				right: 30px;
+			}
 
 			button {
 				size: 80px;
 				opacity: 0.6;
 				border-radius: 0;
-				background-color: var(--general-background);
+
+				@mixin shift opacity;
+
+				&:hover {
+					opacity: 1;
+				}
 
 				span {
 					display: hidden;
+				}
+
+				@each $item in prev, next {
+					&.owl-$(item) {
+						background-color: var(--general-background);
+					}
+				}
+
+				&.owl-prev {
+
+					&::before {
+
+						@mixin icon "\f340";
+					}
+				}
+
+				&.owl-next {
+
+					&::before {
+
+						@mixin icon "\f344";
+					}
 				}
 			}
 		}
