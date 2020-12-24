@@ -9,7 +9,6 @@
 
 		:--heading {
 			margin-top: 0;
-			color: var(--general-entry);
 			line-height: var(--headings-line-height);
 		}
 
@@ -59,25 +58,24 @@
 		}
 	}
 
-	a {
-		color: var(--general-primary);
-		text-decoration: underline;
-
-		@mixin shift color;
-
-		:--active {
-			text-decoration: none;
-		}
-	}
-
-	.has-text-color {
-
-		a {
-			color: inherit;
-		}
-	}
-
 	ins {
 		text-decoration: none;
+	}
+}
+
+
+a {
+	color: var(--general-primary);
+	text-decoration: underline;
+
+	@mixin shift color;
+
+	:--active {
+		text-decoration: none;
+		color: var(--general-primary);
+	}
+
+	.has-text-color & {
+		color: inherit;
 	}
 }
