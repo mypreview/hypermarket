@@ -17,6 +17,17 @@
 	}
 }
 
+.interface-interface-skeleton {
+
+	&__content {
+		overflow-x: hidden;
+	}
+
+	&__editor {
+		max-width: 100%;
+	}
+}
+
 /**
  * Elements
  */
