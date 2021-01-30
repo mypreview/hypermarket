@@ -11,6 +11,7 @@ const path = require( 'path' );
 const chalk = require( 'chalk' );
 const WebpackRTLPlugin = require( 'webpack-rtl-plugin' );
 const WebpackNotifierPlugin = require( 'webpack-notifier' );
+const { CleanWebpackPlugin } = require( 'clean-webpack-plugin' );
 const ProgressBarPlugin = require( 'progress-bar-webpack-plugin' );
 const FixStyleOnlyEntriesPlugin = require( 'webpack-fix-style-only-entries' );
 const OptimizeCSSAssetsPlugin = require( 'optimize-css-assets-webpack-plugin' );
@@ -58,12 +59,12 @@ module.exports = {
 	plugins: [
 		...defaultConfig.plugins,
 		new FixStyleOnlyEntriesPlugin(),
+		new CleanWebpackPlugin( {
+			cleanStaleWebpackAssets: false,
+		} ),
 		new ProgressBarPlugin( {
 			format:
-				chalk.yellowBright( 'Build core script' ) +
-				' [:bar] ' +
-				chalk.greenBright( ':percent' ) +
-				' :msg (:elapsed seconds)',
+				chalk.blue( 'Build core script' ) + ' [:bar] ' + chalk.green( ':percent' ) + ' :msg (:elapsed seconds)',
 		} ),
 		new WebpackRTLPlugin( {
 			filename: '[name]-rtl.css',
