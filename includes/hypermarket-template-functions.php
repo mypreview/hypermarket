@@ -830,7 +830,8 @@ if ( ! function_exists( 'hypermarket_slider' ) ) :
 	 * Owl-Carousel wrapper.
 	 *
 	 * @since   2.0.0
-	 * @param   array $args       Value to merge with $defaults.
+	 * @param   string $selector   HTML element to target for indivitual slide item.
+	 * @param   array  $args       Value to merge with $defaults.
 	 * @return  void
 	 * @phpcs:disable Squiz.PHP.EmbeddedPhp.ContentAfterEnd, Squiz.PHP.EmbeddedPhp.ContentBeforeOpen
 	 */
@@ -841,18 +842,18 @@ if ( ! function_exists( 'hypermarket_slider' ) ) :
 				'items'           => 4,
 				'loop'            => true,
 				'margin'          => 30,
-				'responsive'	=> array(
-					'0'	=>	array(
-						'items'	=> 1,
+				'responsive'      => array(
+					'0' => array(
+						'items' => 1,
 					),
-					'481'	=>	array(
-						'items'	=> 2,
+					'481' => array(
+						'items' => 2,
 					),
-					'769'	=>	array(
-						'items'	=> 3,
+					'769' => array(
+						'items' => 3,
 					),
-					'993'	=>	array(
-						'items'	=> 4,
+					'993' => array(
+						'items' => 4,
 					),
 				),
 			) 
