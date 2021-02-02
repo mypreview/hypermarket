@@ -11,7 +11,7 @@ import striptags from 'striptags';
 import windowFetch from './../../utils/fetch';
 import { l10n } from './../l10n';
 
-export const plugins = {
+const plugins = {
 	cache() {
 		plugins.els = {};
 		plugins.vars = {};
@@ -124,3 +124,5 @@ export const plugins = {
 		];
 	},
 };
+
+export default plugins;

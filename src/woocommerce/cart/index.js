@@ -3,7 +3,7 @@
  */
 import $ from 'jquery';
 
-export const cart = {
+const cart = {
 	cache() {
 		cart.vars = {};
 		cart.els = {};
@@ -56,3 +56,5 @@ export const cart = {
 		$( cart.vars.updateCart ).prop( 'disabled', false ).attr( 'aria-disabled', false );
 	},
 };
+
+export default cart;

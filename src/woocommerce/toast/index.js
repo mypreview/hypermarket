@@ -5,7 +5,7 @@ import $ from 'jquery';
 import { l10n } from './../../public/l10n';
 import { Notyf } from 'notyf';
 
-export const toast = {
+const toast = {
 	cache() {
 		toast.els = {};
 		toast.vars = {};
@@ -58,3 +58,5 @@ export const toast = {
 		return `var(--hypermarket-alert-${ color })`;
 	},
 };
+
+export default toast;

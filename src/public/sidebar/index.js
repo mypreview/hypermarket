@@ -3,7 +3,7 @@
  */
 import $ from 'jquery';
 
-export const sidebar = {
+const sidebar = {
 	cache() {
 		sidebar.els = {};
 		sidebar.vars = {};
@@ -34,3 +34,5 @@ export const sidebar = {
 		} );
 	},
 };
+
+export default sidebar;

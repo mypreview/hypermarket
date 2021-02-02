@@ -5,7 +5,7 @@ import $ from 'jquery';
 import numeric from 'jquery.numeric'; /* eslint-disable-line no-unused-vars */
 import { gte, gt, lte, add, subtract, isEmpty, isNull, isEqual, isNaN, isUndefined } from 'lodash';
 
-export const quantity = {
+const quantity = {
 	cache() {
 		quantity.els = {};
 		quantity.vars = {};
@@ -71,3 +71,5 @@ export const quantity = {
 		return Math.max( 0, ( match[ 1 ] ? match[ 1 ].length : 0 ) - ( match[ 2 ] ? +match[ 2 ] : 0 ) );
 	},
 };
+
+export default quantity;

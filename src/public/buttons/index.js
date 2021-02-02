@@ -5,7 +5,7 @@ import $ from 'jquery';
 import Waves from 'node-waves';
 import { isArray, forEach } from 'lodash';
 
-export const buttons = {
+const buttons = {
 	cache() {
 		buttons.els = {};
 		buttons.vars = {};
@@ -33,3 +33,5 @@ export const buttons = {
 		buttons.els.$document.on( 'updated_checkout updated_cart_totals', buttons.initWaves );
 	},
 };
+
+export default buttons;

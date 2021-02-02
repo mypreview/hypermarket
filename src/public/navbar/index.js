@@ -6,7 +6,7 @@ import { add, subtract, lte } from 'lodash';
 import { l10n } from './../l10n';
 import slicknav from 'slicknav/dist/jquery.slicknav.min.js'; /* eslint-disable-line no-unused-vars */
 
-export const navbar = {
+const navbar = {
 	cache() {
 		navbar.els = {};
 		navbar.vars = {};
@@ -58,3 +58,5 @@ export const navbar = {
 		} );
 	},
 };
+
+export default navbar;

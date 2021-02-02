@@ -4,7 +4,7 @@
 import $ from 'jquery';
 import jscroll from 'jscroll'; /* eslint-disable-line no-unused-vars */
 
-export const jScroll = {
+const jScroll = {
 	cache() {
 		jScroll.els = {};
 		jScroll.vars = {};
@@ -36,3 +36,5 @@ export const jScroll = {
 		return false;
 	},
 };
+
+export default jScroll;

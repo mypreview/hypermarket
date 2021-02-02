@@ -5,7 +5,7 @@ import $ from 'jquery';
 import isEmpty from 'lodash/isEmpty';
 import owlCarousel from 'owl.carousel'; /* eslint-disable-line no-unused-vars */
 
-export const slider = {
+const slider = {
 	cache() {
 		slider.els = {};
 		slider.vars = {};
@@ -41,3 +41,5 @@ export const slider = {
 		return false;
 	},
 };
+
+export default slider;

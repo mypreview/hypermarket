@@ -6,7 +6,7 @@ import eq from 'lodash/eq';
 import jump from 'jump.js';
 import 'waypoints/lib/jquery.waypoints.js';
 
-export const stickyAddToCart = {
+const stickyAddToCart = {
 	cache() {
 		stickyAddToCart.els = {};
 		stickyAddToCart.vars = {};
@@ -55,3 +55,5 @@ export const stickyAddToCart = {
 		return false;
 	},
 };
+
+export default stickyAddToCart;

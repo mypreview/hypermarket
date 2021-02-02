@@ -4,7 +4,7 @@
 import $ from 'jquery';
 import tippy from 'tippy.js';
 
-export const tooltip = {
+const tooltip = {
 	cache() {
 		tooltip.els = {};
 		tooltip.vars = {};
@@ -28,3 +28,5 @@ export const tooltip = {
 		tooltip.els.$document.on( 'updated_cart_totals', tooltip.init );
 	},
 };
+
+export default tooltip;

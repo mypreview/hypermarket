@@ -4,7 +4,7 @@
 import $ from 'jquery';
 import { eq, map } from 'lodash';
 
-export const handheld = {
+const handheld = {
 	cache() {
 		handheld.els = {};
 		handheld.els.$body = $( 'body' );
@@ -50,3 +50,5 @@ export const handheld = {
 		};
 	},
 };
+
+export default handheld;
