@@ -11,7 +11,7 @@ import './vendor';
 /**
  * Custom scripts.
  */
-import { plugins } from './plugins';
+import plugins from './plugins';
 
 /**
  * External dependencies
