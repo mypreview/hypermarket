@@ -1,5 +1,5 @@
 module.exports = {
-	extends: 'stylelint-config-wordpress/scss',
+	extends: '@wordpress/stylelint-config/scss',
 	rules: {
 		'max-line-length': null,
 		'value-keyword-case': null,
