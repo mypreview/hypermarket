@@ -27,9 +27,7 @@ const plugins = {
 	// Retrieve information of the given plugin list.
 	async list() {
 		let template = '';
-		const results = await windowFetch(
-			`https://api.wordpress.org/plugins/info/1.2/${ plugins._api( plugins._list() ) }`
-		);
+		const results = await windowFetch( `https://api.wordpress.org/plugins/info/1.2/${ plugins._api( plugins._list() ) }` );
 		if ( isPlainObject( results ) ) {
 			forEach( results, ( post, key ) => {
 				const title = decodeEntities( post.name );
@@ -59,9 +57,7 @@ const plugins = {
 		if ( ! isEmpty( content ) ) {
 			let template = '';
 			if ( !! isFrame ) {
-				template += `<a href="${ plugins._installUri(
-					key
-				) }" target="_blank" class="thickbox button-primary" data-plugin="${ key }" rel="nofollow">`;
+				template += `<a href="${ plugins._installUri( key ) }" target="_blank" class="thickbox button-primary" data-plugin="${ key }" rel="nofollow">`;
 			} else {
 				template += `<a href="${ uri }" target="_blank" data-plugin="${ key }" rel="nofollow">`;
 			}
@@ -114,14 +110,7 @@ const plugins = {
 	},
 	// List of plugins/extensions.
 	_list() {
-		return [
-			'woocommerce',
-			'woo-store-vacation',
-			'woo-additional-terms',
-			'block-data-attribute',
-			'seo-ready',
-			'jetpack',
-		];
+		return [ 'woocommerce', 'woo-store-vacation', 'woo-additional-terms', 'block-data-attribute', 'seo-ready', 'jetpack' ];
 	},
 };
 

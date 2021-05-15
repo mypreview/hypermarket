@@ -34,8 +34,7 @@ const quantity = {
 			if ( isNull( min ) || isNaN( min ) ) min = 0;
 			if ( isNull( max ) || isNaN( max ) ) max = '';
 			if ( ! value || isNull( value ) || isNaN( value ) ) value = 0;
-			if ( isEqual( step, 'any' ) || isEmpty( step ) || isUndefined( step ) || isNaN( parseFloat( step ) ) )
-				step = 1;
+			if ( isEqual( step, 'any' ) || isEmpty( step ) || isUndefined( step ) || isNaN( parseFloat( step ) ) ) step = 1;
 
 			// Add to the existing value.
 			if ( $this.hasClass( 'qty-plus' ) ) {
