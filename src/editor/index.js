@@ -8,7 +8,7 @@ import PREFIX from './../utils/prefix';
 /**
  * Stylesheet dependencies.
  */
-import './style.css';
+import './index.css';
 
 /**
  * Fluid-template specific script.
