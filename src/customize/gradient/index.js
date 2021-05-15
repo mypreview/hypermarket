@@ -5,7 +5,7 @@ import $ from 'jquery';
 import Grapick from 'grapick';
 import isEmpty from 'lodash/isEmpty';
 
-export const gradient = {
+const gradient = {
 	cache() {
 		gradient.els = {};
 		gradient.vars = {};
@@ -43,3 +43,5 @@ export const gradient = {
 		} );
 	},
 };
+
+export default gradient;

@@ -1,6 +1,6 @@
 /* global hypermarket_customize */
 
-export const catalog = {
+const catalog = {
 	cache() {
 		catalog.els = {};
 		catalog.vars = {};
@@ -22,3 +22,5 @@ export const catalog = {
 		} );
 	},
 };
+
+export default catalog;
