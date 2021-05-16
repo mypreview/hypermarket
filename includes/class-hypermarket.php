@@ -239,7 +239,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		public function register_post_meta() {
 			register_post_meta(
 				'',
-				'hypermarket_metas',
+				'hypermarket_meta',
 				array(
 					'single'        => true,
 					'type'          => 'object',
@@ -257,6 +257,10 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 									'featured_media' => array(
 										'type' => 'boolean',
 										'sanitize_callback' => hypermarket_sanitize_method( 'boolean' ),
+									),
+									'background_color' => array(
+										'type' => 'string',
+										'sanitize_callback' => hypermarket_sanitize_method( 'color' ),
 									),
 								) 
 							),
