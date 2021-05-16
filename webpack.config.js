@@ -10,7 +10,6 @@ const path = require( 'path' );
 const chalk = require( 'chalk' );
 const WebpackRTLPlugin = require( 'webpack-rtl-plugin' );
 const WebpackNotifierPlugin = require( 'webpack-notifier' );
-const { CleanWebpackPlugin } = require( 'clean-webpack-plugin' );
 const ProgressBarPlugin = require( 'progress-bar-webpack-plugin' );
 const FixStyleOnlyEntriesPlugin = require( 'webpack-fix-style-only-entries' );
 const LicenseCheckerWebpackPlugin = require( 'license-checker-webpack-plugin' );
@@ -28,9 +27,6 @@ module.exports = {
 	plugins: [
 		...defaultConfig.plugins,
 		new FixStyleOnlyEntriesPlugin(),
-		new CleanWebpackPlugin( {
-			cleanStaleWebpackAssets: false,
-		} ),
 		new ProgressBarPlugin( {
 			format: chalk.blue( 'Build' ) + ' [:bar] ' + chalk.green( ':percent' ) + ' :msg (:elapsed seconds)',
 		} ),
