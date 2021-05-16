@@ -886,7 +886,7 @@ if ( ! function_exists( 'hypermarket_container' ) ) :
 	 */
 	function hypermarket_container() {
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_fluid   = get_theme_mod( sprintf( '%s_general_is_fluid', Hypermarket_Customize::$setting_prefix ), false );
+		$is_fluid   = hypermarket_get_theme_mod( 'general_is_fluid' );
 		$classname  = 'col-full';
 		$classnames = array( $classname );
 		
