@@ -3,6 +3,6 @@
 	ul.menu,
 	> ul {
 
-		@extend %widget-list;
+		@mixin widget-list;
 	}
 }

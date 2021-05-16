@@ -7,7 +7,7 @@
 
 			&s {
 
-				@extend %none-list-style;
+				@mixin none-list-style;
 
 				&.is-style-logos-only .wp-block-social-link {
 					padding: 0;

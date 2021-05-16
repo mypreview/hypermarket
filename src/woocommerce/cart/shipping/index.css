@@ -30,7 +30,7 @@
 	&-button {
 
 		@mixin link;
-		@extend %meta-item;
+		@mixin meta-item;
 
 		&::before {
 

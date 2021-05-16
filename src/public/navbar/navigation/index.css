@@ -55,7 +55,7 @@ nav {
 
 	ul {
 
-		@extend %none-list-style;
+		@mixin none-list-style;
 	}
 
 	> div {

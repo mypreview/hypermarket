@@ -1,6 +1,6 @@
 .wp-block-latest-comments {
 
-	@extend %none-list-style;
+	@mixin none-list-style;
 
 	&__comment {
 		box: horizontal top;

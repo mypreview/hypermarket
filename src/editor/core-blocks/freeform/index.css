@@ -128,6 +128,6 @@
 
 	.wp-caption-dd {
 
-		@extend %caption;
+		@mixin caption;
 	}
 }

@@ -23,7 +23,7 @@
 				text-decoration: none;
 
 				@mixin button-color;
-				@extend %button-shift;
+				@mixin button-shift;
 			}
 		}
 
@@ -32,7 +32,7 @@
 
 				a {
 
-					@extend %small-input;
+					@mixin small-input;
 				}
 			}
 		}

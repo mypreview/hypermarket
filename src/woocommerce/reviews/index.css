@@ -8,7 +8,7 @@
 
 		&list {
 
-			@extend %none-list-style;
+			@mixin none-list-style;
 		}
 
 		&_container {

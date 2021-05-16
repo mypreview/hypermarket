@@ -28,7 +28,7 @@
 
 		.admin-bar & {
 
-			@extend %is-admin-bar;
+			@mixin is-admin-bar;
 			z-index: 99999;
 		}
 

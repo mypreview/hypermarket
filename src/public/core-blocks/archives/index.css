@@ -3,7 +3,7 @@
 
 	&-list {
 
-		@extend %widget-list;
+		@mixin widget-list;
 
 		a {
 

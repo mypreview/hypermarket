@@ -11,7 +11,7 @@
 
 				&--single {
 
-					@extend %select-icon;
+					@mixin select-icon;
 					border: 2px solid var(--general-border);
 					height: 48px;
 					box: horizontal middle;

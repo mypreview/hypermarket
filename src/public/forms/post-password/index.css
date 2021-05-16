@@ -4,7 +4,7 @@
 
 		&:last-child {
 
-			@extend %coupon-grid;
+			@mixin coupon-grid;
 			align-items: flex-end;
 		}
 	}

@@ -236,12 +236,12 @@ body:not(.has-sidebar) {
 
 		> .alignfull {
 
-			@extend %alignfull;
+			@mixin alignfull;
 		}
 
 		> .alignwide {
 
-			@extend %alignwide;
+			@mixin alignwide;
 		}
 	}
 }

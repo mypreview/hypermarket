@@ -16,7 +16,7 @@
 	border-width: 0;
 	appearance: none;
 
-	@extend %button-shift;
+	@mixin button-shift;
 
 	:--active {
 		background-color: var(--general-primary-alt);

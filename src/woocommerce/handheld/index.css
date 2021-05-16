@@ -9,7 +9,7 @@
 	ul {
 		box: horizontal middle;
 
-		@extend %none-list-style;
+		@mixin none-list-style;
 	}
 
 	.columns-3 {

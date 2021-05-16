@@ -4,7 +4,7 @@
 
 	.editor-styles-wrapper .block-editor-writing-flow &-list {
 
-		@extend %none-list-style;
+		@mixin none-list-style;
 
 		li:nth-child(n+2) {
 			margin-top: 5px;
@@ -15,8 +15,8 @@
 
 		select {
 
-			@extend %select;
-			@extend %select-icon;
+			@mixin select;
+			@mixin select-icon;
 			width: 100%;
 			max-width: 100%;
 		}

@@ -8,7 +8,7 @@
 		.woocommerce-button {
 
 			@mixin button-color;
-			@extend %small-input;
+			@mixin small-input;
 			max-width: calc(50% - 5px);
 
 			&--next {

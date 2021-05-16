@@ -1,6 +1,6 @@
 .woocommerce-form-coupon {
 
-	@extend %coupon-grid;
+	@mixin coupon-grid;
 	margin-bottom: 30px;
 
 	p:first-child {

@@ -9,7 +9,7 @@
 
 		.clear + .form-row {
 
-			@extend %coupon-grid;
+			@mixin coupon-grid;
 
 			.button {
 				grid-area: 1/2 ?if media (--screen-laptop-min);

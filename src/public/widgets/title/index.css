@@ -1,6 +1,6 @@
 .widgettitle,
 .widget-title {
 
-	@extend %small-title;
+	@mixin small-title;
 	display: block;
 }

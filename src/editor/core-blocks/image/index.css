@@ -10,7 +10,7 @@
 
 	figcaption {
 
-		@extend %caption;
+		@mixin caption;
 		margin: 0;
 
 		.wp-block& {
