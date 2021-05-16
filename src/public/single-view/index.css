@@ -19,11 +19,11 @@
 		&ed-on {
 			box: horizontal middle;
 
-			@extend %meta-divider;
+			@mixin meta-divider;
 
 			time {
 
-				@extend %meta-item;
+				@mixin meta-item;
 
 				&::before {
 
@@ -69,7 +69,7 @@
 
 	&-author {
 
-		@extend %meta-divider;
+		@mixin meta-divider;
 	}
 
 	&ed-on {
@@ -88,7 +88,7 @@
 
 		a {
 
-			@extend %meta-item;
+			@mixin meta-item;
 
 			&::before {
 

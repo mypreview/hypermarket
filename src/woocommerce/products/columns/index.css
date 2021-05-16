@@ -1,6 +1,6 @@
 ul.products {
 
-	@extend %none-list-style;
+	@mixin none-list-style;
 	display: grid;
 	column-gap: 30px;
 	row-gap: 36px;

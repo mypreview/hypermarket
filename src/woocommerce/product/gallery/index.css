@@ -51,7 +51,7 @@
 
 	.flex-control-thumbs {
 
-		@extend %none-list-style;
+		@mixin none-list-style;
 		box: middle;
 		flex-direction: column ?if media (--screen-laptop-min);
 		margin: 12px -95px 0 15px ?if media (--screen-laptop-min);

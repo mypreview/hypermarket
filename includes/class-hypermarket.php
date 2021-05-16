@@ -239,7 +239,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		public function register_post_meta() {
 			register_post_meta(
 				'',
-				'hypermarket_metas',
+				'hypermarket_meta',
 				array(
 					'single'        => true,
 					'type'          => 'object',
@@ -257,6 +257,10 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 									'featured_media' => array(
 										'type' => 'boolean',
 										'sanitize_callback' => hypermarket_sanitize_method( 'boolean' ),
+									),
+									'background_color' => array(
+										'type' => 'string',
+										'sanitize_callback' => hypermarket_sanitize_method( 'color' ),
 									),
 								) 
 							),
@@ -491,7 +495,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 			if ( hypermarket_has_sidebar() ) {
 				$sidebar_classname = 'has-sidebar';
 				$classes[]         = $sidebar_classname;
-				$is_sidebar_before = get_theme_mod( sprintf( '%s_general_sidebar_before', Hypermarket_Customize::$setting_prefix ), false );
+				$is_sidebar_before = hypermarket_get_theme_mod( 'general_sidebar_before' );
 
 				// Bail early, in case the module is not being activated.
 				if ( ! ! $is_sidebar_before ) {
@@ -546,7 +550,7 @@ if ( ! class_exists( 'Hypermarket' ) ) :
 		 */
 		public function sidebar_classes( $classes ) {
 			// Retrieves theme modification value for the current theme (parent or child).
-			$is_sticky = get_theme_mod( sprintf( '%s_general_sidebar_sticky', Hypermarket_Customize::$setting_prefix ), false );
+			$is_sticky = hypermarket_get_theme_mod( 'general_sidebar_sticky' );
 			
 			if ( ! ! $is_sticky ) {
 				$classes[] = 'sticky';

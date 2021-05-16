@@ -295,7 +295,7 @@ if ( ! function_exists( 'hypermarket_products_slider_activated' ) ) :
 	 */
 	function hypermarket_products_slider_activated() {
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_activated = get_theme_mod( sprintf( '%s_general_products_slider', Hypermarket_Customize::$setting_prefix ), false );
+		$is_activated = hypermarket_get_theme_mod( 'general_products_slider' );
 		return $is_activated;
 	}
 endif;

@@ -31,13 +31,13 @@
 
 		^&__button {
 
-			@extend %small-input;
+			@mixin small-input;
 			@mixin button-color;
 		}
 
 		^&__amount {
 
-			@extend %small-input;
+			@mixin small-input;
 		}
 
 		^&__range-text {
@@ -50,6 +50,6 @@
 
 	> *:nth-last-child(2) {
 
-		@extend %small-title;
+		@mixin small-title;
 	}
 }

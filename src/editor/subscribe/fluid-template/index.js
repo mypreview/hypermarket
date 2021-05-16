@@ -1,15 +1,26 @@
 /**
- * External dependencies
+ * jQuery.
  */
 import $ from 'jquery';
+
+/**
+ * Utility for libraries from the `Lodash`.
+ */
 import { eq, replace } from 'lodash';
 
 /**
- * WordPress dependencies
+ * Data module to manage application state for both plugins and WordPress itself.
+ * The data module is built upon and shares many of the same core principles of Redux.
+ *
+ * @see https://github.com/WordPress/gutenberg/tree/HEAD/packages/data/README.md
  */
-const { subscribe, select } = wp.data;
+import { subscribe, select } from '@wordpress/data';
+
+/**
+ * Constants.
+ */
 const TEMPLATE_NAME = 'template-fluid';
-const CLASSNAME = `page-template-${ TEMPLATE_NAME }`;
+const CLASS_NAME = `page-template-${ TEMPLATE_NAME }`;
 
 /**
  * Get current page template name.
@@ -42,9 +53,9 @@ const fluidTemplateToggleClassName = () => {
 	if ( ! $editorWrapper.length ) return;
 
 	if ( !! isFluidTemplate() ) {
-		$editorWrapper.addClass( CLASSNAME );
+		$editorWrapper.addClass( CLASS_NAME );
 	} else {
-		$editorWrapper.removeClass( CLASSNAME );
+		$editorWrapper.removeClass( CLASS_NAME );
 	}
 };
 

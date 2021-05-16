@@ -1,14 +1,14 @@
 /**
  * Stylesheet dependencies.
  */
-import './style.css';
+import './index.css';
 
 /**
  * Custom scripts.
  */
-import { catalog } from './catalog';
-import { gradient } from './gradient';
-import { range } from './range';
+import catalog from './catalog';
+import gradient from './gradient';
+import range from './range';
 
 /**
  * External dependencies

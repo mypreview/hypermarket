@@ -2,7 +2,7 @@
 
 	figcaption {
 
-		@extend %caption;
+		@mixin caption;
 	}
 
 	div& {

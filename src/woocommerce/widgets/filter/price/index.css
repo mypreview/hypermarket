@@ -12,7 +12,7 @@
 
 	.ui-slider-handle {
 
-		@extend %filter-range-thumb;
+		@mixin filter-range-thumb;
 		position: absolute;
 
 		&:last-child {
@@ -32,7 +32,7 @@
 		.button {
 
 			@mixin button-color;
-			@extend %small-input;
+			@mixin small-input;
 		}
 
 		.price_label {

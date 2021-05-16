@@ -2,7 +2,7 @@
 
 	&-caption {
 
-		@extend %caption;
+		@mixin caption;
 		width: 100%;
 	}
 }

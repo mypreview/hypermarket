@@ -277,7 +277,7 @@ if ( ! function_exists( 'hypermarket_single_product_navigation' ) ) :
 	 */
 	function hypermarket_single_product_navigation() {
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_activated = get_theme_mod( sprintf( '%s_wc_details_navigation', Hypermarket_Customize::$setting_prefix ), false );
+		$is_activated = hypermarket_get_theme_mod( 'wc_details_navigation' );
 
 		// Bail early, in case the module is not being activated.
 		if ( ! $is_activated ) {
@@ -366,7 +366,7 @@ if ( ! function_exists( 'hypermarket_single_sticky_add_to_cart' ) ) :
 		}
 
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_activated = get_theme_mod( sprintf( '%s_wc_details_sticky_add_to_cart', Hypermarket_Customize::$setting_prefix ), false );
+		$is_activated = hypermarket_get_theme_mod( 'wc_details_sticky_add_to_cart' );
 
 		// Bail early in case:
 		// 1- The module is not being activated.
@@ -464,7 +464,7 @@ if ( ! function_exists( 'hypermarket_product_featured_flash' ) ) :
 		global $product;
 
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_activated = get_theme_mod( sprintf( '%s_wc_catalog_featured_flash', Hypermarket_Customize::$setting_prefix ), false );
+		$is_activated = hypermarket_get_theme_mod( 'wc_catalog_featured_flash' );
 
 		if ( ( $product->is_on_sale() && ! $ignore_sale ) || ! $is_activated || ! $product->is_featured() ) {
 			return;
@@ -500,7 +500,7 @@ if ( ! function_exists( 'hypermarket_product_new_flash' ) ) :
 		global $product;
 
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_activated = get_theme_mod( sprintf( '%s_wc_catalog_new_flash', Hypermarket_Customize::$setting_prefix ), false );
+		$is_activated = hypermarket_get_theme_mod( 'wc_catalog_new_flash' );
 
 		if ( ( $product->is_on_sale() && ! $ignore_sale ) || ! $is_activated ) {
 			return;
@@ -532,7 +532,7 @@ if ( ! function_exists( 'hypermarket_product_categories' ) ) :
 	 */
 	function hypermarket_product_categories() {
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_activated = get_theme_mod( sprintf( '%s_wc_catalog_categories', Hypermarket_Customize::$setting_prefix ), false );
+		$is_activated = hypermarket_get_theme_mod( 'wc_catalog_categories' );
 
 		// Bail early, in case the module is not being activated.
 		if ( ! $is_activated ) {
@@ -557,7 +557,7 @@ if ( ! function_exists( 'hypermarket_product_stock_status' ) ) :
 		global $product;
 
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_activated = get_theme_mod( sprintf( '%s_wc_catalog_stock', Hypermarket_Customize::$setting_prefix ), false );
+		$is_activated = hypermarket_get_theme_mod( 'wc_catalog_stock' );
 
 		// Bail early, in case the module is not being activated.
 		if ( ! $is_activated ) {
@@ -586,7 +586,7 @@ if ( ! function_exists( 'hypermarket_product_image_flipper' ) ) :
 		global $product;
 
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_activated   = get_theme_mod( sprintf( '%s_wc_catalog_image_flipper', Hypermarket_Customize::$setting_prefix ), false );
+		$is_activated   = hypermarket_get_theme_mod( 'wc_catalog_image_flipper' );
 		$attachment_ids = hypermarket_get_gallery_image_ids( $product );
 
 		// Bail early, in case the module is not being activated or there is no attachment id found.

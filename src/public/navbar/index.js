@@ -32,9 +32,7 @@ const navbar = {
 					width = $submenu.width(),
 					left = offset.left,
 					right = subtract( windowWidth, add( left, width ) ),
-					isVisible = l10n( 'isRTL' )
-						? lte( add( right, width ), windowWidth )
-						: lte( add( left, width ), windowWidth );
+					isVisible = l10n( 'isRTL' ) ? lte( add( right, width ), windowWidth ) : lte( add( left, width ), windowWidth );
 				if ( ! isVisible ) {
 					$( this ).addClass( className );
 				} else {

@@ -10,7 +10,7 @@
 
 		&:not(&--has-images) {
 
-			@extend %widget-list;
+			@mixin widget-list;
 		}
 
 		&--has-images {

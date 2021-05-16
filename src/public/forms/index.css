@@ -54,8 +54,8 @@ input {
 
 select {
 
-	@extend %select;
-	@extend %select-icon;
+	@mixin select;
+	@mixin select-icon;
 	@mixin shift border;
 	cursor: pointer;
 	width: 100%;

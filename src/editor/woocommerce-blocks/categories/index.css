@@ -13,8 +13,8 @@
 
 			select {
 
-				@extend %select;
-				@extend %select-icon;
+				@mixin select;
+				@mixin select-icon;
 				margin-right: 0;
 			}
 
@@ -27,7 +27,7 @@
 				background-color: var(--general-primary);
 				color: var(--general-background);
 
-				@extend %button-shift;
+				@mixin button-shift;
 			}
 		}
 	}

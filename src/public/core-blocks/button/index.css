@@ -38,7 +38,7 @@
 		text-align: center;
 		cursor: pointer;
 
-		@extend %button-shift;
+		@mixin button-shift;
 
 		&.no-border-radius {
 			border-radius: 0;

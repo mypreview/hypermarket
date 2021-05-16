@@ -16,7 +16,7 @@
 
 		.coupon {
 
-			@extend %coupon-grid;
+			@mixin coupon-grid;
 
 			.has-sidebar & {
 				grid-column-gap: 20px;

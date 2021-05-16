@@ -1,7 +1,7 @@
 @each $flash in sale, new, featured {
 	.on$(flash) {
 
-		@extend %flashes;
+		@mixin flashes;
 
 		.div > & {
 			left: 35px;

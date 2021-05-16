@@ -1,7 +1,7 @@
 /**
  * Stylesheet dependencies.
  */
-import './style.css';
+import './index.css';
 
 /**
  * Vendor (third-party) dependencies

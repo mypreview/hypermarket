@@ -13,7 +13,7 @@
 @each $content in .page-view, .single-view, .site-main {
 	$(content) > .div:not(:empty):first-child {
 
-		@extend %alignfull;
+		@mixin alignfull;
 		background-color: var(--general-tile);
 		text-align: center;
 		margin-bottom: 60px;

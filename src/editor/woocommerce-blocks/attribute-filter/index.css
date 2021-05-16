@@ -38,7 +38,7 @@
 
 			> *:nth-last-child(2) {
 
-				@extend %small-title;
+				@mixin small-title;
 			}
 		}
 	}

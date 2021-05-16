@@ -2,7 +2,7 @@
 	border-bottom: 1px solid var(--general-border);
 	padding-bottom: 24px;
 
-	@extend %clear;
+	@mixin clear;
 
 	&:last-of-type {
 		border-bottom-width: 0;
@@ -58,7 +58,7 @@
 
 			&__col {
 
-				@extend %meta-divider;
+				@mixin meta-divider;
 
 				&:last-child {
 					flex-grow: 1;
@@ -92,6 +92,6 @@
 
 	.post-categories {
 
-		@extend %meta-divider;
+		@mixin meta-divider;
 	}
 }

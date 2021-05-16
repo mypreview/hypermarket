@@ -1,4 +1,4 @@
 .wp-caption-text {
 
-	@extend %caption;
+	@mixin caption;
 }

@@ -3,7 +3,7 @@
 	ul {
 		box: wrap;
 
-		@extend %none-list-style;
+		@mixin none-list-style;
 	}
 }
 

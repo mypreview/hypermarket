@@ -8,8 +8,8 @@
 
 		&-wrapper {
 
-			@extend %select;
-			@extend %select-icon;
+			@mixin select;
+			@mixin select-icon;
 			@mixin shift border;
 
 			.is-multiple.has-checked & {

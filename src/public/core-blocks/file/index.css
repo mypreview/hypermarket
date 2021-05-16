@@ -3,7 +3,7 @@
 
 	& &__button {
 
-		@extend %small-input;
+		@mixin small-input;
 		background-color: var(--general-primary);
 		color: var(--general-background);
 		border-radius: var(--border-radius-base);

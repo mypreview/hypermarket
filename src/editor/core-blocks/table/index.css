@@ -4,7 +4,7 @@
 
 	figcaption {
 
-		@extend %caption;
+		@mixin caption;
 	}
 
 	table {

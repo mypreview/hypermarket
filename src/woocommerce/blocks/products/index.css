@@ -45,7 +45,7 @@
 				border-width: 0;
 				line-height: var(--headings-line-height);
 
-				@extend %flashes;
+				@mixin flashes;
 			}
 		}
 
@@ -114,7 +114,7 @@
 
 				&__link {
 
-					@extend %small-input;
+					@mixin small-input;
 					text-decoration: none;
 
 					&.loading {

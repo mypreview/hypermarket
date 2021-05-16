@@ -4,7 +4,7 @@
 import $ from 'jquery';
 import parseInt from 'lodash/parseInt';
 
-export const range = {
+const range = {
 	cache() {
 		range.els = {};
 		range.vars = {};
@@ -49,3 +49,5 @@ export const range = {
 		} );
 	},
 };
+
+export default range;

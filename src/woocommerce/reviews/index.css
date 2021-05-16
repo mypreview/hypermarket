@@ -8,7 +8,7 @@
 
 		&list {
 
-			@extend %none-list-style;
+			@mixin none-list-style;
 		}
 
 		&_container {
@@ -42,11 +42,8 @@
 			}
 
 			.star-rating {
-
-				@media (--screen-smartphone-min) {
-					grid-area: 1/2;
-					margin-top: 8px;
-				}
+				grid-area: 1/2 ?if media (--screen-smartphone-min);
+				margin-top: 8px ?if media (--screen-smartphone-min);
 			}
 
 			.description {

@@ -40,11 +40,7 @@ const cart = {
 	},
 	// Look for the Cart Ajax events and trigger methods if necessary.
 	ajaxTrigger() {
-		cart.els.$document.on(
-			'change input',
-			'.woocommerce-cart-form .cart_item :input',
-			cart.updateCartDisableToggle
-		);
+		cart.els.$document.on( 'change input', '.woocommerce-cart-form .cart_item :input', cart.updateCartDisableToggle );
 		cart.els.$document.on( 'updated_cart_totals', cart.updateCartDisableToggle );
 	},
 	// Disable `Update cart` button.

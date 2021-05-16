@@ -198,7 +198,7 @@ if ( ! function_exists( 'hypermarket_site_title_or_logo' ) ) :
 		}
 
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_tagline = get_theme_mod( sprintf( '%s_general_is_tagline', Hypermarket_Customize::$setting_prefix ), false );
+		$is_tagline = hypermarket_get_theme_mod( 'general_is_tagline' );
 		$tagline    = get_bloginfo( 'description' );
 
 		// Check the tagline is not empty and set to be visible.
@@ -389,7 +389,7 @@ if ( ! function_exists( 'hypermarket_jscroll_activated' ) ) :
 	 */
 	function hypermarket_jscroll_activated() {
 		// Retrieves theme modification value for the current theme (parent or child).
-		$is_activated = get_theme_mod( sprintf( '%s_general_ajax_pagination', Hypermarket_Customize::$setting_prefix ), false );
+		$is_activated = hypermarket_get_theme_mod( 'general_ajax_pagination' );
 		return $is_activated;
 	}
 endif;
@@ -904,23 +904,17 @@ if ( ! function_exists( 'hypermarket_generate_editor_css' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'hypermarket_get_gradient_presets' ) ) :
+if ( ! function_exists( 'hypermarket_get_theme_mod' ) ) :
 	/**
-	 * Retrieves a list of Hypermarket theme specific gradient presets.
+	 * Retrieves theme modification value for the Hypermarket theme.
 	 *
 	 * @since    2.0.0
-	 * @return   array
+	 * @param    string       $key                    Theme modification name.
+	 * @param    string|false $fallback     Optional. Theme modification default value.
+	 * @return   mixed
 	 */
-	function hypermarket_get_gradient_presets() {
-		return apply_filters(
-			'hypermarket_gradient_presets',
-			array(
-				array(
-					'name'     => __( 'Midnight', 'hypermarket' ),
-					'slug'     => 'midnight',
-					'gradient' => 'linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%)',
-				),
-			) 
-		);
+	function hypermarket_get_theme_mod( $key = '', $fallback = false ) {
+		$name = sprintf( '%s_%s', Hypermarket_Customize::$setting_prefix, $key );
+		return get_theme_mod( $name, $fallback );
 	}
 endif;

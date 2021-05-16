@@ -59,7 +59,7 @@
 
 	& &__clear-all {
 
-		@extend %small-input;
+		@mixin small-input;
 		@mixin button-color;
 		margin-top: 21px;
 		text-decoration: none;
@@ -71,6 +71,6 @@
 
 	> *:nth-last-child(2) {
 
-		@extend %small-title;
+		@mixin small-title;
 	}
 }

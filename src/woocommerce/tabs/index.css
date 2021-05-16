@@ -7,7 +7,7 @@
 	line-height: var(--line-height-base);
 	text-transform: uppercase;
 
-	@extend %none-list-style;
+	@mixin none-list-style;
 	padding-bottom: 10px;
 	margin-bottom: 26px;
 	position: relative;

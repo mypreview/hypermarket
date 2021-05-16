@@ -11,7 +11,7 @@
 
 			&-caption {
 
-				@extend %caption;
+				@mixin caption;
 			}
 		}
 	}

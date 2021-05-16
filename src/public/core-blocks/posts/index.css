@@ -54,7 +54,7 @@
 
 		^&__post-author {
 
-			@extend %meta-divider;
+			@mixin meta-divider;
 		}
 	}
 

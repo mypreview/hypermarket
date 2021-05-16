@@ -16,7 +16,7 @@
 	div& > .div {
 		background-color: var(--general-tile);
 
-		@extend %alignfull;
+		@mixin alignfull;
 		padding: 96px 15px 72px;
 		margin-bottom: 48px;
 

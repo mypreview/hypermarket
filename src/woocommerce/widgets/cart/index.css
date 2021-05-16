@@ -87,7 +87,7 @@
 
 		.button {
 
-			@extend %small-input;
+			@mixin small-input;
 
 			&:not(.checkout) {
 

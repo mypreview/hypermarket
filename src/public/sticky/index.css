@@ -9,6 +9,6 @@
 
 	.admin-bar &--top {
 
-		@extend %is-admin-bar;
+		@mixin is-admin-bar;
 	}
 }
