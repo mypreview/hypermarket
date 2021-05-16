@@ -101,7 +101,7 @@
 		"postcss-important-startstop": "^2.0.0",
 		"postcss-input-range": "^4.0.0",
 		"postcss-mixins": "^7.0.3",
-		"postcss-nested": "^4.2.1",
+		"postcss-nested": "^5.0.5",
 		"postcss-nested-ancestors": "^2.0.0",
 		"postcss-normalize": "^10.0.0",
 		"postcss-position": "^1.1.0",
