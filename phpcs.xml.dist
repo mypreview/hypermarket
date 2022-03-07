@@ -41,13 +41,21 @@
 	#############################################################################
 	-->
     <rule ref="WordPress">
+        <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound" />
         <exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed" />
         <exclude name="PSR2.Methods.MethodDeclaration.Underscore" />
         <exclude name="Core.Commenting.CommentTags.AccessTag" />
         <exclude name="Core.Commenting.CommentTags.AuthorTag" />
     </rule>
-    <rule ref="WPThemeReview" />
-    <rule ref="WooCommerce-Core" />
+    <rule ref="WPThemeReview">
+        <exclude name="WPThemeReview.PluginTerritory.ForbiddenFunctions.editor_blocks_register_block_pattern_category" />
+        <exclude name="WPThemeReview.PluginTerritory.ForbiddenFunctions.editor_blocks_register_block_pattern" />
+        <exclude name="WPThemeReview.PluginTerritory.ForbiddenFunctions.editor_blocks_register_block_pattern" />
+    </rule>
+    <rule ref="WooCommerce-Core">
+        <exclude name="WooCommerce.Commenting.CommentTags.AuthorTag" />
+        <exclude name="WooCommerce.Commenting.CommentHooks.MissingHooksComment" />
+    </rule>
     <!-- Let's also check that everything is properly documented. -->
     <rule ref="WordPress-Docs" />
     <!--
@@ -108,7 +116,7 @@
 	USE THE PHPCompatibility RULESET
 	#############################################################################
 	-->
-    <config name="testVersion" value="7.2-" />
+    <config name="testVersion" value="7.4-" />
     <!-- Include sniffs for PHP cross-version compatibility. -->
     <rule ref="PHPCompatibilityWP" />
 </ruleset>
