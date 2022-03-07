@@ -1,5 +1,0 @@
-@import "./../../../public/core-blocks/button";
-
-.wp-block-buttons:not(.is-selected):not(.has-child-selected) .block-list-appender__toggle {
-	display: none;
-}

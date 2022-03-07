@@ -1,7 +1,0 @@
-.wp-block-video {
-
-	figcaption {
-
-		@mixin caption;
-	}
-}

@@ -1,7 +1,0 @@
-.wp-block-embed {
-
-	figcaption {
-
-		@mixin caption;
-	}
-}

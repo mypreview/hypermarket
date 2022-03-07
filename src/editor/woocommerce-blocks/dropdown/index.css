@@ -1,8 +1,0 @@
-@import "./../../../woocommerce/blocks/dropdown";
-
-.wc-block-dropdown-selector {
-
-	&__input:disabled {
-		box-shadow: none;
-	}
-}

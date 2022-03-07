@@ -1,8 +1,0 @@
-.widget {
-
-	ul.menu,
-	> ul {
-
-		@mixin widget-list;
-	}
-}
