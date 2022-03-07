@@ -24,7 +24,6 @@ build/Release
 node_modules/
 vendor/
 build/
-dist/
 
 # Unit tests
 /tmp
@@ -43,5 +42,8 @@ dist/
 # dotenv environment variables file
 .env
 
-# IDE configuration files
+# IDE Configuration Files
 .idea
+
+# Plugin Archive
+*.zip
