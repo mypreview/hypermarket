@@ -1,7 +1,0 @@
-.in-stock {
-	color: var(--alert-success);
-}
-
-.out-of-stock {
-	color: var(--alert-danger);
-}

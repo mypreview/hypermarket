@@ -13,86 +13,258 @@
  *
  * @see         https://codex.wordpress.org/Theme_Development
  * @see         https://codex.wordpress.org/Plugin_API
- * @author      MyPreview
+ * @author      MyPreview (Github: @mahdiyazdani, @gooklani, @mypreview)
  * @since       2.0.0
  *
  * @package     hypermarket
  */
 
+namespace Hypermarket;
+
+use function Hypermarket\Includes\Utils\get_asset_handle as get_asset_handle;
+use function Hypermarket\Includes\Utils\enqueue_resources as enqueue_resources;
+use function Hypermarket\Includes\Utils\google_fonts_css as google_fonts_css;
+use function Hypermarket\Includes\Utils\is_blog_archive as is_blog_archive;
+
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+
 // Assign the "Hypermarket" info to constants.
-$hypermarket_theme = wp_get_theme( 'hypermarket' );
-$hypermarket       = (object) array(
-	'version'    => $hypermarket_theme->get( 'Version' ),
-	'name'       => $hypermarket_theme->get( 'Name' ),
-	'theme_uri'  => $hypermarket_theme->get( 'ThemeURI' ),
-	'slug'       => 'hypermarket',
-	'main'       => require get_parent_theme_file_path( '/includes/class-hypermarket.php' ),
-	'customize'  => require get_parent_theme_file_path( '/includes/customize/class-hypermarket-customize.php' ),
+$_theme = wp_get_theme(); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+define(
+	__NAMESPACE__ . '\THEME',
+	array(
+		'version'    => $_theme->get( 'Version' ),
+		'name'       => $_theme->get( 'Name' ),
+		'theme_uri'  => $_theme->get( 'ThemeURI' ),
+		'slug'       => 'hypermarket',
+	)
 );
 
-require get_parent_theme_file_path( '/includes/hypermarket-functions.php' );
-require get_parent_theme_file_path( '/includes/hypermarket-template-hooks.php' );
-require get_parent_theme_file_path( '/includes/hypermarket-template-functions.php' );
-
-// Query WooCommerce activation.
-if ( hypermarket_is_woocommerce_activated() ) {
-	$hypermarket->woocommerce = require get_parent_theme_file_path( '/includes/woocommerce/class-hypermarket-woocommerce.php' );
-
-	require get_parent_theme_file_path( '/includes/woocommerce/class-hypermarket-woocommerce-adjacent-products.php' );
-	require get_parent_theme_file_path( '/includes/woocommerce/hypermarket-woocommerce-template-hooks.php' );
-	require get_parent_theme_file_path( '/includes/woocommerce/hypermarket-woocommerce-template-functions.php' );
-	require get_parent_theme_file_path( '/includes/woocommerce/hypermarket-woocommerce-functions.php' );
-}
-
-// Query Jetpack activation.
-if ( hypermarket_is_jetpack_activated() ) {
-	$hypermarket->jetpack = require get_parent_theme_file_path( '/includes/jetpack/class-hypermarket-jetpack.php' );
-}
-
-// Determines whether the current request is for an administrative interface page.
-if ( is_admin() ) {
-	$hypermarket->admin = require get_parent_theme_file_path( '/includes/admin/class-hypermarket-admin.php' );
-	$hypermarket->tgmpa = require get_parent_theme_file_path( '/includes/tgmpa/class-hypermarket-tgmpa-register.php' );
-
-	require get_parent_theme_file_path( '/includes/tgmpa/class-tgm-plugin-activation.php' );
-	require get_parent_theme_file_path( '/includes/admin/hypermarket-admin-template-hooks.php' );
-	require get_parent_theme_file_path( '/includes/admin/hypermarket-admin-template-functions.php' );
-}
+require get_parent_theme_file_path( '/includes/block-patterns.php' );
+require get_parent_theme_file_path( '/includes/block-styles.php' );
+require get_parent_theme_file_path( '/includes/utils.php' );
 
 /**
- * Begins execution of the theme.
+ * Sets up theme defaults and registers support for various WordPress features.
  *
- * Since everything within the theme is registered via hooks,
- * then kicking off the theme from this point in the file does
- * not affect the page life cycle.
- *
- * @since    2.0.0
+ * @since     2.0.0
+ * @return    void
  */
-function hypermarket_run() {
-	$theme = new Hypermarket();
-	
-	// Whether the the current request is for an administrative interface page.
-	if ( is_admin() ) {
-		$admin = new Hypermarket_Admin();
-		$tgmpa = new Hypermarket_TGMPA_Register();
-	}
+function setup(): void {
+	// Adding support for core block visual styles.
+	add_theme_support( 'wp-block-styles' );
 
-	// Whether the site is being previewed in the Customizer.
-	if ( is_customize_preview() ) {
-		$customize = new Hypermarket_Customize();
-	}
+	// Enqueue editor styles.
+	add_editor_style( 'style.css' );
 
-	// Check for WooCommerce before initialization of the class.
-	if ( hypermarket_is_woocommerce_activated() ) {
-		$woocommerce = new Hypermarket_WooCommerce();
-	}
+	/**
+	 * Add 'hypermarket_after_setup_theme' action.
+	 */
+	do_action( 'hypermarket_after_setup_theme' );
+}
+add_action( 'after_setup_theme', __NAMESPACE__ . '\setup' );
 
-	// Check for Jetpack before initialization of the class.
-	if ( hypermarket_is_jetpack_activated() ) {
-		$woocommerce = new Hypermarket_Jetpack();
+/**
+ * Load the theme text domain for translation.
+ * Note: the first-loaded translation file overrides any following ones if the same translation is present.
+ *
+ * @since     2.0.0
+ * @return    void
+ */
+function load_textdomain(): void {
+	/*
+	* Load Localisation files.
+	* Note: the first-loaded translation file overrides any following ones if the same translation is present.
+	*/
+	// Loads `wp-content/languages/themes/hypermarket-it_IT.mo`.
+	load_theme_textdomain( 'hypermarket', sprintf( '%sthemes/', trailingslashit( WP_LANG_DIR ) ) );
+	// Loads `wp-content/themes/child-theme-name/languages/it_IT.mo`.
+	load_theme_textdomain( 'hypermarket', sprintf( '%s/languages', get_stylesheet_directory() ) );
+	// Loads `wp-content/themes/hypermarket/languages/it_IT.mo`.
+	load_theme_textdomain( 'hypermarket', sprintf( '%s/languages', get_template_directory() ) );
+}
+add_action( 'hypermarket_after_setup_theme', __NAMESPACE__ . '\load_textdomain', 10, 2 );
+
+/**
+ * Handles JavaScript detection.
+ * Adds a `js` class to the root `<html>` element when JavaScript is detected.
+ *
+ * @since     2.0.0
+ * @return    void
+ */
+function javascript_detection(): void {
+	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
+}
+add_action( 'wp_head', __NAMESPACE__ . '\javascript_detection' );
+
+/**
+ * Add a pingback url auto-discovery header for singularly identifiable articles.
+ *
+ * @since     2.0.0
+ * @return    void
+ */
+function pingback_header(): void {
+	if ( is_singular() && pings_open() ) {
+		printf( '<link rel="pingback" href="%s">' . "\n", esc_url( get_bloginfo( 'pingback_url' ) ) );
 	}
 }
-hypermarket_run();
+add_action( 'wp_head', __NAMESPACE__ . '\pingback_header' );
+
+/**
+ * Register the static resources for the public-facing side of the site.
+ *
+ * @since     2.0.0
+ * @return    void
+ */
+function enqueue_frontend(): void {
+	// Enqueue public-facing static resources.
+	enqueue_resources( 'frontend' );
+
+	wp_localize_script(
+		get_asset_handle( 'frontend', 'script' ),
+		'hypermarket',
+		apply_filters(
+			'hypermarket_l10n_args',
+			array(
+				'ajaxurl'  => admin_url( 'admin-ajax.php', 'relative' ),
+				'isRTL'    => is_rtl(),
+				'isMobile' => wp_is_mobile(),
+			)
+		)
+	);
+
+	do_action( 'hypermarket_enqueue_frontend', 'frontend' );
+}
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_frontend' );
+
+/**
+ * Register the static resources for the Gutenberg editor area.
+ *
+ * @since     2.0.0
+ * @return    void
+ */
+function enqueue_editor(): void {
+	// Enqueue editor-facing static resources.
+	enqueue_resources( 'editor' );
+
+	do_action( 'hypermarket_enqueue_editor', 'editor' );
+}
+add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\enqueue_editor' );
+
+/**
+ * Enqueue Google fonts stylesheet.
+ *
+ * @since     2.0.0
+ * @return    void
+ */
+function google_fonts(): void {
+	$fonts = apply_filters(
+		'hypermarket_google_font_families',
+		array(
+			'work-sans' => 'Work+Sans:300,400,500,600',
+		)
+	);
+    // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+	wp_enqueue_style( get_asset_handle( 'google', 'fonts' ), google_fonts_css( $fonts ), array(), null );
+}
+add_action( 'hypermarket_enqueue_frontend', __NAMESPACE__ . '\google_fonts' );
+add_action( 'hypermarket_enqueue_editor', __NAMESPACE__ . '\google_fonts' );
+
+/**
+ * Add preconnect for Google Fonts.
+ *
+ * @since     2.0.0
+ * @param     array  $urls             URLs to print for resource hints.
+ * @param     string $relation_type    The relation type the URLs are printed.
+ * @return    array  $urls
+ */
+function preconnect_gstatic( array $urls, string $relation_type ): array {
+	// Check whether the main CSS stylesheet has been added to the queue.
+	if ( wp_style_is( get_asset_handle( 'google', 'fonts' ), 'queue' ) && 'preconnect' === $relation_type ) {
+		$urls[] = array(
+			'crossorigin',
+			'href' => 'https://fonts.gstatic.com',
+		);
+	}
+
+	return $urls;
+}
+add_action( 'wp_resource_hints', __NAMESPACE__ . '\preconnect_gstatic', 10, 2 );
+
+/**
+ * Adds custom classes to the array of body classes.
+ *
+ * @since     2.0.0
+ * @param     array $classes    Classes for the body element.
+ * @return    array
+ */
+function body_classes( array $classes ): array {
+	// The list of WordPress global browser checks.
+	$browsers = apply_filters( 
+		'hypermarket_browser_names',
+		array( 
+			'is_iphone', 
+			'is_chrome', 
+			'is_safari', 
+			'is_NS4', 
+			'is_opera', 
+			'is_macIE', 
+			'is_winIE', 
+			'is_gecko', 
+			'is_lynx', 
+			'is_IE', 
+			'is_edge', 
+		) 
+	);
+
+	/**
+	 * Adds a class when WooCommerce is not active.
+	 */
+	$classes[] = 'no-wc-breadcrumb';
+
+	// Adds a class to blogs with more than 1 published author.
+	if ( is_multi_author() ) {
+		$classes[] = 'group-blog';
+	}
+
+	// Add class when using featured image.
+	if ( has_post_thumbnail() ) {
+		$classes[] = 'has-post-thumbnail';
+	}
+
+	// Add class if we're viewing the Customizer for easier styling of theme options.
+	if ( is_customize_preview() ) {
+		$classes[] = 'customize-running';
+	}
+
+	// Add class if the current page is a blog post archive/single.
+	if ( is_blog_archive() ) {
+		$classes[] = 'blog-archive';
+	}
+
+	// Add class if the current browser runs on a mobile device.
+	if ( wp_is_mobile() ) {
+		$classes[] = 'is-mobile';
+	}
+
+	// Check the globals to see if the browser is in there and return a string with the match.
+	if ( is_array( $browsers ) && ! empty( $browsers ) ) {
+		// Search and filter the classnames using a callback function.
+		$classes[] = join(
+			' ',
+			array_filter(
+				$browsers,
+				// phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
+				function( $browser ) {
+					return $GLOBALS[ $browser ];
+				} 
+			) 
+		);
+	}
+
+	return apply_filters( 'hypermarket_body_classes', $classes );
+}
+add_filter( 'body_class', __NAMESPACE__ . '\body_classes' );
 
 /**
  * Note: Do not add any custom code here!

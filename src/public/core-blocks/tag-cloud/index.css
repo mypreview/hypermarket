@@ -1,9 +1,0 @@
-.wp-block-tag-cloud {
-	box: wrap;
-	font-size: var(--general-small);
-
-	a {
-
-		@mixin link;
-	}
-}

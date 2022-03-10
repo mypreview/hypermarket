@@ -1,9 +1,0 @@
-.has-sidebar {
-
-	.post-view {
-
-		> .div {
-			padding-right: 30px ?if media (--screen-laptop-min);
-		}
-	}
-}

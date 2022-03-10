@@ -1,6 +1,0 @@
-.widgettitle,
-.widget-title {
-
-	@mixin small-title;
-	display: block;
-}

@@ -19,24 +19,22 @@
 	"license": "GPL-3.0-or-later",
 	"author": "MyPreview",
 	"scripts": {
+		"analyze-bundles": "npm run build -- --webpack-bundle-analyzer",
+		"pre-archive": "npm run format && npm run lint:css-fix && npm run lint:wpcs-fix && npm run build && npm run makepot",
+		"archive": "npm run pre-archive && rm -rf $npm_package_name && composer archive --file=$npm_package_name --format=zip",
 		"build": "wp-scripts build",
-		"check-engines": "wp-scripts check-engines",
-		"check-licenses": "wp-scripts check-licenses",
+		"dev": "wp-scripts start",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:css-fix": "wp-scripts lint-style --fix",
 		"lint:js": "wp-scripts lint-js",
 		"lint:js-fix": "wp-scripts lint-js --fix",
-		"lint:md:docs": "wp-scripts lint-md-docs",
-		"lint:md:js": "wp-scripts lint-md-js",
+		"lint:php": "composer lint:php",
 		"lint:pkg-json": "wp-scripts lint-pkg-json",
-		"packages-update": "wp-scripts packages-update",
-		"dev": "wp-scripts start",
-		"test:e2e": "wp-scripts test-e2e",
-		"test:unit": "wp-scripts test-unit-js",
-		"lint:wpcs": "composer lint:wpcs",
-		"lint:wpcs-fix": "composer lint:wpcbf",
-		"makepot": "composer make-pot"
+		"lint:wpcs": "composer phpcs",
+		"lint:wpcs-fix": "composer phpcbf",
+		"makepot": "composer make-pot",
+		"packages-update": "wp-scripts packages-update"
 	},
 	"husky": {
 		"hooks": {
@@ -45,82 +43,26 @@
 	},
 	"lint-staged": {
 		"*.css": [
-			"npm run lint:css-fix"
+			"npm run lint:css"
 		],
-		"*.js": [
-			"npm run lint:js-fix",
-			"npm run format:js"
+		"*.{js,ts,tsx}": [
+			"npm run lint:js",
+			"npm run format"
 		],
 		"*.php": [
-			"npm run lint:wpcs-fix"
+			"npm run lint:wpcs"
 		]
 	},
 	"dependencies": {
-		"@wordpress/components": "^14.0.0",
-		"@wordpress/compose": "^4.0.0",
-		"@wordpress/data": "^5.0.0",
-		"@wordpress/dom-ready": "^3.0.0",
-		"@wordpress/edit-post": "^4.0.0",
-		"@wordpress/element": "^3.0.0",
-		"@wordpress/html-entities": "^3.0.0",
-		"@wordpress/i18n": "^4.0.0",
-		"@wordpress/plugins": "^3.0.0",
-		"@wordpress/url": "^3.0.0",
-		"grapick": "^0.1.13",
-		"jquery.numeric": "^1.0.0",
-		"jscroll": "^2.4.1",
-		"jump.js": "^1.0.2",
-		"node-waves": "^0.7.6",
-		"notyf": "^3.9.0",
-		"owl.carousel": "^2.3.4",
-		"slicknav": "^1.0.8",
-		"striptags": "^3.1.1",
-		"tabslet": "^1.7.3",
-		"tippy.js": "^6.3.1",
-		"waypoints": "^4.0.1"
+		"lodash": "4.17.21"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^16.0.0",
-		"autoprefixer": "^10.2.5",
-		"chalk": "^4.1.1",
-		"husky": "^6.0.0",
-		"jquery": "^3.6.0",
-		"license-checker-webpack-plugin": "^0.2.1",
-		"lint-staged": "^11.0.0",
-		"lodash": "^4.17.21",
-		"moment": "^2.29.1",
-		"node-fetch": "^2.6.1",
-		"postcss": "^8.2.15",
-		"postcss-calc": "^8.0.0",
-		"postcss-combine-duplicated-selectors": "^10.0.3",
-		"postcss-custom-media": "^8.0.0",
-		"postcss-custom-selectors": "^6.0.0",
-		"postcss-discard-empty": "^5.0.0",
-		"postcss-each": "^1.0.0",
-		"postcss-flexbox": "^1.0.3",
-		"postcss-for": "^2.1.1",
-		"postcss-hidden": "^1.0.7",
-		"postcss-if-media": "^1.0.3",
-		"postcss-import": "^14.0.2",
-		"postcss-important-startstop": "^2.0.0",
-		"postcss-input-range": "^4.0.0",
-		"postcss-mixins": "^7.0.3",
-		"postcss-nested": "^5.0.5",
-		"postcss-nested-ancestors": "^2.0.0",
-		"postcss-normalize": "^10.0.0",
-		"postcss-position": "^1.1.0",
-		"postcss-quantity-queries": "^0.5.0",
-		"postcss-selector-not": "^5.0.0",
-		"postcss-selector-replace": "^1.0.2",
-		"postcss-short-border-radius": "^3.0.0",
-		"postcss-size": "^4.0.1",
-		"postcss-start-to-end": "^1.0.1",
-		"postcss-transform-shortcut": "^2.0.1",
-		"postcss-url": "^10.1.3",
-		"postcss-variables-prefixer": "^1.1.1",
-		"progress-bar-webpack-plugin": "^2.1.0",
-		"webpack-fix-style-only-entries": "^0.6.1",
-		"webpack-notifier": "^1.13.0",
-		"webpack-rtl-plugin": "^2.0.0"
+		"@wordpress/scripts": "22.1.0",
+		"husky": "7.0.4",
+		"license-checker-webpack-plugin": "0.2.1",
+		"lint-staged": "12.3.5",
+		"prettier": "npm:wp-prettier@^2.2.1-beta-1",
+		"webpack-notifier": "1.15.0",
+		"webpack-rtl-plugin": "2.0.0"
 	}
 }

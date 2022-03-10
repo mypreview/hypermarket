@@ -1,7 +1,0 @@
-.wp-block-audio {
-
-	figcaption {
-
-		@mixin caption;
-	}
-}
