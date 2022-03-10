@@ -24,6 +24,7 @@ namespace Hypermarket;
 use function Hypermarket\Includes\Utils\get_asset_handle as get_asset_handle;
 use function Hypermarket\Includes\Utils\enqueue_resources as enqueue_resources;
 use function Hypermarket\Includes\Utils\google_fonts_css as google_fonts_css;
+use function Hypermarket\Includes\Utils\is_blog_archive as is_blog_archive;
 
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
@@ -49,7 +50,7 @@ require get_parent_theme_file_path( '/includes/utils.php' );
  * @since     2.0.0
  * @return    void
  */
-function theme_support(): void {
+function setup(): void {
 	// Adding support for core block visual styles.
 	add_theme_support( 'wp-block-styles' );
 
@@ -61,7 +62,7 @@ function theme_support(): void {
 	 */
 	do_action( 'hypermarket_after_setup_theme' );
 }
-add_action( 'after_setup_theme', __NAMESPACE__ . '\theme_support' );
+add_action( 'after_setup_theme', __NAMESPACE__ . '\setup' );
 
 /**
  * Load the theme text domain for translation.
@@ -189,6 +190,81 @@ function preconnect_gstatic( array $urls, string $relation_type ): array {
 	return $urls;
 }
 add_action( 'wp_resource_hints', __NAMESPACE__ . '\preconnect_gstatic', 10, 2 );
+
+/**
+ * Adds custom classes to the array of body classes.
+ *
+ * @since     2.0.0
+ * @param     array $classes    Classes for the body element.
+ * @return    array
+ */
+function body_classes( array $classes ): array {
+	// The list of WordPress global browser checks.
+	$browsers = apply_filters( 
+		'hypermarket_browser_names',
+		array( 
+			'is_iphone', 
+			'is_chrome', 
+			'is_safari', 
+			'is_NS4', 
+			'is_opera', 
+			'is_macIE', 
+			'is_winIE', 
+			'is_gecko', 
+			'is_lynx', 
+			'is_IE', 
+			'is_edge', 
+		) 
+	);
+
+	/**
+	 * Adds a class when WooCommerce is not active.
+	 */
+	$classes[] = 'no-wc-breadcrumb';
+
+	// Adds a class to blogs with more than 1 published author.
+	if ( is_multi_author() ) {
+		$classes[] = 'group-blog';
+	}
+
+	// Add class when using featured image.
+	if ( has_post_thumbnail() ) {
+		$classes[] = 'has-post-thumbnail';
+	}
+
+	// Add class if we're viewing the Customizer for easier styling of theme options.
+	if ( is_customize_preview() ) {
+		$classes[] = 'customize-running';
+	}
+
+	// Add class if the current page is a blog post archive/single.
+	if ( is_blog_archive() ) {
+		$classes[] = 'blog-archive';
+	}
+
+	// Add class if the current browser runs on a mobile device.
+	if ( wp_is_mobile() ) {
+		$classes[] = 'is-mobile';
+	}
+
+	// Check the globals to see if the browser is in there and return a string with the match.
+	if ( is_array( $browsers ) && ! empty( $browsers ) ) {
+		// Search and filter the classnames using a callback function.
+		$classes[] = join(
+			' ',
+			array_filter(
+				$browsers,
+				// phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
+				function( $browser ) {
+					return $GLOBALS[ $browser ];
+				} 
+			) 
+		);
+	}
+
+	return apply_filters( 'hypermarket_body_classes', $classes );
+}
+add_filter( 'body_class', __NAMESPACE__ . '\body_classes' );
 
 /**
  * Note: Do not add any custom code here!
