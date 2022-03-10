@@ -25,6 +25,7 @@ use function Hypermarket\Includes\Utils\get_asset_handle as get_asset_handle;
 use function Hypermarket\Includes\Utils\enqueue_resources as enqueue_resources;
 use function Hypermarket\Includes\Utils\google_fonts_css as google_fonts_css;
 use function Hypermarket\Includes\Utils\is_blog_archive as is_blog_archive;
+use function Hypermarket\Includes\Utils\is_woocommerce_activated as is_woocommerce_activated;
 
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
 
@@ -43,6 +44,11 @@ define(
 require get_parent_theme_file_path( '/includes/block-patterns.php' );
 require get_parent_theme_file_path( '/includes/block-styles.php' );
 require get_parent_theme_file_path( '/includes/utils.php' );
+
+// Call for WooCommerce specific files when the plugin is active.
+if ( is_woocommerce_activated() ) {
+	require get_parent_theme_file_path( '/includes/woocommerce/functions.php' );
+}
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
