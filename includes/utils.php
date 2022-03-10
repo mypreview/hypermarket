@@ -108,3 +108,19 @@ if ( ! function_exists( 'google_fonts_css' ) ) :
 		return $fonts_url;
 	}
 endif;
+
+if ( ! function_exists( 'is_blog_archive' ) ) :
+	/**
+	 * Checks if the current page is a blog post archive.
+	 *
+	 * @since     2.0.0
+	 * @return    bool
+	 */
+	function is_blog_archive(): bool {
+		if ( ( is_archive() || is_author() || is_category() || is_home() || is_tag() ) && 'post' === get_post_type() ) {
+			return true;
+		}
+			
+		return false;
+	}
+endif;
