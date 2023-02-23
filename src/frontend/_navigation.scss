@@ -1,0 +1,21 @@
+.is-style-minimal {
+	&.wp-block-navigation {
+		 .has-child {
+		 	.wp-block-navigation__submenu-container {
+		 		font-size: 80%;
+		 		margin-top: 15px;
+		 		padding: preset(spacing, 10);
+		 		width: 240px;
+
+		 		&:before {
+		 			content: "";
+		 			position: absolute;
+		 			left: 0;
+		 			top: -15px;
+
+		 			@include size(100%, 15px);
+		 		}
+		 	}
+		}
+	}
+}
