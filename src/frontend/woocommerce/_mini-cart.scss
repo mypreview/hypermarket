@@ -1,0 +1,7 @@
+.wc-block-mini-cart {
+
+	&__badge {
+		background-color: preset(color, primary);
+		color: preset(color, background);
+	}
+}
