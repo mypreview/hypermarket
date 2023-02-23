@@ -2,7 +2,7 @@
 /**
  * Helper functions.
  * 
- * @link          https://mypreview.github.io/hypermarket
+ * @link          https://mypreview.one
  * @author        MyPreview (Github: @mahdiyazdani, @gooklani, @mypreview)
  * @since         2.0.0
  *
@@ -73,55 +73,13 @@ if ( ! function_exists( 'enqueue_resources' ) ) :
 		}
 
 		$asset         = get_file_asset( $asset_name );
+		$version       = $asset['version'] ?? '1.0';
 		$style_handle  = get_asset_handle( $asset_name, 'style' );
 		$script_handle = get_asset_handle( $asset_name, 'script' );
 
-		// Style.
-		wp_enqueue_style( $style_handle, get_theme_file_uri( sprintf( '/build/%s.css', $asset_name ) ), array(), $asset['version'], 'screen' );
+		wp_enqueue_style( $style_handle, get_theme_file_uri( '/build/' . $asset_name . '.css' ), array(), $version, 'screen' );
+		wp_enqueue_script( $script_handle, get_theme_file_uri( '/build/' . $asset_name . '.js' ), $asset['dependencies'], $version, true );
 		wp_style_add_data( $style_handle, 'rtl', 'replace' );
-		// Script.
-		wp_enqueue_script( $script_handle, get_theme_file_uri( sprintf( '/build/%s.js', $asset_name ) ), $asset['dependencies'], $asset['version'], true );
-	}
-endif;
-
-if ( ! function_exists( 'google_fonts_css' ) ) :
-	/**
-	 * Register Google fonts.
-	 *
-	 * @since     2.0.0
-	 * @param     array $fonts    Google fonts names and variations.
-	 * @return    string
-	 */
-	function google_fonts_css( array $fonts = array() ): string {
-		if ( ! is_array( $fonts ) || empty( $fonts ) ) {
-			return '';
-		}
-
-		$query_args = array(
-			'family'  => implode( '|', $fonts ),
-			'subset'  => rawurlencode( 'latin,latin-ext' ),
-			'display' => 'swap',
-		);
-
-		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
-
-		return $fonts_url;
-	}
-endif;
-
-if ( ! function_exists( 'is_blog_archive' ) ) :
-	/**
-	 * Checks if the current page is a blog post archive.
-	 *
-	 * @since     2.0.0
-	 * @return    bool
-	 */
-	function is_blog_archive(): bool {
-		if ( ( is_archive() || is_author() || is_category() || is_home() || is_tag() ) && 'post' === get_post_type() ) {
-			return true;
-		}
-			
-		return false;
 	}
 endif;
 

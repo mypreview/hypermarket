@@ -2,7 +2,7 @@
 /**
  * Integration between theme and WooCommerce plugin.
  *
- * @link          https://mypreview.github.io/hypermarket
+ * @link          https://mypreview.one
  * @author        MyPreview (Github: @mahdiyazdani, @gooklani, @mypreview)
  * @since         2.0.0
  *
@@ -48,20 +48,6 @@ function setup(): void {
 	add_theme_support( 'wc-product-gallery-slider' );
 }
 add_action( 'hypermarket_after_setup_theme', __NAMESPACE__ . '\setup' );
-
-/**
- * Enqueue scripts and styles.
- *
- * @since     2.0.0
- * @return    void
- */
-function enqueue_frontend(): void {
-	// Enqueue public-facing static resources.
-	enqueue_resources( 'woocommerce' );
-
-	do_action( 'hypermarket_woocommerce_enqueue_frontend', 'woocommerce' );
-}
-add_action( 'hypermarket_enqueue_frontend', __NAMESPACE__ . '\enqueue_frontend' );
 
 /**
  * Enqueue scripts and styles.
