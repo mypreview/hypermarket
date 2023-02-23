@@ -1,33 +1,32 @@
-/**
- * All of the the JavaScript compile functionality
- * for the "Hypermarket" theme reside in this file.
- *
- * @requires Webpack
- * @author   MyPreview (Github: @mahdiyazdani, @gooklani, @mypreview)
- */
-const defaultConfig = require( './node_modules/@wordpress/scripts/config/webpack.config.js' );
 const { resolve } = require( 'path' );
+const defaultConfig = require( './node_modules/@wordpress/scripts/config/webpack.config.js' );
 const WebpackRTLPlugin = require( 'webpack-rtl-plugin' );
 const WebpackNotifierPlugin = require( 'webpack-notifier' );
-const LicenseCheckerWebpackPlugin = require( 'license-checker-webpack-plugin' );
+const LicenseWebpackPlugin = require( 'license-webpack-plugin' ).LicenseWebpackPlugin;
 
 module.exports = {
 	...defaultConfig,
 	entry: {
-		editor: resolve( process.cwd(), 'src', 'editor/index.js' ),
-		frontend: resolve( process.cwd(), 'src', 'frontend/index.js' ),
-		woocommerce: resolve( process.cwd(), 'src', 'woocommerce/index.js' ),
+		editor: resolve( process.cwd(), process.env.WP_SRC_DIRECTORY, 'editor/index.js' ),
+		frontend: resolve( process.cwd(), process.env.WP_SRC_DIRECTORY, 'frontend/index.js' ),
+	},
+	performance: {
+		hints: false,
 	},
 	plugins: [
 		...defaultConfig.plugins,
 		new WebpackRTLPlugin( {
 			filename: '[name]-rtl.css',
 		} ),
-		new LicenseCheckerWebpackPlugin( {
-			outputFilename: './credits.txt',
+		new LicenseWebpackPlugin( {
+			outputFilename: '../credits.txt',
+			preferredLicenseTypes: [ 'GPL', 'MIT', 'ISC' ],
+			stats: {
+				warnings: false,
+				errors: true,
+			},
 		} ),
 		new WebpackNotifierPlugin( {
-			title: 'Hypermarket',
 			emoji: true,
 			alwaysNotify: true,
 			skipFirstNotification: true,
