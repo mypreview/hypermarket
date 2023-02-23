@@ -7,16 +7,18 @@
     <!-- Set a description for this ruleset. -->
     <description>A custom set of code standard rules to check for WordPress themes.</description>
     <!--
-	#############################################################################
-	COMMAND LINE ARGUMENTS
-	https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml
-	#############################################################################
-	-->
+    #############################################################################
+    COMMAND LINE ARGUMENTS
+    https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml
+    #############################################################################
+    -->
     <!-- Pass some flags to PHPCS:
-		 p flag: Show progress of the run.
-		 s flag: Show sniff codes in all reports.
-	-->
-    <arg value="ps" />
+         p flag: Show progress of the run.
+         s flag: Show sniff codes in all reports.
+         v flag: Print verbose output.
+         n flag: Do not print warnings.
+    -->
+    <arg value="psv" />
     <!-- Strip the filepaths down to the relevant bit. -->
     <arg name="basepath" value="./" />
     <!-- Check up to 8 files simultanously. -->
@@ -36,10 +38,10 @@
     <exclude-pattern>*/docs/*</exclude-pattern>
     <exclude-pattern>/index\.php</exclude-pattern>
     <!--
-	#############################################################################
-	USE THE WordPress AND THE Theme Review RULESET
-	#############################################################################
-	-->
+    #############################################################################
+    USE THE WordPress AND THE Theme Review RULESET
+    #############################################################################
+    -->
     <rule ref="WordPress">
         <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound" />
         <exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed" />
@@ -52,35 +54,31 @@
         <exclude name="WPThemeReview.PluginTerritory.ForbiddenFunctions.editor_blocks_register_block_pattern" />
         <exclude name="WPThemeReview.PluginTerritory.ForbiddenFunctions.editor_blocks_register_block_pattern" />
     </rule>
-    <rule ref="WooCommerce-Core">
-        <exclude name="WooCommerce.Commenting.CommentTags.AuthorTag" />
-        <exclude name="WooCommerce.Commenting.CommentHooks.MissingHooksComment" />
-    </rule>
     <!-- Let's also check that everything is properly documented. -->
     <rule ref="WordPress-Docs" />
     <!--
-	#############################################################################
-	SNIFF SPECIFIC CONFIGURATION
-	#############################################################################
-	-->
+    #############################################################################
+    SNIFF SPECIFIC CONFIGURATION
+    #############################################################################
+    -->
     <!-- Verify that the text_domain is set to the desired text-domain.
-		 Multiple valid text domains can be provided as a comma-delimited list. -->
+         Multiple valid text domains can be provided as a comma-delimited list. -->
     <rule ref="WordPress.WP.I18n">
         <properties>
             <property name="text_domain" type="array" value="hypermarket" />
         </properties>
     </rule>
     <!-- Allow for theme specific exceptions to the file name rules based
-		 on the theme hierarchy. -->
+         on the theme hierarchy. -->
     <rule ref="WordPress.Files.FileName">
         <properties>
             <property name="is_theme" value="true" />
         </properties>
     </rule>
     <!-- Set the minimum supported WP version. This is used by several sniffs.
-		 The minimum version set here should be in line with the minimum WP version
-		 as set in the "Requires at least" tag in the readme.txt file. -->
-    <config name="minimum_supported_wp_version" value="5.3" />
+         The minimum version set here should be in line with the minimum WP version
+         as set in the "Requires at least" tag in the readme.txt file. -->
+    <config name="minimum_supported_wp_version" value="6.0" />
     <rule ref="WordPress.Arrays.MultipleStatementAlignment">
         <properties>
             <!-- No need to adjust alignment of large arrays when the item with the largest key is removed. -->
@@ -91,31 +89,22 @@
             <property name="ignoreNewlines" value="false" />
         </properties>
     </rule>
-    <rule ref="WordPress.Security.ValidatedSanitizedInput">
-        <properties>
-            <property name="customSanitizingFunctions" type="array" value="hypermarket_sanitize_html_classes,hypermarket_sanitize_checkbox" />
-        </properties>
-    </rule>
-    <rule ref="WordPress.Security.EscapeOutput">
-        <properties>
-            <property name="customEscapingFunctions" type="array" value="hypermarket_sanitize_html_classes" />
-        </properties>
-    </rule>
     <!-- Verify that everything in the global namespace is prefixed with a theme specific prefix.
-		 Multiple valid prefixes can be provided as a comma-delimited list. -->
+         Multiple valid prefixes can be provided as a comma-delimited list. -->
     <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
         <properties>
             <property name="prefixes" type="array">
                 <element value="hypermarket" />
                 <element value="Hypermarket" />
+                <element value="HYPERMARKET" />
             </property>
         </properties>
     </rule>
     <!--
-	#############################################################################
-	USE THE PHPCompatibility RULESET
-	#############################################################################
-	-->
+    #############################################################################
+    USE THE PHPCompatibility RULESET
+    #############################################################################
+    -->
     <config name="testVersion" value="7.4-" />
     <!-- Include sniffs for PHP cross-version compatibility. -->
     <rule ref="PHPCompatibilityWP" />
