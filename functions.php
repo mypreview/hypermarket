@@ -23,8 +23,6 @@ namespace Hypermarket;
 
 use function Hypermarket\Includes\Utils\get_asset_handle as get_asset_handle;
 use function Hypermarket\Includes\Utils\enqueue_resources as enqueue_resources;
-use function Hypermarket\Includes\Utils\google_fonts_css as google_fonts_css;
-use function Hypermarket\Includes\Utils\is_blog_archive as is_blog_archive;
 use function Hypermarket\Includes\Utils\is_woocommerce_activated as is_woocommerce_activated;
 
 defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
@@ -41,7 +39,6 @@ define(
 	)
 );
 
-require get_parent_theme_file_path( '/includes/block-patterns.php' );
 require get_parent_theme_file_path( '/includes/block-styles.php' );
 require get_parent_theme_file_path( '/includes/utils.php' );
 
@@ -51,12 +48,29 @@ if ( is_woocommerce_activated() ) {
 }
 
 /**
+ * Load the theme text domain for translation.
+ * Note: the first-loaded translation file overrides any following ones if the same translation is present.
+ *
+ * @since     2.0.0
+ * @return    void
+ */
+function load_textdomain(): void {
+	// Loads `wp-content/languages/themes/siuy-it_IT.mo`.
+	load_theme_textdomain( 'hypermarket', untrailingslashit( WP_LANG_DIR ) . '/themes/' );
+	// Loads `wp-content/themes/child-theme-name/languages/it_IT.mo`.
+	load_theme_textdomain( 'hypermarket', untrailingslashit( get_stylesheet_directory() ) . '/languages' );
+	// Loads `wp-content/themes/siuy/languages/it_IT.mo`.
+	load_theme_textdomain( 'hypermarket', untrailingslashit( get_template_directory() ) . '/languages' );
+}
+add_action( 'init', __NAMESPACE__ . '\load_textdomain', 10, 2 );
+
+/**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * @since     2.0.0
  * @return    void
  */
-function setup(): void {
+function theme_support(): void {
 	// Adding support for core block visual styles.
 	add_theme_support( 'wp-block-styles' );
 
@@ -68,28 +82,7 @@ function setup(): void {
 	 */
 	do_action( 'hypermarket_after_setup_theme' );
 }
-add_action( 'after_setup_theme', __NAMESPACE__ . '\setup' );
-
-/**
- * Load the theme text domain for translation.
- * Note: the first-loaded translation file overrides any following ones if the same translation is present.
- *
- * @since     2.0.0
- * @return    void
- */
-function load_textdomain(): void {
-	/*
-	* Load Localisation files.
-	* Note: the first-loaded translation file overrides any following ones if the same translation is present.
-	*/
-	// Loads `wp-content/languages/themes/hypermarket-it_IT.mo`.
-	load_theme_textdomain( 'hypermarket', sprintf( '%sthemes/', trailingslashit( WP_LANG_DIR ) ) );
-	// Loads `wp-content/themes/child-theme-name/languages/it_IT.mo`.
-	load_theme_textdomain( 'hypermarket', sprintf( '%s/languages', get_stylesheet_directory() ) );
-	// Loads `wp-content/themes/hypermarket/languages/it_IT.mo`.
-	load_theme_textdomain( 'hypermarket', sprintf( '%s/languages', get_template_directory() ) );
-}
-add_action( 'hypermarket_after_setup_theme', __NAMESPACE__ . '\load_textdomain', 10, 2 );
+add_action( 'after_setup_theme', __NAMESPACE__ . '\theme_support' );
 
 /**
  * Handles JavaScript detection.
@@ -158,44 +151,37 @@ function enqueue_editor(): void {
 add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\enqueue_editor' );
 
 /**
- * Enqueue Google fonts stylesheet.
+ * Changes the number of words included in a post excerpt.
  *
  * @since     2.0.0
- * @return    void
+ * @param     int $length    The maximum number of words.
+ * @return    int
  */
-function google_fonts(): void {
-	$fonts = apply_filters(
-		'hypermarket_google_font_families',
-		array(
-			'work-sans' => 'Work+Sans:300,400,500,600',
-		)
-	);
-    // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
-	wp_enqueue_style( get_asset_handle( 'google', 'fonts' ), google_fonts_css( $fonts ), array(), null );
-}
-add_action( 'hypermarket_enqueue_frontend', __NAMESPACE__ . '\google_fonts' );
-add_action( 'hypermarket_enqueue_editor', __NAMESPACE__ . '\google_fonts' );
-
-/**
- * Add preconnect for Google Fonts.
- *
- * @since     2.0.0
- * @param     array  $urls             URLs to print for resource hints.
- * @param     string $relation_type    The relation type the URLs are printed.
- * @return    array  $urls
- */
-function preconnect_gstatic( array $urls, string $relation_type ): array {
-	// Check whether the main CSS stylesheet has been added to the queue.
-	if ( wp_style_is( get_asset_handle( 'google', 'fonts' ), 'queue' ) && 'preconnect' === $relation_type ) {
-		$urls[] = array(
-			'crossorigin',
-			'href' => 'https://fonts.gstatic.com',
-		);
+function reduced_post_excerpt_length( int $length ): int {
+	if ( is_admin() ) {
+		return $length;
 	}
 
-	return $urls;
+	return 35;
 }
-add_action( 'wp_resource_hints', __NAMESPACE__ . '\preconnect_gstatic', 10, 2 );
+add_filter( 'excerpt_length', __NAMESPACE__ . '\reduced_post_excerpt_length' );
+
+/**
+ * Changes ellipsis shown at the end of a truncated post
+ * excerpt.
+ *
+ * @since     2.0.0
+ * @param     string $more    The string shown within the more link.
+ * @return    string
+ */
+function dotted_excerpt_more( string $more ): string {
+	if ( is_admin() ) {
+		return $more;
+	}
+
+	return '&hellip;';
+}
+add_filter( 'excerpt_more', __NAMESPACE__ . '\dotted_excerpt_more' );
 
 /**
  * Adds custom classes to the array of body classes.
@@ -241,11 +227,6 @@ function body_classes( array $classes ): array {
 	// Add class if we're viewing the Customizer for easier styling of theme options.
 	if ( is_customize_preview() ) {
 		$classes[] = 'customize-running';
-	}
-
-	// Add class if the current page is a blog post archive/single.
-	if ( is_blog_archive() ) {
-		$classes[] = 'blog-archive';
 	}
 
 	// Add class if the current browser runs on a mobile device.
