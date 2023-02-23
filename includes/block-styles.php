@@ -2,7 +2,7 @@
 /**
  * Block styles.
  *
- * @link          https://mypreview.github.io/hypermarket
+ * @link          https://mypreview.one
  * @author        MyPreview (Github: @mahdiyazdani, @gooklani, @mypreview)
  * @since         2.0.0
  *
@@ -31,9 +31,9 @@ function styles(): void {
 	$block_styles = (array) apply_filters(
 		'hypermarket_block_styles',
 		array(
-			'core/heading' => array(
-				'name'  => 'h1',
-				'label' => __( 'Heading 1', 'hypermarket' ),
+			'core/navigation' => array(
+				'name'  => 'minimal',
+				'label' => __( 'minimal', 'hypermarket' ),
 			),
 			'core/heading' => array(
 				'name'  => 'h2',
