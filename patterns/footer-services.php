@@ -2,7 +2,7 @@
 /**
  * Footer Services block pattern.
  *
- * @link          https://mypreview.github.io/hypermarket
+ * @link          https://mypreview.one
  * @author        MyPreview (Github: @mahdiyazdani, @gooklani, @mypreview)
  * @since         2.0.0
  *
